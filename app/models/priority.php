@@ -1,6 +1,8 @@
 <?php
 class Priority extends AppModel {
 	var $name = 'Priority';
+	// soft delete
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $displayField = 'name';
 	var $validate = array(
 		'id' => array(

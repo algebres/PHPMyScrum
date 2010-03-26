@@ -2,6 +2,7 @@
 class PrioritiesController extends AppController {
 
 	var $name = 'Priorities';
+	var $components = array('Session');
 
 	function index() {
 		$this->Priority->recursive = 0;
