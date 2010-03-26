@@ -1,0 +1,282 @@
+# A5:ER FORMAT:03
+# A5:ER ENCODING:Shift_JIS
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=test
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+Domain=ID=integer auto_increment
+LogicalView=1
+DecodeDomain=0
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=9
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+
+[Relation]
+Entity1=sprints
+Entity2=tasks
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=sprint_id
+Cardinarity1=
+Cardinarity2=
+Bar1=73
+Bar2=500
+Bar3=145
+Dependence=0
+Caption=
+PName=
+LineMode=0
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=tasks
+Entity2=remaining_times
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Bar1=41
+Bar2=500
+Bar3=413
+Dependence=1
+Caption=
+PName=
+LineMode=0
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=users
+Entity2=tasks
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=story_id
+Cardinarity1=
+Cardinarity2=
+Bar1=500
+Bar2=415
+Bar3=687
+Dependence=0
+Caption=
+PName=
+LineMode=0
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=sprints
+LName=スプリント
+Comment=
+TableOption=
+Left=1500
+Top=700
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="name","name","@VARCHAR(200)","NOT NULL",,"","",$FFFFFFFF
+Field="description","description","text",,,"","",$FFFFFFFF
+Field="startdate","startdate","@DATETIME","NOT NULL",,"","",$FFFFFFFF
+Field="enddate","enddate","@DATETIME","NOT NULL",,"","",$FFFFFFFF
+Field="disabled","disabled","boolean",,,"false","",$FFFFFFFF
+Field="created","created","@DATETIME",,,"","",$FFFFFFFF
+Field="updated","updated","@DATETIME",,,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326180640
+Page=Main
+
+[Entity]
+PName=remaining_times
+LName=残存時間
+Comment=
+TableOption=
+Left=1350
+Top=450
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="task_id","task_id","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="hours","hours","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="created","created","@DATE","NOT NULL",,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326181052
+Page=Main
+
+[Relation]
+Entity1=stories
+Entity2=tasks
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Bar1=86
+Bar2=500
+Bar3=264
+Dependence=1
+Caption=
+PName=
+LineMode=0
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=tasks
+LName=タスク
+Comment=
+TableOption=
+Left=750
+Top=700
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="sprint_id","sprint_id","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="story_id","story_id","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="name","name","text","NOT NULL",,"","",$FFFFFFFF
+Field="description","description","text",,,"","",$FFFFFFFF
+Field="estimate_hours","estimate_hours","@INT",,,"0","",$FFFFFFFF
+Field="user_id","user_id","@INT",,,"","",$FFFFFFFF
+Field="disabled","disabled","boolean",,,"false","",$FFFFFFFF
+Field="created","created","@DATETIME",,,"","",$FFFFFFFF
+Field="updated","updated","@DATETIME",,,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326180724
+Page=Main
+
+[Entity]
+PName=stories
+LName=ストーリー
+Comment=
+TableOption=
+Left=1200
+Top=1050
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="name","name","text","NOT NULL",,"","",$FFFFFFFF
+Field="description","description","text","NOT NULL",,"","",$FFFFFFFF
+Field="businessvalue","businessvalue","@INT",,,"0","",$FFFFFFFF
+Field="priority_id","priority_id","@INT",,,"","",$FFFFFFFF
+Field="disabled","disabled","boolean",,,"false","",$FFFFFFFF
+Field="created","created","@DATETIME",,,"","",$FFFFFFFF
+Field="updated","updated","@DATETIME",,,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326165919
+Page=Main
+
+[Relation]
+Entity1=teams
+Entity2=teammembers
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=team_id
+Cardinarity1=
+Cardinarity2=
+Bar1=99
+Bar2=515
+Bar3=267
+Dependence=0
+Caption=
+PName=
+LineMode=0
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=users
+Entity2=teammembers
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=id
+Cardinarity1=
+Cardinarity2=
+Bar1=57
+Bar2=502
+Bar3=423
+Dependence=1
+Caption=
+PName=
+LineMode=0
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=teammembers
+LName=チームメンバー
+Comment=
+TableOption=
+Left=800
+Top=350
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="team_id","team_id","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="user_id","user_id","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="disabled","disabled","boolean",,,"false","",$FFFFFFFF
+Field="updated","updated","@DATETIME",,,"","",$FFFFFFFF
+Field="created","created","@DATETIME",,,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326164827
+Page=Main
+
+[Entity]
+PName=users
+LName=ユーザー
+Comment=
+TableOption=
+Left=250
+Top=650
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="loginname","loginname","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF
+Field="password","password","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF
+Field="username","username","@VARCHAR(100)","NOT NULL",,"","",$FFFFFFFF
+Field="email","email","@VARCHAR(100)",,,"","",$FFFFFFFF
+Field="disabled","disabled","boolean",,,"false","",$FFFFFFFF
+Field="created","created","@DATETIME",,,"","",$FFFFFFFF
+Field="updated","updated","@DATETIME",,,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326164616
+Page=Main
+
+[Entity]
+PName=teams
+LName=チーム
+Comment=
+TableOption=
+Left=250
+Top=250
+Field="id","id","*ID","NOT NULL",0,"","",$FFFFFFFF
+Field="name","name","@VARCHAR(200)","NOT NULL",,"","",$FFFFFFFF
+Field="description","description","text",,,"","",$FFFFFFFF
+Field="disabled","disabled","boolean",,,"false","",$FFFFFFFF
+Field="created","created","@DATETIME",,,"","",$FFFFFFFF
+Field="updated","updated","@DATETIME",,,"","",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20100326164220
+Page=Main
