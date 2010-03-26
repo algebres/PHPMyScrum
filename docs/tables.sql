@@ -103,3 +103,12 @@ create table teams (
   , primary key (id)
 ) ;
 
+-- priority
+create table priorities (
+  id integer auto_increment not null comment 'id'
+  , name VARCHAR(200) not null comment 'name'
+  , disabled boolean default false comment 'disabled'
+  , created DATETIME comment 'created'
+  , updated DATETIME comment 'updated'
+  , primary key (id)
+);
