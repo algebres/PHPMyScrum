@@ -32,8 +32,8 @@ class Task extends AppModel {
 			),
 		),
 		'story_id' => array(
-			'n' => array(
-				'rule' => array('n'),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

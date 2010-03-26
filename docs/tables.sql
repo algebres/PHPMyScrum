@@ -89,6 +89,7 @@ create table users (
   , updated DATETIME comment 'updated'
   , primary key (id)
 ) ;
+create unique index idx_users_pkey on users(loginname);
 
 -- ƒ`[ƒ€
 -- drop table teams cascade;

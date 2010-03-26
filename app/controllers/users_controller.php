@@ -2,7 +2,35 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-	//var $components = array('Auth');
+	var $components = array('Session');
+	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
+
+	//ログイン処理
+	function login(){
+		if ($this->Auth->user())
+		{
+			if (!empty($this->data))
+			{
+				//ログインに成功した時の処理
+				$this->log("ログイン処理-成功",LOG_DEBUG);
+
+				$this->redirect(array('action'=>'index'));
+			}
+			else
+			{
+				$this->redirect(array('action' => 'index'));
+			}
+		}
+		else
+		{
+			if (!empty($this->data))
+			{
+				$this->log("ログイン処理-失敗",LOG_DEBUG);
+				$this->Session->setFlash($this->Auth->loginError);
+			}
+		}
+	}
+
 
 	function index() {
 		$this->User->recursive = 0;
