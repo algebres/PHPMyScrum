@@ -32,14 +32,14 @@ class Sprint extends AppModel {
 			),
 		),
 		'startdate' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		//	'date' => array(
+		//		//'rule' => array('date'),
+		//		//'message' => 'Your custom message here',
+		//		//'allowEmpty' => false,
+		//		//'required' => false,
+		//		//'last' => false, // Stop validation after this rule
+		//		//'on' => 'create', // Limit validation to 'create' or 'update' operations
+		//	),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -50,14 +50,14 @@ class Sprint extends AppModel {
 			),
 		),
 		'enddate' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		//	'date' => array(
+		//		//'rule' => array('date'),
+		//		//'message' => 'Your custom message here',
+		//		//'allowEmpty' => false,
+		//		//'required' => false,
+		//		//'last' => false, // Stop validation after this rule
+		//		//'on' => 'create', // Limit validation to 'create' or 'update' operations
+		//	),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
