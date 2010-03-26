@@ -5,7 +5,7 @@
 -- Application  : A5:SQL Mk-2
 
 -- スプリント
-drop table sprints cascade;
+-- drop table sprints cascade;
 
 create table sprints (
   id integer auto_increment not null comment 'id'
@@ -20,7 +20,7 @@ create table sprints (
 ) ;
 
 -- 残存時間
-drop table remaining_times cascade;
+-- drop table remaining_times cascade;
 
 create table remaining_times (
   id integer auto_increment not null comment 'id'
@@ -31,7 +31,7 @@ create table remaining_times (
 ) ;
 
 -- タスク
-drop table tasks cascade;
+-- drop table tasks cascade;
 
 create table tasks (
   id integer auto_increment not null comment 'id'
@@ -48,7 +48,7 @@ create table tasks (
 ) ;
 
 -- ストーリー
-drop table stories cascade;
+-- drop table stories cascade;
 
 create table stories (
   id integer auto_increment not null comment 'id'
@@ -63,7 +63,7 @@ create table stories (
 ) ;
 
 -- チームメンバー
-drop table teammembers cascade;
+-- drop table teammembers cascade;
 
 create table teammembers (
   id integer auto_increment not null comment 'id'
@@ -76,7 +76,7 @@ create table teammembers (
 ) ;
 
 -- ユーザー
-drop table users cascade;
+-- drop table users cascade;
 
 create table users (
   id integer auto_increment not null comment 'id'
@@ -91,7 +91,7 @@ create table users (
 ) ;
 
 -- チーム
-drop table teams cascade;
+-- drop table teams cascade;
 
 create table teams (
   id integer auto_increment not null comment 'id'
