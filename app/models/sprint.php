@@ -113,5 +113,30 @@ class Sprint extends AppModel {
 		return $this->find('list', $conditions);
 	}
 
+	/**
+	 * ƒXƒvƒŠƒ“ƒgŠúŠÔ‚Ì“ú”
+	 */
+	function getSprintTerm($sprint_id)
+	{
+		$sprint = $this->findById($sprint_id);
+
+		// ˆê’UŽž‚Ö
+		$start_date = strtotime($sprint["Sprint"]["startdate"]);
+		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
+
+		// “ú•t‚É‚Î‚ç‚·
+		$start_date_y = date('Y', $start_date);
+		$start_date_m = date('m', $start_date);
+		$start_date_d = date('d', $start_date);
+		$end_date_y = date('Y', $end_date);
+		$end_date_m = date('m', $end_date);
+		$end_date_d = date('d', $end_date);
+
+		// ŠúŠÔ‚ª‰½“ú‚ ‚é‚©’²‚×‚é
+		$dt1 = mktime(0, 0, 0, $start_date_m, $start_date_d, $start_date_y);
+		$dt2 = mktime(0, 0, 0, $end_date_m, $end_date_d, $end_date_y);
+		$diff = $dt2 - $dt1;
+		return $diff / 86400;//1“ú‚Í86400•b
+	}
 }
 ?>

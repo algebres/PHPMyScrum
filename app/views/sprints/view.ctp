@@ -36,6 +36,12 @@
 			<?php echo $sprint['Sprint']['updated']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Sprint Term'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $sprint_term; ?>
+			&nbsp;
+		</dd>
+		
 	</dl>
 </div>
 <div class="actions">

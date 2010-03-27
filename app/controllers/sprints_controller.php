@@ -20,7 +20,9 @@ class SprintsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->Sprint->recursive = 2;	// story–¼“™
-		$this->set('sprint', $this->Sprint->read(null, $id));
+		$sprint = $this->Sprint->read(null, $id);
+		$this->set('sprint', $sprint);
+		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
 	}
 
 	function add() {
