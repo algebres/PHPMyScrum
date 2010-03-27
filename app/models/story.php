@@ -88,5 +88,19 @@ class Story extends AppModel {
 		)
 	);
 
+	/**
+	 * 現在有効なストーリー
+	 */
+	function getActiveStoryList()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'Story.disabled' => 0,
+			),
+		);
+		return $this->find('list', $conditions);
+	}
+
+
 }
 ?>

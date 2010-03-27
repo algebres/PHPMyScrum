@@ -118,5 +118,17 @@ class User extends AppModel {
 		)
 	);
 
+	/**
+	 * 現在有効なユーザー
+	 */
+	function getActiveUserList()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'User.disabled' => 0,
+			),
+		);
+		return $this->find('list', $conditions);
+	}
 }
 ?>

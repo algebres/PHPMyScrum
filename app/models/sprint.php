@@ -99,5 +99,19 @@ class Sprint extends AppModel {
 		);
 		return $this->find('all', $condition);
 	}
+
+	/**
+	 * 現在有効なユーザー
+	 */
+	function getActiveSprintList()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'Sprint.disabled' => 0,
+			),
+		);
+		return $this->find('list', $conditions);
+	}
+
 }
 ?>

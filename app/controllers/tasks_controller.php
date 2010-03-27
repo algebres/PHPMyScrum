@@ -3,6 +3,7 @@ class TasksController extends AppController {
 
 	var $name = 'Tasks';
 	var $components = array('Session');
+	var $uses = array('Task', 'User', 'Sprint', 'Story');
 
 	function index() {
 		$this->Task->recursive = 0;
@@ -32,9 +33,9 @@ class TasksController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
 			}
 		}
-		$sprints = $this->Task->Sprint->find('list');
-		$stories = $this->Task->Story->find('list');
-		$users = $this->Task->User->find('list');
+		$sprints = $this->Sprint->getActiveSprintList();
+		$stories = $this->Story->getActiveStoryList();
+		$users = $this->User->getActiveUserList();
 		$this->set(compact('sprints', 'stories', 'users'));
 	}
 
@@ -54,9 +55,9 @@ class TasksController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Task->read(null, $id);
 		}
-		$sprints = $this->Task->Sprint->find('list');
-		$stories = $this->Task->Story->find('list');
-		$users = $this->Task->User->find('list');
+		$sprints = $this->Sprint->getActiveSprintList();
+		$stories = $this->Story->getActiveStoryList();
+		$users = $this->User->getActiveUserList();
 		$this->set(compact('sprints', 'stories', 'users'));
 	}
 
