@@ -14,6 +14,7 @@ class SprintsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'sprint'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Sprint->recursive = 2;	// story–¼“™
 		$this->set('sprint', $this->Sprint->read(null, $id));
 	}
 

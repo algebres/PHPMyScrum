@@ -2,6 +2,7 @@
 class User extends AppModel {
 	var $name = 'User';
 	var $displayField = 'username';
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(

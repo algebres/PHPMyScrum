@@ -14,6 +14,7 @@ class TeamsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'team'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Team->recursive = 2;
 		$this->set('team', $this->Team->read(null, $id));
 	}
 

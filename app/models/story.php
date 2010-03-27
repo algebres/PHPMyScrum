@@ -31,6 +31,16 @@ class Story extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'storypoints' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'businessvalue' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -51,8 +61,16 @@ class Story extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Team' => array(
+			'className' => 'Team',
+			'foreignKey' => 'team_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
+
 
 	var $hasMany = array(
 		'Task' => array(

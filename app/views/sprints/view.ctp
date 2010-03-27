@@ -55,12 +55,11 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php printf(__('Related %s', true), __('Tasks', true));?></h3>
+	<h3><?php __('Sprint'); __('Tasks'); ?></h3>
 	<?php if (!empty($sprint['Task'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Sprint Id'); ?></th>
 		<th><?php __('Story Id'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Description'); ?></th>
@@ -81,12 +80,11 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $task['id'];?></td>
-			<td><?php echo $task['sprint_id'];?></td>
-			<td><?php echo $task['story_id'];?></td>
+			<td><?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['story_id']));?></td>
 			<td><?php echo $task['name'];?></td>
 			<td><?php echo $task['description'];?></td>
 			<td><?php echo $task['estimate_hours'];?></td>
-			<td><?php echo $task['user_id'];?></td>
+			<td><?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['user_id']));?></td>
 			<td><?php echo $task['disabled'];?></td>
 			<td><?php echo $task['created'];?></td>
 			<td><?php echo $task['updated'];?></td>

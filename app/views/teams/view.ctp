@@ -50,7 +50,6 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Team Id'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Disabled'); ?></th>
 		<th><?php __('Updated'); ?></th>
@@ -67,8 +66,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $teammember['id'];?></td>
-			<td><?php echo $teammember['team_id'];?></td>
-			<td><?php echo $teammember['user_id'];?></td>
+			<td><?php echo $this->Html->link($teammember['User']['username'], array('controller' => 'users', 'action' => 'view', $teammember['user_id']));?></td>
 			<td><?php echo $teammember['disabled'];?></td>
 			<td><?php echo $teammember['updated'];?></td>
 			<td><?php echo $teammember['created'];?></td>

@@ -89,7 +89,7 @@ class Sprint extends AppModel {
 
 	function getCurrentSprint()
 	{
-		$current = date('Y-m-d h:i:s');
+		$current = date('Y-m-d H:i:s');
 		$condition = array(
 			"conditions" => array(
 				'Sprint.startdate <=' => $current,

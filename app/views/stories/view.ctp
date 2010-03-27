@@ -26,6 +26,11 @@
 			<?php echo $this->Html->link($story['Priority']['name'], array('controller' => 'priorities', 'action' => 'view', $story['Priority']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Team'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($story['Team']['name'], array('controller' => 'teams', 'action' => 'view', $story['Team']['id'])); ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Disabled'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $story['Story']['disabled']; ?>
@@ -62,8 +67,7 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Sprint Id'); ?></th>
-		<th><?php __('Story Id'); ?></th>
+		<th><?php __('Sprint'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Description'); ?></th>
 		<th><?php __('Estimate Hours'); ?></th>
@@ -83,12 +87,11 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $task['id'];?></td>
-			<td><?php echo $task['sprint_id'];?></td>
-			<td><?php echo $task['story_id'];?></td>
+			<td><?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['sprint_id']));?></td>
 			<td><?php echo $task['name'];?></td>
 			<td><?php echo $task['description'];?></td>
 			<td><?php echo $task['estimate_hours'];?></td>
-			<td><?php echo $task['user_id'];?></td>
+			<td><?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['user_id']));?></td>
 			<td><?php echo $task['disabled'];?></td>
 			<td><?php echo $task['created'];?></td>
 			<td><?php echo $task['updated'];?></td>

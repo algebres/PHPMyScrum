@@ -37,7 +37,7 @@ create table tasks (
   id integer auto_increment not null comment 'id'
   , sprint_id INT not null comment 'sprint_id'
   , story_id INT not null comment 'story_id'
-  , name text not null comment 'name'
+  , name varchar(255) not null comment 'name'
   , description text comment 'description'
   , estimate_hours INT default 0 comment 'estimate_hours'
   , user_id INT comment 'user_id'
@@ -52,10 +52,12 @@ create table tasks (
 
 create table stories (
   id integer auto_increment not null comment 'id'
-  , name text not null comment 'name'
+  , name varchar(255) not null comment 'name'
   , description text not null comment 'description'
+  , storypoints integer comment 'storypoints'
   , businessvalue INT default 0 comment 'businessvalue'
   , priority_id INT comment 'priority_id'
+  , team_id INT comment 'team_id'
   , disabled boolean default false comment 'disabled'
   , created DATETIME comment 'created'
   , updated DATETIME comment 'updated'

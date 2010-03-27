@@ -14,6 +14,7 @@ class StoriesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'story'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->Story->recursive = 2;
 		$this->set('story', $this->Story->read(null, $id));
 	}
 
@@ -29,6 +30,8 @@ class StoriesController extends AppController {
 		}
 		$priorities = $this->Story->Priority->find('list');
 		$this->set(compact('priorities'));
+		$teams = $this->Story->Team->find('list');
+		$this->set(compact('teams'));
 	}
 
 	function edit($id = null) {
@@ -49,6 +52,8 @@ class StoriesController extends AppController {
 		}
 		$priorities = $this->Story->Priority->find('list');
 		$this->set(compact('priorities'));
+		$teams = $this->Story->Team->find('list');
+		$this->set(compact('teams'));
 	}
 
 	function delete($id = null) {
