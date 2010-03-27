@@ -91,9 +91,11 @@ class Sprint extends AppModel {
 	{
 		$current = date('Y-m-d h:i:s');
 		$condition = array(
-			'startdate <=' => $current,
-			'enddate >= ' => $current,
-			'disabled' => 0,
+			"conditions" => array(
+				'Sprint.startdate <=' => $current,
+				'Sprint.enddate >= ' => $current,
+				'Sprint.disabled' => 0,
+			),
 		);
 		return $this->find('all', $condition);
 	}

@@ -1,6 +1,17 @@
 <div class="sprints index">
 	<h2><?php __('Sprints');?></h2>
 	<table cellpadding="0" cellspacing="0">
+	<tr>
+			<th><?php __('id');?></th>
+			<th><?php __('name');?></th>
+			<th><?php __('description');?></th>
+			<th><?php __('startdate');?></th>
+			<th><?php __('enddate');?></th>
+			<th><?php __('disabled');?></th>
+			<th><?php __('created');?></th>
+			<th><?php __('updated');?></th>
+			<th class="actions"><?php __('Actions');?></th>
+	</tr>
 	<?php
 	$i = 0;
 	foreach ($sprints as $sprint):
