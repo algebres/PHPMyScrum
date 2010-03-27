@@ -2,6 +2,7 @@
 class Task extends AppModel {
 	var $name = 'Task';
 	var $displayField = 'name';
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(

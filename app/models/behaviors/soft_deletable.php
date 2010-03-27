@@ -64,7 +64,7 @@ class SoftDeletableBehavior extends ModelBehavior
 			$id = $Model->id;
 
 			$data = array($Model->alias => array(
-				$attributes['field'] => 1
+				$attributes['field'] => true
 			));
 
 			if (isset($attributes['field_date']) && $Model->hasField($attributes['field_date']))
@@ -138,7 +138,7 @@ class SoftDeletableBehavior extends ModelBehavior
 			$onDelete = $this->__settings[$Model->alias]['delete'];
 			$this->enableSoftDeletable($Model, false);
 
-			$purged = $Model->deleteAll(array($this->__settings[$Model->alias]['field'] => '1'), $cascade);
+			$purged = $Model->deleteAll(array($this->__settings[$Model->alias]['field'] => true), $cascade);
 
 			$this->enableSoftDeletable($Model, 'delete', $onDelete);
 			$this->enableSoftDeletable($Model, 'find', $onFind);
@@ -167,7 +167,7 @@ class SoftDeletableBehavior extends ModelBehavior
 
 			$data = array($Model->alias => array(
 				$Model->primaryKey => $id,
-				$this->__settings[$Model->alias]['field'] => '0'
+				$this->__settings[$Model->alias]['field'] => false
 			));
 
 			if (isset($this->__settings[$Model->alias]['field_date']) && $Model->hasField($this->__settings[$Model->alias]['field_date']))
@@ -272,11 +272,11 @@ class SoftDeletableBehavior extends ModelBehavior
 
 				if (is_string($queryData['conditions']))
 				{
-					$queryData['conditions'] = $Db->name($Model->alias) . '.' . $Db->name($this->__settings[$Model->alias]['field']) . '!= 1 AND ' . $queryData['conditions'];
+					$queryData['conditions'] = $Db->name($Model->alias) . '.' . $Db->name($this->__settings[$Model->alias]['field']) . '= false AND ' . $queryData['conditions'];
 				}
 				else
 				{
-					$queryData['conditions'][$Model->alias . '.' . $this->__settings[$Model->alias]['field']] = '!= 1';
+					$queryData['conditions'][$Model->alias . '.' . $this->__settings[$Model->alias]['field']] = '= false';
 				}
 			}
 		}

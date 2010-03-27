@@ -6,6 +6,11 @@ class TasksController extends AppController {
 
 	function index() {
 		$this->Task->recursive = 0;
+		$this->paginate = array(
+			'conditions' => array(
+				'Task.disabled' => 0,
+			),
+		);
 		$this->set('tasks', $this->paginate());
 	}
 

@@ -7,7 +7,6 @@
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('startdate');?></th>
 			<th><?php echo $this->Paginator->sort('enddate');?></th>
-			<th><?php echo $this->Paginator->sort('disabled');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -26,7 +25,6 @@
 		<td><?php echo $sprint['Sprint']['description']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['startdate']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['enddate']; ?>&nbsp;</td>
-		<td><?php echo $sprint['Sprint']['disabled']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['created']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['updated']; ?>&nbsp;</td>
 		<td class="actions">

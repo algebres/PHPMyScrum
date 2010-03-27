@@ -8,6 +8,7 @@
 		echo $this->Form->input('storypoints');
 		echo $this->Form->input('businessvalue');
 		echo $this->Form->input('priority_id');
+		echo $this->Form->input('team_id');
 		echo $this->Form->input('disabled');
 	?>
 	</fieldset>

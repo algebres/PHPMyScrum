@@ -2,7 +2,7 @@
 class Sprint extends AppModel {
 	var $name = 'Sprint';
 	var $displayField = 'name';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false, )); 
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
