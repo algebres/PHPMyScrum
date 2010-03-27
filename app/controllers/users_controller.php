@@ -14,11 +14,11 @@ class UsersController extends AppController {
 				//ログインに成功した時の処理
 				$this->log("ログイン処理-成功",LOG_DEBUG);
 
-				$this->redirect(array('action'=>'index'));
+				$this->redirect(array('action'=> 'dashboard'));
 			}
 			else
 			{
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'dashboard'));
 			}
 		}
 		else
@@ -31,6 +31,10 @@ class UsersController extends AppController {
 		}
 	}
 
+	function dashboard() {
+		$this->User->recursive = 0;
+		$this->set('users', $this->paginate());
+	}
 
 	function index() {
 		$this->User->recursive = 0;
