@@ -2,6 +2,7 @@
 class SprintsController extends AppController {
 
 	var $name = 'Sprints';
+	var $components = array('Session');
 
 	function index() {
 		$this->Sprint->recursive = 0;

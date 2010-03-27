@@ -2,6 +2,7 @@
 class StoriesController extends AppController {
 
 	var $name = 'Stories';
+	var $components = array('Session');
 
 	function index() {
 		$this->Story->recursive = 0;

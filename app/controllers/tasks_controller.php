@@ -2,6 +2,7 @@
 class TasksController extends AppController {
 
 	var $name = 'Tasks';
+	var $components = array('Session');
 
 	function index() {
 		$this->Task->recursive = 0;

@@ -2,6 +2,7 @@
 class TeammembersController extends AppController {
 
 	var $name = 'Teammembers';
+	var $components = array('Session');
 
 	function index() {
 		$this->Teammember->recursive = 0;

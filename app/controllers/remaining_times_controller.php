@@ -2,6 +2,7 @@
 class RemainingTimesController extends AppController {
 
 	var $name = 'RemainingTimes';
+	var $components = array('Session');
 
 	function index() {
 		$this->RemainingTime->recursive = 0;
