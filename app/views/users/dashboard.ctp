@@ -1,3 +1,5 @@
+<?php echo $this->element("sprints"); ?>
+
 <div class="users index">
 	<h2><?php __('Users');?></h2>
 	<table cellpadding="0" cellspacing="0">

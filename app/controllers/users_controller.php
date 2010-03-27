@@ -4,6 +4,7 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	var $components = array('Session');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
+	var $uses = array('User', 'Sprint');
 
 	//ƒƒOƒCƒ“ˆ—
 	function login(){
@@ -34,6 +35,9 @@ class UsersController extends AppController {
 	function dashboard() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
+		$sprints = $this->Sprint->getCurrentSprint();
+		$this->set('sprints', $sprints);
+
 	}
 
 	function index() {

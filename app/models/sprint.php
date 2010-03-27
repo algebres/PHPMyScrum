@@ -2,6 +2,7 @@
 class Sprint extends AppModel {
 	var $name = 'Sprint';
 	var $displayField = 'name';
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
@@ -86,5 +87,15 @@ class Sprint extends AppModel {
 		)
 	);
 
+	function getCurrentSprint()
+	{
+		$current = date('Y-m-d h:i:s');
+		$condition = array(
+			'startdate <=' => $current,
+			'enddate >= ' => $current,
+			'disabled' => 0,
+		);
+		return $this->find('all', $condition);
+	}
 }
 ?>
