@@ -6,10 +6,8 @@
 			<th><?php echo $this->Paginator->sort('sprint_id');?></th>
 			<th><?php echo $this->Paginator->sort('story_id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('estimate_hours');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th><?php echo $this->Paginator->sort('disabled');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -31,12 +29,10 @@
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
 		</td>
 		<td><?php echo $task['Task']['name']; ?>&nbsp;</td>
-		<td><?php echo $task['Task']['description']; ?>&nbsp;</td>
 		<td><?php echo $task['Task']['estimate_hours']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
 		</td>
-		<td><?php echo $task['Task']['disabled']; ?>&nbsp;</td>
 		<td><?php echo $task['Task']['created']; ?>&nbsp;</td>
 		<td><?php echo $task['Task']['updated']; ?>&nbsp;</td>
 		<td class="actions">

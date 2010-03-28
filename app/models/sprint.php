@@ -84,6 +84,19 @@ class Sprint extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'Story' => array(
+			'className' => 'Story',
+			'foreignKey' => 'sprint_id',
+			'dependent' => false,
+			'conditions' => 'Story.disabled = 0',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
 

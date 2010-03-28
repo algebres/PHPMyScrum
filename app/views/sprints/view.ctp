@@ -58,6 +58,45 @@
 	</ul>
 </div>
 <div class="related">
+
+	<h3><?php __('Sprint'); __('Stories'); ?></h3>
+	<?php if (!empty($sprint['Story'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Id'); ?></th>
+		<th><?php __('Name'); ?></th>
+		<th><?php __('StoryPoints'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Updated'); ?></th>
+		<th class="actions"><?php __('Actions');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($sprint['Story'] as $story):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $story['id'];?></td>
+			<td><?php echo $story['name'];?></td>
+			<td><?php echo $story['storypoints'];?></td>
+			<td><?php echo $story['created'];?></td>
+			<td><?php echo $story['updated'];?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'stories', 'action' => 'view', $story['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'stories', 'action' => 'edit', $story['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'stories', 'action' => 'delete', $story['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $story['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+
+
+
 	<h3><?php __('Sprint'); __('Tasks'); ?></h3>
 	<?php if (!empty($sprint['Task'])):?>
 	<table cellpadding = "0" cellspacing = "0">
