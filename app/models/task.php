@@ -1,4 +1,6 @@
 <?php
+App::import('Mode', 'RemainingTime');
+
 class Task extends AppModel {
 	var $name = 'Task';
 	var $displayField = 'name';
@@ -105,5 +107,60 @@ class Task extends AppModel {
 		)
 	);
 
+	/**
+	 * タスク更新の際には時間を残時間テーブルにも突っ込む
+	 */
+	function afterSave($created)
+	{
+		if($created)
+		{
+			$task_id = $this->getInsertID();
+		}
+		else
+		{
+			$task_id = @$this->data["Task"]["id"];
+			if(!$task_id)
+			{
+				$task_id = $this->getID();
+			}
+		}
+		$this->recursive = 0;
+		$data = $this->findById($task_id);
+		if(empty($data))
+		{
+			return;
+		}
+		$hours = $data["Task"]["estimate_hours"];
+		$disabled = $data["Task"]["disabled"];
+		$created = date('Y-m-d');
+		if($disabled == 0)
+		{
+			$this->RemainingTime = new RemainingTime();
+			$rec = $this->RemainingTime->findByTaskIdAndCreated($task_id, $created);
+			if($rec)
+			{
+				$d["RemainingTime"]["id"] = $rec["RemainingTime"]["id"];
+			}
+			$d["RemainingTime"]["task_id"] = $task_id;
+			$d["RemainingTime"]["hours"] = $hours;
+			$this->RemainingTime->save($d);
+		}
+		else
+		{
+			$this->deleteRemaining($task_id);
+		}
+	}
+
+	/**
+	 * タスクを削除したあと残時間データも削除
+	 */
+	function deleteRemaining($task_id)
+	{
+		$this->RemainingTime = new RemainingTime();
+		$conditions = array(
+			'RemainingTime.task_id' => $task_id,
+		);
+		$this->RemainingTime->deleteAll($conditions, false);
+	}
 }
 ?>

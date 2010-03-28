@@ -118,12 +118,18 @@ class Sprint extends AppModel {
 	 */
 	function getSprintTerm($sprint_id)
 	{
+		$this->recursive = 0;
 		$sprint = $this->findById($sprint_id);
 
 		// ˆê’UŽž‚Ö
 		$start_date = strtotime($sprint["Sprint"]["startdate"]);
 		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
 
+		return $this->datediff($start_date, $end_date);
+	}
+
+	private function datediff($start_date, $end_date)
+	{
 		// “ú•t‚É‚Î‚ç‚·
 		$start_date_y = date('Y', $start_date);
 		$start_date_m = date('m', $start_date);
@@ -136,7 +142,17 @@ class Sprint extends AppModel {
 		$dt1 = mktime(0, 0, 0, $start_date_m, $start_date_d, $start_date_y);
 		$dt2 = mktime(0, 0, 0, $end_date_m, $end_date_d, $end_date_y);
 		$diff = $dt2 - $dt1;
-		return $diff / 86400;//1“ú‚Í86400•b
+		return $diff / 86400;
+	}
+
+	/**
+	 * ƒXƒvƒŠƒ“ƒgó‹µ‚ÌŽæ“¾
+	 */
+	function getSprintStatus($sprint_id)
+	{
+		$this->recursive = 2;
+		$sprint = $this->findById($sprint_id);
+		//var_dump($sprint);
 	}
 }
 ?>

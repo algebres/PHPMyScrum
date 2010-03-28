@@ -23,6 +23,7 @@ class SprintsController extends AppController {
 		$sprint = $this->Sprint->read(null, $id);
 		$this->set('sprint', $sprint);
 		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
+		$this->Sprint->getSprintStatus($id);
 	}
 
 	function add() {
