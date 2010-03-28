@@ -68,6 +68,13 @@ class Story extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Sprint' => array(
+			'className' => 'Sprint',
+			'foreignKey' => 'sprint_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 

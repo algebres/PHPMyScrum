@@ -3,6 +3,7 @@ class StoriesController extends AppController {
 
 	var $name = 'Stories';
 	var $components = array('Session');
+	var $uses = array('Story', 'Sprint');
 
 	function index() {
 		$this->Story->recursive = 0;
@@ -32,6 +33,8 @@ class StoriesController extends AppController {
 		$this->set(compact('priorities'));
 		$teams = $this->Story->Team->find('list');
 		$this->set(compact('teams'));
+		$sprints = $this->Sprint->getActiveSprintList();
+		$this->set(compact('sprints'));
 	}
 
 	function edit($id = null) {
@@ -54,6 +57,8 @@ class StoriesController extends AppController {
 		$this->set(compact('priorities'));
 		$teams = $this->Story->Team->find('list');
 		$this->set(compact('teams'));
+		$sprints = $this->Sprint->getActiveSprintList();
+		$this->set(compact('sprints'));
 	}
 
 	function delete($id = null) {

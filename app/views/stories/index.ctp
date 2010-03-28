@@ -7,6 +7,7 @@
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('storypoints');?></th>
 			<th><?php echo $this->Paginator->sort('businessvalue');?></th>
+			<th><?php echo $this->Paginator->sort('sprint_id');?></th>
 			<th><?php echo $this->Paginator->sort('priority_id');?></th>
 			<th><?php echo $this->Paginator->sort('team_id');?></th>
 			<th><?php echo $this->Paginator->sort('disabled');?></th>
@@ -28,6 +29,9 @@
 		<td><?php echo $story['Story']['description']; ?>&nbsp;</td>
 		<td><?php echo $story['Story']['storypoints']; ?>&nbsp;</td>
 		<td><?php echo $story['Story']['businessvalue']; ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($story['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $story['Sprint']['id'])); ?>
+		</td>
 		<td>
 			<?php echo $this->Html->link($story['Priority']['name'], array('controller' => 'priorities', 'action' => 'view', $story['Priority']['id'])); ?>
 		</td>

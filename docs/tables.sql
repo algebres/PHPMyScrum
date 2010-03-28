@@ -57,6 +57,7 @@ create table stories (
   , storypoints integer comment 'storypoints'
   , businessvalue INT default 0 comment 'businessvalue'
   , priority_id INT comment 'priority_id'
+  , sprint_id INT comment 'sprint_id'
   , team_id INT comment 'team_id'
   , disabled boolean default false comment 'disabled'
   , created DATETIME comment 'created'
