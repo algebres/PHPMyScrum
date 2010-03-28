@@ -1,3 +1,29 @@
+<?php 
+echo "<table>";
+echo "<tr>";
+$i = 0;
+echo "<th>";
+__("Task / RemainingHours");
+echo "</th>";
+foreach($sprint_calendar as $cal)
+{
+	$i++;
+	echo "<th>" . date('d', strtotime($cal)) . "</th>";
+}
+echo "</tr>";
+
+foreach($sprint_remaining_hours as $a) {
+	echo "<tr>";
+	echo "<td>" .$a["name"] . "</td>";
+	foreach($sprint_calendar as $cal)
+	{
+		echo "<td>" . $a["Hours"][$cal] . "</td>";
+	}
+	echo "</tr>";
+}
+echo "</table>";
+?>
+
 <div class="sprints view">
 <h2><?php  __('Sprint');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>

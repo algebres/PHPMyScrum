@@ -142,17 +142,60 @@ class Sprint extends AppModel {
 		$dt1 = mktime(0, 0, 0, $start_date_m, $start_date_d, $start_date_y);
 		$dt2 = mktime(0, 0, 0, $end_date_m, $end_date_d, $end_date_y);
 		$diff = $dt2 - $dt1;
-		return $diff / 86400;
+		return ($diff / 86400) + 1;
 	}
 
-	/**
-	 * ƒXƒvƒŠƒ“ƒgó‹µ‚Ìæ“¾
-	 */
-	function getSprintStatus($sprint_id)
+	function getSprintCalendar($sprint_id)
+	{
+		$this->recursive = 0;
+		$sprint = $this->findById($sprint_id);
+
+		// ˆê’U‚Ö
+		$start_date = strtotime($sprint["Sprint"]["startdate"]);
+		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
+
+		return $this->createCalendar($start_date, $end_date);
+	}
+
+	function getSprintRemainingHours($sprint_id)
 	{
 		$this->recursive = 2;
 		$sprint = $this->findById($sprint_id);
-		//var_dump($sprint);
+		$start_date = strtotime($sprint["Sprint"]["startdate"]);
+		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
+
+		$data = array();
+		$calendar = $this->createCalendar($start_date, $end_date);
+
+		foreach($sprint["Task"] as $task)
+		{
+			$remaining = $task["RemainingTime"];
+			for($i=0; $i<count($calendar); $i++)
+			{
+				$key = $calendar[$i];
+				$task["Hours"][$key] = "";
+				foreach($remaining as $tmp)
+				{
+					if($tmp["created"] === $key)
+					{
+						$task["Hours"][$key] = $tmp["hours"];
+					}
+				}
+			}
+			$data[] = $task;
+		}
+		return $data;
+	}
+
+	private function createCalendar($start_date, $end_date)
+	{
+		$diff = $this->datediff($start_date, $end_date);
+		$cal = array();
+		for($i = 0; $i < $diff; $i++)
+		{
+			$cal[] = date('Y-m-d', $start_date + $i * 86400);
+		}
+		return $cal;
 	}
 }
 ?>

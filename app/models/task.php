@@ -98,7 +98,7 @@ class Task extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'RemainingTime.created desc',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
