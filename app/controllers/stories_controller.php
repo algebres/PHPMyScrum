@@ -3,7 +3,7 @@ class StoriesController extends AppController {
 
 	var $name = 'Stories';
 	var $components = array('Session');
-	var $uses = array('Story', 'Sprint');
+	var $uses = array('Story', 'Sprint', 'Priority', 'Team');
 
 	function index() {
 		$this->Story->recursive = 0;
@@ -34,9 +34,9 @@ class StoriesController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'story'));
 			}
 		}
-		$priorities = $this->Story->Priority->find('list');
+		$priorities = $this->Priority->getActivePriorityList();
 		$this->set(compact('priorities'));
-		$teams = $this->Story->Team->find('list');
+		$teams = $this->Team->getActiveTeamList();
 		$this->set(compact('teams'));
 		$sprints = $this->Sprint->getActiveSprintList();
 		$this->set(compact('sprints'));
@@ -58,9 +58,9 @@ class StoriesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Story->read(null, $id);
 		}
-		$priorities = $this->Story->Priority->find('list');
+		$priorities = $this->Priority->getActivePriorityList();
 		$this->set(compact('priorities'));
-		$teams = $this->Story->Team->find('list');
+		$teams = $this->Team->getActiveTeamList();
 		$this->set(compact('teams'));
 		$sprints = $this->Sprint->getActiveSprintList();
 		$this->set(compact('sprints'));

@@ -51,5 +51,19 @@ class Team extends AppModel {
 		)
 	);
 
+	/**
+	 * Œ»Ý—LŒø‚Èƒ`[ƒ€
+	 */
+	function getActiveTeamList()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'Team.disabled' => 0,
+			),
+		);
+		return $this->find('list', $conditions);
+	}
+
+
 }
 ?>

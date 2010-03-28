@@ -52,5 +52,19 @@ class Priority extends AppModel {
 		)
 	);
 
+	/**
+	 * Œ»Ý—LŒø‚È—Dæ‡ˆÊ
+	 */
+	function getActivePriorityList()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'Priority.disabled' => 0,
+			),
+		);
+		return $this->find('list', $conditions);
+	}
+
+
 }
 ?>

@@ -6,6 +6,11 @@ class PrioritiesController extends AppController {
 
 	function index() {
 		$this->Priority->recursive = 0;
+		$this->paginate = array(
+			'conditions' => array(
+				'Priority.disabled' => 0,
+			),
+		);
 		$this->set('priorities', $this->paginate());
 	}
 
