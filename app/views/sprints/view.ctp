@@ -1,5 +1,3 @@
-<?php echo $this->element('sprint_task'); ?>
-
 <div class="sprints view">
 <h2><?php  __('Sprint');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -58,6 +56,9 @@
 	</ul>
 </div>
 <div class="related">
+
+	<h3><?php __('Sprint'); __('RemainingHours'); ?></h3>
+	<?php echo $this->element('sprint_task'); ?>
 
 	<h3><?php __('Sprint'); __('Stories'); ?></h3>
 	<?php if (!empty($sprint['Story'])):?>
