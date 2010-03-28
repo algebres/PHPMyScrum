@@ -2,6 +2,7 @@
 class Story extends AppModel {
 	var $name = 'Story';
 	var $displayField = 'name';
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
@@ -84,7 +85,7 @@ class Story extends AppModel {
 			'className' => 'Task',
 			'foreignKey' => 'story_id',
 			'dependent' => false,
-			'conditions' => '',
+			'conditions' => 'Task.disabled = 0',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',

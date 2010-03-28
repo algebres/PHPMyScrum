@@ -76,7 +76,7 @@ class Sprint extends AppModel {
 			'className' => 'Task',
 			'foreignKey' => 'sprint_id',
 			'dependent' => false,
-			'conditions' => '',
+			'conditions' => 'Task.disabled = 0',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',

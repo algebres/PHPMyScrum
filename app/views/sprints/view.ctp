@@ -2,7 +2,7 @@
 echo "<table>";
 echo "<tr>";
 $i = 0;
-echo "<th>";
+echo "<th colspan=\"3\">";
 __("Task / RemainingHours");
 echo "</th>";
 foreach($sprint_calendar as $cal)
@@ -14,7 +14,9 @@ echo "</tr>";
 
 foreach($sprint_remaining_hours as $a) {
 	echo "<tr>";
-	echo "<td>" .$a["name"] . "</td>";
+	echo "<td>" .$a["id"] . "</td>";
+	echo "<td>" .$a["Story"]["name"] . "</td>";
+	echo "<td>" .$this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])) . "</td>";
 	foreach($sprint_calendar as $cal)
 	{
 		echo "<td>" . $a["Hours"][$cal] . "</td>";

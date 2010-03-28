@@ -7,6 +7,11 @@ class StoriesController extends AppController {
 
 	function index() {
 		$this->Story->recursive = 0;
+		$this->paginate = array(
+			'conditions' => array(
+				'Story.disabled' => 0,
+			),
+		);
 		$this->set('stories', $this->paginate());
 	}
 
