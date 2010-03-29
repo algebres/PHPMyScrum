@@ -27,8 +27,8 @@ body {
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:75%;
-	margin: 0;
-	width : 980px;
+/**	margin: 0 20px 20px 20px; **/
+	width : 980px; 
 }
 a {
 	color: #003d4c;
@@ -99,15 +99,15 @@ ul, li {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 5px 20px 5px 20px;
-	//overflow: auto;
+	padding: 0px 20px 0px 0px;
+	/** overflow: auto; **/
 }
 #snavi {
 	background: #fff;
 	clear: both;
-	color: #666;
-	padding: 5px 20px 5px 20px;
-	//overflow: auto;
+	color: #333;
+	padding: 0px 20px 5px 0px;
+	/** overflow: auto; **/
 }
 
 #gnavi ul, #snavi ul {
@@ -118,9 +118,11 @@ ul, li {
 	list-style-type: none;
 }
 
+/**
 #snavi ul {
 	background-color: #ddd;
 }
+**/
 
 #gnavi ul li, #snavi ul li {
 	margin: 0;
@@ -173,12 +175,11 @@ ul, li {
 	clear: both;
 }
 
-
 #content{
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
+	padding: 0px 0px 40px 0px;
 	overflow: auto;
 }
 #footer {
@@ -190,11 +191,12 @@ ul, li {
 /** containers **/
 div.form,
 div.index,
+div.related,
 div.view {
 	float:left; /** right **/
-	width:100%; /** 76% **/
+	width:940px; /** 76% **/
 	/** border-left:1px solid #666; **/
-	padding:10px 2%;
+	padding:10px 20px;
 }
 
 div.actions {

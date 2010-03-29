@@ -58,10 +58,5 @@
 <div class="related">
 	<h3><?php __('Sprint'); __('RemainingHours'); ?></h3>
 	<?php echo $this->element('sprint_task'); ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
+
