@@ -38,15 +38,14 @@
 		<div id="header">
 			<h1><?php echo $this->Html->link(__('phpmyscrum', true), $html->url('/')); ?></h1>
 		</div>
-		<div id="gnavi">
-			<ul>
-				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Stories', true)), array('controller' => 'stories', 'action' => 'index')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
-			</ul>
-		</div>
 		<div id="content">
-
+			<div id="gnavi">
+				<ul>
+					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Stories', true)), array('controller' => 'stories', 'action' => 'index')); ?> </li>
+					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?> </li>
+					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
+				</ul>
+			</div>
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>

@@ -27,6 +27,18 @@ class SprintsController extends AppController {
 		$this->set('sprint_remaining_hours', $this->Sprint->getSprintRemainingHours($id));
 	}
 
+	function storylist($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'sprint'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Sprint->recursive = 2;	// story–¼“™
+		$sprint = $this->Sprint->read(null, $id);
+		$this->set('sprint', $sprint);
+		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
+	}
+
+
 	function add() {
 		if (!empty($this->data)) {
 			$this->Sprint->create();

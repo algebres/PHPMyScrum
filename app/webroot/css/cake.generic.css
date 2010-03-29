@@ -28,6 +28,7 @@ body {
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:75%;
 	margin: 0;
+	width : 980px;
 }
 a {
 	color: #003d4c;
@@ -94,14 +95,22 @@ ul, li {
 	background: #003d4c;
 	text-decoration: underline;
 }
-#gnavi{
+#gnavi {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
-	overflow: auto;
+	padding: 5px 20px 5px 20px;
+	//overflow: auto;
 }
-#gnavi ul {
+#snavi {
+	background: #fff;
+	clear: both;
+	color: #666;
+	padding: 5px 20px 5px 20px;
+	//overflow: auto;
+}
+
+#gnavi ul, #snavi ul {
 	margin: 0;
 	padding: 0;
 	line-height: 1;
@@ -109,7 +118,11 @@ ul, li {
 	list-style-type: none;
 }
 
-#gnavi ul li {
+#snavi ul {
+	background-color: #ddd;
+}
+
+#gnavi ul li, #snavi ul li {
 	margin: 0;
 	padding: 0;
 	float: left;
@@ -120,7 +133,7 @@ ul, li {
 	font-size: 13px; /* ï∂éöÉTÉCÉY */
 }
 
-#gnavi ul li a {
+#gnavi ul li a, #snavi ul li a {
 	border-right: 1px solid #666;
 	padding: 9px 20px;
 	display: block;
@@ -130,7 +143,12 @@ ul, li {
 	text-decoration: none;
 }
 
-#gnavi ul li a:hover {
+#snavi ul li a {
+	color: #fff;
+	background-color: #888;
+}
+
+#gnavi ul li a:hover, #snavi ul li a:hover {
 	border-color: #ccc;
 	color: #333;
 	background-color: #ccc;
@@ -138,7 +156,7 @@ ul, li {
 
 /* ClearFix */
 
-#gnavi ul {
+#gnavi ul , #snavi ul {
 	_height: 1px;
 	min-height: 1px;
 	/*\*//*/
@@ -147,7 +165,7 @@ ul, li {
 	/**/
 }
 
-#gnavi ul:after {
+#gnavi ul:after, #snavi ul:after {
 	height: 0;
 	visibility: hidden;
 	content: ".";
@@ -173,16 +191,18 @@ ul, li {
 div.form,
 div.index,
 div.view {
-	float:right;
-	width:76%;
-	border-left:1px solid #666;
+	float:left; /** right **/
+	width:100%; /** 76% **/
+	/** border-left:1px solid #666; **/
 	padding:10px 2%;
 }
+
 div.actions {
-	float:left;
+	float:right;	// left
 	width:16%;
 	padding:10px 1.5%;
 }
+
 div.actions h3 {
 	padding-top:0;
 	color:#777;

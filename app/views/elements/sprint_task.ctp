@@ -61,7 +61,7 @@ Event.observe(window, 'load', function() {
 	});
 });	
 </script>
-<div class="linechart" id="linechart" style="width:600px;height:240px"></div>
+<div class="linechart" id="linechart" style="width:900px;height:240px"></div>
 
 
 <table>
