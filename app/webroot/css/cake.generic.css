@@ -236,6 +236,10 @@ table td.actions a {
 	margin: 0px 6px;
 	padding:2px 5px;
 }
+td.summary {
+	background: #cccccc;
+	font-weight : bold;
+}
 .cake-sql-log table {
 	background: #f4f4f4;
 }

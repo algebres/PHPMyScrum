@@ -72,14 +72,14 @@ Event.observe(window, 'load', function() {
 <?php } ?>
 
 <tr>
-<td colspan="3"><?php __('Sum'); ?></td>
+<td colspan="3" class="summary"><?php __('Sum'); ?></td>
 <?php foreach($sprint_calendar as $cal) { ?>
 <?php
 	$sum = 0;
 	foreach($sprint_remaining_hours as $a) {
 		$sum += $a["Hours"][$cal];
 	}
-	echo "<td>" . $sum . "</td>";
+	echo "<td class=\"summary\">" . $sum . "</td>";
 ?>
 <?php } ?>
 </tr>
