@@ -33,10 +33,11 @@ class TasksController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
 			}
 		}
+		$story_id = @$this->params['named']['story_id'];
 		$sprints = $this->Sprint->getActiveSprintList();
 		$stories = $this->Story->getActiveStoryList();
 		$users = $this->User->getActiveUserList();
-		$this->set(compact('sprints', 'stories', 'users'));
+		$this->set(compact('story_id', 'sprints', 'stories', 'users'));
 	}
 
 	function edit($id = null) {
