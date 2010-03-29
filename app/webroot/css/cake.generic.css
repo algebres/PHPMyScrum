@@ -240,6 +240,13 @@ td.summary {
 	background: #cccccc;
 	font-weight : bold;
 }
+td.past {
+	background: #ccffcc !important;
+}
+td.future {
+	background: #dddddd !important;
+}
+
 .cake-sql-log table {
 	background: #f4f4f4;
 }

@@ -5,10 +5,14 @@
 <script type="text/javascript">
 Event.observe(window, 'load', function() {
 	var d6 = [];
+	var d7 = [];
 	var labels = [];
 	<?php
 	$cnt = 0;
 	$y_max = 0;
+	$burndown_y_pos = "";
+	$burndown_x_pos = "";
+
 	foreach($sprint_calendar as $cal) { 
 		$sum = "";
 		foreach($sprint_remaining_hours as $a) {
@@ -17,13 +21,18 @@ Event.observe(window, 'load', function() {
 				$sum += $a["Hours"][$cal];
 			}
 		}
-		if($sum != "")
+		if($burndown_y_pos === "" && $sum != "" && $sum != 0)
 		{
+			$burndown_y_pos = $sum;
+			$burndown_x_pos = $cnt;
+		}
+		if($sum != "" && $cal <= date('Y-m-d'))
+		{
+			// cŽ²Å‘å’l‚ð‹‚ß‚é
 			if($sum >= $y_max) {
 				$y_max = $sum;
 			}
 			echo sprintf("d6.push([%d, %d]);\n", $cnt, $sum);
-			//echo "//" . $d . "\n";
 			echo sprintf("labels.push([%d, \"%s\"]);\n", $cnt, date('d', strtotime($cal)));
 		}
 		else
@@ -32,10 +41,13 @@ Event.observe(window, 'load', function() {
 		}
 		$cnt++;
 	}
+	echo sprintf("d7.push([%d, %d]);\n", $burndown_x_pos, $burndown_y_pos);
+	echo sprintf("d7.push([%d, %d]);\n", $cnt-1, 0);
 	?>
 	new Proto.Chart($('linechart'), 
 	[
-		{data: d6, label: "Data 1"}
+		{data: d6, label: "Data 1"},
+		{data: d7, label: "Data 2"}
 	],
 	{
 		//since line chart is the default charting view
@@ -49,7 +61,7 @@ Event.observe(window, 'load', function() {
 	});
 });	
 </script>
-<div class="linechart" id="linechart" style="width:600px;height:160px"></div>
+<div class="linechart" id="linechart" style="width:600px;height:240px"></div>
 
 
 <table>
@@ -65,8 +77,17 @@ Event.observe(window, 'load', function() {
 <td><?php echo $a["id"]; ?></td>
 <td><?php echo $a["Story"]["name"]; ?></td>
 <td><?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
-<?php foreach($sprint_calendar as $cal) { ?>
-<td><?php echo $a["Hours"][$cal]; ?></td>
+<?php 
+$today = date('Y-m-d');
+foreach($sprint_calendar as $cal) { 
+?>
+<?php if($cal <= $today) { ?>
+<td class="past">
+<?php } else { ?>
+<td class="future">
+<?php } ?>
+<?php echo $a["Hours"][$cal]; ?>
+</td>
 <?php } ?>
 </tr>
 <?php } ?>
