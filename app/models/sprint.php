@@ -173,6 +173,7 @@ class Sprint extends AppModel {
 	function getSprintRemainingHours($sprint_id)
 	{
 		$this->recursive = 2;
+		//@TODO:story‚Ì—Dæ‡ˆÊ‚ÆID‡‚É•À‚×‚é
 		$sprint = $this->findById($sprint_id);
 		$start_date = strtotime($sprint["Sprint"]["startdate"]);
 		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
