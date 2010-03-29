@@ -80,6 +80,7 @@ class DATABASE_CONFIG {
 		'login' => 'user',
 		'password' => 'password',
 		'database' => 'phpmyscrum',
+		'encoding' => 'utf8',
 		'prefix' => '',
 	);
 
@@ -90,6 +91,7 @@ class DATABASE_CONFIG {
 		'login' => 'user',
 		'password' => 'password',
 		'database' => 'test_phpmyscrum',
+		'encoding' => 'utf8',
 		'prefix' => '',
 	);
 }

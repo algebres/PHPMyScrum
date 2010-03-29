@@ -179,14 +179,17 @@ class Sprint extends AppModel {
 
 		$data = array();
 		$calendar = $this->createCalendar($start_date, $end_date);
+		$today_key = date('Y-m-d');
 
 		foreach($sprint["Task"] as $task)
 		{
 			$remaining = $task["RemainingTime"];
+			// 日付キーで回す
 			for($i=0; $i<count($calendar); $i++)
 			{
 				$key = $calendar[$i];
 				$task["Hours"][$key] = "";
+				// 残存時間履歴をチェック
 				foreach($remaining as $tmp)
 				{
 					if($tmp["created"] === $key)
@@ -195,6 +198,21 @@ class Sprint extends AppModel {
 					}
 				}
 			}
+			// 空白の地点を埋める
+			for($i=1; $i<count($calendar); $i++)
+			{
+				$old_key = $calendar[$i-1];
+				$now_key = $calendar[$i];
+				//if($now_key <= $today_key)
+				//{
+					$old_remaining = $task["Hours"][$old_key];
+					if($task["Hours"][$now_key] === "")
+					{
+						$task["Hours"][$now_key] = $task["Hours"][$old_key];
+					}
+				//}
+			}
+
 			$data[] = $task;
 		}
 		return $data;
