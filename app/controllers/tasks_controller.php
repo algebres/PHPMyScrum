@@ -28,7 +28,8 @@ class TasksController extends AppController {
 			$this->Task->create();
 			if ($this->Task->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
-				$this->redirect(array('action' => 'index'));
+				$id = $this->Task->getLastInsertID();
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
 			}

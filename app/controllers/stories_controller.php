@@ -29,7 +29,8 @@ class StoriesController extends AppController {
 			$this->Story->create();
 			if ($this->Story->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'story'));
-				$this->redirect(array('action' => 'index'));
+				$id = $this->Story->getLastInsertID();
+				$this->redirect(array('action' => 'view', $id));
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'story'));
 			}
