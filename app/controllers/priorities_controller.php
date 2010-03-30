@@ -57,6 +57,12 @@ class PrioritiesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'priority'));
 			$this->redirect(array('action'=>'index'));
 		}
+		// 関連するストーリーがあるかチェック
+		if($this->Priority->hasActiveStories($id)) {
+			$this->Session->setFlash(sprintf(__('%s has related records', true), 'priority'));
+			$this->redirect(array('action'=>'index'));
+		}
+
 		if ($this->Priority->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Priority'));
 			$this->redirect(array('action'=>'index'));

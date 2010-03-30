@@ -65,6 +65,17 @@ class Priority extends AppModel {
 		return $this->find('list', $conditions);
 	}
 
-
+	/**
+	 * 指定した優先順位は有効なストーリーと紐付いているか
+	 */
+	function hasActiveStories($id)
+	{
+		$this->recursive = 1;
+		$has_many = $this->hasMany;
+		$this->hasMany["Story"]["conditions"] = "Story.disabled = 0";
+		$record = $this->read(null, $id);
+		$this->hasMany = $has_many;	// 元に戻す
+		return (count($record["Story"]) != 0); 
+	}
 }
 ?>
