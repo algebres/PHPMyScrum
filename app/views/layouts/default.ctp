@@ -45,6 +45,7 @@
 					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?> </li>
 					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
 					<li><?php echo $this->Html->link(sprintf(__('Manage %s', true), __('Users', true)), array('controller' => 'users', 'action' => 'index')); ?> </li>
+					<li><a href="<?php echo $html->url("/users/logout"); ?>"><?php __('Logout'); ?></a> </li>
 				</ul>
 			</div>
 			<?php echo $this->Session->flash(); ?>

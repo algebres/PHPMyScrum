@@ -6,14 +6,14 @@ class UsersController extends AppController {
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
 	var $uses = array('User', 'Sprint');
 
-	//ƒƒOƒCƒ“ˆ—
+	//ãƒ­ã‚°ã‚¤ãƒ³å‡¦ç†
 	function login(){
 		if ($this->Auth->user())
 		{
 			if (!empty($this->data))
 			{
-				//ƒƒOƒCƒ“‚É¬Œ÷‚µ‚½Žž‚Ìˆ—
-				$this->log("ƒƒOƒCƒ“ˆ—-¬Œ÷",LOG_DEBUG);
+				//ãƒ­ã‚°ã‚¤ãƒ³ã«æˆåŠŸã—ãŸæ™‚ã®å‡¦ç†
+				$this->log("ãƒ­ã‚°ã‚¤ãƒ³å‡¦ç†-æˆåŠŸ",LOG_DEBUG);
 
 				$this->redirect(array('action'=> 'dashboard'));
 			}
@@ -26,10 +26,16 @@ class UsersController extends AppController {
 		{
 			if (!empty($this->data))
 			{
-				$this->log("ƒƒOƒCƒ“ˆ—-Ž¸”s",LOG_DEBUG);
+				$this->log("ãƒ­ã‚°ã‚¤ãƒ³å‡¦ç†-å¤±æ•—",LOG_DEBUG);
 				$this->Session->setFlash($this->Auth->loginError);
 			}
 		}
+	}
+
+	function logout() {
+		$this->Auth->logout();
+		$this->Session->setFlash(__('ãƒ­ã‚°ã‚¢ã‚¦ãƒˆã—ã¾ã—ãŸã€‚', true));
+		$this->redirect(array('action' => 'login'));
 	}
 
 	function dashboard() {
