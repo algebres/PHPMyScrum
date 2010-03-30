@@ -1,7 +1,16 @@
 <?php echo $javascript->link('prototype'); ?>
 <?php echo $javascript->link('excanvas'); ?>
 <?php echo $javascript->link('ProtoChart'); ?>
-
+<?php echo $javascript->link('superTable'); ?>
+<style type="text/css">
+.fakeContainer { 
+    margin: 0 0 20px;
+    width: 900px;
+/**    height: 500px; **/
+    overflow: hidden;
+}
+</style>
+<?php echo $html->css('superTable'); ?>
 <script type="text/javascript">
 Event.observe(window, 'load', function() {
 	var d6 = [];
@@ -59,12 +68,17 @@ Event.observe(window, 'load', function() {
 			drawYAxis: true
 		},
 	});
+//    new superTable("fixtable", {
+//    	cssSkin : "sDefault",
+//		headerRows : 1,
+//		fixedCols : 2
+//    });
 });	
 </script>
 <div class="linechart" id="linechart" style="width:900px;height:240px"></div>
 
-
-<table>
+<div class="fakeContainer">
+<table id="fixtable">
 <tr>
 <th colspan="3"><?php __("Task / RemainingHours"); ?></th>
 <?php foreach($sprint_calendar as $cal) { ?>
@@ -105,3 +119,4 @@ foreach($sprint_calendar as $cal) {
 <?php } ?>
 </tr>
 </table>
+</div>
