@@ -94,7 +94,7 @@ class User extends AppModel {
 			'className' => 'Task',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
-			'conditions' => '',
+			'conditions' => 'Task.disabled = 0',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',

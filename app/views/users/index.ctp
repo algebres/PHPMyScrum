@@ -1,15 +1,25 @@
+<div id="snavi">
+	<ul>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Teammembers', true)), array('controller' => 'teammembers', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Teammember', true)), array('controller' => 'teammembers', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
+
+
 <div class="users index">
 	<h2><?php __('Users');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('loginname');?></th>
-			<th><?php echo $this->Paginator->sort('password');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
 			<th><?php echo $this->Paginator->sort('disabled');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
+			<?php if(0) { ?>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
+			<?php } ?>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -23,12 +33,13 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['loginname']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['password']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['disabled']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['created']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['updated']; ?>&nbsp;</td>
+		<td><?php echo date('Y-m-d', strtotime($user['User']['created'])); ?>&nbsp;</td>
+		<?php if(0) { ?>
+		<td><?php echo date('Y-m-d', strtotime($user['User']['updated'])); ?>&nbsp;</td>
+		<?php } ?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
@@ -50,14 +61,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Teammembers', true)), array('controller' => 'teammembers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Teammember', true)), array('controller' => 'teammembers', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

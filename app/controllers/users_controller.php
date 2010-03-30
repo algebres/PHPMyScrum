@@ -50,6 +50,7 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$this->User->recursive = 2;
 		$this->set('user', $this->User->read(null, $id));
 	}
 

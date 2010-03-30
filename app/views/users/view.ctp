@@ -1,3 +1,16 @@
+<div id="snavi">
+	<ul>
+		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('User', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('User', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Teammembers', true)), array('controller' => 'teammembers', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Teammember', true)), array('controller' => 'teammembers', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add'));?> </li>
+	</ul>
+</div>
+
+
 <div class="users view">
 <h2><?php  __('User');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -11,11 +24,13 @@
 			<?php echo $user['User']['loginname']; ?>
 			&nbsp;
 		</dd>
+		<?php if(0) { ?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Password'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['password']; ?>
 			&nbsp;
 		</dd>
+		<?php } ?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Username'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $user['User']['username']; ?>
@@ -43,19 +58,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('User', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('User', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Teammembers', true)), array('controller' => 'teammembers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Teammember', true)), array('controller' => 'teammembers', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Tasks', true));?></h3>
 	<?php if (!empty($user['Task'])):?>
@@ -65,12 +67,15 @@
 		<th><?php __('Sprint Id'); ?></th>
 		<th><?php __('Story Id'); ?></th>
 		<th><?php __('Name'); ?></th>
+		<?php if(0) { ?>
 		<th><?php __('Description'); ?></th>
+		<?php } ?>
 		<th><?php __('Estimate Hours'); ?></th>
 		<th><?php __('User Id'); ?></th>
-		<th><?php __('Disabled'); ?></th>
 		<th><?php __('Created'); ?></th>
+		<?php if(0) { ?>
 		<th><?php __('Updated'); ?></th>
+		<?php } ?>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -83,17 +88,19 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $task['id'];?></td>
-			<td><?php echo $task['sprint_id'];?></td>
-			<td><?php echo $task['story_id'];?></td>
-			<td><?php echo $task['name'];?></td>
+			<td><?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['sprint_id'])); ?></td>
+			<td><?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['story_id'])); ?></td>
+			<td><?php echo $this->Html->link($task['name'], array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?></td>
+			<?php if(0) { ?>
 			<td><?php echo $task['description'];?></td>
+			<?php } ?>
 			<td><?php echo $task['estimate_hours'];?></td>
-			<td><?php echo $task['user_id'];?></td>
-			<td><?php echo $task['disabled'];?></td>
-			<td><?php echo $task['created'];?></td>
-			<td><?php echo $task['updated'];?></td>
+			<td><?php echo $task['User']['username'];?></td>
+			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
+			<?php if(0) { ?>
+			<td><?php echo date('Y-m-d', strtotime($task['updated']));?></td>
+			<?php } ?>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tasks', 'action' => 'edit', $task['id'])); ?>
 				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'tasks', 'action' => 'delete', $task['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
 			</td>
@@ -101,12 +108,6 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Teammembers', true));?></h3>
@@ -146,9 +147,4 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Teammember', true)), array('controller' => 'teammembers', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
