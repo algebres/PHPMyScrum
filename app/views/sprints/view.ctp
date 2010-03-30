@@ -56,7 +56,7 @@
 </div>
 
 <div class="related">
-	<h3><?php __('Sprint'); __('RemainingHours'); ?></h3>
+	<h3><?php __('Sprint'); __('Burndown'); ?></h3>
 	<?php echo $this->element('sprint_task'); ?>
 </div>
 

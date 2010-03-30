@@ -80,7 +80,7 @@ Event.observe(window, 'load', function() {
 <div class="fakeContainer">
 <table id="fixtable">
 <tr>
-<th colspan="3"><?php __("Task / RemainingHours"); ?></th>
+<th colspan="3"><?php __('TaskRemainingHours'); ?></th>
 <?php foreach($sprint_calendar as $cal) { ?>
 <th><?php echo date('d', strtotime($cal)); ?></th>
 <?php } ?>

@@ -24,7 +24,24 @@ class SprintsController extends AppController {
 		$this->set('sprint', $sprint);
 		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
 		$this->set('sprint_calendar', $this->Sprint->getSprintCalendar($sprint["Sprint"]["id"]));
-		$this->set('sprint_remaining_hours', $this->Sprint->getSprintRemainingHours($id));
+
+		$sprint_remaining_hours = $this->Sprint->getSprintRemainingHours($id);
+/**
+		// 取り出したデータをストーリーの優先順位、IDをキーにして並べなおす
+		function storysort($a, $b)
+		{
+			if ($a["story_id"] > $b["story_id"]) {
+				return true;
+			} else if ($a["story_id"] < $b["story_id"]) {
+				return false;
+			} else {
+				return $a["id"] > $b["id"];
+			}
+		}
+		$sprint_remaining_hours = usort($sprint_remaining_hours, 'storysort');
+**/
+		$this->set('sprint_remaining_hours', $sprint_remaining_hours);
+
 	}
 
 	function storylist($id = null) {
