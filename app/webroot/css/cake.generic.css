@@ -228,6 +228,10 @@ th {
 	text-align: left;
 	padding:4px;
 }
+td.narrow , th.narrow {
+	width : 60px;
+}
+
 th a {
 	display: block;
 	padding: 2px 4px;

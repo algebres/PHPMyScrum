@@ -14,8 +14,8 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('storypoints');?></th>
-			<th><?php echo $this->Paginator->sort('businessvalue');?></th>
+			<th class="narrow"><?php echo $this->Paginator->sort('storypoints');?></th>
+			<th class="narrow"><?php echo $this->Paginator->sort('businessvalue');?></th>
 			<th><?php echo $this->Paginator->sort('sprint_id');?></th>
 			<th><?php echo $this->Paginator->sort('priority_id');?></th>
 			<th><?php echo $this->Paginator->sort('team_id');?></th>

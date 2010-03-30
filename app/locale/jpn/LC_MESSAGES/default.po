@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ryuzee\n"
 "POT-Creation-Date: 2010-03-30 11:10+0900\n"
-"PO-Revision-Date: 2010-03-30 11:20+0900\n"
+"PO-Revision-Date: 2010-03-30 17:18+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: Japanese <ryuzee@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -761,7 +761,7 @@ msgstr ""
 #: \views\users\admin_index.ctp:43
 #: \views\users\index.ctp:43
 msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
-msgstr ""
+msgstr "全%pages%ページ中%page%ページを表示。全%count%件のレコード中%current%レコードを表示。%start%件目から%end%件目までを表示しています。"
 
 #: \views\priorities\admin_index.ctp:42
 #: \views\priorities\index.ctp:42
