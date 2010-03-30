@@ -1,3 +1,13 @@
+<div id="snavi">
+	<ul>
+		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Priority', true)), array('action' => 'edit', $priority['Priority']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Priority', true)), array('action' => 'delete', $priority['Priority']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $priority['Priority']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Priorities', true)), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Priority', true)), array('action' => 'add')); ?> </li>
+	</ul>
+</div>
+
+
 <div class="priorities view">
 <h2><?php  __('Priority');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -28,17 +38,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Priority', true)), array('action' => 'edit', $priority['Priority']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Priority', true)), array('action' => 'delete', $priority['Priority']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $priority['Priority']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Priorities', true)), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Priority', true)), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Stories', true)), array('controller' => 'stories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('controller' => 'stories', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Stories', true));?></h3>
 	<?php if (!empty($priority['Story'])):?>

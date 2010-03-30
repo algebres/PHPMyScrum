@@ -1,3 +1,10 @@
+<div id="snavi">
+	<ul>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Priority', true)), array('action' => 'add')); ?></li>
+	</ul>
+</div>
+
+
 <div class="priorities index">
 	<h2><?php __('Priorities');?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -44,12 +51,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Priority', true)), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Stories', true)), array('controller' => 'stories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('controller' => 'stories', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
