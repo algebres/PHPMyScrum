@@ -76,9 +76,10 @@
 		<th><?php __('Description'); ?></th>
 		<th><?php __('Estimate Hours'); ?></th>
 		<th><?php __('User Id'); ?></th>
-		<th><?php __('Disabled'); ?></th>
 		<th><?php __('Created'); ?></th>
+		<?php if(0) { ?>
 		<th><?php __('Updated'); ?></th>
+		<?php } ?>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -92,15 +93,15 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $task['id'];?></td>
 			<td><?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['sprint_id']));?></td>
-			<td><?php echo $task['name'];?></td>
-			<td><?php echo $task['description'];?></td>
+			<td><?php echo $this->Html->link($task['name'], array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?></td>
+			<td><?php echo nl2br($task['description']);?></td>
 			<td><?php echo $task['estimate_hours'];?></td>
 			<td><?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['user_id']));?></td>
-			<td><?php echo $task['disabled'];?></td>
-			<td><?php echo $task['created'];?></td>
+			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
+			<?php if(0) { ?>
 			<td><?php echo $task['updated'];?></td>
+			<?php } ?>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tasks', 'action' => 'edit', $task['id'])); ?>
 				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'tasks', 'action' => 'delete', $task['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
 			</td>
