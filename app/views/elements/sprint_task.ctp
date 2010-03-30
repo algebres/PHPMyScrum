@@ -5,7 +5,7 @@
 <style type="text/css">
 .fakeContainer { 
     margin: 0 0 20px;
-    width: 900px;
+    width: 880px;
 /**    height: 500px; **/
     overflow: hidden;
 }
@@ -61,7 +61,7 @@ Event.observe(window, 'load', function() {
 	{
 		//since line chart is the default charting view
 		//we do not need to pass any specific options for it.
-		xaxis: {min: 0, max: <?php echo count($sprint_calendar); ?>, tickSize: 1, ticks: labels },
+		xaxis: {min: 0, max: <?php echo count($sprint_calendar)-1; ?>, tickSize: 1, ticks: labels },
 		yaxis: {min: 0, max: <?php echo $y_max + 20; ?> },
 		grid: {
 			drawXAxis: true,
@@ -75,21 +75,30 @@ Event.observe(window, 'load', function() {
 //    });
 });	
 </script>
-<div class="linechart" id="linechart" style="width:900px;height:240px"></div>
+<div class="linechart" id="linechart" style="width:880px;height:240px"></div>
 
 <div class="fakeContainer">
 <table id="fixtable">
 <tr>
-<th colspan="3"><?php __('TaskRemainingHours'); ?></th>
-<?php foreach($sprint_calendar as $cal) { ?>
+<th colspan="2"><?php __('TaskRemainingHours'); ?></th>
+<?php // 横軸の日付を書く ?>
+<?php $day_count = 0; ?>
+<?php foreach($sprint_calendar as $cal) { $day_count++; ?>
 <th><?php echo date('d', strtotime($cal)); ?></th>
 <?php } ?>
 </tr>
 
+<?php // 縦軸のタスクを書く ?>
+<?php $story_id = ""; ?>
 <?php foreach($sprint_remaining_hours as $a) { ?>
+<?php if($a["Story"]["id"] != $story_id) {
+	$story_id = $a["Story"]["id"];
+	$link = $html->url("/stories/view/" . $a["Story"]["id"]);
+	echo sprintf('<tr><td colspan="%d" class="story_bar"><a href="%s">%s</a></td></tr>', $day_count + 2, $link, $a["Story"]["name"]);
+}
+?>
 <tr>
 <td><?php echo $a["id"]; ?></td>
-<td><?php echo $a["Story"]["name"]; ?></td>
 <td><?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
 <?php 
 $today = date('Y-m-d');
@@ -107,7 +116,7 @@ foreach($sprint_calendar as $cal) {
 <?php } ?>
 
 <tr>
-<td colspan="3" class="summary"><?php __('Sum'); ?></td>
+<td colspan="2" class="summary"><?php __('Sum'); ?></td>
 <?php foreach($sprint_calendar as $cal) { ?>
 <?php
 	$sum = 0;
