@@ -20,7 +20,9 @@
 			<th><?php echo $this->Paginator->sort('priority_id');?></th>
 			<th><?php echo $this->Paginator->sort('team_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
+			<?php if(0) { ?>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
+			<?php } ?>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -32,8 +34,8 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $story['Story']['id']; ?>&nbsp;</td>
-		<td><?php echo $story['Story']['name']; ?>&nbsp;</td>
+		<td><?php echo $this->Html->link($story['Story']['id'], array('action' => 'view', $story['Story']['id'])); ?></td>
+		<td><?php echo $this->Html->link($story['Story']['name'], array('action' => 'view', $story['Story']['id'])); ?></td>
 		<td><?php echo $story['Story']['storypoints']; ?>&nbsp;</td>
 		<td><?php echo $story['Story']['businessvalue']; ?>&nbsp;</td>
 		<td>
@@ -45,10 +47,11 @@
 		<td>
 			<?php echo $this->Html->link($story['Team']['name'], array('controller' => 'teams', 'action' => 'view', $story['Team']['id'])); ?>
 		</td>
-		<td><?php echo $story['Story']['created']; ?>&nbsp;</td>
-		<td><?php echo $story['Story']['updated']; ?>&nbsp;</td>
+		<td><?php echo date('Y-m-d', strtotime($story['Story']['created'])); ?>&nbsp;</td>
+		<?php if(0) { ?>
+		<td><?php echo date('Y-m-d', strtotime($story['Story']['updated'])); ?>&nbsp;</td>
+		<?php } ?>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $story['Story']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $story['Story']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $story['Story']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?>
 		</td>
