@@ -16,7 +16,9 @@
 			<th><?php echo $this->Paginator->sort('estimate_hours');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
+			<?php if(0) { ?>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
+			<?php } ?>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -40,10 +42,11 @@
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
 		</td>
-		<td><?php echo $task['Task']['created']; ?>&nbsp;</td>
-		<td><?php echo $task['Task']['updated']; ?>&nbsp;</td>
+		<td><?php echo date('Y-m-d', strtotime($task['Task']['created'])); ?>&nbsp;</td>
+		<?php if(0) { ?>
+		<td><?php echo date('Y-m-d', strtotime($task['Task']['updated'])); ?>&nbsp;</td>
+		<?php } ?>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $task['Task']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $task['Task']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $task['Task']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?>
 		</td>
