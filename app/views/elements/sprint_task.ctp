@@ -2,15 +2,7 @@
 <?php echo $javascript->link('excanvas'); ?>
 <?php echo $javascript->link('ProtoChart'); ?>
 <?php echo $javascript->link('superTable'); ?>
-<style type="text/css">
-.fakeContainer { 
-    margin: 0 0 20px;
-    width: 880px;
-/**    height: 500px; **/
-    overflow: hidden;
-}
-</style>
-<?php echo $html->css('superTable'); ?>
+
 <script type="text/javascript">
 Event.observe(window, 'load', function() {
 	var d6 = [];
@@ -75,7 +67,7 @@ Event.observe(window, 'load', function() {
 //    });
 });	
 </script>
-<div class="linechart" id="linechart" style="width:880px;height:240px"></div>
+<div class="linechart" id="linechart" style="width:800px;height:240px"></div>
 
 <div class="fakeContainer">
 <table id="fixtable">

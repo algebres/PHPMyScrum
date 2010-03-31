@@ -37,9 +37,9 @@
 		<td><?php echo $sprint['Sprint']['created']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['updated']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $sprint['Sprint']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $sprint['Sprint']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $sprint['Sprint']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $sprint['Sprint']['id'])); ?>
+			<?php echo $this->Html->link($html->image('detail.png'), array('action' => 'view', $sprint['Sprint']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $sprint['Sprint']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $sprint['Sprint']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $sprint['Sprint']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

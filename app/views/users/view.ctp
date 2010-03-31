@@ -101,8 +101,8 @@
 			<td><?php echo date('Y-m-d', strtotime($task['updated']));?></td>
 			<?php } ?>
 			<td class="actions">
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tasks', 'action' => 'edit', $task['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'tasks', 'action' => 'delete', $task['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
+				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'tasks', 'action' => 'edit', $task['id']), array('escape' => false)); ?>
+				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'tasks', 'action' => 'delete', $task['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -136,9 +136,9 @@
 			<td><?php echo $teammember['updated'];?></td>
 			<td><?php echo $teammember['created'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'teammembers', 'action' => 'view', $teammember['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'teammembers', 'action' => 'edit', $teammember['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'teammembers', 'action' => 'delete', $teammember['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $teammember['id'])); ?>
+				<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'teammembers', 'action' => 'view', $teammember['id']), array('escape' => false)); ?>
+				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'teammembers', 'action' => 'edit', $teammember['id']), array('escape' => false)); ?>
+				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'teammembers', 'action' => 'delete', $teammember['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $teammember['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

@@ -10,7 +10,7 @@
 
 
 <div class="stories view">
-<h2><?php  __('Story');?></h2>
+<h2><?php  __('Story');?>&nbsp;#<?php echo $story['Story']['id']; ?>&nbsp;<?php echo $story['Story']['name']; ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -103,8 +103,8 @@
 			<td><?php echo $task['updated'];?></td>
 			<?php } ?>
 			<td class="actions">
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'tasks', 'action' => 'edit', $task['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'tasks', 'action' => 'delete', $task['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
+				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'tasks', 'action' => 'edit', $task['id']), array('escape' => false)); ?>
+				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'tasks', 'action' => 'delete', $task['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

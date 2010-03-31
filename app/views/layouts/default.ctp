@@ -29,7 +29,7 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
-
+		echo $html->css('superTable');
 		echo $scripts_for_layout;
 	?>
 </head>
@@ -41,11 +41,11 @@
 		<div id="content">
 			<div id="gnavi">
 				<ul>
-					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Stories', true)), array('controller' => 'stories', 'action' => 'index')); ?> </li>
+					<li><?php echo $this->Html->link(__('Product Backlog', true), array('controller' => 'stories', 'action' => 'index')); ?> </li>
 					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?> </li>
 					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
-					<li><a href="<?php echo $html->url("/pages/manage"); ?>"><?php __('Manage'); ?></a></li>
-					<li><a href="<?php echo $html->url("/users/logout"); ?>"><?php __('Logout'); ?></a> </li>
+					<li><?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage')); ?> </li>
+					<li><?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout')); ?> </li>
 				</ul>
 			</div>
 			<?php if($this->Session->check('Message')) { ?>

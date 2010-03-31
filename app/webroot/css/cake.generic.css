@@ -70,6 +70,14 @@ ul, li {
 	margin: 0 12px;
 }
 
+/** container for supertable **/
+.fakeContainer { 
+    margin: 0 0 20px;
+    width: 940px;
+/**    height: 500px; **/
+    overflow: hidden;
+}
+
 /** Layout **/
 #container {
 	text-align: left;

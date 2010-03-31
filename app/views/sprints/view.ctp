@@ -9,7 +9,7 @@
 </div>
 
 <div class="sprints view">
-<h2><?php  __('Sprint');?></h2>
+<h2><?php  __('Sprint');?>&nbsp;#<?php echo $sprint['Sprint']['id']; ?>&nbsp;<?php echo $sprint['Sprint']['name']; ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -55,7 +55,7 @@
 	</dl>
 </div>
 
-<div class="related">
+<div class="view">
 	<h3><?php __('Sprint'); __('Burndown'); ?></h3>
 	<?php echo $this->element('sprint_task'); ?>
 </div>

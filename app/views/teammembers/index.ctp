@@ -41,9 +41,9 @@
 		<td><?php echo $teammember['Teammember']['updated']; ?>&nbsp;</td>
 		<td><?php echo $teammember['Teammember']['created']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $teammember['Teammember']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $teammember['Teammember']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $teammember['Teammember']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $teammember['Teammember']['id'])); ?>
+			<?php echo $this->Html->link($html->image('detail.png'), array('action' => 'view', $teammember['Teammember']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $teammember['Teammember']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $teammember['Teammember']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $teammember['Teammember']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

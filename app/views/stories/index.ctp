@@ -9,7 +9,7 @@
 </div>
 
 <div class="stories index">
-	<h2><?php __('Stories');?></h2>
+	<h2><?php __('Product Backlog');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

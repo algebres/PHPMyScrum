@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-03-31 18:45+0900\n"
-"PO-Revision-Date: 2010-03-31 18:47+0900\n"
+"POT-Creation-Date: 2010-04-01 04:44+0900\n"
+"PO-Revision-Date: 2010-04-01 04:45+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -88,8 +88,11 @@ msgid "You have finished to logout."
 msgstr "ログアウトしました"
 
 #: \views\elements\my_task.ctp:2
+msgid "Your %s"
+msgstr "あなたの%s"
+
+#: \views\elements\my_task.ctp:2
 #: \views\layouts\default.ctp:46
-#: \views\pages\manage.ctp:5
 #: \views\remaining_times\add.ctp:17
 #: \views\remaining_times\admin_add.ctp:17
 #: \views\remaining_times\admin_edit.ctp:19
@@ -193,14 +196,11 @@ msgstr "更新日"
 #: \views\tasks\admin_index.ctp:15;65
 #: \views\tasks\admin_view.ctp:57;82
 #: \views\tasks\index.ctp:23
-#: \views\teammembers\add.ctp:14
 #: \views\teammembers\admin_add.ctp:14
 #: \views\teammembers\admin_edit.ctp:15
 #: \views\teammembers\admin_index.ctp:11;55
 #: \views\teammembers\admin_view.ctp:37
-#: \views\teammembers\edit.ctp:15
-#: \views\teammembers\index.ctp:11;55
-#: \views\teammembers\view.ctp:37
+#: \views\teammembers\index.ctp:22
 #: \views\teams\admin_add.ctp:14
 #: \views\teams\admin_edit.ctp:15
 #: \views\teams\admin_index.ctp:11;51
@@ -252,9 +252,9 @@ msgstr "操作"
 #: \views\teammembers\admin_edit.ctp:18
 #: \views\teammembers\admin_index.ctp:35
 #: \views\teammembers\admin_view.ctp:40
-#: \views\teammembers\edit.ctp:18
-#: \views\teammembers\index.ctp:35
-#: \views\teammembers\view.ctp:40
+#: \views\teammembers\edit.ctp:3
+#: \views\teammembers\index.ctp:46
+#: \views\teammembers\view.ctp:4
 #: \views\teams\admin_edit.ctp:18
 #: \views\teams\admin_index.ctp:31
 #: \views\teams\admin_view.ctp:40;78
@@ -270,13 +270,17 @@ msgstr "操作"
 msgid "Are you sure you want to delete # %s?"
 msgstr "# %sを本当に削除してよろしいですか？"
 
-#: \views\elements\sprint_task.ctp:83
+#: \views\elements\sprint_task.ctp:75
 msgid "TaskRemainingHours"
 msgstr "タスク残り時間"
 
-#: \views\elements\sprint_task.ctp:119
+#: \views\elements\sprint_task.ctp:111
 msgid "Sum"
 msgstr "合計"
+
+#: \views\elements\sprints.ctp:2
+msgid "Current %s"
+msgstr "現在の%s"
 
 #: \views\elements\sprints.ctp:2
 #: \views\layouts\default.ctp:45
@@ -310,10 +314,15 @@ msgstr "無効"
 
 #: \views\layouts\default.ctp:25
 msgid "phpmyscrum"
-msgstr "PHPMｙScrum"
+msgstr "PHPMyScrum"
 
-#: \views\layouts\default.ctp:44;45;46
-#: \views\pages\manage.ctp:5
+#: \views\layouts\default.ctp:44
+#: \views\stories\index.ctp:12
+msgid "Product Backlog"
+msgstr "プロダクトバックログ"
+
+#: \views\layouts\default.ctp:45;46
+#: \views\pages\manage.ctp:8;14;20;26;32
 #: \views\priorities\add.ctp:3;4
 #: \views\priorities\admin_add.ctp:16;17
 #: \views\priorities\admin_edit.ctp:18;19
@@ -347,14 +356,14 @@ msgstr "PHPMｙScrum"
 #: \views\tasks\admin_index.ctp:68;70;72;74
 #: \views\tasks\admin_view.ctp:61;63;65;67;69
 #: \views\tasks\edit.ctp:4
-#: \views\teammembers\add.ctp:17;18;20
+#: \views\teammembers\add.ctp:3;4;6
 #: \views\teammembers\admin_add.ctp:17;18;20
 #: \views\teammembers\admin_edit.ctp:19;20;22
 #: \views\teammembers\admin_index.ctp:58;60
 #: \views\teammembers\admin_view.ctp:41;43;45
-#: \views\teammembers\edit.ctp:19;20;22
-#: \views\teammembers\index.ctp:58;60
-#: \views\teammembers\view.ctp:41;43;45
+#: \views\teammembers\edit.ctp:4;5;7
+#: \views\teammembers\index.ctp:4;6
+#: \views\teammembers\view.ctp:5;7;9
 #: \views\teams\add.ctp:3;4
 #: \views\teams\admin_add.ctp:17;18
 #: \views\teams\admin_edit.ctp:19;20
@@ -374,28 +383,8 @@ msgstr "PHPMｙScrum"
 msgid "List %s"
 msgstr "%sの一覧"
 
-#: \views\layouts\default.ctp:44
-#: \views\priorities\add.ctp:4
-#: \views\priorities\admin_add.ctp:17
-#: \views\priorities\admin_edit.ctp:19
-#: \views\priorities\admin_index.ctp:52
-#: \views\priorities\admin_view.ctp:38;43
-#: \views\priorities\view.ctp:43
-#: \views\sprints\storylist.ctp:58
-#: \views\stories\admin_add.ctp:19
-#: \views\stories\admin_edit.ctp:21
-#: \views\stories\admin_index.ctp:2
-#: \views\stories\admin_view.ctp:51
-#: \views\stories\edit.ctp:4
-#: \views\stories\index.ctp:12
-#: \views\tasks\admin_add.ctp:24
-#: \views\tasks\admin_edit.ctp:26
-#: \views\tasks\admin_index.ctp:70
-#: \views\tasks\admin_view.ctp:65
-msgid "Stories"
-msgstr "ストーリー"
-
 #: \views\layouts\default.ctp:47
+#: \views\pages\manage.ctp:3
 msgid "Manage"
 msgstr "管理"
 
@@ -403,7 +392,33 @@ msgstr "管理"
 msgid "Logout"
 msgstr "ログアウト"
 
-#: \views\pages\manage.ctp:4;6
+#: \views\pages\manage.ctp:6;8;9
+#: \views\tasks\admin_add.ctp:27
+#: \views\tasks\admin_edit.ctp:29
+#: \views\tasks\admin_index.ctp:73
+#: \views\tasks\admin_view.ctp:34;68
+#: \views\tasks\view.ctp:48
+#: \views\teammembers\add.ctp:7
+#: \views\teammembers\admin_add.ctp:21
+#: \views\teammembers\admin_edit.ctp:23
+#: \views\teammembers\admin_index.ctp:61
+#: \views\teammembers\admin_view.ctp:14;46
+#: \views\teammembers\edit.ctp:8
+#: \views\teammembers\index.ctp:7
+#: \views\teammembers\view.ctp:10;28
+#: \views\users\add.ctp:13
+#: \views\users\admin_add.ctp:4
+#: \views\users\admin_edit.ctp:4
+#: \views\users\admin_index.ctp:57
+#: \views\users\admin_view.ctp:2;49;50;52
+#: \views\users\edit.ctp:14
+#: \views\users\index.ctp:3
+#: \views\users\login.ctp:3;9
+#: \views\users\view.ctp:3;4;6;15
+msgid "User"
+msgstr "ユーザー"
+
+#: \views\pages\manage.ctp:9;15;21;27;33
 #: \views\priorities\add.ctp:5
 #: \views\priorities\admin_add.ctp:18
 #: \views\priorities\admin_edit.ctp:20
@@ -425,7 +440,7 @@ msgstr "ログアウト"
 #: \views\sprints\admin_view.ctp:52;54;105
 #: \views\sprints\edit.ctp:4
 #: \views\sprints\index.ctp:3;5
-#: \views\sprints\storylist.ctp:5;6;95
+#: \views\sprints\storylist.ctp:5;6
 #: \views\sprints\view.ctp:5;6
 #: \views\stories\add.ctp:4;5
 #: \views\stories\admin_add.ctp:21;23
@@ -442,14 +457,14 @@ msgstr "ログアウト"
 #: \views\tasks\admin_view.ctp:62;64;66;68;70;109
 #: \views\tasks\index.ctp:3
 #: \views\tasks\view.ctp:5
-#: \views\teammembers\add.ctp:19;21
+#: \views\teammembers\add.ctp:5;7
 #: \views\teammembers\admin_add.ctp:19;21
 #: \views\teammembers\admin_edit.ctp:21;23
 #: \views\teammembers\admin_index.ctp:57;59;61
 #: \views\teammembers\admin_view.ctp:42;44;46
-#: \views\teammembers\edit.ctp:21;23
-#: \views\teammembers\index.ctp:57;59;61
-#: \views\teammembers\view.ctp:42;44;46
+#: \views\teammembers\edit.ctp:6;8
+#: \views\teammembers\index.ctp:3;5;7
+#: \views\teammembers\view.ctp:6;8;10
 #: \views\teams\add.ctp:5
 #: \views\teams\admin_add.ctp:19
 #: \views\teams\admin_edit.ctp:21
@@ -470,7 +485,7 @@ msgstr "ログアウト"
 msgid "New %s"
 msgstr "%sの新規作成"
 
-#: \views\pages\manage.ctp:4
+#: \views\pages\manage.ctp:12;14;15
 #: \views\sprints\add.ctp:4
 #: \views\sprints\admin_add.ctp:4
 #: \views\sprints\admin_edit.ctp:4
@@ -490,46 +505,121 @@ msgstr "%sの新規作成"
 msgid "Sprint"
 msgstr "スプリント"
 
-#: \views\pages\manage.ctp:6
-#: \views\remaining_times\add.ctp:18
-#: \views\remaining_times\admin_add.ctp:18
-#: \views\remaining_times\admin_edit.ctp:20
-#: \views\remaining_times\admin_index.ctp:53
-#: \views\remaining_times\admin_view.ctp:9;34
-#: \views\remaining_times\edit.ctp:20
-#: \views\remaining_times\index.ctp:53
-#: \views\remaining_times\view.ctp:9;34
-#: \views\sprints\admin_add.ctp:21
-#: \views\sprints\admin_edit.ctp:23
-#: \views\sprints\admin_index.ctp:59
-#: \views\sprints\admin_view.ctp:54;105
-#: \views\sprints\edit.ctp:4
-#: \views\sprints\index.ctp:5
-#: \views\sprints\storylist.ctp:6;95
-#: \views\sprints\view.ctp:6
-#: \views\stories\add.ctp:5
-#: \views\stories\admin_add.ctp:23
-#: \views\stories\admin_edit.ctp:25
-#: \views\stories\admin_index.ctp:63
-#: \views\stories\admin_view.ctp:56;107
-#: \views\stories\edit.ctp:6
-#: \views\stories\index.ctp:7
-#: \views\stories\view.ctp:6
-#: \views\tasks\add.ctp:11
-#: \views\tasks\admin_add.ctp:4
-#: \views\tasks\admin_edit.ctp:4
-#: \views\tasks\admin_index.ctp:67
-#: \views\tasks\admin_view.ctp:2;59;60;62
-#: \views\tasks\edit.ctp:12
-#: \views\tasks\index.ctp:3
-#: \views\tasks\view.ctp:3;4;5;11
-#: \views\users\admin_add.ctp:21
-#: \views\users\admin_edit.ctp:23
-#: \views\users\admin_index.ctp:59
-#: \views\users\admin_view.ctp:54;107
-#: \views\users\view.ctp:9
-msgid "Task"
-msgstr "タスク"
+#: \views\pages\manage.ctp:18;20;21
+#: \views\priorities\add.ctp:13
+#: \views\priorities\admin_add.ctp:4
+#: \views\priorities\admin_edit.ctp:4
+#: \views\priorities\admin_index.ctp:51
+#: \views\priorities\admin_view.ctp:2;34;35;37
+#: \views\priorities\edit.ctp:12
+#: \views\priorities\index.ctp:3
+#: \views\priorities\view.ctp:3;4;6;12
+#: \views\stories\add.ctp:4
+#: \views\stories\admin_add.ctp:21
+#: \views\stories\admin_edit.ctp:23
+#: \views\stories\admin_index.ctp:61
+#: \views\stories\admin_view.ctp:24;54
+#: \views\stories\index.ctp:5
+#: \views\stories\view.ctp:40
+msgid "Priority"
+msgstr "優先順位"
+
+#: \views\pages\manage.ctp:24
+#: \views\stories\view.ctp:45
+#: \views\teammembers\add.ctp:5
+#: \views\teammembers\admin_add.ctp:19
+#: \views\teammembers\admin_edit.ctp:21
+#: \views\teammembers\admin_index.ctp:59
+#: \views\teammembers\admin_view.ctp:9;44
+#: \views\teammembers\edit.ctp:6
+#: \views\teammembers\index.ctp:5
+#: \views\teammembers\view.ctp:8;23
+#: \views\teams\add.ctp:13
+#: \views\teams\admin_add.ctp:4
+#: \views\teams\admin_edit.ctp:4
+#: \views\teams\admin_index.ctp:53
+#: \views\teams\admin_view.ctp:2;39;40;42
+#: \views\teams\edit.ctp:14
+#: \views\teams\index.ctp:3
+#: \views\teams\view.ctp:3;4;6;14
+msgid "Team"
+msgstr "チーム"
+
+#: \views\pages\manage.ctp:26;27
+#: \views\teammembers\add.ctp:4
+#: \views\teammembers\admin_add.ctp:18
+#: \views\teammembers\admin_edit.ctp:20
+#: \views\teammembers\admin_index.ctp:58
+#: \views\teammembers\admin_view.ctp:43
+#: \views\teammembers\edit.ctp:5
+#: \views\teammembers\index.ctp:4
+#: \views\teammembers\view.ctp:7
+#: \views\teams\add.ctp:3
+#: \views\teams\admin_add.ctp:17
+#: \views\teams\admin_edit.ctp:19
+#: \views\teams\admin_index.ctp:2
+#: \views\teams\admin_view.ctp:41
+#: \views\teams\edit.ctp:4
+#: \views\teams\index.ctp:11
+#: \views\teams\view.ctp:5
+msgid "Teams"
+msgstr "チーム"
+
+#: \views\pages\manage.ctp:30;33
+#: \views\teammembers\add.ctp:15
+#: \views\teammembers\admin_add.ctp:4
+#: \views\teammembers\admin_edit.ctp:4
+#: \views\teammembers\admin_index.ctp:57
+#: \views\teammembers\admin_view.ctp:2;39;40;42
+#: \views\teammembers\edit.ctp:16
+#: \views\teammembers\index.ctp:3
+#: \views\teammembers\view.ctp:3;4;6;16
+#: \views\teams\add.ctp:5
+#: \views\teams\admin_add.ctp:19
+#: \views\teams\admin_edit.ctp:21
+#: \views\teams\admin_index.ctp:55
+#: \views\teams\admin_view.ctp:44;87
+#: \views\teams\edit.ctp:6
+#: \views\teams\index.ctp:5
+#: \views\teams\view.ctp:8
+#: \views\users\add.ctp:5
+#: \views\users\admin_add.ctp:23
+#: \views\users\admin_edit.ctp:25
+#: \views\users\admin_index.ctp:61
+#: \views\users\admin_view.ctp:56;151
+#: \views\users\edit.ctp:6
+#: \views\users\index.ctp:5
+#: \views\users\view.ctp:8
+msgid "Teammember"
+msgstr "チームメンバー"
+
+#: \views\pages\manage.ctp:32
+#: \views\teammembers\add.ctp:3
+#: \views\teammembers\admin_add.ctp:17
+#: \views\teammembers\admin_edit.ctp:19
+#: \views\teammembers\admin_index.ctp:2
+#: \views\teammembers\admin_view.ctp:41
+#: \views\teammembers\edit.ctp:4
+#: \views\teammembers\index.ctp:13
+#: \views\teammembers\view.ctp:5
+#: \views\teams\add.ctp:4
+#: \views\teams\admin_add.ctp:18
+#: \views\teams\admin_edit.ctp:20
+#: \views\teams\admin_index.ctp:54
+#: \views\teams\admin_view.ctp:43;48
+#: \views\teams\edit.ctp:5
+#: \views\teams\index.ctp:4
+#: \views\teams\view.ctp:7;49
+#: \views\users\add.ctp:4
+#: \views\users\admin_add.ctp:22
+#: \views\users\admin_edit.ctp:24
+#: \views\users\admin_index.ctp:60
+#: \views\users\admin_view.ctp:55;112
+#: \views\users\edit.ctp:5
+#: \views\users\index.ctp:4
+#: \views\users\view.ctp:7;113
+msgid "Teammembers"
+msgstr "チームメンバー"
 
 #: \views\priorities\add.ctp:3
 #: \views\priorities\admin_add.ctp:16
@@ -547,6 +637,25 @@ msgstr "タスク"
 #: \views\stories\index.ctp:4
 msgid "Priorities"
 msgstr "優先順位"
+
+#: \views\priorities\add.ctp:4
+#: \views\priorities\admin_add.ctp:17
+#: \views\priorities\admin_edit.ctp:19
+#: \views\priorities\admin_index.ctp:52
+#: \views\priorities\admin_view.ctp:38;43
+#: \views\priorities\view.ctp:43
+#: \views\sprints\storylist.ctp:58
+#: \views\stories\admin_add.ctp:19
+#: \views\stories\admin_edit.ctp:21
+#: \views\stories\admin_index.ctp:2
+#: \views\stories\admin_view.ctp:51
+#: \views\stories\edit.ctp:4
+#: \views\tasks\admin_add.ctp:24
+#: \views\tasks\admin_edit.ctp:26
+#: \views\tasks\admin_index.ctp:70
+#: \views\tasks\admin_view.ctp:65
+msgid "Stories"
+msgstr "ストーリー"
 
 #: \views\priorities\add.ctp:5
 #: \views\priorities\admin_add.ctp:18
@@ -576,29 +685,11 @@ msgstr "ストーリー"
 #: \views\sprints\add.ctp:4
 #: \views\stories\add.ctp:12
 #: \views\tasks\add.ctp:11
-#: \views\teammembers\add.ctp:4
+#: \views\teammembers\add.ctp:15
 #: \views\teams\add.ctp:13
 #: \views\users\add.ctp:13
 msgid "Add %s"
 msgstr "%sを追加"
-
-#: \views\priorities\add.ctp:13
-#: \views\priorities\admin_add.ctp:4
-#: \views\priorities\admin_edit.ctp:4
-#: \views\priorities\admin_index.ctp:51
-#: \views\priorities\admin_view.ctp:2;34;35;37
-#: \views\priorities\edit.ctp:12
-#: \views\priorities\index.ctp:3
-#: \views\priorities\view.ctp:3;4;6;12
-#: \views\stories\add.ctp:4
-#: \views\stories\admin_add.ctp:21
-#: \views\stories\admin_edit.ctp:23
-#: \views\stories\admin_index.ctp:61
-#: \views\stories\admin_view.ctp:24;54
-#: \views\stories\index.ctp:5
-#: \views\stories\view.ctp:40
-msgid "Priority"
-msgstr "優先順位"
 
 #: \views\priorities\add.ctp:19
 #: \views\priorities\admin_add.ctp:10
@@ -620,10 +711,10 @@ msgstr "優先順位"
 #: \views\tasks\admin_add.ctp:15
 #: \views\tasks\admin_edit.ctp:16
 #: \views\tasks\edit.ctp:25
-#: \views\teammembers\add.ctp:11
+#: \views\teammembers\add.ctp:22
 #: \views\teammembers\admin_add.ctp:11
 #: \views\teammembers\admin_edit.ctp:12
-#: \views\teammembers\edit.ctp:12
+#: \views\teammembers\edit.ctp:24
 #: \views\teams\add.ctp:20
 #: \views\teams\admin_add.ctp:11
 #: \views\teams\admin_edit.ctp:12
@@ -661,7 +752,6 @@ msgstr ""
 #: \views\priorities\admin_index.ctp:29
 #: \views\priorities\admin_view.ctp:77
 #: \views\priorities\edit.ctp:3
-#: \views\priorities\index.ctp:36
 #: \views\priorities\view.ctp:77
 #: \views\remaining_times\admin_edit.ctp:17
 #: \views\remaining_times\admin_index.ctp:29
@@ -671,90 +761,66 @@ msgstr ""
 #: \views\sprints\admin_index.ctp:35
 #: \views\sprints\admin_view.ctp:96
 #: \views\sprints\edit.ctp:3
-#: \views\sprints\index.ctp:42
-#: \views\sprints\storylist.ctp:86
 #: \views\stories\admin_edit.ctp:20
 #: \views\stories\admin_index.ctp:37
 #: \views\stories\admin_view.ctp:98
 #: \views\stories\edit.ctp:3
-#: \views\stories\view.ctp:107
 #: \views\tasks\admin_edit.ctp:22
 #: \views\tasks\admin_index.ctp:45
 #: \views\tasks\admin_view.ctp:100
 #: \views\tasks\edit.ctp:3
-#: \views\tasks\index.ctp:55
 #: \views\teammembers\admin_edit.ctp:18
 #: \views\teammembers\admin_index.ctp:35
-#: \views\teammembers\edit.ctp:18
-#: \views\teammembers\index.ctp:35
+#: \views\teammembers\edit.ctp:3
 #: \views\teams\admin_edit.ctp:18
 #: \views\teams\admin_index.ctp:31
 #: \views\teams\admin_view.ctp:78
 #: \views\teams\edit.ctp:3
-#: \views\teams\index.ctp:40
 #: \views\teams\view.ctp:81
 #: \views\users\admin_edit.ctp:20
 #: \views\users\admin_index.ctp:35
 #: \views\users\admin_view.ctp:98;142
 #: \views\users\edit.ctp:3
-#: \views\users\index.ctp:46
-#: \views\users\view.ctp:105;141
 msgid "Delete"
 msgstr "削除"
 
 #: \views\priorities\admin_index.ctp:27
 #: \views\priorities\admin_view.ctp:75
-#: \views\priorities\index.ctp:34
 #: \views\priorities\view.ctp:75
 #: \views\remaining_times\admin_index.ctp:27
 #: \views\remaining_times\index.ctp:27
 #: \views\sprints\admin_index.ctp:33
 #: \views\sprints\admin_view.ctp:94
-#: \views\sprints\index.ctp:40
-#: \views\sprints\storylist.ctp:84
 #: \views\stories\admin_index.ctp:35
 #: \views\stories\admin_view.ctp:96
 #: \views\tasks\admin_index.ctp:43
 #: \views\tasks\admin_view.ctp:98
 #: \views\teammembers\admin_index.ctp:33
-#: \views\teammembers\index.ctp:33
 #: \views\teams\admin_index.ctp:29
 #: \views\teams\admin_view.ctp:76
-#: \views\teams\index.ctp:38
 #: \views\teams\view.ctp:79
 #: \views\users\admin_index.ctp:33
 #: \views\users\admin_view.ctp:96;140
-#: \views\users\index.ctp:44
-#: \views\users\view.ctp:139
 msgid "View"
 msgstr "閲覧"
 
 #: \views\priorities\admin_index.ctp:28
 #: \views\priorities\admin_view.ctp:76
-#: \views\priorities\index.ctp:35
 #: \views\priorities\view.ctp:76
 #: \views\remaining_times\admin_index.ctp:28
 #: \views\remaining_times\index.ctp:28
 #: \views\sprints\admin_index.ctp:34
 #: \views\sprints\admin_view.ctp:95
-#: \views\sprints\index.ctp:41
-#: \views\sprints\storylist.ctp:85
 #: \views\stories\admin_index.ctp:36
 #: \views\stories\admin_view.ctp:97
-#: \views\stories\view.ctp:106
 #: \views\tasks\admin_index.ctp:44
 #: \views\tasks\admin_view.ctp:99
-#: \views\tasks\index.ctp:54
 #: \views\teammembers\admin_index.ctp:34
-#: \views\teammembers\index.ctp:34
 #: \views\teams\admin_index.ctp:30
 #: \views\teams\admin_view.ctp:77
-#: \views\teams\index.ctp:39
 #: \views\teams\view.ctp:80
 #: \views\users\admin_index.ctp:34
 #: \views\users\admin_view.ctp:97;141
-#: \views\users\index.ctp:45
-#: \views\users\view.ctp:104;140
 msgid "Edit"
 msgstr "編集"
 
@@ -769,7 +835,7 @@ msgstr "編集"
 #: \views\tasks\admin_index.ctp:53
 #: \views\tasks\index.ctp:63
 #: \views\teammembers\admin_index.ctp:43
-#: \views\teammembers\index.ctp:43
+#: \views\teammembers\index.ctp:54
 #: \views\teams\admin_index.ctp:39
 #: \views\teams\index.ctp:48
 #: \views\users\admin_index.ctp:43
@@ -788,7 +854,7 @@ msgstr "全%pages%ページ中%page%ページを表示。全%count%件のレコ�
 #: \views\tasks\admin_index.ctp:58
 #: \views\tasks\index.ctp:68
 #: \views\teammembers\admin_index.ctp:48
-#: \views\teammembers\index.ctp:48
+#: \views\teammembers\index.ctp:59
 #: \views\teams\admin_index.ctp:44
 #: \views\teams\index.ctp:53
 #: \views\users\admin_index.ctp:48
@@ -807,7 +873,7 @@ msgstr "前へ"
 #: \views\tasks\admin_index.ctp:61
 #: \views\tasks\index.ctp:71
 #: \views\teammembers\admin_index.ctp:51
-#: \views\teammembers\index.ctp:51
+#: \views\teammembers\index.ctp:62
 #: \views\teams\admin_index.ctp:47
 #: \views\teams\index.ctp:56
 #: \views\users\admin_index.ctp:51
@@ -827,7 +893,7 @@ msgstr "次へ"
 #: \views\tasks\admin_view.ctp:4;78
 #: \views\tasks\view.ctp:13
 #: \views\teammembers\admin_view.ctp:4
-#: \views\teammembers\view.ctp:4
+#: \views\teammembers\view.ctp:18
 #: \views\teams\admin_view.ctp:4;52
 #: \views\teams\view.ctp:16;53
 #: \views\users\admin_view.ctp:4;64;116
@@ -859,7 +925,7 @@ msgstr "名称"
 #: \views\tasks\admin_view.ctp:39
 #: \views\tasks\view.ctp:54
 #: \views\teammembers\admin_view.ctp:19
-#: \views\teammembers\view.ctp:19
+#: \views\teammembers\view.ctp:33
 #: \views\teams\admin_view.ctp:19;55
 #: \views\teams\view.ctp:31;55
 #: \views\users\admin_view.ctp:29;71;119
@@ -879,7 +945,7 @@ msgstr "無効"
 #: \views\tasks\admin_view.ctp:44;81
 #: \views\tasks\view.ctp:60;78
 #: \views\teammembers\admin_view.ctp:29
-#: \views\teammembers\view.ctp:29
+#: \views\teammembers\view.ctp:43
 #: \views\teams\admin_view.ctp:24;57
 #: \views\teams\view.ctp:36;59
 #: \views\users\admin_view.ctp:34;72;121
@@ -897,7 +963,7 @@ msgstr "作成日"
 #: \views\tasks\admin_view.ctp:49
 #: \views\tasks\view.ctp:65
 #: \views\teammembers\admin_view.ctp:24
-#: \views\teammembers\view.ctp:24
+#: \views\teammembers\view.ctp:38
 #: \views\teams\admin_view.ctp:29;56
 #: \views\teams\view.ctp:41;57
 #: \views\users\admin_view.ctp:39;73;120
@@ -922,8 +988,8 @@ msgstr "更新日"
 #: \views\tasks\edit.ctp:12
 #: \views\tasks\view.ctp:3
 #: \views\teammembers\admin_view.ctp:39
-#: \views\teammembers\edit.ctp:4
-#: \views\teammembers\view.ctp:39
+#: \views\teammembers\edit.ctp:16
+#: \views\teammembers\view.ctp:3
 #: \views\teams\admin_view.ctp:39
 #: \views\teams\edit.ctp:14
 #: \views\teams\view.ctp:3
@@ -945,7 +1011,7 @@ msgstr "%sを編集"
 #: \views\tasks\admin_view.ctp:60
 #: \views\tasks\view.ctp:4
 #: \views\teammembers\admin_view.ctp:40
-#: \views\teammembers\view.ctp:40
+#: \views\teammembers\view.ctp:4
 #: \views\teams\admin_view.ctp:40
 #: \views\teams\view.ctp:4
 #: \views\users\admin_view.ctp:50
@@ -964,7 +1030,7 @@ msgstr "%sを削除"
 #: \views\users\admin_view.ctp:60;112
 #: \views\users\view.ctp:62;113
 msgid "Related %s"
-msgstr "関連"
+msgstr "関連する%s"
 
 #: \views\priorities\admin_view.ctp:49
 #: \views\priorities\view.ctp:49
@@ -1024,6 +1090,46 @@ msgstr "残り時間"
 #: \views\tasks\view.ctp:73
 msgid "Remaining Times"
 msgstr "残り時間"
+
+#: \views\remaining_times\add.ctp:18
+#: \views\remaining_times\admin_add.ctp:18
+#: \views\remaining_times\admin_edit.ctp:20
+#: \views\remaining_times\admin_index.ctp:53
+#: \views\remaining_times\admin_view.ctp:9;34
+#: \views\remaining_times\edit.ctp:20
+#: \views\remaining_times\index.ctp:53
+#: \views\remaining_times\view.ctp:9;34
+#: \views\sprints\admin_add.ctp:21
+#: \views\sprints\admin_edit.ctp:23
+#: \views\sprints\admin_index.ctp:59
+#: \views\sprints\admin_view.ctp:54;105
+#: \views\sprints\edit.ctp:4
+#: \views\sprints\index.ctp:5
+#: \views\sprints\storylist.ctp:6
+#: \views\sprints\view.ctp:6
+#: \views\stories\add.ctp:5
+#: \views\stories\admin_add.ctp:23
+#: \views\stories\admin_edit.ctp:25
+#: \views\stories\admin_index.ctp:63
+#: \views\stories\admin_view.ctp:56;107
+#: \views\stories\edit.ctp:6
+#: \views\stories\index.ctp:7
+#: \views\stories\view.ctp:6
+#: \views\tasks\add.ctp:11
+#: \views\tasks\admin_add.ctp:4
+#: \views\tasks\admin_edit.ctp:4
+#: \views\tasks\admin_index.ctp:67
+#: \views\tasks\admin_view.ctp:2;59;60;62
+#: \views\tasks\edit.ctp:12
+#: \views\tasks\index.ctp:3
+#: \views\tasks\view.ctp:3;4;5;11
+#: \views\users\admin_add.ctp:21
+#: \views\users\admin_edit.ctp:23
+#: \views\users\admin_index.ctp:59
+#: \views\users\admin_view.ctp:54;107
+#: \views\users\view.ctp:9
+msgid "Task"
+msgstr "タスク"
 
 #: \views\remaining_times\admin_view.ctp:14
 #: \views\remaining_times\view.ctp:14
@@ -1095,38 +1201,18 @@ msgstr "このスプリントのストーリー"
 msgid "Burndown"
 msgstr "バーンダウン"
 
-#: \views\stories\view.ctp:45
-#: \views\teammembers\add.ctp:19
-#: \views\teammembers\admin_add.ctp:19
-#: \views\teammembers\admin_edit.ctp:21
-#: \views\teammembers\admin_index.ctp:59
-#: \views\teammembers\admin_view.ctp:9;44
-#: \views\teammembers\edit.ctp:21
-#: \views\teammembers\index.ctp:59
-#: \views\teammembers\view.ctp:9;44
-#: \views\teams\add.ctp:13
-#: \views\teams\admin_add.ctp:4
-#: \views\teams\admin_edit.ctp:4
-#: \views\teams\admin_index.ctp:53
-#: \views\teams\admin_view.ctp:2;39;40;42
-#: \views\teams\edit.ctp:14
-#: \views\teams\index.ctp:3
-#: \views\teams\view.ctp:3;4;6;14
-msgid "Team"
-msgstr "チーム"
-
 #: \views\tasks\admin_add.ctp:26
 #: \views\tasks\admin_edit.ctp:28
 #: \views\tasks\admin_index.ctp:72
 #: \views\tasks\admin_view.ctp:67
-#: \views\teammembers\add.ctp:20
+#: \views\teammembers\add.ctp:6
 #: \views\teammembers\admin_add.ctp:20
 #: \views\teammembers\admin_edit.ctp:22
 #: \views\teammembers\admin_index.ctp:60
 #: \views\teammembers\admin_view.ctp:45
-#: \views\teammembers\edit.ctp:22
-#: \views\teammembers\index.ctp:60
-#: \views\teammembers\view.ctp:45
+#: \views\teammembers\edit.ctp:7
+#: \views\teammembers\index.ctp:6
+#: \views\teammembers\view.ctp:9
 #: \views\users\add.ctp:3
 #: \views\users\admin_add.ctp:19
 #: \views\users\admin_edit.ctp:21
@@ -1138,31 +1224,6 @@ msgstr "チーム"
 msgid "Users"
 msgstr "ユーザー"
 
-#: \views\tasks\admin_add.ctp:27
-#: \views\tasks\admin_edit.ctp:29
-#: \views\tasks\admin_index.ctp:73
-#: \views\tasks\admin_view.ctp:34;68
-#: \views\tasks\view.ctp:48
-#: \views\teammembers\add.ctp:21
-#: \views\teammembers\admin_add.ctp:21
-#: \views\teammembers\admin_edit.ctp:23
-#: \views\teammembers\admin_index.ctp:61
-#: \views\teammembers\admin_view.ctp:14;46
-#: \views\teammembers\edit.ctp:23
-#: \views\teammembers\index.ctp:61
-#: \views\teammembers\view.ctp:14;46
-#: \views\users\add.ctp:13
-#: \views\users\admin_add.ctp:4
-#: \views\users\admin_edit.ctp:4
-#: \views\users\admin_index.ctp:57
-#: \views\users\admin_view.ctp:2;49;50;52
-#: \views\users\edit.ctp:14
-#: \views\users\index.ctp:3
-#: \views\users\login.ctp:3;9
-#: \views\users\view.ctp:3;4;6;15
-msgid "User"
-msgstr "ユーザー"
-
 #: \views\tasks\admin_view.ctp:79
 msgid "Task Id"
 msgstr "タスクID"
@@ -1170,79 +1231,6 @@ msgstr "タスクID"
 #: \views\tasks\view.ctp:43
 msgid "Resolution"
 msgstr "解決状況"
-
-#: \views\teammembers\add.ctp:4
-#: \views\teammembers\admin_add.ctp:4
-#: \views\teammembers\admin_edit.ctp:4
-#: \views\teammembers\admin_index.ctp:57
-#: \views\teammembers\admin_view.ctp:2;39;40;42
-#: \views\teammembers\edit.ctp:4
-#: \views\teammembers\index.ctp:57
-#: \views\teammembers\view.ctp:2;39;40;42
-#: \views\teams\add.ctp:5
-#: \views\teams\admin_add.ctp:19
-#: \views\teams\admin_edit.ctp:21
-#: \views\teams\admin_index.ctp:55
-#: \views\teams\admin_view.ctp:44;87
-#: \views\teams\edit.ctp:6
-#: \views\teams\index.ctp:5
-#: \views\teams\view.ctp:8
-#: \views\users\add.ctp:5
-#: \views\users\admin_add.ctp:23
-#: \views\users\admin_edit.ctp:25
-#: \views\users\admin_index.ctp:61
-#: \views\users\admin_view.ctp:56;151
-#: \views\users\edit.ctp:6
-#: \views\users\index.ctp:5
-#: \views\users\view.ctp:8
-msgid "Teammember"
-msgstr "チームメンバー"
-
-#: \views\teammembers\add.ctp:17
-#: \views\teammembers\admin_add.ctp:17
-#: \views\teammembers\admin_edit.ctp:19
-#: \views\teammembers\admin_index.ctp:2
-#: \views\teammembers\admin_view.ctp:41
-#: \views\teammembers\edit.ctp:19
-#: \views\teammembers\index.ctp:2
-#: \views\teammembers\view.ctp:41
-#: \views\teams\add.ctp:4
-#: \views\teams\admin_add.ctp:18
-#: \views\teams\admin_edit.ctp:20
-#: \views\teams\admin_index.ctp:54
-#: \views\teams\admin_view.ctp:43;48
-#: \views\teams\edit.ctp:5
-#: \views\teams\index.ctp:4
-#: \views\teams\view.ctp:7;49
-#: \views\users\add.ctp:4
-#: \views\users\admin_add.ctp:22
-#: \views\users\admin_edit.ctp:24
-#: \views\users\admin_index.ctp:60
-#: \views\users\admin_view.ctp:55;112
-#: \views\users\edit.ctp:5
-#: \views\users\index.ctp:4
-#: \views\users\view.ctp:7;113
-msgid "Teammembers"
-msgstr "チームメンバー"
-
-#: \views\teammembers\add.ctp:18
-#: \views\teammembers\admin_add.ctp:18
-#: \views\teammembers\admin_edit.ctp:20
-#: \views\teammembers\admin_index.ctp:58
-#: \views\teammembers\admin_view.ctp:43
-#: \views\teammembers\edit.ctp:20
-#: \views\teammembers\index.ctp:58
-#: \views\teammembers\view.ctp:43
-#: \views\teams\add.ctp:3
-#: \views\teams\admin_add.ctp:17
-#: \views\teams\admin_edit.ctp:19
-#: \views\teams\admin_index.ctp:2
-#: \views\teams\admin_view.ctp:41
-#: \views\teams\edit.ctp:4
-#: \views\teams\index.ctp:11
-#: \views\teams\view.ctp:5
-msgid "Teams"
-msgstr "チーム"
 
 #: \views\teams\admin_view.ctp:53
 #: \views\users\admin_view.ctp:117
@@ -1276,6 +1264,6 @@ msgstr ""
 
 #~ msgid "Storypoints"
 #~ msgstr "ストーリーポイント"
+
 #~ msgid "RemainingHours"
 #~ msgstr "残り時間"
-
