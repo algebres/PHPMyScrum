@@ -1,5 +1,5 @@
 <div class="sprints index">
-	<h2><?php __('Sprints');?></h2>
+	<h2><?php echo sprintf(__("Current %s", true), __('Sprints', true));?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php __('id');?></th>
