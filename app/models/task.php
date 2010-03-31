@@ -176,9 +176,16 @@ class Task extends AppModel {
 	function getUserTask($user_id)
 	{
 		$belongsto = $this->belongsTo;
+		$this->recursive = 2;
 		$this->belongsTo["Sprint"]["order"] = "Sprint.startdate asc";
 		$this->belongsTo["Story"]["order"] = "Story.id asc";
-		$record = $this->findAllByUserId($user_id);
+		$conditions = array(
+			'conditions' => array(
+				'Task.user_id' => $user_id,
+				'Task.disabled' => 0,
+			),
+		);
+		$record = $this->find('all', $conditions);
 		$this->belongsTo = $belongsto;
 		return $record;
 	}
