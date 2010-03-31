@@ -86,7 +86,8 @@ Event.observe(window, 'load', function() {
 <?php if($a["Story"]["id"] != $story_id) {
 	$story_id = $a["Story"]["id"];
 	$link = $html->url("/stories/view/" . $a["Story"]["id"]);
-	echo sprintf('<tr><td colspan="%d" class="story_bar"><a href="%s">%s</a></td></tr>', $day_count + 2, $link, $a["Story"]["name"]);
+	//$icon = $html->image('detail.png');
+	echo sprintf('<tr><th colspan="%d" class="story_bar"><br /><a href="%s">%s</a></th></tr>', $day_count + 2, $link, $a["Story"]["name"]);
 }
 ?>
 <tr>
