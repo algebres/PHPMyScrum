@@ -49,7 +49,7 @@
 				</ul>
 			</div>
 			<?php if($this->Session->check('Message')) { ?>
-			<div id="messagebox" style="position:absolute; top:135px; left:150px;">
+			<div id="messagebox">
 			<?php echo $this->Session->flash(); ?>
 			</div>
 			<?php } ?>

@@ -197,6 +197,10 @@ ul, li {
 	text-align: right;
 }
 
+div #messagebox {
+	position:absolute; top:135px; left:150px;
+}
+
 /** containers **/
 div.form,
 div.index,
