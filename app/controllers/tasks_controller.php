@@ -26,6 +26,11 @@ class TasksController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Task->create();
+			$resolution_id = $this->data["Task"]["resolution_id"];
+			if($this->Resolution->is_fixed($resolution_id))
+			{
+				$this->data["Task"]["estimate_hours"] = 0;
+			}
 			if ($this->Task->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
 				$id = $this->Task->getLastInsertID();
@@ -38,7 +43,8 @@ class TasksController extends AppController {
 		$sprints = $this->Sprint->getActiveSprintList();
 		$stories = $this->Story->getActiveStoryList();
 		$users = $this->User->getActiveUserList();
-		$this->set(compact('story_id', 'sprints', 'stories', 'users'));
+		$resolutions = $this->Resolution->find('list');
+		$this->set(compact('story_id', 'sprints', 'stories', 'users', 'resolutions'));
 	}
 
 	function edit($id = null) {
@@ -47,6 +53,12 @@ class TasksController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			$resolution_id = $this->data["Task"]["resolution_id"];
+			if($this->Resolution->is_fixed($resolution_id))
+			{
+				$this->data["Task"]["estimate_hours"] = 0;
+			}
+
 			if ($this->Task->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
 				$this->redirect(array('action' => 'index'));

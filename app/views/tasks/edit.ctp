@@ -17,8 +17,8 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('estimate_hours');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('resolution_id');
+		echo $this->Form->input('resolution_id', array('options' => $resolutions, 'empty' => ' '));
+		echo $this->Form->input('user_id', array('options' => $users, 'empty' => ' '));
 		echo $this->Form->input('disabled');
 	?>
 	</fieldset>

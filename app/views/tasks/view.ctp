@@ -40,16 +40,23 @@
 			<?php echo $task['Task']['estimate_hours']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Resolution'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $task['Resolution']['name']; ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
 			&nbsp;
 		</dd>
+		<?php if(0) { ?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Disabled'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $task['Task']['disabled']; ?>
 			&nbsp;
 		</dd>
+		<?php } ?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $task['Task']['created']; ?>
@@ -63,7 +70,7 @@
 	</dl>
 </div>
 <div class="related">
-	<h3><?php printf(__('Related %s', true), __('Remaining Times', true));?></h3>
+	<h3><?php __('Remaining Times');?></h3>
 	<?php if (!empty($task['RemainingTime'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -79,8 +86,8 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $remainingTime['hours'];?></td>
 			<td><?php echo $remainingTime['created'];?></td>
+			<td><?php echo $remainingTime['hours'];?></td>
 		</tr>
 	<?php endforeach; ?>
 	</table>

@@ -32,5 +32,17 @@ class Resolution extends AppModel {
 		)
 	);
 
+	function is_fixed($id)
+	{
+		$record = $this->findById($id);
+		if($record)
+		{
+			return ($record["Resolution"]["is_fixed"] == 1);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 ?>

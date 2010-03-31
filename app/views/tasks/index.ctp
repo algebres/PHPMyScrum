@@ -15,6 +15,7 @@
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('estimate_hours');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
+			<th><?php echo $this->Paginator->sort('resolution_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<?php if(0) { ?>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
@@ -41,6 +42,9 @@
 		<td><?php echo $task['Task']['estimate_hours']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $task['Resolution']['name']; ?>
 		</td>
 		<td><?php echo date('Y-m-d', strtotime($task['Task']['created'])); ?>&nbsp;</td>
 		<?php if(0) { ?>
