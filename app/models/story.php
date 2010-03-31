@@ -109,6 +109,20 @@ class Story extends AppModel {
 		return $this->find('list', $conditions);
 	}
 
+	/**
+	 * 指定したストーリーは有効なタスクと紐付いているか
+	 */
+	function hasActiveTasks($id)
+	{
+		$this->recursive = 1;
+		$has_many = $this->hasMany;
+		$this->hasMany["Task"]["conditions"] = "Task.disabled = 0";
+		$record = $this->read(null, $id);
+		$this->hasMany = $has_many;	// 元に戻す
+		return (count($record["Task"]) != 0); 
+	}
+
+
 
 }
 ?>

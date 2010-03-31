@@ -26,20 +26,6 @@ class SprintsController extends AppController {
 		$this->set('sprint_calendar', $this->Sprint->getSprintCalendar($sprint["Sprint"]["id"]));
 
 		$sprint_remaining_hours = $this->Sprint->getSprintRemainingHours($id);
-/**
-		// 取り出したデータをストーリーの優先順位、IDをキーにして並べなおす
-		function storysort($a, $b)
-		{
-			if ($a["story_id"] > $b["story_id"]) {
-				return true;
-			} else if ($a["story_id"] < $b["story_id"]) {
-				return false;
-			} else {
-				return $a["id"] > $b["id"];
-			}
-		}
-		$sprint_remaining_hours = usort($sprint_remaining_hours, 'storysort');
-**/
 		$this->set('sprint_remaining_hours', $sprint_remaining_hours);
 
 	}
@@ -89,14 +75,21 @@ class SprintsController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'sprint'));
-			$this->redirect(array('action'=>'index'));
+			$this->_redirect(array('action'=>'index'));
 		}
+		// 関連するものがあるか確認
+		if($this->Sprint->hasActiveStoriesAndTask($id))
+		{
+			$this->Session->setFlash(sprintf(__('%s has related records', true), 'Sprint'));
+			$this->_redirect(array('action'=>'index'));
+		}
+
 		if ($this->Sprint->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Sprint'));
-			$this->redirect(array('action'=>'index'));
+			$this->_redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Sprint'));
-		$this->redirect(array('action' => 'index'));
+		$this->_redirect(array('action' => 'index'));
 	}
 	function admin_index() {
 		$this->Sprint->recursive = 0;

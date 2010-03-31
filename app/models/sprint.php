@@ -230,5 +230,20 @@ class Sprint extends AppModel {
 		}
 		return $cal;
 	}
+
+	/**
+	 * 指定したスプリントに関連するストーリーとタスクがあるか
+	 */
+	function hasActiveStoriesAndTask($id)
+	{
+		$this->recursive = 1;
+		$has_many = $this->hasMany;
+		$this->hasMany["Story"]["conditions"] = "Story.disabled = 0";
+		$this->hasMany["Task"]["conditions"] = "Story.disabled = 0";
+		$record = $this->read(null, $id);
+		$this->hasMany = $has_many;	// 元に戻す
+		return (count($record["Story"]) != 0 || count($record["Task"]) != 0); 
+	}
+
 }
 ?>

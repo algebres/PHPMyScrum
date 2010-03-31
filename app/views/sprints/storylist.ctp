@@ -95,7 +95,7 @@
 			<td class="actions">
 				<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'stories', 'action' => 'view', $story['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'stories', 'action' => 'edit', $story['id']), array('escape' => false)); ?>
-				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'stories', 'action' => 'delete', $story['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $story['id'])); ?>
+				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'stories', 'action' => 'delete', $story['id'], '?' => array('return_url' => urlencode($html->url('/sprints/storylist/' .$sprint['Sprint']['id'])))), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $story['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

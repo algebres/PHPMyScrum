@@ -114,5 +114,22 @@ class AppController extends Controller {
 			return FALSE;
 		}
 	}
+
+	/**
+	 * 引数にreturn_urlがついていた場合はそちらを優先する
+	 */
+	function _redirect($url) 
+	{
+		$return_url = @$this->params['url']['return_url'];
+		if ($return_url != "")
+		{
+			$this->redirect(urldecode($return_url));
+		}
+		else
+		{
+			$this->redirect($url);
+		}
+	}
+
 }
 ?>

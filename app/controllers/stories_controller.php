@@ -68,16 +68,24 @@ class StoriesController extends AppController {
 	}
 
 	function delete($id = null) {
+
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'story'));
-			$this->redirect(array('action'=>'index'));
+			$this->_redirect(array('action'=>'index'));
 		}
+
+		// 関連するタスクがあるかチェック
+		if($this->Story->hasActiveTasks($id)) {
+			$this->Session->setFlash(sprintf(__('%s has related records', true), 'priority'));
+			$this->_redirect(array('action'=>'index'));
+		}
+
 		if ($this->Story->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Story'));
-			$this->redirect(array('action'=>'index'));
+			$this->_redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Story'));
-		$this->redirect(array('action' => 'index'));
+		$this->_redirect(array('action' => 'index'));
 	}
 	function admin_index() {
 		$this->Story->recursive = 0;
