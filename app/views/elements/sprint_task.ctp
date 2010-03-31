@@ -70,7 +70,7 @@ Event.observe(window, 'load', function() {
 <div class="linechart" id="linechart" style="width:800px;height:240px"></div>
 
 <div class="fakeContainer">
-<table id="fixtable">
+<table id="fixtable" cellpadding = "0" cellspacing = "0">
 <tr>
 <th colspan="2"><?php __('TaskRemainingHours'); ?></th>
 <?php // ‰¡Ž²‚Ì“ú•t‚ð‘‚­ ?>
