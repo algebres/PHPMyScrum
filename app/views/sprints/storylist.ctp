@@ -8,7 +8,7 @@
 </div>
 
 <div class="sprints view">
-<h2><?php  __('Sprint');?></h2>
+<h2><?php  __('Sprint');?>&nbsp;#<?php echo $sprint['Sprint']['id']; ?>&nbsp;<?php echo $sprint['Sprint']['name']; ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -62,6 +62,8 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('StoryPoints'); ?></th>
+		<th><?php printf(__('Count of %s', true), __('Tasks', true)); ?></th>
+		<th><?php printf(__('Sum of %s', true), __('Remaining Hours', true)); ?></th>
 		<th><?php __('Created'); ?></th>
 		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
@@ -78,6 +80,16 @@
 			<td><?php echo $story['id'];?></td>
 			<td><?php echo $story['name'];?></td>
 			<td><?php echo $story['storypoints'];?></td>
+			<td><?php echo count($story["Task"]); ?></td>
+			<td>
+			<?php
+				$sum = 0; 
+				foreach($story["Task"] as $task) {
+					$sum += $task["estimate_hours"];
+				}
+			?>
+			<?php echo $sum; ?>
+			</td>
 			<td><?php echo $story['created'];?></td>
 			<td><?php echo $story['updated'];?></td>
 			<td class="actions">

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-01 04:44+0900\n"
+"POT-Creation-Date: 2010-04-01 05:08+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -93,7 +93,7 @@ msgid "Your %s"
 msgstr ""
 
 #: \views\elements\my_task.ctp:2
-#: \views\layouts\default.ctp:46
+#: \views\layouts\default.ctp:43
 #: \views\remaining_times\add.ctp:17
 #: \views\remaining_times\admin_add.ctp:17
 #: \views\remaining_times\admin_edit.ctp:19
@@ -107,6 +107,7 @@ msgstr ""
 #: \views\sprints\admin_index.ctp:58
 #: \views\sprints\admin_view.ctp:53;58
 #: \views\sprints\index.ctp:4
+#: \views\sprints\storylist.ctp:65
 #: \views\stories\admin_add.ctp:22
 #: \views\stories\admin_edit.ctp:24
 #: \views\stories\admin_index.ctp:62
@@ -185,7 +186,7 @@ msgstr ""
 #: \views\sprints\admin_index.ctp:13;55
 #: \views\sprints\admin_view.ctp:47;72
 #: \views\sprints\index.ctp:21
-#: \views\sprints\storylist.ctp:67
+#: \views\sprints\storylist.ctp:69
 #: \views\stories\admin_add.ctp:16
 #: \views\stories\admin_edit.ctp:17
 #: \views\stories\admin_index.ctp:13;57
@@ -236,7 +237,7 @@ msgstr ""
 #: \views\sprints\admin_view.ctp:50;96
 #: \views\sprints\edit.ctp:3
 #: \views\sprints\index.ctp:42
-#: \views\sprints\storylist.ctp:4;86
+#: \views\sprints\storylist.ctp:4;98
 #: \views\sprints\view.ctp:4
 #: \views\stories\admin_edit.ctp:20
 #: \views\stories\admin_index.ctp:37
@@ -284,7 +285,7 @@ msgid "Current %s"
 msgstr ""
 
 #: \views\elements\sprints.ctp:2
-#: \views\layouts\default.ctp:45
+#: \views\layouts\default.ctp:42
 #: \views\sprints\admin_add.ctp:19
 #: \views\sprints\admin_edit.ctp:21
 #: \views\sprints\admin_index.ctp:2
@@ -313,16 +314,16 @@ msgstr ""
 msgid "disabled"
 msgstr ""
 
-#: \views\layouts\default.ctp:25
+#: \views\layouts\default.ctp:24
 msgid "phpmyscrum"
 msgstr ""
 
-#: \views\layouts\default.ctp:44
+#: \views\layouts\default.ctp:41
 #: \views\stories\index.ctp:12
 msgid "Product Backlog"
 msgstr ""
 
-#: \views\layouts\default.ctp:45;46
+#: \views\layouts\default.ctp:42;43
 #: \views\pages\manage.ctp:8;14;20;26;32
 #: \views\priorities\add.ctp:3;4
 #: \views\priorities\admin_add.ctp:16;17
@@ -384,12 +385,12 @@ msgstr ""
 msgid "List %s"
 msgstr ""
 
-#: \views\layouts\default.ctp:47
+#: \views\layouts\default.ctp:44
 #: \views\pages\manage.ctp:3
 msgid "Manage"
 msgstr ""
 
-#: \views\layouts\default.ctp:48
+#: \views\layouts\default.ctp:45
 msgid "Logout"
 msgstr ""
 
@@ -939,7 +940,7 @@ msgstr ""
 #: \views\remaining_times\admin_view.ctp:19
 #: \views\remaining_times\view.ctp:19
 #: \views\sprints\admin_view.ctp:34;70
-#: \views\sprints\storylist.ctp:38;65
+#: \views\sprints\storylist.ctp:38;67
 #: \views\sprints\view.ctp:39
 #: \views\stories\admin_view.ctp:34;72
 #: \views\stories\view.ctp:57;80
@@ -957,7 +958,7 @@ msgstr ""
 #: \views\priorities\admin_view.ctp:24;54
 #: \views\priorities\view.ctp:34;54
 #: \views\sprints\admin_view.ctp:39;71
-#: \views\sprints\storylist.ctp:43;66
+#: \views\sprints\storylist.ctp:43;68
 #: \views\sprints\view.ctp:44
 #: \views\stories\admin_view.ctp:39;73
 #: \views\stories\view.ctp:62;82
@@ -1192,6 +1193,18 @@ msgstr ""
 
 #: \views\sprints\storylist.ctp:64
 msgid "StoryPoints"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:65
+msgid "Count of %s"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:66
+msgid "Sum of %s"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:66
+msgid "Remaining Hours"
 msgstr ""
 
 #: \views\sprints\view.ctp:7

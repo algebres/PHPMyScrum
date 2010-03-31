@@ -21,10 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php __('phpmyscrum'); ?>
-		<?php echo $title_for_layout; ?>
-	</title>
+	<title><?php echo __($title_for_layout); ?> | <?php __('phpmyscrum'); ?></title>
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -58,7 +55,7 @@
 
 		</div>
 		<div id="footer">
-		<p>&copy;2010 Ryuzee all rights reserved.</p>
+		<p>Copyright &copy; <?php echo date('Y'); ?> Ryuzee, Licensed under GPL3.</p>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
