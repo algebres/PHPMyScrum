@@ -16,9 +16,9 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('storypoints');
 		echo $this->Form->input('businessvalue');
-		echo $this->Form->input('sprint_id');
-		echo $this->Form->input('priority_id');
-		echo $this->Form->input('team_id');
+		echo $this->Form->input('priority_id', array('options' => $priorities, 'empty' => ' '));
+		echo $this->Form->input('sprint_id', array('options' => $sprints, 'empty' => ' '));
+		echo $this->Form->input('team_id', array('options' => $teams, 'empty' => ' '));
 		echo $this->Form->input('disabled');
 	?>
 	</fieldset>
