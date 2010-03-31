@@ -48,7 +48,11 @@
 					<li><a href="<?php echo $html->url("/users/logout"); ?>"><?php __('Logout'); ?></a> </li>
 				</ul>
 			</div>
+			<?php if($this->Session->check('Message')) { ?>
+			<div id="messagebox" style="position:absolute; top:135px; left:150px;">
 			<?php echo $this->Session->flash(); ?>
+			</div>
+			<?php } ?>
 
 			<?php echo $content_for_layout; ?>
 
