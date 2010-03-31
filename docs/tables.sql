@@ -45,7 +45,7 @@ CREATE TABLE `remaining_times` (
   `hours` int(11) NOT NULL COMMENT 'hours',
   `created` date NOT NULL COMMENT 'created',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `stories` (
   `created` datetime DEFAULT NULL COMMENT 'created',
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `tasks` (
   `created` datetime DEFAULT NULL COMMENT 'created',
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -197,4 +197,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-03-31  4:47:58
+-- Dump completed on 2010-03-31 10:18:52
