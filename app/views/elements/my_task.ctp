@@ -40,8 +40,8 @@
 		<td><?php echo date('Y-m-d', strtotime($task['Task']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
 		<td class="actions">
-			<?php echo $this->ScrumHtml->link('edit.png', null, "/tasks/edit/" . $task['Task']['id']); ?>
-			<?php echo $this->ScrumHtml->link('delete.png', null, "/tasks/delete/" . $task['Task']['id'], sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?>
+			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $task['Task']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $task['Task']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

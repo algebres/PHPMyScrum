@@ -30,9 +30,10 @@
 		<td><?php echo $sprint['Sprint']['created']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['updated']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('controller' => 'sprints' , 'action' => 'view', $sprint['Sprint']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('controller' => 'sprints' , 'action' => 'edit', $sprint['Sprint']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('controller' => 'sprints' , 'action' => 'delete', $sprint['Sprint']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $sprint['Sprint']['id'])); ?>
+			<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'sprints', 'action' => 'view', $sprint['Sprint']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'sprints', 'action' => 'edit', $sprint['Sprint']['id']), array('escape' => false)); ?>
+			<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'sprints', 'action' => 'delete', $sprint['Sprint']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $sprint['Sprint']['id'])); ?>
+
 		</td>
 	</tr>
 <?php endforeach; ?>

@@ -58,6 +58,7 @@
 
 		</div>
 		<div id="footer">
+		<p>&copy;2010 Ryuzee all rights reserved.</p>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
