@@ -76,6 +76,23 @@ class TasksController extends AppController {
 		$this->set(compact('sprints', 'stories', 'users', 'resolutions'));
 	}
 
+	function done($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'task'));
+			$this->_redirect(array('action'=>'index'));
+		}
+		$data = $this->Task->read(null, $id);
+		$data["Task"]["resolution_id"] = 1;
+		$data["Task"]["estimate_hours"] = 0;
+		if ($this->Task->save($data)) {
+			$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
+			$this->_redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
+			$this->_redirect(array('action' => 'index'));
+		}
+	}
+
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'task'));
