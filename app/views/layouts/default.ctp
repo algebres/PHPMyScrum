@@ -36,7 +36,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><a href="<?php $html->url('/'); ?>"><?php echo $html->image('logo.png'); ?></a></h1>
+			<h1><a href="<?php echo $html->url('/users/dashboard'); ?>"><?php echo $html->image('logo.png'); ?></a></h1>
 		</div>
 		<div id="content">
 			<div id="gnavi">

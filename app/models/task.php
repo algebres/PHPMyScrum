@@ -88,6 +88,13 @@ class Task extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Resolution' => array(
+			'className' => 'Resolution',
+			'foreignKey' => 'resolution_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
@@ -161,6 +168,19 @@ class Task extends AppModel {
 			'RemainingTime.task_id' => $task_id,
 		);
 		$this->RemainingTime->deleteAll($conditions, false);
+	}
+
+	/**
+	 * Ž©•ª‚Ìƒ^ƒXƒN‚ðŽæ“¾
+	 */
+	function getUserTask($user_id)
+	{
+		$belongsto = $this->belongsTo;
+		$this->belongsTo["Sprint"]["order"] = "Sprint.startdate asc";
+		$this->belongsTo["Story"]["order"] = "Story.id asc";
+		$record = $this->findAllByUserId($user_id);
+		$this->belongsTo = $belongsto;
+		return $record;
 	}
 }
 ?>

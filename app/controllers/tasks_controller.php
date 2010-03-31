@@ -3,7 +3,7 @@ class TasksController extends AppController {
 
 	var $name = 'Tasks';
 	var $components = array('Session');
-	var $uses = array('Task', 'User', 'Sprint', 'Story');
+	var $uses = array('Task', 'User', 'Sprint', 'Story', 'Resolution');
 
 	function index() {
 		$this->Task->recursive = 0;
@@ -60,7 +60,8 @@ class TasksController extends AppController {
 		$sprints = $this->Sprint->getActiveSprintList();
 		$stories = $this->Story->getActiveStoryList();
 		$users = $this->User->getActiveUserList();
-		$this->set(compact('sprints', 'stories', 'users'));
+		$resolutions = $this->Resolution->find('list');
+		$this->set(compact('sprints', 'stories', 'users', 'resolutions'));
 	}
 
 	function delete($id = null) {

@@ -4,7 +4,7 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	var $components = array('Session');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
-	var $uses = array('User', 'Sprint');
+	var $uses = array('User', 'Sprint', 'Task');
 
 	//ログイン処理
 	function login(){
@@ -43,7 +43,8 @@ class UsersController extends AppController {
 		$this->set('users', $this->paginate());
 		$sprints = $this->Sprint->getCurrentSprint();
 		$this->set('sprints', $sprints);
-
+		$tasks = $this->Task->getUserTask($this->Auth->user('id'));
+		$this->set('tasks', $tasks);
 	}
 
 	function index() {
