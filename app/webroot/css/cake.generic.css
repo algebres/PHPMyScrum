@@ -277,8 +277,8 @@ td.actions {
 	white-space: nowrap;
 }
 table td.actions a {
-	margin: 0px 6px;
-	padding:2px 5px;
+/**	margin: 0px 6px;
+	padding:2px 5px; **/
 }
 td.summary {
 	background: #cccccc;
@@ -519,8 +519,9 @@ div.actions ul li a:hover {
 }
 
 input[type=submit],
-div.actions ul li a,
-td.actions a {
+div.actions ul li a
+/** ,td.actions a **/
+{
 	font-weight:normal;
 	padding: 4px 8px;
 	background:#e6e49f;

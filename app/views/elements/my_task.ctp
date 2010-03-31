@@ -40,8 +40,8 @@
 		<td><?php echo date('Y-m-d', strtotime($task['Task']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $task['Task']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $task['Task']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?>
+			<a href="<?php echo $html->url("/tasks/edit/" . $task['Task']['id']); ?>"><?php echo $html->image('edit.png'); ?></a>
+			<a href="<?php echo $html->url(array('controller' => "tasks", 'action' => "delete", $task['Task']['id'])); ?>" onclick="return confirm('<?php echo sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id']); ?>');"><?php echo $this->Html->image('delete.png'); ?></a>
 		</td>
 	</tr>
 <?php endforeach; ?>
