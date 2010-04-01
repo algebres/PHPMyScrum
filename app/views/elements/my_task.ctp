@@ -30,7 +30,10 @@
 		<td>
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
 		</td>
-		<td><span><script type="text/javascript">var hb = new HelpBalloon({dataURL:'/tasks/view/<?php echo $task['Task']['id']; ?>/format:ajax'});</script></span><?php echo $task['Task']['name']; ?>&nbsp;</td>
+		<td>
+		<?php echo $this->Html->link($html->image('info.png'), array('controller' => 'tasks', 'action' => 'view', $task['Task']['id']), array('escape' => false)); ?>
+		<?php echo $task['Task']['name']; ?>&nbsp;
+		</td>
 		<td><?php echo $task['Task']['estimate_hours']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
@@ -48,19 +51,3 @@
 <?php endforeach; ?>
 	</table>
 </div>
-
-<!--
-<span class="i"><script type="text/javascript">var hb2 = new HelpBalloon({dataURL:'/tasks/view/1/format:ajax'});</script></span>
--->
-
-<script type="text/javascript">
-	function showTask(id)
-	{
-		<?php
-		echo sprintf('var url = "%s";', $html->url(array('controller' => 'tasks', 'action' => 'view')));
-		?>
-		url += "/" + id + "/format:ajax";
-		var hb = new HelpBalloon({ dataURL: url });
-		/** hb.show(); **/
-	}
-</script>

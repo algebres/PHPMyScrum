@@ -26,9 +26,11 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
 		echo $html->css('superTable');
+		//echo $html->css('lightbox');
 		echo $scripts_for_layout;
 		echo $javascript->link('prototype');
 		//echo $javascript->link('scriptaculous/scriptaculous');
+		//echo $javascript->link('lightbox/lightbox');
 		//echo $javascript->link('helpballoon/src/HelpBalloon');
 	?>
 <?php if(0) { ?>

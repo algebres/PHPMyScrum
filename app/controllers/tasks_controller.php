@@ -20,7 +20,20 @@ class TasksController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'task'));
 			$this->redirect(array('action' => 'index'));
 		}
+
 		$this->set('task', $this->Task->read(null, $id));
+
+		$format = $this->params['named']['format'];
+		if($format === "ajax")
+		{
+			Configure::write('debug', 0);
+			$this->layout = "ajax";
+			$this->render('ajax_view');
+		}
+		else
+		{
+			$this->render();
+		}
 	}
 
 	function add() {
