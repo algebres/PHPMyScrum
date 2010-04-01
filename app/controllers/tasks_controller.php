@@ -53,11 +53,13 @@ class TasksController extends AppController {
 			}
 		}
 		$story_id = @$this->params['named']['story_id'];
+		$sprint_id = @$this->params['named']['sprint_id'];
+
 		$sprints = $this->Sprint->getActiveSprintList();
 		$stories = $this->Story->getActiveStoryList();
 		$users = $this->User->getActiveUserList();
 		$resolutions = $this->Resolution->find('list');
-		$this->set(compact('story_id', 'sprints', 'stories', 'users', 'resolutions'));
+		$this->set(compact('story_id', 'sprint_id', 'sprints', 'stories', 'users', 'resolutions'));
 	}
 
 	function edit($id = null) {

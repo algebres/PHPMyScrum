@@ -3,7 +3,7 @@
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Story', true)), array('action' => 'edit', $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Story', true)), array('action' => 'delete', $story['Story']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add', 'story_id:' . $story['Story']['id']));?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add', 'story_id:' . $story['Story']['id'], 'sprint_id:' . $story['Story']['sprint_id']));?> </li>
 	</ul>
 </div>
 
@@ -74,8 +74,8 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Sprint'); ?></th>
 		<th><?php __('Name'); ?></th>
-		<th><?php __('Description'); ?></th>
 		<th><?php __('Estimate Hours'); ?></th>
+		<th><?php __('Resolution'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Created'); ?></th>
 		<?php if(0) { ?>
@@ -95,14 +95,16 @@
 			<td><?php echo $task['id'];?></td>
 			<td><?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['sprint_id']));?></td>
 			<td><?php echo $this->Html->link($task['name'], array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?></td>
-			<td><?php echo nl2br(h($task['description']));?></td>
 			<td><?php echo $task['estimate_hours'];?></td>
+			<td><?php echo $task['Resolution']["name"];?></td>
 			<td><?php echo $this->Html->link(@$task['User']['username'], array('controller' => 'users', 'action' => 'view', @$task['user_id']));?></td>
 			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
 			<?php if(0) { ?>
 			<td><?php echo $task['updated'];?></td>
 			<?php } ?>
 			<td class="actions">
+				<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['id'], '?' => array('return_url' => urlencode('/stories/view/' .$story['Story']['id'] ))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['id'])); ?>
+
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'tasks', 'action' => 'edit', $task['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'tasks', 'action' => 'delete', $task['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
 			</td>

@@ -10,7 +10,7 @@
 	<fieldset>
  		<legend><?php printf(__('Add %s', true), __('Task', true)); ?></legend>
 	<?php
-		echo $this->Form->input('sprint_id');
+		echo $this->Form->input('sprint_id', array('value' => $sprint_id));
 		echo $this->Form->input('story_id', array('value' => $story_id));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
