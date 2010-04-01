@@ -41,7 +41,7 @@ class Priority extends AppModel {
 			'className' => 'Story',
 			'foreignKey' => 'priority_id',
 			'dependent' => false,
-			'conditions' => '',
+			'conditions' => 'Story.disabled = 0',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
