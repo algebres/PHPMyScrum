@@ -291,12 +291,15 @@ table td.actions a {
 td.summary {
 	background: #cccccc;
 	font-weight : bold;
+	text-align:center;
 }
 td.past {
 	background: #ccffcc !important;
+	text-align:center;
 }
 td.future {
 	background: #dddddd !important;
+	text-align:center;
 }
 
 .cake-sql-log table {

@@ -183,8 +183,6 @@ class Sprint extends AppModel {
 		$calendar = $this->createCalendar($start_date, $end_date);
 		$today_key = date('Y-m-d');
 
-		//TODO:スプリント期間前で一番直近の入力時間を取得する
-
 		foreach($sprint["Task"] as $task)
 		{
 			$remaining = $task["RemainingTime"];
@@ -203,19 +201,46 @@ class Sprint extends AppModel {
 					}
 				}
 			}
+
+			//TODO:スプリント期間前で一番直近の入力時間を取得する
+			$recent_initial_hours = "";
+			$recent_initial_created = "";
+			foreach($remaining as $tmp)
+			{
+				if($tmp["created"] <= @$calendar[0])
+				{
+					if($recent_initial_hours == "")
+					{
+						$recent_initial_hours = $tmp["hours"];
+						$recent_initial_created = $tmp["created"];
+					}
+					else
+					{
+						if($tmp["created"] > $recent_initial_created)
+						{
+							$recent_initial_hours = $tmp["hours"];
+							$recent_initial_created = $tmp["created"];
+						}
+					}
+				}
+			}
+
 			// 空白の地点を埋める
 			for($i=1; $i<count($calendar); $i++)
 			{
 				$old_key = $calendar[$i-1];
 				$now_key = $calendar[$i];
-				//if($now_key <= $today_key)
-				//{
-					$old_remaining = $task["Hours"][$old_key];
-					if($task["Hours"][$now_key] === "")
-					{
-						$task["Hours"][$now_key] = $task["Hours"][$old_key];
-					}
-				//}
+				// 1日前の残り時間をチェック
+				if($i == 1 && $task["Hours"][$old_key] == "")
+				{
+					$task["Hours"][$old_key] = $recent_initial_hours;
+				}
+
+				// 埋める
+				if($task["Hours"][$now_key] === "")
+				{
+					$task["Hours"][$now_key] = $task["Hours"][$old_key];
+				}
 			}
 
 			$data[] = $task;
