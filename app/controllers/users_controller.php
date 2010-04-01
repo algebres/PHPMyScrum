@@ -43,7 +43,7 @@ class UsersController extends AppController {
 		$this->set('users', $this->paginate());
 		$sprints = $this->Sprint->getCurrentSprint();
 		$this->set('sprints', $sprints);
-		$tasks = $this->Task->getUserTask($this->Auth->user('id'));
+		$tasks = $this->Task->getUserTask($this->Auth->user('id'), false);
 		$this->set('tasks', $tasks);
 	}
 

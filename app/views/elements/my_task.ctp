@@ -1,5 +1,5 @@
 <div class="tasks index">
-	<h2><?php echo sprintf(__("Your %s", true), __('Tasks', true));?></h2>
+	<h2><?php echo sprintf(__("Your unfinished %s", true), __('Tasks', true));?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php __('id');?></th>

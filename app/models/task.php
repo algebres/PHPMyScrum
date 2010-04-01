@@ -173,12 +173,18 @@ class Task extends AppModel {
 	/**
 	 * 自分のタスクを取得
 	 */
-	function getUserTask($user_id)
+	function getUserTask($user_id, $include_finished = false)
 	{
 		$belongsto = $this->belongsTo;
-		$this->recursive = 2;
+		$this->recursive = 1;
 		$this->belongsTo["Sprint"]["order"] = "Sprint.startdate asc";
 		$this->belongsTo["Story"]["order"] = "Story.id asc";
+		// TODO:うまく動いていない。。。
+		if(!$include_finished)
+		{
+			$this->belongsTo["Resolution"]["conditions"] = "Resolution.is_fixed = 0";
+		}
+
 		$conditions = array(
 			'conditions' => array(
 				'Task.user_id' => $user_id,
