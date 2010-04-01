@@ -173,17 +173,12 @@ class Task extends AppModel {
 	/**
 	 * 自分のタスクを取得
 	 */
-	function getUserTask($user_id, $include_finished = false)
+	function getUserTask($user_id, $include_finished_data = false)
 	{
 		$belongsto = $this->belongsTo;
 		$this->recursive = 1;
 		$this->belongsTo["Sprint"]["order"] = "Sprint.startdate asc";
 		$this->belongsTo["Story"]["order"] = "Story.id asc";
-		// TODO:うまく動いていない。。。
-		if(!$include_finished)
-		{
-			$this->belongsTo["Resolution"]["conditions"] = "Resolution.is_fixed = 0";
-		}
 
 		$conditions = array(
 			'conditions' => array(
@@ -191,9 +186,22 @@ class Task extends AppModel {
 				'Task.disabled' => 0,
 			),
 		);
-		$record = $this->find('all', $conditions);
+		$records = $this->find('all', $conditions);
 		$this->belongsTo = $belongsto;
-		return $record;
+
+		// 完了済みを含めない場合は掃除
+		if(!$include_finished_data)
+		{
+			for($i=0; $i<count($records); $i++)
+			{
+				if($records[$i]["Resolution"]["is_fixed"] == 1)
+				{
+					unset($records[$i]);
+				}
+			}
+		}
+
+		return $records;
 	}
 }
 ?>
