@@ -87,8 +87,8 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $remainingTime['created'];?></td>
 			<td><?php echo $remainingTime['hours'];?></td>
+			<td><?php echo $remainingTime['created'];?></td>
 		</tr>
 	<?php endforeach; ?>
 	</table>

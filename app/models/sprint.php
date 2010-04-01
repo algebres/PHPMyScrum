@@ -183,9 +183,12 @@ class Sprint extends AppModel {
 		$calendar = $this->createCalendar($start_date, $end_date);
 		$today_key = date('Y-m-d');
 
+		//TODO:スプリント期間前で一番直近の入力時間を取得する
+
 		foreach($sprint["Task"] as $task)
 		{
 			$remaining = $task["RemainingTime"];
+			
 			// 日付キーで回す
 			for($i=0; $i<count($calendar); $i++)
 			{
