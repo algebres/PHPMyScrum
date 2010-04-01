@@ -202,5 +202,35 @@ class Task extends AppModel {
 		}
 		return $records;
 	}
+
+	/**
+	 * Excel•Û‘¶‚ÌƒTƒ“ƒvƒ‹ŽÀ‘•
+	 */
+	function saveToExcel($data, $filename)
+	{
+		Configure::write('debug', 0);
+		App::import(
+			'Vendor',
+			'Spreadsheet_Excel_Writer', 
+			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
+		);
+
+		$workbook = new Spreadsheet_Excel_Writer();
+		$workbook->send($filename);
+		$worksheet =& $workbook->addWorksheet('1');
+
+		$worksheet->write(0, 0, 'Name');
+		$worksheet->write(0, 1, 'Age');
+		$worksheet->write(1, 0, 'John Smith');
+		$worksheet->write(1, 1, 30);
+		$worksheet->write(2, 0, 'Johann Schmidt');
+		$worksheet->write(2, 1, 31);
+		$worksheet->write(3, 0, 'Juan Herrera');
+		$worksheet->write(3, 1, 32);
+
+		$workbook->close();
+		exit;
+	}
+
 }
 ?>

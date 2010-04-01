@@ -36,6 +36,12 @@ class TasksController extends AppController {
 		}
 	}
 
+	// Excelo—Í‚ÌƒTƒ“ƒvƒ‹À‘•
+	function output()
+	{
+		$this->Task->saveToExcel(null, 'aaa.xls');
+	}
+
 	function add() {
 		if (!empty($this->data)) {
 			$this->Task->create();
