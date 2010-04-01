@@ -3,6 +3,7 @@ class SprintsController extends AppController {
 
 	var $name = 'Sprints';
 	var $components = array('Session');
+	var $uses = array('Sprint', 'Story');
 
 	function index() {
 		$this->Sprint->recursive = 0;
@@ -37,6 +38,7 @@ class SprintsController extends AppController {
 		}
 		$this->Sprint->recursive = 2;	// story–¼“™
 		$sprint = $this->Sprint->read(null, $id);
+		$sprint = $this->Story->populate_data($sprint);
 		$this->set('sprint', $sprint);
 		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
 	}

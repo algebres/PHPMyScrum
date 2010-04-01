@@ -80,16 +80,8 @@
 			<td><?php echo $story['id'];?></td>
 			<td><?php echo $story['name'];?></td>
 			<td><?php echo $story['storypoints'];?></td>
-			<td><?php echo count($story["Task"]); ?></td>
-			<td>
-			<?php
-				$sum = 0; 
-				foreach($story["Task"] as $task) {
-					$sum += $task["estimate_hours"];
-				}
-			?>
-			<?php echo $sum; ?>
-			</td>
+			<td><?php echo $story['task_count']; ?></td>
+			<td><?php echo $story['total_hours']; ?></td>
 			<td><?php echo $story['created'];?></td>
 			<td><?php echo $story['updated'];?></td>
 			<td class="actions">

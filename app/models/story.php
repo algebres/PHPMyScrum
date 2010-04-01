@@ -97,7 +97,7 @@ class Story extends AppModel {
 	);
 
 	/**
-	 * 現在有効なストーリー
+	 * 現在有効なストーリーの名前をリストボックス用に取得
 	 */
 	function getActiveStoryList()
 	{
@@ -122,7 +122,26 @@ class Story extends AppModel {
 		return (count($record["Task"]) != 0); 
 	}
 
-
+	/**
+	 * 合計タスク数や合計残り時間を計算
+	 */
+	function populate_data($data)
+	{
+/**
+//foreachに変える
+		for($i=0; $i< count($data); $i++)
+		{
+			$data[$i]["Story"]["task_count"] = count($data[$i]["Task"]);
+			$sum = 0;
+			//foreach($data[$i]["Task"] as $task)
+			//{
+			//	$sum += $task["estimate_hours"];
+			//}
+			$data[$i]["Story"]["total_hours"] = $sum;
+		}
+**/
+		return $data;
+	}
 
 }
 ?>

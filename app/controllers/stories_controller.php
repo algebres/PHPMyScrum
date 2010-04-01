@@ -12,7 +12,7 @@ class StoriesController extends AppController {
 				'Story.disabled' => 0,
 			),
 		);
-		$this->set('stories', $this->paginate());
+		$this->set('stories', $this->Story->populate_data($this->paginate()));
 	}
 
 	function view($id = null) {

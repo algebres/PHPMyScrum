@@ -39,16 +39,8 @@
 		<td><?php echo $this->Html->link($story['Story']['id'], array('action' => 'view', $story['Story']['id'])); ?></td>
 		<td><?php echo $this->Html->link($story['Story']['name'], array('action' => 'view', $story['Story']['id'])); ?></td>
 		<td><?php echo $story['Story']['storypoints']; ?>&nbsp;</td>
-		<td><?php echo count($story["Task"]); ?></td>
-		<td>
-		<?php
-		$sum = 0;
-		foreach($story["Task"] as $t) {
-			$sum += $t["estimate_hours"];
-		}
-		echo $sum;
-		?>
-		</td>
+		<td><?php echo $story['Story']["task_count"]; ?></td>
+		<td><?php echo $story['Story']["total_hours"]; ?></td>
 		<td><?php echo $story['Story']['businessvalue']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($story['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $story['Sprint']['id'])); ?>
