@@ -21,7 +21,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Loginname'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['loginname']; ?>
+			<?php echo h($user['User']['loginname']); ?>
 			&nbsp;
 		</dd>
 		<?php if(0) { ?>
@@ -33,7 +33,7 @@
 		<?php } ?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Username'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['username']; ?>
+			<?php echo h($user['User']['username']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
@@ -95,7 +95,7 @@
 			<td><?php echo $task['description'];?></td>
 			<?php } ?>
 			<td><?php echo $task['estimate_hours'];?></td>
-			<td><?php echo $task['User']['username'];?></td>
+			<td><?php echo h($task['User']['username']);?></td>
 			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
 			<?php if(0) { ?>
 			<td><?php echo date('Y-m-d', strtotime($task['updated']));?></td>

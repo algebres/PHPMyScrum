@@ -9,7 +9,7 @@
 
 
 <div class="tasks view">
-<h2><?php  __('Task');?>&nbsp;#<?php echo $task['Task']['id']; ?>&nbsp;<?php echo $task['Task']['name']; ?></h2>
+<h2><?php  __('Task');?>&nbsp;#<?php echo $task['Task']['id']; ?>&nbsp;<?php echo h($task['Task']['name']); ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -28,12 +28,12 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $task['Task']['name']; ?>
+			<?php echo h($task['Task']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo nl2br($task['Task']['description']); ?>
+			<?php echo nl2br(h($task['Task']['description'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Estimate Hours'); ?></dt>

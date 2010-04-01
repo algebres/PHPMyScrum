@@ -30,8 +30,8 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $sprint['Sprint']['id']; ?>&nbsp;</td>
-		<td><?php echo $sprint['Sprint']['name']; ?>&nbsp;</td>
-		<td><?php echo $sprint['Sprint']['description']; ?>&nbsp;</td>
+		<td><?php echo h($sprint['Sprint']['name']); ?>&nbsp;</td>
+		<td><?php echo nl2br(h($sprint['Sprint']['description'])); ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['startdate']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['enddate']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['created']; ?>&nbsp;</td>

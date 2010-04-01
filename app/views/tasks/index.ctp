@@ -38,13 +38,13 @@
 		<td>
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
 		</td>
-		<td><?php echo $task['Task']['name']; ?>&nbsp;</td>
-		<td><?php echo $task['Task']['estimate_hours']; ?>&nbsp;</td>
+		<td><?php echo h($task['Task']['name']); ?>&nbsp;</td>
+		<td><?php echo h($task['Task']['estimate_hours']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $task['Resolution']['name']; ?>
+			<?php echo h($task['Resolution']['name']); ?>
 		</td>
 		<td><?php echo date('Y-m-d', strtotime($task['Task']['created'])); ?>&nbsp;</td>
 		<?php if(0) { ?>

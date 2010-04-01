@@ -26,7 +26,7 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $priority['Priority']['id']; ?>&nbsp;</td>
-		<td><?php echo $priority['Priority']['name']; ?>&nbsp;</td>
+		<td><?php echo h($priority['Priority']['name']); ?>&nbsp;</td>
 		<td><?php echo $priority['Priority']['disabled']; ?>&nbsp;</td>
 		<td><?php echo $priority['Priority']['created']; ?>&nbsp;</td>
 		<td><?php echo $priority['Priority']['updated']; ?>&nbsp;</td>

@@ -9,7 +9,7 @@
 
 
 <div class="priorities view">
-<h2><?php  __('Priority');?>&nbsp;#<?php echo $priority['Priority']['id']; ?>&nbsp;<?php echo $priority['Priority']['name']; ?></h2>
+<h2><?php  __('Priority');?>&nbsp;#<?php echo $priority['Priority']['id']; ?>&nbsp;<?php echo h($priority['Priority']['name']); ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -18,7 +18,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $priority['Priority']['name']; ?>
+			<?php echo h($priority['Priority']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Disabled'); ?></dt>
@@ -61,7 +61,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $story['id'];?></td>
-			<td><?php echo $story['name'];?></td>
+			<td><?php echo h($story['name']);?></td>
 			<td><?php echo $story['businessvalue'];?></td>
 			<td><?php echo $story['disabled'];?></td>
 			<td><?php echo date('Y-m-d', strtotime($story['created']));?></td>
