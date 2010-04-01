@@ -192,15 +192,14 @@ class Task extends AppModel {
 		// Š®—¹Ï‚İ‚ğŠÜ‚ß‚È‚¢ê‡‚Í‘|œ
 		if(!$include_finished_data)
 		{
-			for($i=0; $i<count($records); $i++)
+			for($i=count($records)-1; $i>=0; $i--)
 			{
-				if($records[$i]["Resolution"]["is_fixed"] == 1)
+				if($records[$i]["Resolution"]["is_fixed"] == true)
 				{
 					unset($records[$i]);
 				}
 			}
 		}
-
 		return $records;
 	}
 }
