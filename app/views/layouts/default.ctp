@@ -24,11 +24,28 @@
 	<title><?php echo __($title_for_layout); ?> | <?php __('phpmyscrum'); ?></title>
 	<?php
 		echo $this->Html->meta('icon');
-
 		echo $this->Html->css('cake.generic');
 		echo $html->css('superTable');
 		echo $scripts_for_layout;
+		echo $javascript->link('prototype');
+		//echo $javascript->link('scriptaculous/scriptaculous');
+		//echo $javascript->link('helpballoon/src/HelpBalloon');
 	?>
+<?php if(0) { ?>
+	<script type="text/javascript">
+	<!--
+	//
+	// Override the default settings to point to the parent directory
+	//
+	HelpBalloon.Options.prototype = Object.extend(HelpBalloon.Options.prototype, {
+		icon: '/img/info.png',
+		button: '/js/helpballoon/images/button.png',
+		balloonPrefix: '/js/helpballoon/images/balloon-'
+	});
+	
+	//-->
+	</script>
+<?php } ?>
 </head>
 <body>
 	<div id="container">
