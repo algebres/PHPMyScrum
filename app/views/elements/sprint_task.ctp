@@ -91,7 +91,7 @@ Event.observe(window, 'load', function() {
 ?>
 <tr>
 <td><?php echo $a["id"]; ?></td>
-<td><?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
+<td><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => $_SERVER['REQUEST_URI'])), array('escape' => false)); ?>&nbsp;<?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
 <?php 
 $today = date('Y-m-d');
 foreach($sprint_calendar as $cal) { 
