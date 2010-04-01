@@ -26,28 +26,9 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
 		echo $html->css('superTable');
-		//echo $html->css('lightbox');
 		echo $scripts_for_layout;
 		echo $javascript->link('prototype');
-		//echo $javascript->link('scriptaculous/scriptaculous');
-		//echo $javascript->link('lightbox/lightbox');
-		//echo $javascript->link('helpballoon/src/HelpBalloon');
 	?>
-<?php if(0) { ?>
-	<script type="text/javascript">
-	<!--
-	//
-	// Override the default settings to point to the parent directory
-	//
-	HelpBalloon.Options.prototype = Object.extend(HelpBalloon.Options.prototype, {
-		icon: '/img/info.png',
-		button: '/js/helpballoon/images/button.png',
-		balloonPrefix: '/js/helpballoon/images/balloon-'
-	});
-	
-	//-->
-	</script>
-<?php } ?>
 </head>
 <body>
 	<div id="container">

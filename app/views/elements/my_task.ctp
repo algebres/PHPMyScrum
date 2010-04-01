@@ -31,8 +31,7 @@
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
 		</td>
 		<td>
-		<?php echo $this->Html->link($html->image('info.png'), array('controller' => 'tasks', 'action' => 'view', $task['Task']['id']), array('escape' => false)); ?>
-		<?php echo $task['Task']['name']; ?>&nbsp;
+			<?php echo $this->Html->link($task['Task']['name'], array('controller' => 'tasks', 'action' => 'view', $task['Task']['id'])); ?>
 		</td>
 		<td><?php echo $task['Task']['estimate_hours']; ?>&nbsp;</td>
 		<td>
