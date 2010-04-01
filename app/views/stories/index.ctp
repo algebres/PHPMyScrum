@@ -14,7 +14,8 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th class="narrow"><?php echo $this->Paginator->sort('storypoints');?></th>
+			<th class="narrow"><?php echo $this->Paginator->sort(__('Story Points'), 'storypoints');?></th>
+			<th><?php echo sprintf(__('Count of %s', true), __('Tasks', true)); ?></th>
 			<th class="narrow"><?php echo $this->Paginator->sort('businessvalue');?></th>
 			<th><?php echo $this->Paginator->sort('sprint_id');?></th>
 			<th><?php echo $this->Paginator->sort('priority_id');?></th>
@@ -37,6 +38,7 @@
 		<td><?php echo $this->Html->link($story['Story']['id'], array('action' => 'view', $story['Story']['id'])); ?></td>
 		<td><?php echo $this->Html->link($story['Story']['name'], array('action' => 'view', $story['Story']['id'])); ?></td>
 		<td><?php echo $story['Story']['storypoints']; ?>&nbsp;</td>
+		<td><?php echo count($story["Task"]); ?></td>
 		<td><?php echo $story['Story']['businessvalue']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($story['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $story['Sprint']['id'])); ?>

@@ -6,7 +6,7 @@ class StoriesController extends AppController {
 	var $uses = array('Story', 'Sprint', 'Priority', 'Team');
 
 	function index() {
-		$this->Story->recursive = 0;
+		$this->Story->recursive = 1;
 		$this->paginate = array(
 			'conditions' => array(
 				'Story.disabled' => 0,
