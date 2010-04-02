@@ -5,13 +5,11 @@ class TasksController extends AppController {
 	var $components = array('Session');
 	var $uses = array('Task', 'User', 'Sprint', 'Story', 'Resolution');
 
+
 	function index() {
 		$this->Task->recursive = 0;
-		$this->paginate = array(
-			'conditions' => array(
-				'Task.disabled' => 0,
-			),
-		);
+		$param = @$this->params["named"]["filter"];
+		$this->paginate = $this->Task->getSelectConditon($param, $this->Auth->user('id'));
 		$this->set('tasks', $this->paginate());
 	}
 
@@ -39,11 +37,8 @@ class TasksController extends AppController {
 	// Excelo—Í
 	function output()
 	{
-		$conditions = array(
-			'conditions' => array(
-				'Task.disabled' => 0,
-			),
-		);
+		$param = @$this->params["named"]["filter"];
+		$conditions = $this->Task->getSelectConditon($param, $this->Auth->user('id'));
 		$data = $this->Task->find('all', $conditions);
 		$this->Task->saveToExcel($data, 'task.xls');
 	}

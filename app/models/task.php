@@ -263,5 +263,52 @@ class Task extends AppModel {
 		$workbook->close();
 		exit;
 	}
+
+	/**
+	 * ŒŸõðŒ
+	 */
+	function getSelectConditon($param, $user_id)
+	{
+		if ($param == "yours")
+		{
+			return array(
+				'conditions' => array(
+					'Task.disabled' => 0,
+					'Task.user_id' => $user_id,
+				),
+			);
+		}
+		if ($param == "unfinished")
+		{
+			return array(
+				'conditions' => array(
+					'Task.disabled' => 0,
+					'or' => array(
+						'Resolution.is_fixed !=' => 1,
+						'Task.resolution_id' => null,
+					),
+				),
+			);
+		}
+		if ($param == "your_unfinished")
+		{
+			return array(
+				'conditions' => array(
+					'Task.disabled' => 0,
+					'Task.user_id' => $user_id,
+					'or' => array(
+						'Resolution.is_fixed !=' => 1,
+						'Task.resolution_id' => null,
+					),
+				),
+			);
+		}
+		return array(
+				'conditions' => array(
+					'Task.disabled' => 0,
+				),
+		);
+	}
+
 }
 ?>

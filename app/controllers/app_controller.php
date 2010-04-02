@@ -63,8 +63,8 @@ class AppController extends Controller {
 
 	// 権限詳細チェック
 	function isAuthorized() {
-		$check = array('users', 'priorities', 'sprints', 'teams', 'teammembers');
-		if(in_array($this->controller, $check))
+		$check = array('UsersController', 'PrioritiesController', 'SprintsController', 'TeamsController', 'TeammembersController');
+		if(in_array(get_class($this), $check))
 		{
 			if ($this->action == 'delete') {
 				if ($this->Auth->user('admin') == 1) {
