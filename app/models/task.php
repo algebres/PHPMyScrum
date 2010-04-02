@@ -256,6 +256,5 @@ class Task extends AppModel {
 		$workbook->close();
 		exit;
 	}
-
 }
 ?>

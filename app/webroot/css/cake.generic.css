@@ -166,6 +166,10 @@ ul, li {
 	background-color: #888;
 }
 
+#snavi ul li.save a {
+	background-color: #359ed3 !important;
+}
+
 #gnavi ul li a:hover, #snavi ul li a:hover {
 	border-color: #ccc;
 	color: #333;

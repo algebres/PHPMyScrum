@@ -1,6 +1,7 @@
 <div id="snavi">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('action' => 'add')); ?></li>
+		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('Excel', true)), array('action' => 'output')); ?></li>
 	</ul>
 </div>
 

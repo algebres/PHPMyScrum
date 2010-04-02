@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-01 18:09+0900\n"
-"PO-Revision-Date: 2010-04-01 18:10+0900\n"
+"POT-Creation-Date: 2010-04-02 15:09+0900\n"
+"PO-Revision-Date: 2010-04-02 15:14+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,9 +15,9 @@ msgstr ""
 
 #: \controllers\priorities_controller.php:19;39;80;100
 #: \controllers\remaining_times_controller.php:14;36;73;95
-#: \controllers\sprints_controller.php:19;35;59;101;121
-#: \controllers\stories_controller.php:20;48;97;119
-#: \controllers\tasks_controller.php:20;65;128;152
+#: \controllers\sprints_controller.php:20;36;60;102;122
+#: \controllers\stories_controller.php:25;53;102;124
+#: \controllers\tasks_controller.php:20;74;137;161
 #: \controllers\teammembers_controller.php:14;37;75;98
 #: \controllers\teams_controller.php:14;35;70;90
 #: \controllers\users_controller.php:57;78;113;133
@@ -26,9 +26,9 @@ msgstr "%sは無効です"
 
 #: \controllers\priorities_controller.php:29;44;90;105
 #: \controllers\remaining_times_controller.php:24;41;83;100
-#: \controllers\sprints_controller.php:49;64;111;126
-#: \controllers\stories_controller.php:31;53;107;124
-#: \controllers\tasks_controller.php:48;76;101;138;157
+#: \controllers\sprints_controller.php:50;65;112;127
+#: \controllers\stories_controller.php:36;58;112;129
+#: \controllers\tasks_controller.php:55;85;110;147;166
 #: \controllers\teammembers_controller.php:24;42;85;103
 #: \controllers\teams_controller.php:25;40;80;95
 #: \controllers\users_controller.php:68;83;123;138
@@ -37,9 +37,9 @@ msgstr "%sを保存しました"
 
 #: \controllers\priorities_controller.php:32;47;93;108
 #: \controllers\remaining_times_controller.php:27;44;86;103
-#: \controllers\sprints_controller.php:52;67;114;129
-#: \controllers\stories_controller.php:35;56;110;127
-#: \controllers\tasks_controller.php:52;79;104;141;160
+#: \controllers\sprints_controller.php:53;68;115;130
+#: \controllers\stories_controller.php:40;61;115;132
+#: \controllers\tasks_controller.php:59;88;113;150;169
 #: \controllers\teammembers_controller.php:27;45;88;106
 #: \controllers\teams_controller.php:28;43;83;98
 #: \controllers\users_controller.php:71;86;126;141
@@ -48,9 +48,9 @@ msgstr "%sを保存できませんでした"
 
 #: \controllers\priorities_controller.php:57;118
 #: \controllers\remaining_times_controller.php:56;115
-#: \controllers\sprints_controller.php:77;139
-#: \controllers\stories_controller.php:73;139
-#: \controllers\tasks_controller.php:94;111;174
+#: \controllers\sprints_controller.php:78;140
+#: \controllers\stories_controller.php:78;144
+#: \controllers\tasks_controller.php:103;120;183
 #: \controllers\teammembers_controller.php:58;119
 #: \controllers\teams_controller.php:53;108
 #: \controllers\users_controller.php:96;151
@@ -58,16 +58,16 @@ msgid "Invalid id for %s"
 msgstr "%sの無効なID"
 
 #: \controllers\priorities_controller.php:62
-#: \controllers\sprints_controller.php:83
-#: \controllers\stories_controller.php:79
+#: \controllers\sprints_controller.php:84
+#: \controllers\stories_controller.php:84
 msgid "%s has related records"
 msgstr "関連するレコードがあるため削除できません"
 
 #: \controllers\priorities_controller.php:67;122
 #: \controllers\remaining_times_controller.php:60;119
-#: \controllers\sprints_controller.php:88;143
-#: \controllers\stories_controller.php:84;143
-#: \controllers\tasks_controller.php:115;178
+#: \controllers\sprints_controller.php:89;144
+#: \controllers\stories_controller.php:89;148
+#: \controllers\tasks_controller.php:124;187
 #: \controllers\teammembers_controller.php:62;123
 #: \controllers\teams_controller.php:57;112
 #: \controllers\users_controller.php:100;155
@@ -76,9 +76,9 @@ msgstr "%sを削除しました"
 
 #: \controllers\priorities_controller.php:70;125
 #: \controllers\remaining_times_controller.php:63;122
-#: \controllers\sprints_controller.php:91;146
-#: \controllers\stories_controller.php:87;146
-#: \controllers\tasks_controller.php:118;181
+#: \controllers\sprints_controller.php:92;147
+#: \controllers\stories_controller.php:92;151
+#: \controllers\tasks_controller.php:127;190
 #: \controllers\teammembers_controller.php:65;126
 #: \controllers\teams_controller.php:60;115
 #: \controllers\users_controller.php:103;158
@@ -89,9 +89,69 @@ msgstr "%sは削除できませんでした"
 msgid "You have finished to logout."
 msgstr "ログアウトしました"
 
+#: \models\story.php:169
+#: \views\sprints\storylist.ctp:65
+#: \views\stories\index.ctp:19
+msgid "Count of %s"
+msgstr "%s数"
+
+#: \models\story.php:169
+#: \views\remaining_times\add.ctp:18
+#: \views\remaining_times\admin_add.ctp:18
+#: \views\remaining_times\admin_edit.ctp:20
+#: \views\remaining_times\admin_index.ctp:53
+#: \views\remaining_times\admin_view.ctp:9;34
+#: \views\remaining_times\edit.ctp:20
+#: \views\remaining_times\index.ctp:53
+#: \views\remaining_times\view.ctp:9;34
+#: \views\sprints\admin_add.ctp:21
+#: \views\sprints\admin_edit.ctp:23
+#: \views\sprints\admin_index.ctp:59
+#: \views\sprints\admin_view.ctp:54;105
+#: \views\sprints\edit.ctp:4
+#: \views\sprints\index.ctp:5
+#: \views\sprints\storylist.ctp:6
+#: \views\sprints\view.ctp:6
+#: \views\stories\add.ctp:5
+#: \views\stories\admin_add.ctp:23
+#: \views\stories\admin_edit.ctp:25
+#: \views\stories\admin_index.ctp:63
+#: \views\stories\admin_view.ctp:56;107
+#: \views\stories\edit.ctp:6
+#: \views\stories\index.ctp:7
+#: \views\stories\view.ctp:6
+#: \views\tasks\add.ctp:11
+#: \views\tasks\admin_add.ctp:4
+#: \views\tasks\admin_edit.ctp:4
+#: \views\tasks\admin_index.ctp:67
+#: \views\tasks\admin_view.ctp:2;59;60;62
+#: \views\tasks\ajax_view.ctp:2
+#: \views\tasks\edit.ctp:12
+#: \views\tasks\index.ctp:3
+#: \views\tasks\view.ctp:3;4;5;6;12
+#: \views\users\admin_add.ctp:21
+#: \views\users\admin_edit.ctp:23
+#: \views\users\admin_index.ctp:59
+#: \views\users\admin_view.ctp:54;107
+#: \views\users\view.ctp:9
+msgid "Task"
+msgstr "タスク"
+
+#: \models\story.php:170
+#: \views\sprints\storylist.ctp:66
+#: \views\stories\index.ctp:20
+msgid "Sum of %s"
+msgstr "合計%s"
+
+#: \models\story.php:170
+#: \views\sprints\storylist.ctp:66
+#: \views\stories\index.ctp:20
+msgid "Remaining Hours"
+msgstr "残り時間"
+
 #: \views\elements\my_task.ctp:2
-msgid "Your %s"
-msgstr "あなたの%s"
+msgid "Your unfinished %s"
+msgstr "あなたの未完了%s"
 
 #: \views\elements\my_task.ctp:2
 #: \views\layouts\default.ctp:44
@@ -114,14 +174,14 @@ msgstr "あなたの%s"
 #: \views\stories\admin_index.ctp:62
 #: \views\stories\admin_view.ctp:55;60
 #: \views\stories\edit.ctp:5
-#: \views\stories\index.ctp:6;18
+#: \views\stories\index.ctp:6;19
 #: \views\stories\view.ctp:70
 #: \views\tasks\admin_add.ctp:21
 #: \views\tasks\admin_edit.ctp:23
 #: \views\tasks\admin_index.ctp:2
 #: \views\tasks\admin_view.ctp:61
 #: \views\tasks\edit.ctp:4
-#: \views\tasks\index.ctp:9
+#: \views\tasks\index.ctp:10
 #: \views\users\admin_add.ctp:20
 #: \views\users\admin_edit.ctp:22
 #: \views\users\admin_index.ctp:58
@@ -192,13 +252,13 @@ msgstr "更新日"
 #: \views\stories\admin_edit.ctp:17
 #: \views\stories\admin_index.ctp:13;57
 #: \views\stories\admin_view.ctp:47;74
-#: \views\stories\index.ctp:27
+#: \views\stories\index.ctp:29
 #: \views\stories\view.ctp:84
 #: \views\tasks\admin_add.ctp:18
 #: \views\tasks\admin_edit.ctp:19
 #: \views\tasks\admin_index.ctp:15;65
 #: \views\tasks\admin_view.ctp:57;82
-#: \views\tasks\index.ctp:23
+#: \views\tasks\index.ctp:24
 #: \views\teammembers\admin_add.ctp:14
 #: \views\teammembers\admin_edit.ctp:15
 #: \views\teammembers\admin_index.ctp:11;55
@@ -220,6 +280,8 @@ msgid "Actions"
 msgstr "操作"
 
 #: \views\elements\my_task.ctp:45
+#: \views\stories\view.ctp:106
+#: \views\tasks\index.ctp:55
 msgid "Are you sure you want to chage # %s to be finished?"
 msgstr "# %sを完了にしてよろしいですか？"
 
@@ -242,19 +304,19 @@ msgstr "# %sを完了にしてよろしいですか？"
 #: \views\sprints\admin_view.ctp:50;96
 #: \views\sprints\edit.ctp:3
 #: \views\sprints\index.ctp:42
-#: \views\sprints\storylist.ctp:4;98
+#: \views\sprints\storylist.ctp:4;96
 #: \views\sprints\view.ctp:4
 #: \views\stories\admin_edit.ctp:20
 #: \views\stories\admin_index.ctp:37
 #: \views\stories\admin_view.ctp:50;98
 #: \views\stories\edit.ctp:3
-#: \views\stories\index.ctp:58
-#: \views\stories\view.ctp:4;107
+#: \views\stories\index.ctp:61
+#: \views\stories\view.ctp:4;109
 #: \views\tasks\admin_edit.ctp:22
 #: \views\tasks\admin_index.ctp:45
 #: \views\tasks\admin_view.ctp:60;100
 #: \views\tasks\edit.ctp:3
-#: \views\tasks\index.ctp:55
+#: \views\tasks\index.ctp:57
 #: \views\tasks\view.ctp:5
 #: \views\teammembers\admin_edit.ctp:18
 #: \views\teammembers\admin_index.ctp:35
@@ -328,7 +390,7 @@ msgid "Dashboard"
 msgstr "ダッシュボード"
 
 #: \views\layouts\default.ctp:42
-#: \views\stories\index.ctp:12
+#: \views\stories\index.ctp:13
 msgid "Product Backlog"
 msgstr "プロダクトバックログ"
 
@@ -841,9 +903,9 @@ msgstr "編集"
 #: \views\sprints\admin_index.ctp:43
 #: \views\sprints\index.ctp:50
 #: \views\stories\admin_index.ctp:45
-#: \views\stories\index.ctp:66
+#: \views\stories\index.ctp:69
 #: \views\tasks\admin_index.ctp:53
-#: \views\tasks\index.ctp:63
+#: \views\tasks\index.ctp:65
 #: \views\teammembers\admin_index.ctp:43
 #: \views\teammembers\index.ctp:54
 #: \views\teams\admin_index.ctp:39
@@ -860,9 +922,9 @@ msgstr "全%pages%ページ中%page%ページを表示。全%count%件のレコ�
 #: \views\sprints\admin_index.ctp:48
 #: \views\sprints\index.ctp:55
 #: \views\stories\admin_index.ctp:50
-#: \views\stories\index.ctp:71
+#: \views\stories\index.ctp:74
 #: \views\tasks\admin_index.ctp:58
-#: \views\tasks\index.ctp:68
+#: \views\tasks\index.ctp:70
 #: \views\teammembers\admin_index.ctp:48
 #: \views\teammembers\index.ctp:59
 #: \views\teams\admin_index.ctp:44
@@ -879,9 +941,9 @@ msgstr "前へ"
 #: \views\sprints\admin_index.ctp:51
 #: \views\sprints\index.ctp:58
 #: \views\stories\admin_index.ctp:53
-#: \views\stories\index.ctp:74
+#: \views\stories\index.ctp:77
 #: \views\tasks\admin_index.ctp:61
-#: \views\tasks\index.ctp:71
+#: \views\tasks\index.ctp:73
 #: \views\teammembers\admin_index.ctp:51
 #: \views\teammembers\index.ctp:62
 #: \views\teams\admin_index.ctp:47
@@ -1052,7 +1114,7 @@ msgstr "関連する%s"
 #: \views\sprints\storylist.ctp:23
 #: \views\sprints\view.ctp:24
 #: \views\stories\admin_view.ctp:14;68
-#: \views\stories\view.ctp:25;77
+#: \views\stories\view.ctp:25
 #: \views\tasks\admin_view.ctp:24
 #: \views\tasks\ajax_view.ctp:24
 #: \views\tasks\view.ctp:34
@@ -1105,47 +1167,6 @@ msgstr "残り時間"
 msgid "Remaining Times"
 msgstr "残り時間"
 
-#: \views\remaining_times\add.ctp:18
-#: \views\remaining_times\admin_add.ctp:18
-#: \views\remaining_times\admin_edit.ctp:20
-#: \views\remaining_times\admin_index.ctp:53
-#: \views\remaining_times\admin_view.ctp:9;34
-#: \views\remaining_times\edit.ctp:20
-#: \views\remaining_times\index.ctp:53
-#: \views\remaining_times\view.ctp:9;34
-#: \views\sprints\admin_add.ctp:21
-#: \views\sprints\admin_edit.ctp:23
-#: \views\sprints\admin_index.ctp:59
-#: \views\sprints\admin_view.ctp:54;105
-#: \views\sprints\edit.ctp:4
-#: \views\sprints\index.ctp:5
-#: \views\sprints\storylist.ctp:6
-#: \views\sprints\view.ctp:6
-#: \views\stories\add.ctp:5
-#: \views\stories\admin_add.ctp:23
-#: \views\stories\admin_edit.ctp:25
-#: \views\stories\admin_index.ctp:63
-#: \views\stories\admin_view.ctp:56;107
-#: \views\stories\edit.ctp:6
-#: \views\stories\index.ctp:7
-#: \views\stories\view.ctp:6
-#: \views\tasks\add.ctp:11
-#: \views\tasks\admin_add.ctp:4
-#: \views\tasks\admin_edit.ctp:4
-#: \views\tasks\admin_index.ctp:67
-#: \views\tasks\admin_view.ctp:2;59;60;62
-#: \views\tasks\ajax_view.ctp:2
-#: \views\tasks\edit.ctp:12
-#: \views\tasks\index.ctp:3
-#: \views\tasks\view.ctp:3;4;5;6;12
-#: \views\users\admin_add.ctp:21
-#: \views\users\admin_edit.ctp:23
-#: \views\users\admin_index.ctp:59
-#: \views\users\admin_view.ctp:54;107
-#: \views\users\view.ctp:9
-msgid "Task"
-msgstr "タスク"
-
 #: \views\remaining_times\admin_view.ctp:14
 #: \views\remaining_times\view.ctp:14
 #: \views\tasks\admin_view.ctp:80
@@ -1181,7 +1202,7 @@ msgstr "ストーリーID"
 
 #: \views\sprints\admin_view.ctp:67
 #: \views\stories\admin_view.ctp:69
-#: \views\stories\view.ctp:78
+#: \views\stories\view.ctp:77
 #: \views\tasks\admin_view.ctp:29
 #: \views\tasks\ajax_view.ctp:29
 #: \views\tasks\view.ctp:39
@@ -1209,19 +1230,6 @@ msgstr "スプリント期間"
 msgid "StoryPoints"
 msgstr "ストーリーポイント"
 
-#: \views\sprints\storylist.ctp:65
-#: \views\stories\index.ctp:18
-msgid "Count of %s"
-msgstr "%s数"
-
-#: \views\sprints\storylist.ctp:66
-msgid "Sum of %s"
-msgstr "合計%s"
-
-#: \views\sprints\storylist.ctp:66
-msgid "Remaining Hours"
-msgstr "残り時間"
-
 #: \views\sprints\view.ctp:7
 msgid "Sprint Stories"
 msgstr "このスプリントのストーリー"
@@ -1230,9 +1238,25 @@ msgstr "このスプリントのストーリー"
 msgid "Burndown"
 msgstr "バーンダウン"
 
-#: \views\stories\index.ctp:17
+#: \views\stories\index.ctp:8
+#: \views\tasks\index.ctp:4
+msgid "Save to %s"
+msgstr "%s出力"
+
+#: \views\stories\index.ctp:8
+#: \views\tasks\index.ctp:4
+msgid "Excel"
+msgstr "Excel"
+
+#: \views\stories\index.ctp:18
 msgid "Story Points"
 msgstr "ストーリーポイント"
+
+#: \views\stories\view.ctp:78
+#: \views\tasks\ajax_view.ctp:34
+#: \views\tasks\view.ctp:44
+msgid "Resolution"
+msgstr "解決状況"
 
 #: \views\tasks\admin_add.ctp:26
 #: \views\tasks\admin_edit.ctp:28
@@ -1261,10 +1285,9 @@ msgstr "ユーザー"
 msgid "Task Id"
 msgstr "タスクID"
 
-#: \views\tasks\ajax_view.ctp:34
-#: \views\tasks\view.ctp:44
-msgid "Resolution"
-msgstr "解決状況"
+#: \views\tasks\index.ctp:10
+msgid "All %s"
+msgstr "全ての%s"
 
 #: \views\tasks\view.ctp:3
 msgid "Finish %s"
@@ -1300,6 +1323,8 @@ msgstr "メールアドレス"
 msgid "Debug setting does not allow access to this url."
 msgstr ""
 
+#~ msgid "Your %s"
+#~ msgstr "あなたの%s"
 #~ msgid "Storypoints"
 #~ msgstr "ストーリーポイント"
 

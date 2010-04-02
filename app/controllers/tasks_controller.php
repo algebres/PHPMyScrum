@@ -39,7 +39,12 @@ class TasksController extends AppController {
 	// Excelo—Í
 	function output()
 	{
-		$data = $this->Task->find('all');
+		$conditions = array(
+			'conditions' => array(
+				'Task.disabled' => 0,
+			),
+		);
+		$data = $this->Task->find('all', $conditions);
 		$this->Task->saveToExcel($data, 'task.xls');
 	}
 

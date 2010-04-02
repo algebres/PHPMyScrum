@@ -15,6 +15,16 @@ class StoriesController extends AppController {
 		$this->set('stories', $this->Story->populate_data($this->paginate()));
 	}
 
+	function output() {
+		$conditions = array(
+			'conditions' => array(
+				'Story.disabled' => 0,
+			),
+		);
+		$data = $this->Story->find('all', $conditions);
+		$this->Story->saveToExcel($this->Story->populate_data($data), 'backlog.xls');
+	}
+
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'story'));

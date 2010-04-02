@@ -143,5 +143,60 @@ class Story extends AppModel {
 		return $return;
 	}
 
+	/**
+	 * Excel保存
+	 */
+	function saveToExcel($data, $filename)
+	{
+		Configure::write('debug', 0);
+		App::import(
+			'Vendor',
+			'Spreadsheet_Excel_Writer', 
+			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
+		);
+
+		$workbook = new Spreadsheet_Excel_Writer();
+		$workbook->send($filename);
+		$worksheet =& $workbook->addWorksheet('story');
+		$format =& $workbook->addFormat();
+		$format->setSize(9);
+		$header_format =& $workbook->addFormat();
+		$header_format->setSize(9);
+		$header_format->setFgColor('gray');
+
+		// ヘッダー
+		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
+			sprintf(__('Count of %s', true), (__('Task', true))),  
+			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
+			'Businessvalue', 'Sprint', 'Created',
+		);
+		$row = 0;
+		$col = 0;
+		for($i = 0; $i < count($header); $i++)
+		{
+			$worksheet->write($row, $col, $this->sjis(__($header[$i], true)), $header_format);
+			$col++;
+		}
+
+		// データ
+		$row++;
+		foreach($data as $item)
+		{
+			$col = 0;
+			$worksheet->writeNumber($row, $col, $this->sjis($item["Story"]["id"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["name"]), $format);						$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["description"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["storypoints"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["task_count"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["total_hours"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["businessvalue"]), $format);				$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]), $format);						$col++;
+			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Story"]["created"])), $format);		$col++;
+			$row++;
+		}
+
+		$workbook->close();
+		exit;
+	}
 }
 ?>
