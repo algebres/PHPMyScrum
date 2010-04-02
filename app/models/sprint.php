@@ -282,6 +282,13 @@ class Sprint extends AppModel {
 			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
 		);
 
+		// 必要なデータを収集する
+		$this->recursive = 2;	// story名等
+		$sprint = $this->read(null, $id);
+		$sprint_term = $this->getSprintTerm($sprint["Sprint"]["id"]);
+		$sprint_calendar = $this->getSprintCalendar($sprint["Sprint"]["id"]);
+		$sprint_remaining_hours = $this->getSprintRemainingHours($id);
+
 		$workbook = new Spreadsheet_Excel_Writer();
 		$workbook->send($filename);
 		$worksheet =& $workbook->addWorksheet('sprint');
@@ -291,36 +298,48 @@ class Sprint extends AppModel {
 		$header_format->setSize(9);
 		$header_format->setFgColor('gray');
 
-		// ヘッダー
-		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description', 
-			'Estimate Hours', 'Username', 'Resolution', 'Created'
-		);
+		// 横軸カレンダー
+		$day_count = 0;
 		$row = 0;
-		$col = 0;
-		for($i = 0; $i < count($header); $i++)
-		{
-			$worksheet->write($row, $col, $this->sjis(__($header[$i], true)), $header_format);
+		$col = 0; 
+		$worksheet->write($row, $col, $this->sjis(__('Task', true)), $header_format);
+		$col++;
+		foreach($sprint_calendar as $cal) { 
+			$day_count++;
+			$worksheet->write($row, $col, date('d', strtotime($cal)), $header_format);
 			$col++;
 		}
 
-		// データ
+		// 日付と実績の幅を設定
+		$worksheet->setColumn(1, 1+$day_count, 3);
+
+		// 残り時間
 		$row++;
-/**
-		foreach($data as $item)
-		{
+		foreach($sprint_remaining_hours as $a) {
 			$col = 0;
-			$worksheet->writeNumber($row, $col, $this->sjis($item["Task"]["id"]), $format);					$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]), $format);					$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Story"]["name"]), $format);					$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Task"]["name"]), $format);						$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Task"]["description"]), $format);				$col++;
-			$worksheet->writeNumber($row, $col, $this->sjis($item["Task"]["estimate_hours"]), $format);		$col++;
-			$worksheet->write($row, $col, $this->sjis($item["User"]["username"]), $format);					$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Resolution"]["name"]), $format);				$col++;
-			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Task"]["created"])), $format);		$col++;
+			$worksheet->write($row, $col, $this->sjis($a["Story"]["name"]), $format);
+			$col++;
+			foreach($sprint_calendar as $cal) {
+				$worksheet->write($row, $col, $a["Hours"][$cal], $format);
+				$col++;
+			}
 			$row++;
 		}
-**/
+
+		// タスクの合計時間
+		$col = 0;
+		$worksheet->write($row, $col, $this->sjis(__('Sum', true)), $header_format);
+		$col++;
+		foreach($sprint_calendar as $cal) 
+		{
+			$sum = 0;
+			foreach($sprint_remaining_hours as $a) {
+				$sum += $a["Hours"][$cal];
+			}
+			$worksheet->write($row, $col, $sum, $header_format);
+			$col++;
+		}
+
 		$workbook->close();
 		exit;
 		
