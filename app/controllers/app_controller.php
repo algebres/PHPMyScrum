@@ -29,6 +29,8 @@ class AppController extends Controller {
 		}
 
 		if (isset($this->Auth)) {
+			//コントローラー側でさらに詳細を判別
+			$this->Auth->authorize = 'controller';
 			//ログインできるユーザの条件をデータベースのフィールドの値で指定
 			$this->Auth->userScope = array("User.disabled" => 0);
 			//ログイン処理を行うactionを指定（/users/loginがデフォルト）。
@@ -36,7 +38,7 @@ class AppController extends Controller {
 			//ログインが失敗した際のエラーメッセージ
 			$this->Auth->loginError = "ニックネームかパスワードが誤っているためログインできません";
 			//権限が無いactionを実行した際のエラーメッセージ
-			$this->Auth->authError = "ログインしてください";
+			$this->Auth->authError = "権限がありません";
 			//ログイン後にリダイレクトするURL
 			$this->Auth->loginRedirect = "/users/index";
 			//ユーザIDとパスワードがあるmodelを指定(’User’がデフォルト)
@@ -50,7 +52,22 @@ class AppController extends Controller {
 			$login_user = $this->Auth->User();
 			$this->set('login_user', $login_user['User']);
 		}
+	}
 
+	// 権限詳細チェック
+	function isAuthorized() {
+		$check = array('users', 'priorities', 'sprints', 'teams', 'teammembers');
+		if(in_array($this->controller, $check))
+		{
+			if ($this->action == 'delete') {
+				if ($this->Auth->user('admin') == 1) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	function beforeRender()

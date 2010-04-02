@@ -51,6 +51,7 @@
 			<?php if($this->Session->check('Message')) { ?>
 			<div id="messagebox">
 			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('auth'); ?>
 			</div>
 			<?php } ?>
 

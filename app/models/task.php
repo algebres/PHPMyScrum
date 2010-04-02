@@ -253,6 +253,13 @@ class Task extends AppModel {
 			$row++;
 		}
 
+		// â°ïùê›íË
+		$width = array(4, 14, 50, 50 ,50, 10, 10, 10, 10);
+		for($i = 0; $i<count($width); $i++)
+		{
+			$worksheet->setColumn($i, $i, $width[$i]);
+		}
+
 		$workbook->close();
 		exit;
 	}
