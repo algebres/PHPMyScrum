@@ -3,6 +3,7 @@ class AppController extends Controller {
 
 	var $components = array('Auth', 'Qdmail');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'ScrumHtml');
+	var $uses = array('User');
 
 	/**
 	 * 認証コンポーネント
@@ -23,9 +24,15 @@ class AppController extends Controller {
 
 	function beforeFilter()
 	{
+		$hasAdmin = $this->User->hasAdminUser();
+		$this->set('has_admin', $hasAdmin);
+
+		// UsersControllerの認証除外設定
 		if(get_class($this) == "UsersController"){
-			// UsersControllerの認証除外対象
-			$this->Auth->allow(array('add'));
+			if(!$hasAdmin)
+			{
+				$this->Auth->allow(array('add'));
+			}
 		}
 
 		if (isset($this->Auth)) {

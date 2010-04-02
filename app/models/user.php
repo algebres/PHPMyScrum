@@ -130,5 +130,35 @@ class User extends AppModel {
 		);
 		return $this->find('list', $conditions);
 	}
+
+	/**
+	 * 現在有効なユーザーがいるかどうか
+	 */
+	function hasActiveUser()
+	{
+		return (count($this->getActiveUserList()) > 0);
+	}
+
+	/**
+	 * 管理者ユーザー
+	 */
+	function getAdminUserList()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'User.disabled' => 0,
+				'User.admin' => 1,
+			),
+		);
+		return $this->find('list', $conditions);
+	}
+
+	/**
+	 * 管理者ユーザーがいるかどうか
+	 */
+	function hasAdminUser()
+	{
+		return (count($this->getAdminUserList()) > 0);
+	}
 }
 ?>

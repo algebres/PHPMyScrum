@@ -64,6 +64,9 @@ class UsersController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->User->create();
+			// まだ管理者がいない場合は強制的に管理者フラグをたてる
+			$this->data["User"]["admin"] = !$this->User->hasAdminUser();
+
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
 				$this->redirect(array('action' => 'index'));

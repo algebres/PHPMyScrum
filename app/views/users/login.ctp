@@ -1,9 +1,10 @@
+<?php if(!$has_admin) { ?>
 <div id="snavi">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?> </li>
 	</ul>
 </div>
-
+<?php } ?>
 
 <div class="users view">
 <h2><?php  __('User');?></h2>
