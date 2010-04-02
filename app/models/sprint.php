@@ -300,6 +300,10 @@ class Sprint extends AppModel {
 		$story_format =& $workbook->addFormat();
 		$story_format->setSize(9);
 		$story_format->setFgColor(38);
+		$footer_format =& $workbook->addFormat();
+		$footer_format->setSize(9);
+		$footer_format->setFgColor('gray');
+		$footer_format->setBold();
 
 		// ‰¡Ž²ƒJƒŒƒ“ƒ_[
 		$day_count = 0;
@@ -360,7 +364,7 @@ class Sprint extends AppModel {
 			foreach($sprint_remaining_hours as $a) {
 				$sum += $a["Hours"][$cal];
 			}
-			$worksheet->write($row, $col, $sum, $header_format);
+			$worksheet->write($row, $col, $sum, $footer_format);
 			$col++;
 		}
 
