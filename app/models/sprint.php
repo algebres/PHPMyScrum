@@ -297,11 +297,16 @@ class Sprint extends AppModel {
 		$header_format =& $workbook->addFormat();
 		$header_format->setSize(9);
 		$header_format->setFgColor('gray');
+		$story_format =& $workbook->addFormat();
+		$story_format->setSize(9);
+		$story_format->setFgColor(38);
 
 		// 横軸カレンダー
 		$day_count = 0;
 		$row = 0;
-		$col = 0; 
+		$col = 0;
+		$worksheet->write($row, $col, '', $header_format);
+		$col++;
 		$worksheet->write($row, $col, $this->sjis(__('Task', true)), $header_format);
 		$col++;
 		foreach($sprint_calendar as $cal) { 
@@ -310,15 +315,32 @@ class Sprint extends AppModel {
 			$col++;
 		}
 
+		// 幅
+		$worksheet->setColumn(0, 0, 3);
+		$worksheet->setColumn(1, 1, 40);
 		// 日付と実績の幅を設定
-		$worksheet->setColumn(1, 1+$day_count, 3);
+		$worksheet->setColumn(2, 2+$day_count, 3);
 
 		// 残り時間
 		$row++;
+		// 縦
+		$story_id = "";
 		foreach($sprint_remaining_hours as $a) {
+			if($a["Story"]["id"] != $story_id)
+			{
+				$col = 0;
+				$story_id = $a["Story"]["id"];
+				$worksheet->write($row, $col, $this->sjis($a["Story"]["name"]), $story_format);
+				// セル結合
+				$worksheet->mergeCells($row, 0, $row, 1 + $day_count);
+				$row++;
+			}
 			$col = 0;
-			$worksheet->write($row, $col, $this->sjis($a["Story"]["name"]), $format);
+			$worksheet->write($row, $col, $this->sjis($a["id"]), $format);
 			$col++;
+			$worksheet->write($row, $col, $this->sjis($a["name"]), $format);
+			$col++;
+			// 横
 			foreach($sprint_calendar as $cal) {
 				$worksheet->write($row, $col, $a["Hours"][$cal], $format);
 				$col++;
@@ -328,6 +350,8 @@ class Sprint extends AppModel {
 
 		// タスクの合計時間
 		$col = 0;
+		$worksheet->write($row, $col, '', $header_format);
+		$col++;
 		$worksheet->write($row, $col, $this->sjis(__('Sum', true)), $header_format);
 		$col++;
 		foreach($sprint_calendar as $cal) 
