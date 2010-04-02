@@ -45,7 +45,7 @@ class AppController extends Controller {
 			//ログインが失敗した際のエラーメッセージ
 			$this->Auth->loginError = "ニックネームかパスワードが誤っているためログインできません";
 			//権限が無いactionを実行した際のエラーメッセージ
-			$this->Auth->authError = "権限がありません";
+			$this->Auth->authError = __('You have no privileges', true);
 			//ログイン後にリダイレクトするURL
 			$this->Auth->loginRedirect = "/users/index";
 			//ユーザIDとパスワードがあるmodelを指定(’User’がデフォルト)

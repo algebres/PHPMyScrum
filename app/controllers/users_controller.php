@@ -81,6 +81,16 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
+
+		if(!$this->Auth->user('admin'))
+		{
+			if($id != $this->Auth->user('id'))
+			{
+				$this->Session->setFlash(__('You have no privileges', true));
+				$this->redirect(array('action' => 'index'));
+			}
+		}
+
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
@@ -99,6 +109,16 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'user'));
 			$this->redirect(array('action'=>'index'));
 		}
+
+		if(!$this->Auth->user('admin'))
+		{
+			if($id != $this->Auth->user('id'))
+			{
+				$this->Session->setFlash(__('You have no privileges', true));
+				$this->redirect(array('action' => 'index'));
+			}
+		}
+
 		if ($this->User->delete($id)) {
 			$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
 			$this->redirect(array('action'=>'index'));
