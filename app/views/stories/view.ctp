@@ -96,7 +96,7 @@
 			<td><?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['sprint_id']));?></td>
 			<td><?php echo $this->Html->link($task['name'], array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?></td>
 			<td><?php echo $task['estimate_hours'];?></td>
-			<td><?php echo $task['Resolution']["name"];?></td>
+			<td><?php echo @$task['Resolution']["name"];?></td>
 			<td><?php echo $this->Html->link(@$task['User']['username'], array('controller' => 'users', 'action' => 'view', @$task['user_id']));?></td>
 			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
 			<?php if(0) { ?>

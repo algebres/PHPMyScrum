@@ -204,7 +204,7 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * Excel保存のサンプル実装
+	 * Excel保存
 	 */
 	function saveToExcel($data, $filename)
 	{
@@ -218,22 +218,41 @@ class Task extends AppModel {
 		$workbook = new Spreadsheet_Excel_Writer();
 		$workbook->send($filename);
 		$worksheet =& $workbook->addWorksheet('task');
+		$format =& $workbook->addFormat();
+		$format->setSize(9);
+		$header_format =& $workbook->addFormat();
+		$header_format->setSize(9);
+		$header_format->setFgColor('gray');
 
+		// ヘッダー
+		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description', 
+			'Estimate Hours', 'Username', 'Resolution', 'Created'
+		);
 		$row = 0;
+		$col = 0;
+		for($i = 0; $i < count($header); $i++)
+		{
+			$worksheet->write($row, $col, $this->sjis(__($header[$i], true)), $header_format);
+			$col++;
+		}
+
+		// データ
+		$row++;
 		foreach($data as $item)
 		{
 			$col = 0;
-			$worksheet->write($row, $col, $this->sjis($item["Task"]["id"]));				$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]));			$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Story"]["name"]));				$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Task"]["name"]));				$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Task"]["description"]));		$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Task"]["estimate_hours"]));	$col++;
-			$worksheet->write($row, $col, $this->sjis($item["User"]["username"]));			$col++;
-			$worksheet->write($row, $col, $this->sjis($item["Resolution"]["name"]));		$col++;
-			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Task"]["created"])));	$col++;
+			$worksheet->writeNumber($row, $col, $this->sjis($item["Task"]["id"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["name"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["name"]), $format);						$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["description"]), $format);				$col++;
+			$worksheet->writeNumber($row, $col, $this->sjis($item["Task"]["estimate_hours"]), $format);		$col++;
+			$worksheet->write($row, $col, $this->sjis($item["User"]["username"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Resolution"]["name"]), $format);				$col++;
+			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Task"]["created"])), $format);		$col++;
 			$row++;
 		}
+
 		$workbook->close();
 		exit;
 	}

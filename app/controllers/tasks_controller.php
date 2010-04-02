@@ -23,7 +23,7 @@ class TasksController extends AppController {
 
 		$this->set('task', $this->Task->read(null, $id));
 
-		$format = $this->params['named']['format'];
+		$format = @$this->params['named']['format'];
 		if($format === "ajax")
 		{
 			Configure::write('debug', 0);
@@ -36,10 +36,10 @@ class TasksController extends AppController {
 		}
 	}
 
-	// Excel出力のサンプル実装
+	// Excel出力
 	function output()
 	{
-		$data = $this->paginate();
+		$data = $this->Task->find('all');
 		$this->Task->saveToExcel($data, 'task.xls');
 	}
 

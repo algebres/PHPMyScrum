@@ -39,7 +39,7 @@
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
 		</td>
 		<td><?php echo h($task['Task']['name']); ?>&nbsp;</td>
-		<td><?php echo h($task['Task']['estimate_hours']); ?>&nbsp;</td>
+		<td class="narrow"><?php echo h($task['Task']['estimate_hours']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>
 		</td>
