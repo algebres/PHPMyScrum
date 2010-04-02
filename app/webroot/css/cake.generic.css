@@ -106,11 +106,11 @@ ul, li {
 	text-decoration: underline;
 }
 
-#header div#logout {
-	text-decoration:underline;
-	color: #fff !important;
-	margin-left: 920px;
-	margin-top : -20px;
+
+#header div#userinfo {
+	height : 30px;
+	margin-left: 850px;
+	margin-top : -30px;
 }
 
 #gnavi {
