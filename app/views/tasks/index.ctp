@@ -11,7 +11,25 @@
 
 
 <div class="tasks index">
-	<h2><?php echo sprintf(__('All %s', true), __('Tasks', true));?></h2>
+	<h2>
+	<?php
+	$title = @$this->params["named"]["filter"];
+	switch($title)
+	{
+		case "yours":
+			echo sprintf(__('All your %s', true), __('Tasks', true));
+			break;
+		case "your_unfinished":
+			echo sprintf(__('All your unfinished %s', true), __('Tasks', true));
+			break;
+		case "unfinished":
+			echo sprintf(__('Unfinished %s', true), __('Tasks', true));
+			break;
+		default:
+			echo sprintf(__('All %s', true), __('Tasks', true));
+	}
+	?>
+	</h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
