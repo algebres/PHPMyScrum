@@ -36,6 +36,7 @@
 			<h1><a href="<?php echo $html->url('/users/dashboard'); ?>"><?php echo $html->image('logo.png'); ?></a></h1>
 		</div>
 		<div id="content">
+			<?php if($login_user) { ?>
 			<div id="gnavi">
 				<ul>
 					<li><?php echo $this->Html->link(__('Dashboard', true), array('controller' => 'users', 'action' => 'dashboard')); ?> </li>
@@ -46,6 +47,7 @@
 					<li><?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout')); ?> </li>
 				</ul>
 			</div>
+			<?php } ?>
 			<?php if($this->Session->check('Message')) { ?>
 			<div id="messagebox">
 			<?php echo $this->Session->flash(); ?>
