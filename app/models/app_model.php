@@ -41,5 +41,11 @@ class AppModel extends Model
 		}
 		$this->unbindModel($unbind,false);
 	}
+
+	// sjis‚É•ÏŠ·‚·‚é
+	function sjis($str)
+	{
+		return mb_convert_encoding($str, "SJIS", "UTF-8");
+	}
 }
 ?>

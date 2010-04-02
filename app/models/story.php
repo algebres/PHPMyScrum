@@ -124,23 +124,23 @@ class Story extends AppModel {
 
 	/**
 	 * 合計タスク数や合計残り時間を計算
+	 *
+	 * @description このモデルを主キーにした場合のみ利用可能
 	 */
 	function populate_data($data)
 	{
-/**
-//foreachに変える
-		for($i=0; $i< count($data); $i++)
-		{
-			$data[$i]["Story"]["task_count"] = count($data[$i]["Task"]);
+		$return = array();
+		foreach($data as $item) {
+			$item["Story"]["task_count"] = count($item["Task"]);
 			$sum = 0;
-			//foreach($data[$i]["Task"] as $task)
-			//{
-			//	$sum += $task["estimate_hours"];
-			//}
-			$data[$i]["Story"]["total_hours"] = $sum;
+			foreach($item["Task"] as $task)
+			{
+				$sum += $task["estimate_hours"];
+			}
+			$item["Story"]["total_hours"] = $sum;
+			$return[] = $item;
 		}
-**/
-		return $data;
+		return $return;
 	}
 
 }

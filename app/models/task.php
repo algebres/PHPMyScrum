@@ -217,17 +217,23 @@ class Task extends AppModel {
 
 		$workbook = new Spreadsheet_Excel_Writer();
 		$workbook->send($filename);
-		$worksheet =& $workbook->addWorksheet('1');
+		$worksheet =& $workbook->addWorksheet('task');
 
-		$worksheet->write(0, 0, 'Name');
-		$worksheet->write(0, 1, 'Age');
-		$worksheet->write(1, 0, 'John Smith');
-		$worksheet->write(1, 1, 30);
-		$worksheet->write(2, 0, 'Johann Schmidt');
-		$worksheet->write(2, 1, 31);
-		$worksheet->write(3, 0, 'Juan Herrera');
-		$worksheet->write(3, 1, 32);
-
+		$row = 0;
+		foreach($data as $item)
+		{
+			$col = 0;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["id"]));				$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]));			$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["name"]));				$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["name"]));				$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["description"]));		$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["estimate_hours"]));	$col++;
+			$worksheet->write($row, $col, $this->sjis($item["User"]["username"]));			$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Resolution"]["name"]));		$col++;
+			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Task"]["created"])));	$col++;
+			$row++;
+		}
 		$workbook->close();
 		exit;
 	}
