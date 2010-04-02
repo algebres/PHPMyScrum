@@ -195,6 +195,13 @@ class Story extends AppModel {
 			$row++;
 		}
 
+		// â°ïùê›íË
+		$width = array(4, 50, 50 ,10, 10, 10, 10, 20, 10);
+		for($i = 0; $i<count($width); $i++)
+		{
+			$worksheet->setColumn($i, $i, $width[$i]);
+		}
+
 		$workbook->close();
 		exit;
 	}
