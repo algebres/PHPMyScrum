@@ -273,5 +273,58 @@ class Sprint extends AppModel {
 		return (count($record["Story"]) != 0 || count($record["Task"]) != 0); 
 	}
 
+	function saveToExcel($id, $filename)
+	{
+		Configure::write('debug', 0);
+		App::import(
+			'Vendor',
+			'Spreadsheet_Excel_Writer', 
+			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
+		);
+
+		$workbook = new Spreadsheet_Excel_Writer();
+		$workbook->send($filename);
+		$worksheet =& $workbook->addWorksheet('sprint');
+		$format =& $workbook->addFormat();
+		$format->setSize(9);
+		$header_format =& $workbook->addFormat();
+		$header_format->setSize(9);
+		$header_format->setFgColor('gray');
+
+		// ヘッダー
+		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description', 
+			'Estimate Hours', 'Username', 'Resolution', 'Created'
+		);
+		$row = 0;
+		$col = 0;
+		for($i = 0; $i < count($header); $i++)
+		{
+			$worksheet->write($row, $col, $this->sjis(__($header[$i], true)), $header_format);
+			$col++;
+		}
+
+		// データ
+		$row++;
+/**
+		foreach($data as $item)
+		{
+			$col = 0;
+			$worksheet->writeNumber($row, $col, $this->sjis($item["Task"]["id"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Story"]["name"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["name"]), $format);						$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Task"]["description"]), $format);				$col++;
+			$worksheet->writeNumber($row, $col, $this->sjis($item["Task"]["estimate_hours"]), $format);		$col++;
+			$worksheet->write($row, $col, $this->sjis($item["User"]["username"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis($item["Resolution"]["name"]), $format);				$col++;
+			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Task"]["created"])), $format);		$col++;
+			$row++;
+		}
+**/
+		$workbook->close();
+		exit;
+		
+	}
+
 }
 ?>

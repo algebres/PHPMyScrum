@@ -28,7 +28,15 @@ class SprintsController extends AppController {
 
 		$sprint_remaining_hours = $this->Sprint->getSprintRemainingHours($id);
 		$this->set('sprint_remaining_hours', $sprint_remaining_hours);
+	}
 
+	function output($id = null)
+	{
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'sprint'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Sprint->saveToExcel($id, 'sprint.xls');
 	}
 
 	function storylist($id = null) {
