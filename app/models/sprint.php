@@ -314,6 +314,8 @@ class Sprint extends AppModel {
 		$col++;
 		$worksheet->write($row, $col, $this->sjis(__('Task', true)), $header_format);
 		$col++;
+		$worksheet->write($row, $col, '', $header_format);
+		$col++;
 		foreach($sprint_calendar as $cal) { 
 			$day_count++;
 			$worksheet->write($row, $col, date('d', strtotime($cal)), $header_format);
@@ -323,8 +325,9 @@ class Sprint extends AppModel {
 		// •
 		$worksheet->setColumn(0, 0, 3);
 		$worksheet->setColumn(1, 1, 40);
+		$worksheet->setColumn(2, 1, 10);
 		// “ú•t‚ÆŽÀÑ‚Ì•‚ðÝ’è
-		$worksheet->setColumn(2, 2+$day_count, 3);
+		$worksheet->setColumn(3, 3+$day_count, 3);
 
 		// Žc‚èŽžŠÔ
 		$row++;
@@ -337,13 +340,15 @@ class Sprint extends AppModel {
 				$story_id = $a["Story"]["id"];
 				$worksheet->write($row, $col, $this->sjis($a["Story"]["name"]), $story_format);
 				// ƒZƒ‹Œ‹‡
-				$worksheet->mergeCells($row, 0, $row, 1 + $day_count);
+				$worksheet->mergeCells($row, 0, $row, 2 + $day_count);
 				$row++;
 			}
 			$col = 0;
 			$worksheet->write($row, $col, $this->sjis($a["id"]), $format);
 			$col++;
 			$worksheet->write($row, $col, $this->sjis($a["name"]), $format);
+			$col++;
+			$worksheet->write($row, $col, $this->sjis($a["User"]["username"]), $format);
 			$col++;
 			// ‰¡
 			foreach($sprint_calendar as $cal) {
@@ -358,6 +363,8 @@ class Sprint extends AppModel {
 		$worksheet->write($row, $col, '', $header_format);
 		$col++;
 		$worksheet->write($row, $col, $this->sjis(__('Sum', true)), $header_format);
+		$col++;
+		$worksheet->write($row, $col, '', $header_format);
 		$col++;
 		foreach($sprint_calendar as $cal) 
 		{
