@@ -254,6 +254,10 @@ th {
 td.narrow , th.narrow {
 	width : 60px;
 }
+th.center , td.center {
+	text-align : center;
+}
+
 td.story_bar, td.story_bar a {
 	font-weight:bold;
 	color:#fff !important;

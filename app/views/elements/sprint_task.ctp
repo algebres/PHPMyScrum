@@ -71,11 +71,11 @@ Event.observe(window, 'load', function() {
 <div class="fakeContainer">
 <table id="fixtable" cellpadding = "0" cellspacing = "0">
 <tr>
-<th colspan="2"><?php __('TaskRemainingHours'); ?></th>
+<th colspan="3"><?php __('TaskRemainingHours'); ?></th>
 <?php // ‰¡Ž²‚Ì“ú•t‚ð‘‚­ ?>
 <?php $day_count = 0; ?>
 <?php foreach($sprint_calendar as $cal) { $day_count++; ?>
-<th><?php echo date('d', strtotime($cal)); ?></th>
+<th class="center"><?php echo date('d', strtotime($cal)); ?></th>
 <?php } ?>
 </tr>
 
@@ -86,12 +86,13 @@ Event.observe(window, 'load', function() {
 	$story_id = $a["Story"]["id"];
 	$link = $html->url("/stories/view/" . $a["Story"]["id"]);
 	//$icon = $html->image('detail.png');
-	echo sprintf('<tr><th colspan="%d" class="story_bar"><br /><a href="%s">%s</a></th></tr>', $day_count + 2, $link, "#" .$a["Story"]["id"] . "&nbsp;" .  h($a["Story"]["name"]));
+	echo sprintf('<tr><th colspan="%d" class="story_bar"><br /><a href="%s">%s</a></th></tr>', $day_count + 3, $link, "#" .$a["Story"]["id"] . "&nbsp;" .  h($a["Story"]["name"]));
 }
 ?>
 <tr>
 <td><?php echo $a["id"]; ?></td>
 <td><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => $_SERVER['REQUEST_URI'])), array('escape' => false)); ?>&nbsp;<?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
+<td><?php echo $this->Html->link($a["User"]["username"], array('controller' => 'users', 'action' => 'view', $a["user_id"])); ?></td>
 <?php 
 $today = date('Y-m-d');
 foreach($sprint_calendar as $cal) { 
@@ -108,7 +109,7 @@ foreach($sprint_calendar as $cal) {
 <?php } ?>
 
 <tr>
-<td colspan="2" class="summary"><?php __('Sum'); ?></td>
+<td colspan="3" class="summary"><?php __('Sum'); ?></td>
 <?php foreach($sprint_calendar as $cal) { ?>
 <?php
 	$sum = 0;
