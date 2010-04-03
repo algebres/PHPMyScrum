@@ -149,6 +149,7 @@ class Story extends AppModel {
 	function saveToExcel($data, $filename)
 	{
 		Configure::write('debug', 0);
+		App::import('Vendor', 'include_path');
 		App::import(
 			'Vendor',
 			'Spreadsheet_Excel_Writer', 

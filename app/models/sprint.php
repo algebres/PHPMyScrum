@@ -276,6 +276,7 @@ class Sprint extends AppModel {
 	function saveToExcel($id, $filename)
 	{
 		Configure::write('debug', 0);
+		App::import('Vendor', 'include_path');
 		App::import(
 			'Vendor',
 			'Spreadsheet_Excel_Writer', 

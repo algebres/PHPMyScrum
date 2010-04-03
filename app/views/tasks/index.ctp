@@ -74,7 +74,7 @@
 		<td><?php echo date('Y-m-d', strtotime($task['Task']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
 		<td class="actions">
-			<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['Task']['id'], '?' => array('return_url' => urlencode('/tasks'))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['Task']['id'])); ?>
+			<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['Task']['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['Task']['id'])); ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $task['Task']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $task['Task']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?>
 		</td>
