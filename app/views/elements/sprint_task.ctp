@@ -28,21 +28,21 @@ Event.observe(window, 'load', function() {
 		}
 		if($sum != "" && $cal <= date('Y-m-d'))
 		{
-			// cŽ²Å‘å’l‚ð‹‚ß‚é
+			// ç¸¦è»¸æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹
 			if($sum >= $y_max) {
 				$y_max = $sum;
 			}
-			echo sprintf("d6.push([%d, %d]);\n", $cnt, $sum);
-			echo sprintf("labels.push([%d, \"%s\"]);\n", $cnt, date('d', strtotime($cal)));
+			echo sprintf("\td6.push([%d, %d]);\n", $cnt, $sum);
+			echo sprintf("\tlabels.push([%d, \"%s\"]);\n", $cnt, date('d', strtotime($cal)));
 		}
 		else
 		{
-			echo sprintf("labels.push([%d, \"%s\"]);\n", $cnt, date('d', strtotime($cal)));
+			echo sprintf("\tlabels.push([%d, \"%s\"]);\n", $cnt, date('d', strtotime($cal)));
 		}
 		$cnt++;
 	}
-	echo sprintf("d7.push([%d, %d]);\n", $burndown_x_pos, $burndown_y_pos);
-	echo sprintf("d7.push([%d, %d]);\n", $cnt-1, 0);
+	echo sprintf("\td7.push([%d, %d]);\n", $burndown_x_pos, $burndown_y_pos);
+	echo sprintf("\td7.push([%d, %d]);\n", $cnt-1, 0);
 	?>
 	new Proto.Chart($('linechart'), 
 	[
@@ -59,27 +59,73 @@ Event.observe(window, 'load', function() {
 			drawYAxis: true
 		},
 	});
-//    new superTable("fixtable", {
-//    	cssSkin : "sDefault",
-//		headerRows : 1,
-//		fixedCols : 2
-//    });
+
+	<?php
+	$users = array();
+	$tasks = array();
+	$cnt = 0;
+	foreach($sprint_remaining_hours as $a) { 
+		if(!in_array($a["user_id"], $users))
+		{
+			$users[$cnt] = @$a["user_id"];
+			$tasks[$cnt] = 1;
+			$cnt++;
+			echo sprintf("\tvar d_user_%d = []\n", $a["user_id"]);
+			echo sprintf("\tvar l_user_%d = \"%s\"\n", $a["user_id"], @$a["User"]["username"]);
+		}
+		else
+		{
+			for($i=0; $i<count($users); $i++)
+			{
+				if($users[$i] == $a["user_id"])
+				{
+					$tasks[$i]++;
+				}
+			}
+		}
+	}
+
+	for($i=0; $i<count($users); $i++){
+		echo sprintf("\td_user_%d.push([0, %d]);", $users[$i], $tasks[$i]);
+	}
+	?>
+
+	// å††
+	new Proto.Chart($('piechart'), 
+	[
+		<?php 
+		for($i=0; $i<count($users); $i++)
+		{
+			if($i != 0) {
+				echo ",";
+			}
+			echo sprintf("{data: d_user_%d, label: l_user_%d}\n", $users[$i], $users[$i]);
+		}
+		?>
+	],
+	{
+		pies: {show: true, autoScale: true},
+		legend: {show: true}
+	});
 });	
 </script>
-<div class="linechart" id="linechart" style="width:800px;height:240px"></div>
+<div class="linechart" id="linechart" style="width:650px;height:240px;float:left"></div>
+<div class="piechart" id="piechart" style="width:250px;height:240px;float:right"></div>
 
+<br clear="all" />
+<br />
 <div class="fakeContainer">
 <table id="fixtable" cellpadding = "0" cellspacing = "0">
 <tr>
 <th colspan="3"><?php __('TaskRemainingHours'); ?></th>
-<?php // ‰¡Ž²‚Ì“ú•t‚ð‘‚­ ?>
+<?php // æ¨ªè»¸ã®æ—¥ä»˜ã‚’æ›¸ã ?>
 <?php $day_count = 0; ?>
 <?php foreach($sprint_calendar as $cal) { $day_count++; ?>
 <th class="center"><?php echo date('d', strtotime($cal)); ?></th>
 <?php } ?>
 </tr>
 
-<?php // cŽ²‚Ìƒ^ƒXƒN‚ð‘‚­ ?>
+<?php // ç¸¦è»¸ã®ã‚¿ã‚¹ã‚¯ã‚’æ›¸ã ?>
 <?php $story_id = ""; ?>
 <?php foreach($sprint_remaining_hours as $a) { ?>
 <?php if($a["Story"]["id"] != $story_id) {
