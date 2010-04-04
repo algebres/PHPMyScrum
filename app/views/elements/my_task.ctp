@@ -3,11 +3,11 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php __('id');?></th>
-			<th><?php __('sprint_id');?></th>
-			<th><?php __('story_id');?></th>
+			<th><?php __('Sprint');?></th>
+			<th><?php __('Story');?></th>
 			<th><?php __('name');?></th>
 			<th><?php __('estimate_hours');?></th>
-			<th><?php __('user_id');?></th>
+			<th><?php __('User');?></th>
 			<th><?php __('created');?></th>
 			<?php if(0) { ?>
 			<th><?php __('updated');?></th>
