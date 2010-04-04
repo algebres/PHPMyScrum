@@ -4,7 +4,7 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	var $components = array('Session');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
-	var $uses = array('User', 'Sprint', 'Task', 'Project');
+	var $uses = array('User', 'Sprint', 'Task', 'Project', 'Information');
 
 	//ログイン処理
 	function login(){
@@ -46,6 +46,7 @@ class UsersController extends AppController {
 		$tasks = $this->Task->getUserTask($this->Auth->user('id'), false);
 		$this->set('tasks', $tasks);
 		$this->set('project', $this->Project->read(null, 1));
+		$this->set('information', $this->Information->getLatestInformation());
 	}
 
 	function index() {

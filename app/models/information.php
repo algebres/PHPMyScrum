@@ -64,5 +64,18 @@ class Information extends AppModel {
 			),
 		),
 	);
+
+	function getLatestInformation()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'Information.startdate <=' =>  date('Y-m-d'),
+				'Information.enddate > ' =>  date('Y-m-d', strtotime("+1 day")),
+				'Information.disabled' => 0,
+			),
+			'order' => 'Information.startdate desc',
+		);
+		return $this->find('all', $conditions);
+	}
 }
 ?>
