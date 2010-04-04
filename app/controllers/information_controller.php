@@ -18,37 +18,8 @@ class InformationController extends AppController {
 		$this->set('information', $this->Information->read(null, $id));
 	}
 
-	private function datecheck($arr)
-	{
-		if($arr['year'] == "" && $arr["month"] == "" && $arr["day"] == "")
-		{
-			$arr = null;
-		}
-		return $arr;
-	}
-
 	function add() {
 		if (!empty($this->data)) {
-			$arr1 = $this->datecheck($this->data['Information']['startdate']);
-			if($arr1 == null)
-			{
-				unset($this->data['Information']['startdate']);
-			}
-			else
-			{
-				$this->Information->deconstruct("Information.startdate", $arr1);
-			}
-			
-			$arr2 = $this->datecheck($this->data['Information']['enddate']);
-			if($arr2 == null)
-			{
-				unset($this->data['Information']['enddate']);
-			}
-			else
-			{
-				$this->Information->deconstruct("Information.enddate", $arr2);
-			}
-
 			$this->Information->create();
 			if ($this->Information->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'information'));
