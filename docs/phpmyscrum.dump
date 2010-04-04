@@ -33,7 +33,7 @@ CREATE TABLE `information` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `information` (
 
 LOCK TABLES `information` WRITE;
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
+INSERT INTO `information` VALUES (8,'お知らせを出せるようになりました','お知らせを出せるようになりましたよっと。\r\n期日指定公開もできる',0,0,'2010-04-04 00:00:00','2010-05-09 00:00:00','2010-04-05 05:10:29','2010-04-05 05:31:38');
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -333,7 +334,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test','bc20df81b7eaa34fc433f0994649cd19503e3b6a','test','test@ryuzee.com',0,1,'2010-03-23 00:00:00','2010-03-27 18:03:16'),(5,'ryuzee','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee','ryuzee@gmail.com',0,0,'2010-03-27 08:18:10','2010-04-02 04:52:06'),(6,'staff','bc20df81b7eaa34fc433f0994649cd19503e3b6a','staff','staff@ryuzee.com',0,0,'2010-04-02 04:54:52','2010-04-02 04:54:52'),(7,'ryuzee2','c8bee955a5f4233b95c09b7af53c7294833987a5','ryuzee2','ryuzee@gmail.com',0,1,'2010-04-02 21:15:48','2010-04-03 07:10:56'),(8,'ryuzee3','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee3','ryuzee@gmail.com',0,0,'2010-04-03 05:31:08','2010-04-03 05:31:08'),(9,'demo','932702f0a32da90fcf5e04a6419f5b836f639435','demo','demo@ryuzee.com',0,0,'2010-04-03 07:22:31','2010-04-03 07:22:31'),(10,'ryuzee6','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee6','staff@ryuzee.com',0,0,'2010-04-04 17:16:46','2010-04-04 17:16:46'),(11,'ryuzee7','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee7','staff@ryuzee.com',1,0,'2010-04-04 17:17:40','2010-04-04 17:17:40');
+INSERT INTO `users` VALUES (1,'test','bc20df81b7eaa34fc433f0994649cd19503e3b6a','test','test@ryuzee.com',0,1,'2010-03-23 00:00:00','2010-03-27 18:03:16'),(5,'ryuzee','d076154d4ce6e4dc071f0f73ff27685323e6126b','ryuzee','ryuzee@gmail.com',1,0,'2010-03-27 08:18:10','2010-04-05 04:31:02'),(6,'staff','bc20df81b7eaa34fc433f0994649cd19503e3b6a','staff','staff@ryuzee.com',0,0,'2010-04-02 04:54:52','2010-04-02 04:54:52'),(7,'ryuzee2','c8bee955a5f4233b95c09b7af53c7294833987a5','ryuzee2','ryuzee@gmail.com',0,1,'2010-04-02 21:15:48','2010-04-03 07:10:56'),(8,'ryuzee3','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee3','ryuzee@gmail.com',0,0,'2010-04-03 05:31:08','2010-04-03 05:31:08'),(9,'demo','932702f0a32da90fcf5e04a6419f5b836f639435','demo','demo@ryuzee.com',0,0,'2010-04-03 07:22:31','2010-04-03 07:22:31'),(10,'ryuzee6','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee6','staff@ryuzee.com',0,0,'2010-04-04 17:16:46','2010-04-04 17:16:46'),(11,'ryuzee7','bc20df81b7eaa34fc433f0994649cd19503e3b6a','ryuzee7','staff@ryuzee.com',1,0,'2010-04-04 17:17:40','2010-04-04 17:17:40');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -346,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-04-04 17:30:59
+-- Dump completed on 2010-04-05  6:33:54
