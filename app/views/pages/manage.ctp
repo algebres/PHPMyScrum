@@ -3,6 +3,11 @@
 <h2><?php  __('Manage');?></h2>
 
 	<ul>
+		<li><?php __('Project'); ?>
+			<ul>
+				<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Project', true)), array('controller' => 'projects', 'action' => 'edit')); ?></li>
+			</ul>
+		</li>
 		<li><?php __('User'); ?>
 			<ul>
 				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('User', true)), array('controller' => 'users', 'action' => 'index')); ?></li>

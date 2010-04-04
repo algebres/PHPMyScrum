@@ -4,7 +4,7 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	var $components = array('Session');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
-	var $uses = array('User', 'Sprint', 'Task');
+	var $uses = array('User', 'Sprint', 'Task', 'Project');
 
 	//ログイン処理
 	function login(){
@@ -45,6 +45,7 @@ class UsersController extends AppController {
 		$this->set('sprints', $sprints);
 		$tasks = $this->Task->getUserTask($this->Auth->user('id'), false);
 		$this->set('tasks', $tasks);
+		$this->set('project', $this->Project->read(null, 1));
 	}
 
 	function index() {
@@ -65,11 +66,19 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->create();
 			// まだ管理者がいない場合は強制的に管理者フラグをたてる
-			$this->data["User"]["admin"] = !$this->User->hasAdminUser();
+			$has_admin = $this->User->hasAdminUser();
+			$this->data["User"]["admin"] = !$has_admin;
 
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
-				$this->redirect(array('action' => 'index'));
+				if($has_admin)
+				{
+					$this->redirect(array('action' => 'index'));
+				}
+				else
+				{
+					$this->redirect(array('controller' => 'projects', 'action' => 'edit'));
+				}
 			} else {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
 			}

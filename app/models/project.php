@@ -24,5 +24,27 @@ class Project extends AppModel {
 			),
 		),
 	);
+
+	/**
+	 * プロジェクト情報を取得
+	 */
+	function getProjectInfo()
+	{
+		$id = 1;
+		$rec = $this->findById($id);
+		if(!$rec)
+		{
+			$data["Project"]["id"] = $id;
+			$data["Project"]["name"] = __("Default Project", true);
+			$data["Project"]["description"] = __("This is Default Project", true);
+			$this->create();
+			$this->save($data);
+			return $data;
+		}
+		else
+		{
+			return $rec;
+		}
+	}
 }
 ?>

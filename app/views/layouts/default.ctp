@@ -21,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo __($title_for_layout); ?> | <?php __('phpmyscrum'); ?></title>
+	<title><?php echo __($title_for_layout); ?> | <?php echo(h($project_info["name"])); ?> | <?php __('phpmyscrum'); ?></title>
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
@@ -38,7 +38,7 @@
 				<?php if($login_user) { ?>
 				<?php echo __('Username') ."&nbsp;:&nbsp;". $login_user['username']; ?>
 					<?php if($login_user["admin"]) { ?>
-					<br / ><?php echo __('Administrator'); ?>
+					<br /><?php echo __('Administrator'); ?>
 					<?php } ?>
 				<?php } ?>
 			</div>

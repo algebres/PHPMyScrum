@@ -3,7 +3,7 @@ class AppController extends Controller {
 
 	var $components = array('Auth', 'Qdmail');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'ScrumHtml');
-	var $uses = array('User');
+	var $uses = array('User', 'Project');
 
 	/**
 	 * 認証コンポーネント
@@ -59,6 +59,8 @@ class AppController extends Controller {
 			$login_user = $this->Auth->User();
 			$this->set('login_user', $login_user['User']);
 		}
+		$project = $this->Project->getProjectInfo();
+		$this->set('project_info', $project["Project"]);
 	}
 
 	// 権限詳細チェック
@@ -74,6 +76,11 @@ class AppController extends Controller {
 				}
 			}
 		}
+		if(get_class($this) == "ProjectsController" && $this->action == 'edit')
+		{
+			return ($this->Auth->user('admin') == 1);
+		}
+
 		return true;
 	}
 
