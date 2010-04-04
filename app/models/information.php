@@ -44,8 +44,8 @@ class Information extends AppModel {
 			),
 		),
 		'startdate' => array(
-			'date' => array(
-				'rule' => array('date'),
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -54,8 +54,8 @@ class Information extends AppModel {
 			),
 		),
 		'enddate' => array(
-			'date' => array(
-				'rule' => array('date'),
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

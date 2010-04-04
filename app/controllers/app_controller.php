@@ -81,6 +81,11 @@ class AppController extends Controller {
 			return ($this->Auth->user('admin') == 1);
 		}
 
+		if(get_class($this) == "InformationController" && $this->action != 'view')
+		{
+			return ($this->Auth->user('admin') == 1);
+		}
+
 		return true;
 	}
 

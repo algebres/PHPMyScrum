@@ -18,6 +18,7 @@
 		echo $this->Form->input('password');
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
+		if($login_user["admin"] == true) { echo $this->Form->input('admin'); }
 		echo $this->Form->input('disabled');
 	?>
 	</fieldset>

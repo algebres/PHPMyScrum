@@ -8,6 +8,12 @@
 				<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Project', true)), array('controller' => 'projects', 'action' => 'edit')); ?></li>
 			</ul>
 		</li>
+		<li><?php __('Information'); ?>
+			<ul>
+				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Information', true)), array('controller' => 'information', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Information', true)), array('controller' => 'information', 'action' => 'add')); ?></li>
+			</ul>
+		</li>
 		<li><?php __('User'); ?>
 			<ul>
 				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('User', true)), array('controller' => 'users', 'action' => 'index')); ?></li>

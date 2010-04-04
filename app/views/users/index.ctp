@@ -15,6 +15,7 @@
 			<th><?php echo $this->Paginator->sort('loginname');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
 			<th><?php echo $this->Paginator->sort('email');?></th>
+			<th><?php echo $this->Paginator->sort('admin');?></th>
 			<th><?php echo $this->Paginator->sort('disabled');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<?php if(0) { ?>
@@ -35,6 +36,7 @@
 		<td><?php echo $user['User']['loginname']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['email']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['admin']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['disabled']; ?>&nbsp;</td>
 		<td><?php echo date('Y-m-d', strtotime($user['User']['created'])); ?>&nbsp;</td>
 		<?php if(0) { ?>
