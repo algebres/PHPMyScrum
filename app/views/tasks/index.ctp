@@ -33,9 +33,9 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
+			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('sprint_id');?></th>
 			<th><?php echo $this->Paginator->sort('story_id');?></th>
-			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('estimate_hours');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('resolution_id');?></th>
@@ -56,12 +56,14 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $task['Task']['id']; ?>&nbsp;</td>
 		<td>
+			<?php echo $this->Html->link($task['Task']['name'], array('controller' => 'tasks', 'action' => 'view', $task['Task']['id'])); ?>
+		</td>
+		<td>
 			<?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['Sprint']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
 		</td>
-		<td><?php echo h($task['Task']['name']); ?>&nbsp;</td>
 		<td class="narrow"><?php echo h($task['Task']['estimate_hours']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($task['User']['username'], array('controller' => 'users', 'action' => 'view', $task['User']['id'])); ?>

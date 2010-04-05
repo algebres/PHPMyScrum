@@ -3,9 +3,9 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php __('id');?></th>
+			<th><?php __('name');?></th>
 			<th><?php __('Sprint');?></th>
 			<th><?php __('Story');?></th>
-			<th><?php __('name');?></th>
 			<th><?php __('estimate_hours');?></th>
 			<th><?php __('User');?></th>
 			<th><?php __('created');?></th>
@@ -25,13 +25,13 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $task['Task']['id']; ?>&nbsp;</td>
 		<td>
+			<?php echo $this->Html->link($task['Task']['name'], array('controller' => 'tasks', 'action' => 'view', $task['Task']['id'])); ?>
+		</td>
+		<td>
 			<?php echo $this->Html->link($task['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $task['Sprint']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($task['Story']['name'], array('controller' => 'stories', 'action' => 'view', $task['Story']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($task['Task']['name'], array('controller' => 'tasks', 'action' => 'view', $task['Task']['id'])); ?>
 		</td>
 		<td><?php echo $task['Task']['estimate_hours']; ?>&nbsp;</td>
 		<td>
