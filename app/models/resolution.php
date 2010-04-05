@@ -44,5 +44,32 @@ class Resolution extends AppModel {
 			return false;
 		}
 	}
+
+	/**
+	 * ‰Šúƒf[ƒ^
+	 */
+	function makeInitialRecord()
+	{
+		$rec = $this->find('list');
+		if(count($rec) == 0)
+		{
+			$data["Resolution"]["id"] = 1;
+			$data["Resolution"]["name"] = __("TODO", true);
+			$data["Resolution"]["is_fixed"] = 0;
+			$this->create();
+			$this->save($data);
+			$data["Resolution"]["id"] = 2;
+			$data["Resolution"]["name"] = __("DOING", true);
+			$data["Resolution"]["is_fixed"] = 0;
+			$this->create();
+			$this->save($data);
+			$data["Resolution"]["id"] = 3;
+			$data["Resolution"]["name"] = __("DONE", true);
+			$data["Resolution"]["is_fixed"] = 1;
+			$this->create();
+			$this->save($data);
+		}
+		return true;
+	}
 }
 ?>

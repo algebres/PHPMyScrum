@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.30, for Win32 (ia32)
+-- MySQL dump 10.13  Distrib 5.1.41, for Win32 (ia32)
 --
 -- Host: localhost    Database: phpmyscrum
 -- ------------------------------------------------------
--- Server version	5.1.30-community
+-- Server version	5.1.41-community
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,8 +20,8 @@
 --
 
 DROP TABLE IF EXISTS `information`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `information` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -33,8 +33,8 @@ CREATE TABLE `information` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `information`
@@ -42,7 +42,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `information` WRITE;
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
-INSERT INTO `information` VALUES (8,'お知らせを出せるようになりました','お知らせを出せるようになりましたよっと。\r\n期日指定公開もできる',1,0,'2010-04-04 00:00:00','2010-05-09 00:00:00','2010-04-05 05:10:29','2010-04-05 09:14:57'),(11,'サーバ停止のお知らせ','4/5(月)10時~11時までサーバ停止します。',1,0,'2010-04-05 00:00:00','2010-05-05 00:00:00','2010-04-05 09:16:15','2010-04-05 09:16:15');
+INSERT INTO `information` VALUES (8,'お知らせを出せるようになりました','お知らせを出せるようになりましたよっと。\r\n期日指定公開もできる',0,0,'2010-04-04 00:00:00','2010-05-09 00:00:00','2010-04-05 05:10:29','2010-04-05 05:31:38');
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,8 +51,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `priorities`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `priorities` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -61,7 +61,7 @@ CREATE TABLE `priorities` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `priorities`
@@ -78,8 +78,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `projects`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -89,7 +89,7 @@ CREATE TABLE `projects` (
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `projects`
@@ -106,8 +106,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `remaining_times`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `remaining_times` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `task_id` int(11) NOT NULL COMMENT 'task_id',
@@ -115,7 +115,7 @@ CREATE TABLE `remaining_times` (
   `created` date NOT NULL COMMENT 'created',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `remaining_times`
@@ -132,8 +132,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `resolutions`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resolutions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
@@ -141,8 +141,8 @@ CREATE TABLE `resolutions` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `resolutions`
@@ -150,7 +150,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `resolutions` WRITE;
 /*!40000 ALTER TABLE `resolutions` DISABLE KEYS */;
-INSERT INTO `resolutions` VALUES (1,'fixed',1,'2010-03-31 13:55:00','2010-03-31 13:55:00'),(2,'wontfix',1,'2010-03-31 13:55:00','2010-03-31 13:55:00');
+INSERT INTO `resolutions` VALUES (1,'Done',1,'2010-03-31 13:55:00','2010-03-31 13:55:00'),(2,'Doing',0,'2010-03-31 13:55:00','2010-03-31 13:55:00'),(3,'To do',0,'2010-04-01 00:00:00','2010-04-01 00:00:00');
 /*!40000 ALTER TABLE `resolutions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,8 +159,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `sprints`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sprints` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -172,7 +172,7 @@ CREATE TABLE `sprints` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sprints`
@@ -189,8 +189,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `stories`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stories` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(255) DEFAULT NULL,
@@ -205,7 +205,7 @@ CREATE TABLE `stories` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `stories`
@@ -213,7 +213,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `stories` WRITE;
 /*!40000 ALTER TABLE `stories` DISABLE KEYS */;
-INSERT INTO `stories` VALUES (1,'利用者としてストーリーを追加することが出来る','まげまげ',1,100,1,1,1,0,'2010-03-27 06:53:16','2010-03-30 14:22:26'),(2,'利用者としてストーリーを削除することが出来る','ふがふが',10,100,3,1,1,0,'2010-03-27 08:58:41','2010-03-28 10:59:08'),(4,'利用者としてストーリーを編集することが出来る','',3,100,1,1,1,0,'2010-03-27 18:27:37','2010-03-28 10:59:17'),(5,'利用者としてタスクを作成することが出来る','',3,100,1,1,1,0,'2010-03-27 18:28:37','2010-03-29 07:19:26'),(6,'利用者としてタスクを編集することができる','',2,100,1,1,1,0,'2010-03-27 18:28:56','2010-03-29 07:19:36'),(7,'利用者としてタスクを削除することができる','',2,10,3,1,1,0,'2010-03-27 18:29:18','2010-03-29 07:19:46'),(8,'利用者としてタスクにサインアップすることができる','',5,1,1,1,1,0,'2010-03-27 18:33:23','2010-03-29 07:19:55'),(9,'利用者としてストーリーの一覧を見ることができる','',1,100,1,1,1,0,'2010-03-28 06:05:48','2010-03-29 07:20:04'),(10,'利用者としてタスク残存時間の推移を見ることができる','',13,100,1,1,1,0,'2010-03-28 06:17:43','2010-03-29 07:20:12'),(11,'利用者としてバーンダウンチャートを見ることができる','',8,100,1,1,1,0,'2010-03-28 06:18:05','2010-03-29 07:20:19'),(12,'利用者としてストーリーの一覧をCSVで得ることができる','',3,10,3,6,1,0,'2010-03-28 06:21:05','2010-03-29 07:20:27'),(14,'mage','mage',1,1,1,1,1,1,'2010-03-29 04:42:37','2010-03-29 04:43:03'),(15,'hoge','1',1,1,1,1,1,1,'2010-03-29 05:17:28','2010-03-29 05:17:43'),(16,'利用者として優先順位を指定しなくてもストーリーを追加することができる','',2,10,2,6,1,0,'2010-03-29 05:19:23','2010-03-29 05:39:19'),(17,'利用者としてストーリーポイントを指定しなくてもストーリーを追加することができる','',2,10,2,6,1,0,'2010-03-29 05:20:04','2010-03-29 05:39:06'),(18,'管理者は新規ユーザーを登録することができる','',5,20,2,6,1,0,'2010-03-29 05:37:24','2010-03-29 05:39:31'),(19,'管理者としてユーザーを削除することができる','',3,5,3,6,1,0,'2010-03-29 06:38:53','2010-03-29 06:38:53'),(20,'管理者としてスプリントを追加することができる','',5,5,2,6,1,0,'2010-03-29 06:39:27','2010-03-29 06:39:27'),(21,'管理者としてスプリントを削除することができる','',3,10,2,6,1,0,'2010-03-29 06:39:53','2010-03-29 06:39:53'),(22,'管理者として優先順位を追加することができる','',3,10,2,6,1,0,'2010-03-29 06:40:30','2010-03-29 06:40:30'),(23,'管理者として優先順位を削除することができる','',2,10,2,6,1,0,'2010-03-29 06:40:59','2010-03-29 06:40:59'),(24,'管理者としてチームを追加することができる','',2,10,2,6,1,0,'2010-03-29 06:41:28','2010-03-29 06:41:28'),(25,'利用者としてプロダクトバックログの項目を様々なファイル形式で出力することが出来る','ExcelとかCSVとかXMLとか',5,10,3,6,1,0,'2010-03-30 17:23:05','2010-03-30 17:23:05'),(26,'利用者としてログアウトすることができる','',1,5,2,1,1,0,'2010-03-30 17:24:34','2010-03-30 17:24:34'),(27,'一覧表示画面での編集・削除ボタンはアイコンで表示される','文字数がもったいないのでアイコンで表示する',1,1,3,6,1,0,'2010-03-31 09:03:49','2010-03-31 09:03:49'),(28,'利用者は優先順位の文字列の並び順を指定することができる','優先度高とか優先度低は、どっちが序列が上か判定できないので、intで順位を入れる必要がある',1,5,NULL,NULL,NULL,0,'2010-03-31 19:17:43','2010-03-31 19:17:43'),(29,'利用者としてパスワードを忘れた際に再発行できる','',8,5,NULL,NULL,NULL,0,'2010-04-02 04:52:59','2010-04-02 04:52:59'),(30,'利用者としてパスワードの変更ができる','',3,5,2,1,1,0,'2010-04-02 04:53:22','2010-04-03 04:23:54'),(31,'管理者しかマスター系のメニューを操作することができない','',8,5,2,1,NULL,0,'2010-04-02 04:57:01','2010-04-02 04:57:01'),(32,'管理者としてプロジェクトに関する設定を行うことができる','プロジェクト名称、プロジェクト期間、メール送信の有無、アカウント追加が任意かどうか、スプリント期間の最長値などなど',8,20,NULL,NULL,NULL,0,'2010-04-02 06:09:20','2010-04-02 06:09:20'),(33,'利用者として全未完了タスクの一覧を見ることができる','それによって残タスクの全量を把握できる',2,10,2,1,1,0,'2010-04-03 07:26:54','2010-04-03 07:26:54');
+INSERT INTO `stories` VALUES (1,'利用者としてストーリーを追加することが出来る','まげまげ',1,100,1,1,1,0,'2010-03-27 06:53:16','2010-04-06 05:28:14'),(2,'利用者としてストーリーを削除することが出来る','ふがふが',10,100,3,1,1,0,'2010-03-27 08:58:41','2010-03-28 10:59:08'),(4,'利用者としてストーリーを編集することが出来る','',3,100,1,1,1,0,'2010-03-27 18:27:37','2010-03-28 10:59:17'),(5,'利用者としてタスクを作成することが出来る','',3,100,1,1,1,0,'2010-03-27 18:28:37','2010-03-29 07:19:26'),(6,'利用者としてタスクを編集することができる','',2,100,1,1,1,0,'2010-03-27 18:28:56','2010-03-29 07:19:36'),(7,'利用者としてタスクを削除することができる','',2,10,3,1,1,0,'2010-03-27 18:29:18','2010-03-29 07:19:46'),(8,'利用者としてタスクにサインアップすることができる','',5,1,1,1,1,0,'2010-03-27 18:33:23','2010-03-29 07:19:55'),(9,'利用者としてストーリーの一覧を見ることができる','',1,100,1,1,1,0,'2010-03-28 06:05:48','2010-03-29 07:20:04'),(10,'利用者としてタスク残存時間の推移を見ることができる','',13,100,1,1,1,0,'2010-03-28 06:17:43','2010-03-29 07:20:12'),(11,'利用者としてバーンダウンチャートを見ることができる','',8,100,1,1,1,0,'2010-03-28 06:18:05','2010-03-29 07:20:19'),(12,'利用者としてストーリーの一覧をCSVで得ることができる','',3,10,3,6,1,0,'2010-03-28 06:21:05','2010-03-29 07:20:27'),(14,'mage','mage',1,1,1,1,1,1,'2010-03-29 04:42:37','2010-03-29 04:43:03'),(15,'hoge','1',1,1,1,1,1,1,'2010-03-29 05:17:28','2010-03-29 05:17:43'),(16,'利用者として優先順位を指定しなくてもストーリーを追加することができる','',2,10,2,6,1,0,'2010-03-29 05:19:23','2010-03-29 05:39:19'),(17,'利用者としてストーリーポイントを指定しなくてもストーリーを追加することができる','',2,10,2,6,1,0,'2010-03-29 05:20:04','2010-03-29 05:39:06'),(18,'管理者は新規ユーザーを登録することができる','',5,20,2,6,1,0,'2010-03-29 05:37:24','2010-03-29 05:39:31'),(19,'管理者としてユーザーを削除することができる','',3,5,3,6,1,0,'2010-03-29 06:38:53','2010-03-29 06:38:53'),(20,'管理者としてスプリントを追加することができる','',5,5,2,6,1,0,'2010-03-29 06:39:27','2010-03-29 06:39:27'),(21,'管理者としてスプリントを削除することができる','',3,10,2,6,1,0,'2010-03-29 06:39:53','2010-03-29 06:39:53'),(22,'管理者として優先順位を追加することができる','',3,10,2,6,1,0,'2010-03-29 06:40:30','2010-03-29 06:40:30'),(23,'管理者として優先順位を削除することができる','',2,10,2,6,1,0,'2010-03-29 06:40:59','2010-03-29 06:40:59'),(24,'管理者としてチームを追加することができる','',2,10,2,6,1,0,'2010-03-29 06:41:28','2010-03-29 06:41:28'),(25,'利用者としてプロダクトバックログの項目を様々なファイル形式で出力することが出来る','ExcelとかCSVとかXMLとか',5,10,3,6,1,0,'2010-03-30 17:23:05','2010-03-30 17:23:05'),(26,'利用者としてログアウトすることができる','',1,5,2,1,1,0,'2010-03-30 17:24:34','2010-03-30 17:24:34'),(27,'一覧表示画面での編集・削除ボタンはアイコンで表示される','文字数がもったいないのでアイコンで表示する',1,1,3,6,1,0,'2010-03-31 09:03:49','2010-03-31 09:03:49'),(28,'利用者は優先順位の文字列の並び順を指定することができる','優先度高とか優先度低は、どっちが序列が上か判定できないので、intで順位を入れる必要がある',1,5,NULL,NULL,NULL,0,'2010-03-31 19:17:43','2010-03-31 19:17:43'),(29,'利用者としてパスワードを忘れた際に再発行できる','',8,5,NULL,NULL,NULL,0,'2010-04-02 04:52:59','2010-04-02 04:52:59'),(30,'利用者としてパスワードの変更ができる','',3,5,2,1,1,0,'2010-04-02 04:53:22','2010-04-03 04:23:54'),(31,'管理者しかマスター系のメニューを操作することができない','',8,5,2,1,NULL,0,'2010-04-02 04:57:01','2010-04-02 04:57:01'),(32,'管理者としてプロジェクトに関する設定を行うことができる','プロジェクト名称、プロジェクト期間、メール送信の有無、アカウント追加が任意かどうか、スプリント期間の最長値などなど',8,20,NULL,NULL,NULL,0,'2010-04-02 06:09:20','2010-04-02 06:09:20'),(33,'利用者として全未完了タスクの一覧を見ることができる','それによって残タスクの全量を把握できる',2,10,2,1,1,0,'2010-04-03 07:26:54','2010-04-03 07:26:54');
 /*!40000 ALTER TABLE `stories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,8 +222,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `tasks`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `sprint_id` int(11) NOT NULL COMMENT 'sprint_id',
@@ -238,7 +238,7 @@ CREATE TABLE `tasks` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tasks`
@@ -255,8 +255,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `teammembers`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teammembers` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `team_id` int(11) NOT NULL COMMENT 'team_id',
@@ -266,7 +266,7 @@ CREATE TABLE `teammembers` (
   `created` datetime DEFAULT NULL COMMENT 'created',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `teammembers`
@@ -283,8 +283,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `teams`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teams` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -294,7 +294,7 @@ CREATE TABLE `teams` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `teams`
@@ -311,8 +311,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `users`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `loginname` varchar(100) NOT NULL COMMENT 'loginname',
@@ -326,7 +326,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_users_pkey` (`loginname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -347,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-04-05  1:50:36
+-- Dump completed on 2010-04-06  7:05:42
