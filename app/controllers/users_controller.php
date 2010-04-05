@@ -29,6 +29,7 @@ class UsersController extends AppController {
 				$this->log("ログイン処理-失敗",LOG_DEBUG);
 				$this->Session->setFlash($this->Auth->loginError);
 			}
+			$this->set('information', $this->Information->getLatestInformation(true));
 		}
 	}
 

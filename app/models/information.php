@@ -65,7 +65,7 @@ class Information extends AppModel {
 		),
 	);
 
-	function getLatestInformation()
+	function getLatestInformation($show_anonymous = false)
 	{
 		$conditions = array(
 			'conditions' => array(
@@ -75,6 +75,10 @@ class Information extends AppModel {
 			),
 			'order' => 'Information.startdate desc',
 		);
+		if($show_anonymous)
+		{
+			$conditions["conditions"]["Information.show_anonymous"] = 1;
+		}
 		return $this->find('all', $conditions);
 	}
 }
