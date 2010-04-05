@@ -48,6 +48,7 @@ class UsersController extends AppController {
 		$this->set('tasks', $tasks);
 		$this->set('project', $this->Project->read(null, 1));
 		$this->set('information', $this->Information->getLatestInformation());
+		$this->set('show_link', true);
 	}
 
 	function index() {

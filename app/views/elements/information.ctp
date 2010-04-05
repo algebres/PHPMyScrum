@@ -10,9 +10,12 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td class="narrow"><?php echo date('Y-m-d', strtotime($information['Information']['startdate'])); ?>&nbsp;</td>
+		<td style="width:70px;"><?php echo date('Y-m-d', strtotime($information['Information']['startdate'])); ?>&nbsp;</td>
+		<?php if(@$show_link == true) { ?>
 		<td><?php echo $this->Html->link($information['Information']['name'], array('controller' => 'information', 'action' => 'view', $information['Information']['id'])); ?></td>
-
+		<?php } else { ?>
+		<td><?php echo $information['Information']['name']; ?></td>
+		<?php } ?>
 	</tr>
 <?php endforeach; ?>
 	</table>

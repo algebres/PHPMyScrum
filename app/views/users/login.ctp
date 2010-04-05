@@ -6,8 +6,8 @@
 </div>
 <?php } ?>
 
-<div id="leftbox" style="float:left; width:400px;">
-<div class="users view" style="width:380px;">
+
+<div class="users view" style="width:200px;">
 <h2><?php  __('User');?></h2>
 
 <?php if  ($session->check('Message.auth')) $session->flash('auth'); ?>
@@ -19,9 +19,5 @@
 <?php echo $form->end(); ?>
 </div>
 
-<div id="rightbox" style="float:right; width:400px;">
 <?php echo $this->element("information"); ?>
-</div>
-
-</div>
 
