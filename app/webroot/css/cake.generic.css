@@ -191,7 +191,7 @@ ul, li {
 	display: none;
 	position : absolute;
 	margin-left : 0px;
-	margin-top : 0px;
+	margin-top : -62px;
 }
 
 #gnavi ul li:hover > ul
