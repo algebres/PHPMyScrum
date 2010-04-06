@@ -40,7 +40,7 @@
 			<h1><a href="<?php echo $html->url('/users/dashboard'); ?>"><?php echo $html->image('logo.png'); ?></a></h1>
 			<div id="userinfo">
 				<?php if($login_user) { ?>
-				<?php echo __('Username') ."&nbsp;:&nbsp;". $login_user['username']; ?>
+				<?php echo __('Username') ."&nbsp;:&nbsp;"; ?><?php echo $this->Html->link("<span style=\"color:#ffffff;\">" .$login_user["username"] . "</span>", array('action' => 'edit', 'controller' => 'users', $login_user['id']), array('escape' => false)); ?>
 					<?php if($login_user["admin"]) { ?>
 					<br /><?php echo __('Administrator'); ?>
 					<?php } ?>
