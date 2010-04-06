@@ -116,6 +116,11 @@ class UsersController extends AppController {
 			}
 		}
 
+		if (!empty( $this->data['User']['new_password'] ) )
+		{
+			$this->data['User']['password'] = AuthComponent::password ($this->data['User']['new_password']);
+		}
+
 		if (!empty($this->data)) {
 			if($this->Auth->user('admin'))
 			{
