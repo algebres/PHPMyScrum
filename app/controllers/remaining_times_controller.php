@@ -56,12 +56,9 @@ class RemainingTimesController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'remaining time'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->RemainingTime->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Remaining time'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Remaining time'));
-		$this->redirect(array('action' => 'index'));
+		$this->RemainingTime->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Remaining time'));
+		$this->redirect(array('action'=>'index'));
 	}
 }
 ?>

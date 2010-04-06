@@ -93,12 +93,9 @@ class SprintsController extends AppController {
 			$this->_redirect(array('action'=>'index'));
 		}
 
-		if ($this->Sprint->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Sprint'));
-			$this->_redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Sprint'));
-		$this->_redirect(array('action' => 'index'));
+		$this->Sprint->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Sprint'));
+		$this->_redirect(array('action'=>'index'));
 	}
 }
 ?>

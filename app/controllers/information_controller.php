@@ -53,12 +53,9 @@ class InformationController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'information'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Information->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Information'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Information'));
-		$this->redirect(array('action' => 'index'));
+		$this->Information->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Information'));
+		$this->redirect(array('action'=>'index'));
 	}
 }
 ?>

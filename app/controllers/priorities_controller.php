@@ -63,12 +63,9 @@ class PrioritiesController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 
-		if ($this->Priority->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Priority'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Priority'));
-		$this->redirect(array('action' => 'index'));
+		$this->Priority->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Priority'));
+		$this->redirect(array('action'=>'index'));
 	}
 }
 ?>

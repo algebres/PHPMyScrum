@@ -1,6 +1,7 @@
 <?php
 class Teammember extends AppModel {
 	var $name = 'Teammember';
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $validate = array(
 		'team_id' => array(
 			'numeric' => array(

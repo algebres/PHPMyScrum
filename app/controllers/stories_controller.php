@@ -90,12 +90,9 @@ class StoriesController extends AppController {
 			$this->_redirect(array('action'=>'index'));
 		}
 
-		if ($this->Story->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Story'));
-			$this->_redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Story'));
-		$this->_redirect(array('action' => 'index'));
+		$this->Story->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Story'));
+		$this->_redirect(array('action'=>'index'));
 	}
 }
 ?>

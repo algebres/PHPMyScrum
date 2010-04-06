@@ -53,12 +53,9 @@ class TeamsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'team'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Team->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Team'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Team'));
-		$this->redirect(array('action' => 'index'));
+		$this->Team->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Team'));
+		$this->redirect(array('action'=>'index'));
 	}
 }
 ?>

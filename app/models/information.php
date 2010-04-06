@@ -2,6 +2,7 @@
 class Information extends AppModel {
 	var $name = 'Information';
 	var $displayField = 'name';
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(

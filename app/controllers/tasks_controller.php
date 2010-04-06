@@ -120,12 +120,9 @@ class TasksController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'task'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Task->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Task'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Task'));
-		$this->redirect(array('action' => 'index'));
+		$this->Task->delete($id);
+		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Task'));
+		$this->redirect(array('action'=>'index'));
 	}
 }
 ?>
