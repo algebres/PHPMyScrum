@@ -7,6 +7,18 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#sprint_storylist_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
+
 <div class="sprints view">
 <h2><?php  __('Sprint');?>&nbsp;#<?php echo $sprint['Sprint']['id']; ?>&nbsp;<?php echo h($sprint['Sprint']['name']); ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -57,7 +69,7 @@
 <div class="related">
 	<h3><?php __('Sprint'); __('Stories'); ?></h3>
 	<?php if (!empty($sprint['Story'])):?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" id="sprint_storylist_table">
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Name'); ?></th>

@@ -3,6 +3,18 @@
 <?php echo $javascript->link('superTable'); ?>
 
 <script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#sprint_tasks_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
+
+<script type="text/javascript">
 Event.observe(window, 'load', function() {
 	var d6 = [];
 	var d7 = [];
@@ -115,7 +127,7 @@ Event.observe(window, 'load', function() {
 <br clear="all" />
 <br />
 <div class="fakeContainer">
-<table id="fixtable" cellpadding = "0" cellspacing = "0">
+<table id="sprint_tasks_table" cellpadding = "0" cellspacing = "0">
 <tr>
 <th colspan="3"><?php __('TaskRemainingHours'); ?></th>
 <?php // 横軸の日付を書く ?>

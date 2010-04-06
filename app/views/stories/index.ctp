@@ -9,9 +9,21 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#stories_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
+
 <div class="stories index">
 	<h2><?php __('Product Backlog');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="stories_table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>

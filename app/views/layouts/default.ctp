@@ -28,6 +28,9 @@
 		echo $html->css('superTable');
 		echo $scripts_for_layout;
 		echo $javascript->link('prototype');
+		echo $html->css('flexigrid/flexigrid');
+		echo $javascript->link('jquery');
+		echo $javascript->link('flexigrid');
 	?>
 </head>
 <body>

@@ -9,6 +9,17 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#tasks_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
 
 <div class="tasks index">
 	<h2>
@@ -30,7 +41,7 @@
 	}
 	?>
 	</h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="tasks_table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>

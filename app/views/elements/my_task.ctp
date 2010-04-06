@@ -1,6 +1,18 @@
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#my_tasks_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
+
 <div class="tasks index">
 	<h2><?php echo sprintf(__("Your unfinished %s", true), __('Tasks', true));?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="my_tasks_table">
 	<tr>
 			<th><?php __('id');?></th>
 			<th><?php __('name');?></th>
