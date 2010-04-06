@@ -21,7 +21,7 @@ class InformationController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Information->create();
-			if ($this->Information->save($this->data)) {
+			if ($this->Information->save($this->data, array('fieldList' => $this->Information->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'information'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -36,7 +36,7 @@ class InformationController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Information->save($this->data)) {
+			if ($this->Information->save($this->data, array('fieldList' => $this->Information->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'information'));
 				$this->redirect(array('action' => 'index'));
 			} else {

@@ -66,6 +66,11 @@ class Information extends AppModel {
 		),
 	);
 
+	var $fields = array(
+		'save' => array('name', 'description', 'startdate', 'enddate', 'show_anonymous'),
+	);
+
+
 	function getLatestInformation($show_anonymous = false)
 	{
 		$conditions = array(
