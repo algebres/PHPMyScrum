@@ -103,6 +103,12 @@ class Sprint extends AppModel {
 		)
 	);
 
+	var $fields = array(
+		'add' => array('name', 'description', 'startdate', 'enddate'),
+		'edit' => array('name', 'description', 'startdate', 'enddate'),
+	);
+
+
 	function getCurrentSprint()
 	{
 		$current = date('Y-m-d H:i:s');

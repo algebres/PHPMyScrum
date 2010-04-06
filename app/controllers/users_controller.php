@@ -70,9 +70,22 @@ class UsersController extends AppController {
 			$this->User->create();
 			// まだ管理者がいない場合は強制的に管理者フラグをたてる
 			$has_admin = $this->User->hasAdminUser();
-			$this->data["User"]["admin"] = !$has_admin;
+			if(!$has_admin)
+			{
+				$this->data["User"]["admin"] = true;
+			}
 
-			if ($this->User->save($this->data)) {
+			// 現在のユーザーをチェックし管理者かどうかチェック
+			if($has_admin == false || $this->Auth->user('admin') == true)
+			{
+				$key = "admin_add";
+			}
+			else
+			{
+				$key = "add";
+			}
+
+			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key]))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
 				if($has_admin)
 				{
@@ -104,7 +117,15 @@ class UsersController extends AppController {
 		}
 
 		if (!empty($this->data)) {
-			if ($this->User->save($this->data)) {
+			if($this->Auth->user('admin'))
+			{
+				$key = "admin_edit";
+			}
+			else
+			{
+				$key = "edit";
+			}
+			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key]))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
 				$this->redirect(array('action' => 'index'));
 			} else {

@@ -7,7 +7,6 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('startdate');
 		echo $this->Form->input('enddate');
-		echo $this->Form->input('disabled');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

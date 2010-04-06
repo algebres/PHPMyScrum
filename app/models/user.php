@@ -124,6 +124,20 @@ class User extends AppModel {
 		)
 	);
 
+	var $fields = array();
+
+	function  __construct()
+	{
+		parent::__construct();
+
+		// 通常
+		$this->fields["add"] = array('name', 'loginname', 'password', 'username', 'email');
+		$this->fields["edit"] = $this->fields["add"];
+		//管理者用
+		$this->fields["admin_add"] = $this->fields["add"];	$this->fields["admin_add"][] = "admin";
+		$this->fields["admin_edit"] = $this->fields["admin_add"];
+	}
+
 	/**
 	 * 現在有効なユーザー
 	 */

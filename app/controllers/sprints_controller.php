@@ -54,7 +54,7 @@ class SprintsController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Sprint->create();
-			if ($this->Sprint->save($this->data)) {
+			if ($this->Sprint->save($this->data, array('fieldList' => $this->Sprint->fields['add']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'sprint'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -69,7 +69,7 @@ class SprintsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Sprint->save($this->data)) {
+			if ($this->Sprint->save($this->data, array('fieldList' => $this->Sprint->fields['edit']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'sprint'));
 				$this->redirect(array('action' => 'index'));
 			} else {

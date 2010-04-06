@@ -6,10 +6,21 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#users_list_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
 
 <div class="users index">
 	<h2><?php __('Users');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="users_list_table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('loginname');?></th>
