@@ -25,12 +25,13 @@
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
-		echo $html->css('superTable');
 		echo $scripts_for_layout;
-		echo $javascript->link('prototype');
 		echo $html->css('flexigrid/flexigrid');
-		echo $javascript->link('jquery');
-		echo $javascript->link('flexigrid');
+		if($login_user) {
+			echo $javascript->link('prototype');
+			echo $javascript->link('jquery');
+			echo $javascript->link('flexigrid');
+		}
 	?>
 </head>
 <body>
