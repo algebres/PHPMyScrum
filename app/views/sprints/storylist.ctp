@@ -90,7 +90,7 @@ jQuery(document).ready(function()
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $story['id'];?></td>
-			<td><?php echo $story['name'];?></td>
+			<td><?php echo $this->Html->link($story['name'], array('controller' => 'stories', 'action' => 'view', $story['id']), array('escape' => false)); ?></td>
 			<td><?php echo $story['storypoints'];?></td>
 			<td><?php echo count($story['Task']); ?></td>
 			<td><?php 
