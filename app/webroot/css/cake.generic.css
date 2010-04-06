@@ -140,7 +140,7 @@ ul, li {
 	background-color: #888;
 }
 
-#gnavi ul li, #snavi ul li {
+#gnavi ul li, #snavi ul li, #gnavi ul li ul li, #snavi ul li ul li{
 	margin: 0;
 	padding: 0;
 	float: left;
@@ -151,7 +151,7 @@ ul, li {
 	font-size: 13px; /* •¶ŽšƒTƒCƒY */
 }
 
-#gnavi ul li a, #snavi ul li a {
+#gnavi ul li a, #snavi ul li a, #gnavi ul li ul li a, #snavi ul li ul li a {
 	border-right: 1px solid #666;
 	padding: 9px 10px;
 	display: block;
@@ -185,6 +185,18 @@ ul, li {
 	height: 1px;
 	overflow: hidden;
 	/**/
+}
+
+#gnavi ul li ul, #snavi ul li ul{
+	display: none;
+	position : absolute;
+	margin-left : 0px;
+	margin-top : 0px;
+}
+
+#gnavi ul li:hover > ul
+{
+    display: block;
 }
 
 #gnavi ul:after, #snavi ul:after {

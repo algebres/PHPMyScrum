@@ -3,7 +3,7 @@ class AppController extends Controller {
 
 	var $components = array('Auth', 'Qdmail');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'ScrumHtml');
-	var $uses = array('User', 'Project');
+	var $uses = array('User', 'Project', 'Sprint');
 
 	/**
 	 * 認証コンポーネント
@@ -61,6 +61,8 @@ class AppController extends Controller {
 		}
 		$project = $this->Project->getProjectInfo();
 		$this->set('project_info', $project["Project"]);
+		$sprint = $this->Sprint->getActiveSprintList();
+		$this->set('sprint_info', $sprint);
 	}
 
 	// 権限詳細チェック

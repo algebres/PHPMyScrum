@@ -53,7 +53,15 @@
 				<ul>
 					<li><?php echo $this->Html->link(__('Dashboard', true), array('controller' => 'users', 'action' => 'dashboard')); ?> </li>
 					<li><?php echo $this->Html->link(__('Product Backlog', true), array('controller' => 'stories', 'action' => 'index')); ?> </li>
-					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?> </li>
+					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?>
+						<?php if(count($sprint_info) > 0 ) { ?>
+						<ul>
+							<?php foreach ($sprint_info as $key => $value) { ?>
+							<li><?php echo $this->Html->link($value, array('controller' => 'sprints', 'action' => 'view', $key)); ?></li>
+							<?php } ?>
+						</ul>
+						<?php } ?>
+					</li>
 					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
 					<?php if($login_user["admin"] == true) { ?>
 					<li><?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage')); ?> </li>
