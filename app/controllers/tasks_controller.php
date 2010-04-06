@@ -51,7 +51,7 @@ class TasksController extends AppController {
 			{
 				$this->data["Task"]["estimate_hours"] = 0;
 			}
-			if ($this->Task->save($this->data)) {
+			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
 				$id = $this->Task->getLastInsertID();
 				$this->redirect(array('action' => 'view', $id));
@@ -81,7 +81,7 @@ class TasksController extends AppController {
 				$this->data["Task"]["estimate_hours"] = 0;
 			}
 
-			if ($this->Task->save($this->data)) {
+			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
 				$this->redirect(array('action' => 'index'));
 			} else {

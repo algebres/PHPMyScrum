@@ -114,6 +114,11 @@ class Task extends AppModel {
 		)
 	);
 
+	var $fields = array(
+		'save' => array('name', 'description', 'sprint_id', 'story_id', 'estimate_hours', 'resolution_id', 'user_id'),
+	);
+
+
 	/**
 	 * タスク更新の際には時間を残時間テーブルにも突っ込む
 	 */
