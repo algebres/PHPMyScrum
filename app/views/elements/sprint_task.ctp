@@ -83,7 +83,9 @@ Event.observe(window, 'load', function() {
 			$tasks[$cnt] = 1;
 			$cnt++;
 			echo sprintf("\tvar d_user_%d = []\n", $a["user_id"]);
-			echo sprintf("\tvar l_user_%d = \"%s\"\n", $a["user_id"], @$a["User"]["username"]);
+			$username = @$a["User"]["username"];
+			if($username == "") { $username = __('Not Assigned', true); }
+			echo sprintf("\tvar l_user_%d = \"%s\"\n", $a["user_id"], $username);
 		}
 		else
 		{
