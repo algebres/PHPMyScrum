@@ -52,6 +52,10 @@ class Priority extends AppModel {
 		)
 	);
 
+	var $fields = array(
+		'save' => array('name'),
+	);
+
 	/**
 	 * Œ»İ—LŒø‚È—Dæ‡ˆÊ
 	 */

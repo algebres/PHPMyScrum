@@ -11,7 +11,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('disabled');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('updated');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -27,7 +26,6 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $priority['Priority']['id']; ?>&nbsp;</td>
 		<td><?php echo h($priority['Priority']['name']); ?>&nbsp;</td>
-		<td><?php echo $priority['Priority']['disabled']; ?>&nbsp;</td>
 		<td><?php echo $priority['Priority']['created']; ?>&nbsp;</td>
 		<td><?php echo $priority['Priority']['updated']; ?>&nbsp;</td>
 		<td class="actions">

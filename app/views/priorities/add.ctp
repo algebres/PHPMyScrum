@@ -13,7 +13,6 @@
  		<legend><?php printf(__('Add %s', true), __('Priority', true)); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('disabled');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

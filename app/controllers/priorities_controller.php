@@ -25,7 +25,7 @@ class PrioritiesController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Priority->create();
-			if ($this->Priority->save($this->data)) {
+			if ($this->Priority->save($this->data, array('fieldList' => $this->Priority->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'priority'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -40,7 +40,7 @@ class PrioritiesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Priority->save($this->data)) {
+			if ($this->Priority->save($this->data, array('fieldList' => $this->Priority->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'priority'));
 				$this->redirect(array('action' => 'index'));
 			} else {
