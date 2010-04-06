@@ -37,7 +37,7 @@ class StoriesController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Story->create();
-			if ($this->Story->save($this->data)) {
+			if ($this->Story->save($this->data, array('fieldList' => $this->Story->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'story'));
 				$id = $this->Story->getLastInsertID();
 				$this->redirect(array('action' => 'view', $id));
@@ -59,7 +59,7 @@ class StoriesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Story->save($this->data)) {
+			if ($this->Story->save($this->data, array('fieldList' => $this->Story->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'story'));
 				$this->redirect(array('action' => 'index'));
 			} else {

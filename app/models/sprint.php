@@ -104,8 +104,7 @@ class Sprint extends AppModel {
 	);
 
 	var $fields = array(
-		'add' => array('name', 'description', 'startdate', 'enddate'),
-		'edit' => array('name', 'description', 'startdate', 'enddate'),
+		'save' => array('name', 'description', 'startdate', 'enddate'),
 	);
 
 

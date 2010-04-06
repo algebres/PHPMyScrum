@@ -96,6 +96,10 @@ class Story extends AppModel {
 		)
 	);
 
+	var $fields = array(
+		'save' => array('name', 'description', 'storypoints', 'businessvalue', 'priority_id', 'sprint_id', 'team_id'),
+	);
+
 	/**
 	 * 現在有効なストーリーの名前をリストボックス用に取得
 	 */
