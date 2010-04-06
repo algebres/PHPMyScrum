@@ -71,10 +71,23 @@
 		</dd>
 	</dl>
 </div>
+
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function() 
+{
+    jQuery('#related_tasks_table').flexigrid({height:'auto',striped:false});
+}
+);
+-->
+</script>
+
+
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Tasks', true));?></h3>
 	<?php if (!empty($story['Task'])):?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" id="related_tasks_table">
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Sprint'); ?></th>
