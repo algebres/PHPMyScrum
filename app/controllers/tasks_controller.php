@@ -52,11 +52,11 @@ class TasksController extends AppController {
 				$this->data["Task"]["estimate_hours"] = 0;
 			}
 			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
 				$id = $this->Task->getLastInsertID();
 				$this->redirect(array('action' => 'view', $id));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			}
 		}
 		$story_id = @$this->params['named']['story_id'];
@@ -71,7 +71,7 @@ class TasksController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'task'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Task', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
@@ -82,10 +82,10 @@ class TasksController extends AppController {
 			}
 
 			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -100,28 +100,28 @@ class TasksController extends AppController {
 
 	function done($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'task'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Task', true)));
 			$this->_redirect(array('action'=>'index'));
 		}
 		$data = $this->Task->read(null, $id);
 		$data["Task"]["resolution_id"] = 1;
 		$data["Task"]["estimate_hours"] = 0;
 		if ($this->Task->save($data)) {
-			$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'task'));
+			$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
 			$this->_redirect(array('action' => 'index'));
 		} else {
-			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'task'));
+			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			$this->_redirect(array('action' => 'index'));
 		}
 	}
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'task'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Task', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Task->delete($id);
-		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Task'));
+		$this->Session->setFlash(sprintf(__('%s deleted', true), __('Task', true)));
 		$this->redirect(array('action'=>'index'));
 	}
 }

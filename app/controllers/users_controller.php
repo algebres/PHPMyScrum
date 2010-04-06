@@ -58,7 +58,7 @@ class UsersController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('User', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->User->recursive = 2;
@@ -86,7 +86,7 @@ class UsersController extends AppController {
 			}
 
 			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key]))) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('User', true)));
 				if($has_admin)
 				{
 					$this->redirect(array('action' => 'index'));
@@ -96,14 +96,14 @@ class UsersController extends AppController {
 					$this->redirect(array('controller' => 'projects', 'action' => 'edit'));
 				}
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('User', true)));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('User', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 
@@ -131,10 +131,10 @@ class UsersController extends AppController {
 				$key = "edit";
 			}
 			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key]))) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('User', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('User', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -144,7 +144,7 @@ class UsersController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('User', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 
@@ -158,7 +158,7 @@ class UsersController extends AppController {
 		}
 
 		$this->User->delete($id);
-		$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
+		$this->Session->setFlash(sprintf(__('%s deleted', true), __('User', true)));
 		$this->redirect(array('action'=>'index'));
 	}
 }

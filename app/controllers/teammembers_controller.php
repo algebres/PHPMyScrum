@@ -11,7 +11,7 @@ class TeammembersController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'teammember'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Teammember', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('teammember', $this->Teammember->read(null, $id));
@@ -21,10 +21,10 @@ class TeammembersController extends AppController {
 		if (!empty($this->data)) {
 			$this->Teammember->create();
 			if ($this->Teammember->save($this->data, array('fieldList' => $this->Teammember->fields['save']))) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'teammember'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Teammember', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'teammember'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Teammember', true)));
 			}
 		}
 		$teams = $this->Teammember->Team->find('list');
@@ -34,15 +34,15 @@ class TeammembersController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'teammember'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Teammember', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Teammember->save($this->data, array('fieldList' => $this->Teammember->fields['save']))) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'teammember'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Teammember', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'teammember'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Teammember', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -55,11 +55,11 @@ class TeammembersController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'teammember'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Teammember', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Teammember->delete($id);
-		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Teammember'));
+		$this->Session->setFlash(sprintf(__('%s deleted', true), __('Teammember', true)));
 		$this->redirect(array('action'=>'index'));
 	}
 }

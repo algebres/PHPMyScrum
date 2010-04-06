@@ -13,7 +13,7 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
-		echo $this->Form->input('storypoints');
+		echo $this->Form->input('storypoints', array('label' => __('StoryPoints', true), 'required' => true));
 		echo $this->Form->input('businessvalue');
 		echo $this->Form->input('priority_id', array('options' => $priorities, 'empty' => ' '));
 		echo $this->Form->input('sprint_id', array('options' => $sprints, 'empty' => ' '));

@@ -11,7 +11,7 @@ class TeamsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'team'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Team', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->Team->recursive = 2;
@@ -25,14 +25,14 @@ class TeamsController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'team'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'team'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Team', true)));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'team'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Team', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
@@ -40,7 +40,7 @@ class TeamsController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'team'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'team'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Team', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -50,11 +50,11 @@ class TeamsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'team'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Team', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Team->delete($id);
-		$this->Session->setFlash(sprintf(__('%s deleted', true), 'Team'));
+		$this->Session->setFlash(sprintf(__('%s deleted', true), __('Team', true)));
 		$this->redirect(array('action'=>'index'));
 	}
 }
