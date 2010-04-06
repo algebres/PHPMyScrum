@@ -20,7 +20,7 @@ class TeammembersController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Teammember->create();
-			if ($this->Teammember->save($this->data)) {
+			if ($this->Teammember->save($this->data, array('fieldList' => $this->Teammember->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'teammember'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -38,7 +38,7 @@ class TeammembersController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Teammember->save($this->data)) {
+			if ($this->Teammember->save($this->data, array('fieldList' => $this->Teammember->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'teammember'));
 				$this->redirect(array('action' => 'index'));
 			} else {

@@ -24,6 +24,11 @@ class Teammember extends AppModel {
 			),
 		),
 	);
+
+	var $fields = array(
+		'save' => array('team_id', 'user_id'),
+	);
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
