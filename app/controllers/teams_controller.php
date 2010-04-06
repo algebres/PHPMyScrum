@@ -21,7 +21,7 @@ class TeamsController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Team->create();
-			if ($this->Team->save($this->data)) {
+			if ($this->Team->save($this->data, array('fieldList' => $this->Team->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'team'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -36,7 +36,7 @@ class TeamsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Team->save($this->data)) {
+			if ($this->Team->save($this->data, array('fieldList' => $this->Team->fields['save']))) {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'team'));
 				$this->redirect(array('action' => 'index'));
 			} else {

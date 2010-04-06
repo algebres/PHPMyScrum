@@ -51,6 +51,10 @@ class Team extends AppModel {
 		)
 	);
 
+	var $fields = array(
+		'save' => array('name', 'description'),
+	);
+
 	/**
 	 * Œ»İ—LŒø‚Èƒ`[ƒ€
 	 */
