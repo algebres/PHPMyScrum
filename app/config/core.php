@@ -295,4 +295,21 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+
+	// mail host
+	Configure::write('Config.mail_from', 'noreply@example.com');	// !MUST!
+	Configure::write('Config.mail_smtp', 'localhost');				// !MUST!
+	Configure::write('Config.mail_smtp_port', 25);					// !MUST!
+	Configure::write('Config.mail_smtp_user', '');					// !MUST!
+	Configure::write('Config.mail_smtp_password', '');				// !MUST!
+	Configure::write('Config.mail_protocol', 'SMTP');				// (POP_BEFORE | SMTP )
+
+	//---- For POP before SMTP ----
+	Configure::write('Config.mail_pop_host', '');					// Only set at pop before smtp
+	Configure::write('Config.mail_pop_username', '');				// Only set at pop before smtp
+	Configure::write('Config.mail_pop_password', '');				// Only set at pop before smtp
+
+	// template
+	Configure::write('Config.mail_subject_reset_password', __('Reset password', true));
+
 ?>

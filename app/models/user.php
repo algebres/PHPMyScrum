@@ -180,5 +180,32 @@ class User extends AppModel {
 	{
 		return (count($this->getAdminUserList()) > 0);
 	}
+
+	/**
+	 * パスワードをランダムに作成
+	 */
+	function make_password($length = 8)
+	{
+		$sCharList = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz123456789";
+		mt_srand();
+		$result = "";
+		for($i = 0; $i < $length; $i++)
+		{
+			$result .= $sCharList{mt_rand(0, strlen($sCharList) - 1)};
+		}
+		return $result;
+	}
+
+	/**
+	 * アカウントリマインダ等に備えてバリデーションを変更する
+	 */
+	function changeValidationRuleForReset()
+	{
+		unset($this->validate['username']['unique']);
+		unset($this->validate['password']);
+		unset($this->validate['new_password']);
+		unset($this->validate['loginname']['unique']);
+	}
+
 }
 ?>

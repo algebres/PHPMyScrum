@@ -161,5 +161,73 @@ class UsersController extends AppController {
 		$this->Session->setFlash(sprintf(__('%s deleted', true), __('User', true)));
 		$this->redirect(array('action'=>'index'));
 	}
+
+	// パスワード再発行
+	function reset_password() {
+
+		if (empty($this->data))
+		{
+			$this->render("reset_password");
+			return;
+		}
+
+		$loginname = $this->data['User']['loginname'];
+		$email = $this->data['User']['email'];
+
+		$this->User->create();
+		$this->User->changeValidationRuleForReset();	//isUniqueチェック等を削除
+		$this->User->set($this->data);
+		if ($this->User->validates() == false)
+		{
+			$this->render("reset_password");
+			return;
+		}
+
+		$record = $this->User->findByLoginnameAndEmail($loginname, $email);
+		if(!$record)
+		{
+			$this->render('reset_password_mail');
+			return;
+		}
+
+		$new_password = $this->User->make_password();
+		$record['User']['password'] = AuthComponent::password($new_password);
+		$this->User->set($record);
+
+		if($this->User->save())
+		{
+			$mailinfo = array(
+							'loginname' => $record['User']['loginname'],
+							'username' => $record['User']['username'],
+							'email' => $record['User']['email'],
+							'password' => $new_password,
+						);
+			$mailsetting['mail_subject'] = Configure::read('Config.mail_subject_reset_password');
+			$mailsetting['mail_to'] = $record['User']['email'];
+			$mailsetting['mail_template'] = 'reset_password';
+
+			if ($this->sendmail($mailsetting, $mailinfo) )
+			{
+				$this->redirect(array('action'=>'reset_password_mail'));
+				return;
+			}
+			else
+			{
+				$this->cakeError("error404");
+				return;
+			}
+		}
+		else
+		{
+			$this->cakeError("error404");
+			return;
+		}
+	}
+
+	// パスワード再発行完了画面
+	function reset_password_mail() {
+		$this->render('reset_password_mail');
+	}
+
 }
 ?>

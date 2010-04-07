@@ -3820,7 +3820,8 @@ class QdmailComponent extends QdmailUserFunc{
 		$view = & new $this->Controller->view( $this->Controller , false );
 		$view->layout = $this->layout;
 		$mess = null;
-		$content = $view->renderElement( $this->view_dir . DS . $type . DS . $this->template , array('content' => $content ) , true );
+		//$content = $view->renderElement( $this->view_dir . DS . $type . DS . $this->template , array('content' => $content ) , true );
+		$content = $view->element( $this->view_dir . DS . $type . DS . $this->template , array('content' => $content ) , true );
 		if( 1.2 > (float) substr(Configure::version(),0,3) ){
 			$view->subDir = $this->layout_dir . DS . $type . DS ;
 		}else{

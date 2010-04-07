@@ -33,6 +33,7 @@ class AppController extends Controller {
 			{
 				$this->Auth->allow(array('add'));
 			}
+			$this->Auth->allow(array('reset_password', 'reset_password_mail'));
 		}
 
 		if (isset($this->Auth)) {
@@ -101,23 +102,20 @@ class AppController extends Controller {
 
 		// QdmailとDebugKitの共存対応
 		$this->view = "View";
-
 		Configure::write("debug", 0);
-
 		mb_language("Japanese");
 
 		$param = array(
 			'host'=> Configure::read('Config.mail_smtp'),
-			'port'=> 25 ,
+			'port'=> Configure::read('Config.mail_smtp_port'),
 			'from'=> Configure::read('Config.mail_from'),
 			'protocol'=> Configure::read('Config.mail_protocol'),
-			'user'=> '',
-			'pass' => '',
+			'user'=> Configure::read('Config.mail_smtp_user'),
+			'pass' => Configure::read('Config.mail_smtp_password'),
 			'pop_host' => Configure::read('Config.mail_pop_host'),
 			'pop_user' => Configure::read('Config.mail_pop_username'),
 			'pop_pass'=> Configure::read('Config.mail_pop_password'),
 		);
-
 		$to = $mail_setting['mail_to'];
 		$to_array = explode(',', $to);
 		$name_array = array();
@@ -132,15 +130,15 @@ class AppController extends Controller {
 		$this->Qdmail->smtpServer($param);
 		$this->Qdmail->logLevel(3);
 		$this->Qdmail->errorlogLevel(3);
+		$this->Qdmail->errorDisplay(false);
+		$this->Qdmail->smtpObject()->error_display = false;
 		$this->Qdmail->smtpLoglevelLink(true);
 		$this->Qdmail->logPath(LOGS);
 		$this->Qdmail->logFilename("mail.log");
 		$this->Qdmail->errorlogPath(LOGS);
 		$this->Qdmail->errorlogFilename("error_mail.log");
-
 		//メールの表示情報を渡す
 		$this->Qdmail->cakeText($mail_content, $mail_setting['mail_template']);
-
 		if ($this->Qdmail->send() != false)
 		{
 			$this->log('メール送信完了', LOG_INFO);
