@@ -16,8 +16,10 @@
 <?php echo $form->input('loginname', array('size' => 30)); ?><br />
 <?php echo $form->input('password',array('type' => 'password', 'size' => 30 ));?><br />
 <?php echo $form->submit('ログイン'); ?>
+<?php echo $this->Html->link(__('Lost your password?', true), array('controller' => 'users', 'action' => 'reset_password')); ?>
 <?php echo $form->end(); ?>
 </div>
 
 <?php echo $this->element("information"); ?>
+
 
