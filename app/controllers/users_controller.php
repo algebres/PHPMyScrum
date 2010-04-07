@@ -213,13 +213,13 @@ class UsersController extends AppController {
 			}
 			else
 			{
-				$this->cakeError("error404");
+				$this->cakeError("sys_error");
 				return;
 			}
 		}
 		else
 		{
-			$this->cakeError("error404");
+			$this->cakeError("sys_error");
 			return;
 		}
 	}
