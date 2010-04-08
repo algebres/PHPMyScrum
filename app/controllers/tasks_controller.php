@@ -104,7 +104,7 @@ class TasksController extends AppController {
 			$this->_redirect(array('action'=>'index'));
 		}
 		$data = $this->Task->read(null, $id);
-		$data["Task"]["resolution_id"] = 3;
+		$data["Task"]["resolution_id"] = 1;
 		$data["Task"]["estimate_hours"] = 0;
 		if ($this->Task->save($data)) {
 			$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
