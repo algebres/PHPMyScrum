@@ -159,7 +159,14 @@ class AppController extends Controller {
 		$return_url = @$this->params['url']['return_url'];
 		if ($return_url != "")
 		{
-			$this->redirect(urldecode($return_url));
+			if(is_array($return_url))
+			{
+				$this->redirect(urldecode($return_url));
+			}
+			else
+			{
+				header("Location: " . $return_url);
+			}
 		}
 		else
 		{
