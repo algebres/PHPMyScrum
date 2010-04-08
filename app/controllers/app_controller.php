@@ -160,6 +160,7 @@ class AppController extends Controller {
 		if ($return_url != "")
 		{
 			header("Location: " . urldecode($return_url));
+			exit;
 		}
 		else
 		{
