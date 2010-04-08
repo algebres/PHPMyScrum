@@ -92,7 +92,7 @@
 
 		</div>
 		<div id="footer">
-		<p>Copyright &copy; <?php echo date('Y'); ?> Ryuzee, Licensed under GPL3.</p>
+		<p>Copyright &copy; <?php echo date('Y'); ?> Ryuzee, Licensed under The MIT License.</p>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
