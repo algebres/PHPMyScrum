@@ -48,4 +48,12 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+
+define ('RESOLUTION_TODO',  1);
+define ('RESOLUTION_DOING', 2);
+define ('RESOLUTION_DONE',  3);
+
+
+
+
 ?>
