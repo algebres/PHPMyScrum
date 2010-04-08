@@ -21,7 +21,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo __($title_for_layout); ?> | <?php echo(h($project_info["name"])); ?> | <?php __('phpmyscrum'); ?></title>
+	<?php 
+		$title = "";
+		if ($title_for_layout != "")
+		{
+			$title .= __($title_for_layout, true) . " | ";
+		}
+		if (@$project_info["name"] != "")
+		{
+			$title .= h($project_info["name"]) . " | ";
+		}
+	?>
+	<title><?php echo $title; ?><?php __('phpmyscrum'); ?></title>
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');

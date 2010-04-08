@@ -213,13 +213,13 @@ class UsersController extends AppController {
 			}
 			else
 			{
-				$this->cakeError("sys_error");
+				$this->cakeError("sys_error", array('message' => __("We can not send an email to you. Please contact system administrator", true)));
 				return;
 			}
 		}
 		else
 		{
-			$this->cakeError("sys_error");
+			$this->cakeError("sys_error", array('message' => __("We can not make your new password. Please contact system administrator", true)));
 			return;
 		}
 	}
