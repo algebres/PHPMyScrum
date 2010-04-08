@@ -165,7 +165,7 @@ class AppController extends Controller {
 			}
 			else
 			{
-				header("Location: " . $urldecode($return_url));
+				header("Location: " . urldecode($return_url));
 			}
 		}
 		else
