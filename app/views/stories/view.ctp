@@ -121,7 +121,7 @@ jQuery(document).ready(function()
 			<td><?php echo $task['updated'];?></td>
 			<?php } ?>
 			<td class="actions">
-				<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['id'], '?' => array('return_url' => urlencode('/stories/view/' .$story['Story']['id'] ))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['id'])); ?>
+				<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['id'], '?' => array('return_url' => $html->url('/stories/view/' .$story['Story']['id']) )), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['id'])); ?>
 
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'tasks', 'action' => 'edit', $task['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'tasks', 'action' => 'delete', $task['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
