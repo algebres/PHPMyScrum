@@ -161,11 +161,11 @@ class AppController extends Controller {
 		{
 			if(is_array($return_url))
 			{
-				$this->redirect(urldecode($return_url));
+				$this->redirect($return_url);
 			}
 			else
 			{
-				header("Location: " . $return_url);
+				header("Location: " . $urldecode($return_url));
 			}
 		}
 		else
