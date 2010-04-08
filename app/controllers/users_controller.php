@@ -7,14 +7,14 @@ class UsersController extends AppController {
 	var $uses = array('User', 'Sprint', 'Task', 'Project', 'Information');
 
 	//ログイン処理
-	function login(){
+	function login()
+	{
 		if ($this->Auth->user())
 		{
 			if (!empty($this->data))
 			{
 				//ログインに成功した時の処理
 				$this->log("ログイン処理-成功",LOG_DEBUG);
-
 				$this->redirect(array('action'=> 'dashboard'));
 			}
 			else
@@ -33,13 +33,15 @@ class UsersController extends AppController {
 		}
 	}
 
-	function logout() {
+	function logout()
+	{
 		$this->Auth->logout();
 		$this->Session->setFlash(__('You have finished to logout.', true));
 		$this->redirect(array('action' => 'login'));
 	}
 
-	function dashboard() {
+	function dashboard()
+	{
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 		$sprints = $this->Sprint->getCurrentSprint();
@@ -51,13 +53,16 @@ class UsersController extends AppController {
 		$this->set('show_link', true);
 	}
 
-	function index() {
+	function index() 
+	{
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
+	function view($id = null) 
+	{
+		if (!$id) 
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('User', true)));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -65,8 +70,10 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function add() {
-		if (!empty($this->data)) {
+	function add() 
+	{
+		if (!empty($this->data))
+		{
 			$this->User->create();
 			// まだ管理者がいない場合は強制的に管理者フラグをたてる
 			$has_admin = $this->User->hasAdminUser();
@@ -85,7 +92,8 @@ class UsersController extends AppController {
 				$key = "add";
 			}
 
-			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key]))) {
+			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('User', true)));
 				if($has_admin)
 				{
@@ -95,14 +103,18 @@ class UsersController extends AppController {
 				{
 					$this->redirect(array('controller' => 'projects', 'action' => 'edit'));
 				}
-			} else {
+			} 
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('User', true)));
 			}
 		}
 	}
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
+	function edit($id = null)
+	{
+		if (!$id && empty($this->data))
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('User', true)));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -116,12 +128,19 @@ class UsersController extends AppController {
 			}
 		}
 
-		if (!empty( $this->data['User']['new_password'] ) )
+		if (!empty( $this->data['User']['new_password']))
 		{
+			$this->User->addValidationRuleChangePassword(); // add validation rule
 			$this->data['User']['password'] = AuthComponent::password ($this->data['User']['new_password']);
+			$this->User->set($this->data);
+			if (!$this->User->validates($this->data)) 
+			{
+				return;
+			}
 		}
 
-		if (!empty($this->data)) {
+		if (!empty($this->data))
+		{
 			if($this->Auth->user('admin'))
 			{
 				$key = "admin_edit";
@@ -130,20 +149,26 @@ class UsersController extends AppController {
 			{
 				$key = "edit";
 			}
-			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key]))) {
+			if ($this->User->save($this->data, array('fieldList' => $this->User->fields[$key])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('User', true)));
 				$this->redirect(array('action' => 'index'));
-			} else {
+			} 
+			else 
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('User', true)));
 			}
 		}
-		if (empty($this->data)) {
+		if (empty($this->data)) 
+		{
 			$this->data = $this->User->read(null, $id);
 		}
 	}
 
-	function delete($id = null) {
-		if (!$id) {
+	function delete($id = null) 
+	{
+		if (!$id) 
+		{
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('User', true)));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -163,8 +188,8 @@ class UsersController extends AppController {
 	}
 
 	// パスワード再発行
-	function reset_password() {
-
+	function reset_password() 
+	{
 		if (empty($this->data))
 		{
 			$this->render("reset_password");
@@ -225,7 +250,8 @@ class UsersController extends AppController {
 	}
 
 	// パスワード再発行完了画面
-	function reset_password_mail() {
+	function reset_password_mail()
+	{
 		$this->render('reset_password_mail');
 	}
 

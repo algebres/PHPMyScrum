@@ -207,5 +207,11 @@ class User extends AppModel {
 		unset($this->validate['loginname']['unique']);
 	}
 
+
+	function addValidationRuleChangePassword()
+	{
+		$this->validate["new_password"] = $this->validate["password"];
+	}
+
 }
 ?>
