@@ -72,7 +72,11 @@ function after_function(data) {
 
 <? foreach ($sprint['Story'] as $story): ?>
 <tr id="story:<?php echo $story["id"]; ?>">
-<td class="mark">#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id'])); ?></td>
+<td class="mark">#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id'])); ?>
+<?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
+<p><?php e(nl2br($story["description"])); ?></p>
+<?php } ?>
+</td>
 <?php foreach($resolutions as $resolution) { ?>
 	<td id="resolution_id:<?php echo $resolution["Resolution"]["id"]; ?>">
 	<?php foreach($sprint['Task'] as $task) { ?>

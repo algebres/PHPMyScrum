@@ -91,7 +91,7 @@
  * Turn off all caching application-wide.
  *
  */
-	Configure::write('Cache.disable', true);
+	//Configure::write('Cache.disable', true);
 
 /**
  * Enable cache checking.
@@ -298,6 +298,9 @@
 
 	// view
 	Configure::write('Config.paginate_count', 50);					// !MUST!
+
+	// display description in the taskboard
+	Configure::write('Config.display_description_in_the_taskboard', true);	// !MUST!
 
 	// mail host
 	Configure::write('Config.mail_from', 'noreply@example.com');	// !MUST!
