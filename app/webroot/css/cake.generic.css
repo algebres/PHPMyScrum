@@ -303,15 +303,15 @@ table td.actions a {
 td.summary {
 	background: #cccccc;
 	font-weight : bold;
-	text-align:center;
+	text-align:center !important;
 }
 td.past {
 	background: #ccffcc !important;
-	text-align:center;
+	text-align:center !important;
 }
 td.future {
 	background: #dddddd !important;
-	text-align:center;
+	text-align:center !important;
 }
 
 .cake-sql-log table {

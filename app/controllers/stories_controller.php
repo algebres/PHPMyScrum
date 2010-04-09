@@ -11,6 +11,7 @@ class StoriesController extends AppController {
 			'conditions' => array(
 				'Story.disabled' => 0,
 			),
+			'limit' => Configure::read('Config.paginate_count'),
 		);
 		$this->set('stories', $this->Story->populate_data($this->paginate()));
 	}

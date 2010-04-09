@@ -10,6 +10,7 @@ class TasksController extends AppController {
 		$this->Task->recursive = 0;
 		$param = @$this->params["named"]["filter"];
 		$this->paginate = $this->Task->getSelectConditon($param, $this->Auth->user('id'));
+		$this->paginate['limit'] = Configure::read('Config.paginate_count');
 		$this->set('tasks', $this->paginate());
 	}
 

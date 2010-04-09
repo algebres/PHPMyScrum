@@ -296,6 +296,9 @@
  */
 	Cache::config('default', array('engine' => 'File'));
 
+	// view
+	Configure::write('Config.paginate_count', 50);					// !MUST!
+
 	// mail host
 	Configure::write('Config.mail_from', 'noreply@example.com');	// !MUST!
 	Configure::write('Config.mail_smtp', 'localhost');				// !MUST!
