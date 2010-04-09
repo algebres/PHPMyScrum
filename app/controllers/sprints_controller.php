@@ -3,7 +3,7 @@ class SprintsController extends AppController {
 
 	var $name = 'Sprints';
 	var $components = array('Session');
-	var $uses = array('Sprint', 'Story');
+	var $uses = array('Sprint', 'Story', 'Resolution');
 
 	function index() {
 		$this->Sprint->recursive = 0;
@@ -16,7 +16,8 @@ class SprintsController extends AppController {
 	}
 
 	function view($id = null) {
-		if (!$id) {
+		if (!$id) 
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -28,6 +29,20 @@ class SprintsController extends AppController {
 
 		$sprint_remaining_hours = $this->Sprint->getSprintRemainingHours($id);
 		$this->set('sprint_remaining_hours', $sprint_remaining_hours);
+	}
+
+	function taskboard($id = null)
+	{
+		if (!$id) 
+		{
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Sprint->recursive = 2;	// story–¼“™
+		$sprint = $this->Sprint->read(null, $id);
+		$this->set('sprint', $sprint);
+		$this->Resolution->recursive = -1;
+		$this->set('resolutions', $this->Resolution->find('all'));
 	}
 
 	function output($id = null)

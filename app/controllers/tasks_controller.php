@@ -43,6 +43,31 @@ class TasksController extends AppController {
 		$this->Task->saveToExcel($data, 'task.xls');
 	}
 
+	function change()
+	{
+		$id = @$this->params["named"]["task_id"];
+		$resolution_id = @$this->params["named"]["resolution_id"];
+		if($id == "" || $resolution_id == "")
+		{
+			$this->cakeError("error404");
+			return;
+		}
+		$this->Task->recursive = -1;
+		$this->data = $this->Task->read(null, $id);
+		$this->data["Task"]["resolution_id"] = $resolution_id;
+		if($this->Resolution->is_fixed($resolution_id))
+		{
+			$this->data["Task"]["estimate_hours"] = 0;
+		}
+		if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
+			$this->log(__('Task status was changed.', true), LOG_DEBUG);
+			$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
+			$this->redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
+		}
+	}
+
 	function add() {
 		if (!empty($this->data)) {
 			$this->Task->create();
