@@ -24,12 +24,13 @@ window.onload = function () {
 	REDIPS.drag.init();  
 	REDIPS.drag.myhandler_dropped = function () {
 		var obj = REDIPS.drag.obj;
-		url = "<?php echo $html->url('/tasks/change/'); ?>" + obj.id + "/" + obj.parentNode.id;
+		url = "<?php echo $html->url('/tasks/change_resolution/'); ?>" + obj.id + "/" + obj.parentNode.id;
 		jQuery.get(url, {}, after_function );
 	}
 }
 function after_function(data) {
-	alert('<?php echo __('Updated!', true); ?>');
+	//alert('<?php echo __('Updated!', true); ?>');
+	alert(data);
 }
 </script>
 
@@ -40,7 +41,7 @@ function after_function(data) {
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Sprint', true)), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprint Stories', true)), array('action' => 'storylist', $sprint['Sprint']['id'])); ?> </li>
-		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('Excel', true)), array('action' => 'output', $sprint['Sprint']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Taskboard', true), array('action' => 'taskboard', $sprint['Sprint']['id'])); ?> </li>
 	</ul>
 </div>
 

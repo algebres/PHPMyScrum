@@ -43,8 +43,9 @@ class TasksController extends AppController {
 		$this->Task->saveToExcel($data, 'task.xls');
 	}
 
-	function change()
+	function change_resolution()
 	{
+		$this->layout = "ajax";
 		$id = @$this->params["named"]["task_id"];
 		$resolution_id = @$this->params["named"]["resolution_id"];
 		if($id == "" || $resolution_id == "")
@@ -61,10 +62,14 @@ class TasksController extends AppController {
 		}
 		if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
 			$this->log(__('Task status was changed.', true), LOG_DEBUG);
-			$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
-			$this->redirect(array('action' => 'index'));
+			$message = sprintf(__('The %s has been saved', true), __('Task', true));
+			//$this->Session->setFlash($message);
+			//$this->redirect(array('action' => 'index'));
+			$this->set("message", $message);
 		} else {
-			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
+			$message = sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true));
+			//$this->Session->setFlash($message);
+			$this->set("message", $message);
 		}
 	}
 
