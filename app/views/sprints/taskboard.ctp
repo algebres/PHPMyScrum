@@ -63,8 +63,9 @@ function after_function(data) {
 		<?php if($task["resolution_id"] == "") { $task["resolution_id"] = RESOLUTION_TODO; } ?>
 		<?php if($task["resolution_id"] == $resolution["Resolution"]["id"]) { ?>
 		<div class="drag" id="task_id:<?php echo $task["id"];?>">
-			<div class="storytitle">#<?php echo $task["Story"]["id"]; ?>&nbsp;<?php echo $task["Story"]["name"]; ?></div>
-			<?php echo $task["name"]; ?>
+			<div class="storytitle">#<?php echo $this->Html->link($task["Story"]["id"], array('controller' => 'stories', 'action' => 'view', $sprint['Sprint']['id'])); ?>&nbsp;<?php echo $task["Story"]["name"]; ?></div>
+			<?php $username = $task["User"]["username"]; if($username == "") { $username = __('Not Assigned', true); } ?>
+			<?php echo $this->Html->link($task["id"], array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?>&nbsp;<?php echo $task["name"]; ?>&nbsp;(<?php echo $username; ?>)
 		</div>
 		<?php } ?>
 	<?php } ?>
