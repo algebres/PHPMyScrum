@@ -38,7 +38,7 @@
 		echo $this->Html->css('cake.generic');
 		echo $scripts_for_layout;
 		echo $html->css('flexigrid/flexigrid');
-		if($login_user) {
+		if(isset($login_user)) {
 			echo $javascript->link('prototype');
 			echo $javascript->link('jquery');
 			echo $javascript->link('flexigrid');
@@ -50,7 +50,7 @@
 		<div id="header">
 			<h1><a href="<?php echo $html->url('/users/dashboard'); ?>"><?php echo $html->image('logo.png'); ?></a></h1>
 			<div id="userinfo">
-				<?php if($login_user) { ?>
+				<?php if(isset($login_user)) { ?>
 				<?php echo __('Username') ."&nbsp;:&nbsp;"; ?><?php echo $this->Html->link("<span style=\"color:#ffffff;\">" .$login_user["username"] . "</span>", array('action' => 'edit', 'controller' => 'users', $login_user['id']), array('escape' => false)); ?>
 					<?php if($login_user["admin"]) { ?>
 					<br /><?php echo __('Administrator'); ?>
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 		<div id="content">
-			<?php if($login_user) { ?>
+			<?php if(isset($login_user)) { ?>
 			<div id="gnavi">
 				<ul>
 					<li><?php echo $this->Html->link(__('Dashboard', true), array('controller' => 'users', 'action' => 'dashboard')); ?> </li>

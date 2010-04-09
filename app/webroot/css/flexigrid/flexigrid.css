@@ -59,7 +59,7 @@
 	
 .flexigrid div.nDiv td
 	{
-	padding: 2px 3px;
+	padding: 0px 1px;
 	border: 1px solid #eee;
 	cursor: default;
 	}
@@ -78,7 +78,8 @@
 	.flexigrid div.nDiv td.ndcol2
 		{
 		border-left: 1px solid #fff;
-		padding-right: 10px;
+		padding-right: 0px;
+/**		padding-right: 10px; **/
 		}
 
 	.flexigrid div.nDiv tr:hover td.ndcol1, .flexigrid div.nDiv tr.ndcolover td.ndcol1
@@ -393,7 +394,7 @@
 
 		.flexigrid div.hDiv th div, .flexigrid  div.bDiv td  div, div.colCopy div/* common inner cell properties*/
 			{
-			padding: 5px;
+		/**	padding: 5px; **/
 			border-left: 0px solid #fff;
 			}
 
@@ -503,7 +504,8 @@ div.colCopy {
 		.flexigrid div.bDiv td div
 			{
 			border-top: 0px solid #fff;
-			padding-bottom: 4px;
+			padding-bottom : 0px;
+	/**		padding-bottom: 4px; **/
 			}
 	
 				
