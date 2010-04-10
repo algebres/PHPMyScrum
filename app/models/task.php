@@ -116,6 +116,7 @@ class Task extends AppModel {
 
 	var $fields = array(
 		'save' => array('name', 'description', 'sprint_id', 'story_id', 'estimate_hours', 'resolution_id', 'user_id'),
+		'simple_save' => array('description', 'estimate_hours', 'resolution_id', 'user_id'),
 	);
 
 

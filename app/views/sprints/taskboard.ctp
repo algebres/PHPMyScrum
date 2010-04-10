@@ -52,7 +52,7 @@ window.onload = function () {
 		{
 			url_param = obj.parentNode.id.replace("___", "/");
 			url = "<?php echo $html->url('/tasks/change_resolution/'); ?>" + obj.id + "/" + url_param;
-			alert(url);
+			//alert(url);
 			jQuery.get(url, {}, after_function );
 		}
 	}
@@ -120,7 +120,7 @@ function after_function(data) {
 		<?php if($task["resolution_id"] == $resolution["Resolution"]["id"] && $story["id"] == $task["story_id"]) { ?>
 		<div class="drag" id="task_id:<?php echo $task["id"];?>">
 			<?php $username = $task["User"]["username"]; if($username == "") { $username = __('Not Assigned', true); } ?>
-			<?php echo $this->Html->link($task["id"], array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?>&nbsp;<?php echo $task["name"]; ?>&nbsp;(<?php echo $username; ?>)
+			<?php echo $this->Html->link($task["id"], array('controller' => 'tasks', 'action' => 'simple_view', $task['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo $task["name"]; ?>&nbsp;(<?php echo $username; ?>)
 		</div>
 		<?php } ?>
 	<?php } ?>

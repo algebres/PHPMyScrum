@@ -35,6 +35,35 @@ class TasksController extends AppController {
 		}
 	}
 
+	function simple_view($id = null)
+	{
+		$this->layout = "ajax";
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Task', true)));
+			$this->redirect(array('action' => 'index'));
+		}
+		if (!empty($this->data)) {
+			$resolution_id = $this->data["Task"]["resolution_id"];
+			if($this->Resolution->is_fixed($resolution_id))
+			{
+				$this->data["Task"]["estimate_hours"] = 0;
+			}
+
+			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['simple_save']))) {
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
+				$this->redirect(array('action' => 'simple_view', $id));
+			} else {
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
+			}
+		}
+		if (empty($this->data)) {
+			$this->data = $this->Task->read(null, $id);
+		}
+		$users = $this->User->getActiveUserList();
+		$resolutions = $this->Resolution->find('list');
+		$this->set(compact('users', 'resolutions'));
+	}
+
 	// Excelo—Í
 	function output()
 	{
@@ -44,6 +73,7 @@ class TasksController extends AppController {
 		$this->Task->saveToExcel($data, 'task.xls');
 	}
 
+	// ó‹µ‚ð•ÏX
 	function change_resolution()
 	{
 		$this->layout = "ajax";
