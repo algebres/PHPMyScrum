@@ -7,9 +7,23 @@ td {
 
 .drag{
 	position: relative;
-	border:2px solid #ffebcd;
-	background: #ffebcd;
-	margin:4px;
+	color: #000000;
+	background-color:#ffcccc; 
+	padding: 3px; border-left: 7px solid #cc0000;
+	border-top: 0px !important;
+	border-right: 1px solid #ccc; 
+	border-bottom: 1px solid #ccc;
+	margin: 2px;
+}
+
+.board_story {
+	color: #000000;
+	background-color:#fffacd; 
+	padding: 3px; border-left: 7px solid #ffd700;
+	border-top: 0px !important;
+	border-right: 1px solid #ccc; 
+	border-bottom: 1px solid #ccc;
+	margin: 2px;
 }
 
 .storytitle {
@@ -72,10 +86,13 @@ function after_function(data) {
 
 <? foreach ($sprint['Story'] as $story): ?>
 <tr id="story:<?php echo $story["id"]; ?>">
-<td class="mark">#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id'])); ?>
+<td class="mark">
+<div class="board_story">
+#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id'])); ?>
 <?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
 <p><?php e(nl2br($story["description"])); ?></p>
 <?php } ?>
+</div>
 </td>
 <?php foreach($resolutions as $resolution) { ?>
 	<td id="resolution_id:<?php echo $resolution["Resolution"]["id"]; ?>">
