@@ -50,7 +50,9 @@ window.onload = function () {
  
 		if(obj.id.indexOf("task_id:") != -1 && obj.parentNode.id.indexOf("resolution_id:") != -1)
 		{
-			url = "<?php echo $html->url('/tasks/change_resolution/'); ?>" + obj.id + "/" + obj.parentNode.id;
+			url_param = obj.parentNode.id.replace("___", "/");
+			url = "<?php echo $html->url('/tasks/change_resolution/'); ?>" + obj.id + "/" + url_param;
+			alert(url);
 			jQuery.get(url, {}, after_function );
 		}
 	}
@@ -60,6 +62,23 @@ function after_function(data) {
 	alert(data);
 }
 </script>
+
+<script type="text/javascript" charset="utf-8">  
+    $(document).ready(function(){  
+        $("a[rel^='prettyPopin']").prettyPopin({  
+            modal : true,  
+            width : 640,  
+            height: 480,  
+            opacity: 0.5,  
+            animationSpeed: '0',   
+            followScroll: false,  
+            loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',  
+            callback: function(){  
+                //alert('[ダミーです] メール送信が完了しました。\nこのようにウィンドウを閉じた後の処理も可能です。');  
+            }  
+        });  
+    });  
+</script>  
 
 <div id="snavi">
 	<ul>
@@ -88,14 +107,14 @@ function after_function(data) {
 <tr id="story:<?php echo $story["id"]; ?>">
 <td class="mark">
 <div class="board_story">
-#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id'])); ?>
+#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id']), array('rel' => 'prettyPopin')); ?>
 <?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
 <p><?php e(nl2br($story["description"])); ?></p>
 <?php } ?>
 </div>
 </td>
 <?php foreach($resolutions as $resolution) { ?>
-	<td id="resolution_id:<?php echo $resolution["Resolution"]["id"]; ?>">
+	<td id="resolution_id:<?php echo $resolution["Resolution"]["id"]; ?>___story_id:<?php echo $story["id"]; ?>">
 	<?php foreach($sprint['Task'] as $task) { ?>
 		<?php if($task["resolution_id"] == "") { $task["resolution_id"] = RESOLUTION_TODO; } ?>
 		<?php if($task["resolution_id"] == $resolution["Resolution"]["id"] && $story["id"] == $task["story_id"]) { ?>

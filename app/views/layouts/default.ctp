@@ -41,6 +41,8 @@
 		if(isset($login_user)) {
 			echo $javascript->link('prototype');
 			echo $javascript->link('jquery');
+			echo $javascript->link('jquery.prettyPopin');
+			echo $this->Html->css('prettyPopin');
 			echo $javascript->link('flexigrid');
 		}
 	?>
