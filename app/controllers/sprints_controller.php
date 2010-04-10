@@ -24,6 +24,7 @@ class SprintsController extends AppController {
 		$this->Sprint->recursive = 1;	// story–¼“™
 		$sprint = $this->Sprint->read(null, $id);
 		$this->set('sprint', $sprint);
+		$this->set('total_story_point', $this->Sprint->getTotalStoryPoint($sprint));
 		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
 		$this->set('sprint_calendar', $this->Sprint->getSprintCalendar($sprint["Sprint"]["id"]));
 

@@ -281,6 +281,19 @@ class Sprint extends AppModel {
 		return (count($record["Story"]) != 0 || count($record["Task"]) != 0); 
 	}
 
+	/**
+	 * そのスプリントの合計ストーリーポイントを取得
+	 */
+	function getTotalStoryPoint($data)
+	{
+		$sum = 0;
+		foreach($data["Story"] as $story)
+		{
+			$sum += $story["storypoints"];
+		}
+		return $sum;
+	}
+
 	function saveToExcel($id, $filename)
 	{
 		Configure::write('debug', 0);
