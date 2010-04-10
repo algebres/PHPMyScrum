@@ -35,6 +35,16 @@ class StoriesController extends AppController {
 		$this->set('story', $this->Story->read(null, $id));
 	}
 
+	function simple_view($id = null) {
+		$this->layout = "ajax";
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Story', true)));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Story->recursive = 2;
+		$this->set('story', $this->Story->read(null, $id));
+	}
+
 	function add() {
 		if (!empty($this->data)) {
 			$this->Story->create();

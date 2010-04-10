@@ -67,11 +67,11 @@ function after_function(data) {
     $(document).ready(function(){  
         $("a[rel^='prettyPopin']").prettyPopin({  
             modal : true,  
-            width : 640,  
-            height: 480,  
+            width : 400,  
+            height: 400,  
             opacity: 0.5,  
             animationSpeed: '0',   
-            followScroll: false,  
+            followScroll: true,  
             loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',  
             callback: function(){  
                 //alert('[ダミーです] メール送信が完了しました。\nこのようにウィンドウを閉じた後の処理も可能です。');  
@@ -107,7 +107,7 @@ function after_function(data) {
 <tr id="story:<?php echo $story["id"]; ?>">
 <td class="mark">
 <div class="board_story">
-#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'view', $story['id']), array('rel' => 'prettyPopin')); ?>
+#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'simple_view', $story['id']), array('rel' => 'prettyPopin')); ?>
 <?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
 <p><?php e(nl2br($story["description"])); ?></p>
 <?php } ?>
