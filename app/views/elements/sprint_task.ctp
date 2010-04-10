@@ -83,8 +83,14 @@ Event.observe(window, 'load', function() {
 			$tasks[$cnt] = 1;
 			$cnt++;
 			echo sprintf("\tvar d_user_%d = []\n", $a["user_id"]);
-			$username = @$a["User"]["username"];
-			if($username == "") { $username = __('Not Assigned', true); }
+			if(isset($a["User"]["username"]))
+			{
+				$username = $a["User"]["username"];
+			}
+			else
+			{
+				$username = __('Not Assigned', true);
+			}
 			echo sprintf("\tvar l_user_%d = \"%s\"\n", $a["user_id"], $username);
 		}
 		else
@@ -152,7 +158,7 @@ Event.observe(window, 'load', function() {
 <tr>
 <td><?php echo $a["id"]; ?></td>
 <td><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false)); ?>&nbsp;<?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
-<td><?php echo $this->Html->link($a["User"]["username"], array('controller' => 'users', 'action' => 'view', $a["user_id"])); ?></td>
+<td><?php echo $this->Html->link(@$a["User"]["username"], array('controller' => 'users', 'action' => 'view', $a["user_id"])); ?></td>
 <?php 
 $today = date('Y-m-d');
 foreach($sprint_calendar as $cal) { 
