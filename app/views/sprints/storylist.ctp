@@ -63,6 +63,11 @@ jQuery(document).ready(function()
 			<?php echo $sprint_term; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Total Story Point'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $total_story_point; ?>
+			&nbsp;
+		</dd>
 		
 	</dl>
 </div>
