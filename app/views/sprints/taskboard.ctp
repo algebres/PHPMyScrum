@@ -74,7 +74,7 @@ function after_function(data) {
             followScroll: true,  
             loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',  
             callback: function(){  
-                //alert('[ダミーです] メール送信が完了しました。\nこのようにウィンドウを閉じた後の処理も可能です。');  
+                //alert('test');  
             }  
         });  
     });  

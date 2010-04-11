@@ -82,6 +82,8 @@ jQuery(document).ready(function()
 		<th><?php __('StoryPoints'); ?></th>
 		<th><?php printf(__('Count of %s', true), __('Tasks', true)); ?></th>
 		<th><?php printf(__('Sum of %s', true), __('Remaining Hours', true)); ?></th>
+		<th><?php echo __('Priority');?></th>
+		<th><?php echo __('Resolution');?></th>
 		<th><?php __('Created'); ?></th>
 		<th><?php __('Updated'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
@@ -106,9 +108,12 @@ jQuery(document).ready(function()
 			}
 			echo $sum; ?>
 			</td>
-			<td><?php echo $story['created'];?></td>
-			<td><?php echo $story['updated'];?></td>
+			<td><?php echo @$story["Priority"]["name"]; ?></td>
+			<td><?php echo @$story["Resolution"]["name"]; ?></td>
+			<td><?php echo date('Y-m-d', strtotime($story['created']));?></td>
+			<td><?php echo date('Y-m-d', strtotime($story['updated']));?></td>
 			<td class="actions">
+				<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'stories', 'action' => 'done', $story['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $story['id'])); ?>
 				<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'stories', 'action' => 'view', $story['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'stories', 'action' => 'edit', $story['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'stories', 'action' => 'delete', $story['id'], '?' => array('return_url' => urlencode($html->url('/sprints/storylist/' .$sprint['Sprint']['id'])))), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $story['id'])); ?>
