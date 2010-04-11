@@ -209,6 +209,24 @@ class Task extends AppModel {
 		return $records;
 	}
 
+	function getRemainingHours($story_id)
+	{
+		// 関連するタスクの残り時間を取得
+		$conditions =  array(
+				'conditions' => array(
+					'Task.disabled' => 0,
+					'Task.story_id' => $story_id,
+				),
+			);
+		$tasks = $this->find('all', $conditions);
+		$total_remaining_hours = 0;
+		foreach($tasks as $task)
+		{
+			$total_remaining_hours += $task["Task"]["estimate_hours"];
+		}
+		return $total_remaining_hours;
+	}
+
 	/**
 	 * Excel保存
 	 */
