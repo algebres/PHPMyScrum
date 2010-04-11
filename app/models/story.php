@@ -180,7 +180,7 @@ class Story extends AppModel {
 		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
 			sprintf(__('Count of %s', true), (__('Task', true))),  
 			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
-			'Businessvalue', 'Sprint', 'Created',
+			'Businessvalue', 'Sprint', 'Resolution', 'Created',
 		);
 		$row = 0;
 		$col = 0;
@@ -203,6 +203,7 @@ class Story extends AppModel {
 			$worksheet->write($row, $col, $this->sjis($item["Story"]["total_hours"]), $format);					$col++;
 			$worksheet->write($row, $col, $this->sjis($item["Story"]["businessvalue"]), $format);				$col++;
 			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]), $format);						$col++;
+			$worksheet->write($row, $col, $this->sjis(@$item["Resolution"]["name"]), $format);					$col++;
 			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Story"]["created"])), $format);		$col++;
 			$row++;
 		}

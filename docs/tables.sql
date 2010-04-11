@@ -84,7 +84,7 @@ CREATE TABLE `remaining_times` (
   `hours` int(11) NOT NULL COMMENT 'hours',
   `created` date NOT NULL COMMENT 'created',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,4 +238,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-04-12  5:36:03
+-- Dump completed on 2010-04-12  6:01:23
