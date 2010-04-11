@@ -3,7 +3,7 @@ class StoriesController extends AppController {
 
 	var $name = 'Stories';
 	var $components = array('Session');
-	var $uses = array('Story', 'Sprint', 'Priority', 'Team');
+	var $uses = array('Story', 'Sprint', 'Priority', 'Team', 'Resolution', 'Task');
 
 	function index() {
 		$this->Story->recursive = 1;
@@ -62,6 +62,8 @@ class StoriesController extends AppController {
 		$this->set(compact('teams'));
 		$sprints = $this->Sprint->getActiveSprintList();
 		$this->set(compact('sprints'));
+		$resolutions = $this->Resolution->find('list');
+		$this->set('resolutions', $resolutions);
 	}
 
 	function edit($id = null) {
@@ -86,6 +88,44 @@ class StoriesController extends AppController {
 		$this->set(compact('teams'));
 		$sprints = $this->Sprint->getActiveSprintList();
 		$this->set(compact('sprints'));
+		$resolutions = $this->Resolution->find('list');
+		$this->set('resolutions', $resolutions);
+	}
+
+	function done($id = null)
+	{
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Story', true)));
+			$this->_redirect(array('action'=>'index'));
+		}
+		// 関連するタスクの残り時間を取得
+		$conditions =  array(
+				'conditions' => array(
+					'Task.disabled' => 0,
+					'Task.story_id' => $id,
+				),
+			);
+		$tasks = $this->Task->find('all', $conditions);
+		$total_remaining_hours = 0;
+		foreach($tasks as $task)
+		{
+			$total_remaining_hours += $task["Task"]["estimate_hours"];
+		}
+		if($total_remaining_hours > 0)
+		{
+			$this->Session->setFlash(sprintf(__('The story has unfinished task(s).', true), __('Story', true)));
+			$this->_redirect(array('action' => 'index'));
+		}
+
+		$data = $this->Story->read(null, $id);
+		$data["Story"]["resolution_id"] = RESOLUTION_DONE;
+		if ($this->Story->save($data)) {
+			$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Story', true)));
+			$this->_redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Story', true)));
+			$this->_redirect(array('action' => 'index'));
+		}
 	}
 
 	function delete($id = null) {

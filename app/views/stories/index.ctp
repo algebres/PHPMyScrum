@@ -33,6 +33,7 @@ jQuery(document).ready(function()
 			<th class="narrow"><?php echo $this->Paginator->sort('businessvalue');?></th>
 			<th><?php echo $this->Paginator->sort('sprint_id');?></th>
 			<th><?php echo $this->Paginator->sort('priority_id');?></th>
+			<th><?php echo $this->Paginator->sort('resolution_id');?></th>
 			<th><?php echo $this->Paginator->sort('team_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<?php if(0) { ?>
@@ -62,6 +63,9 @@ jQuery(document).ready(function()
 			<?php echo $this->Html->link($story['Priority']['name'], array('controller' => 'priorities', 'action' => 'view', $story['Priority']['id'])); ?>
 		</td>
 		<td>
+			<?php echo $this->Html->link($story['Resolution']['name'], array('controller' => 'resolutions', 'action' => 'view', $story['Resolution']['id'])); ?>
+		</td>
+		<td>
 			<?php echo $this->Html->link($story['Team']['name'], array('controller' => 'teams', 'action' => 'view', $story['Team']['id'])); ?>
 		</td>
 		<td><?php echo date('Y-m-d', strtotime($story['Story']['created'])); ?>&nbsp;</td>
@@ -69,6 +73,7 @@ jQuery(document).ready(function()
 		<td><?php echo date('Y-m-d', strtotime($story['Story']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
 		<td class="actions">
+			<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'stories', 'action' => 'done', $story['Story']['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $story['Story']['id'])); ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $story['Story']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $story['Story']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?>
 		</td>

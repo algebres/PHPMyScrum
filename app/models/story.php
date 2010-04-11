@@ -76,6 +76,13 @@ class Story extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Resolution' => array(
+			'className' => 'Resolution',
+			'foreignKey' => 'resolution_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
@@ -97,7 +104,7 @@ class Story extends AppModel {
 	);
 
 	var $fields = array(
-		'save' => array('name', 'description', 'storypoints', 'businessvalue', 'priority_id', 'sprint_id', 'team_id'),
+		'save' => array('name', 'description', 'storypoints', 'businessvalue', 'priority_id', 'sprint_id', 'resolution_id', 'team_id'),
 	);
 
 	/**

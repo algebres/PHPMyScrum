@@ -17,6 +17,7 @@
 		echo $this->Form->input('businessvalue');
 		echo $this->Form->input('priority_id', array('options' => $priorities, 'empty' => ' '));
 		echo $this->Form->input('sprint_id', array('options' => $sprints, 'empty' => ' '));
+		echo $this->Form->input('resolution_id', array('options' => $resolutions, 'empty' => ' '));
 		echo $this->Form->input('team_id', array('options' => $teams, 'empty' => ' '));
 	?>
 	</fieldset>
