@@ -292,6 +292,11 @@ table tr:nth-child(2n) td {
 table .altrow td {
 	background: #f5f5f5;
 }
+table .done td, table .done td a {
+	/** color: #cccccc;**/
+	color : gray;
+}
+
 td.actions {
 	text-align: center;
 	white-space: nowrap;

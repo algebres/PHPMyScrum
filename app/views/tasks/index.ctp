@@ -63,6 +63,10 @@ jQuery(document).ready(function()
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
 		}
+		if(@$task["Task"]["resolution_id"] == RESOLUTION_DONE)
+		{
+			$class = ' class="done"';
+		}
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $task['Task']['id']; ?>&nbsp;</td>

@@ -95,6 +95,10 @@ jQuery(document).ready(function()
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
+			if(@$story["resolution_id"] == RESOLUTION_DONE)
+			{
+				$class = ' class="done"';
+			}
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $story['id'];?></td>

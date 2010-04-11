@@ -48,6 +48,10 @@ jQuery(document).ready(function()
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
 		}
+		if(@$story["Story"]["resolution_id"] == RESOLUTION_DONE)
+		{
+			$class = ' class="done"';
+		}
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $this->Html->link($story['Story']['id'], array('action' => 'view', $story['Story']['id'])); ?></td>
