@@ -100,7 +100,20 @@ class Story extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+		'StoryComment' => array(
+			'className' => 'StoryComment',
+			'foreignKey' => 'story_id',
+			'dependent' => false,
+			'conditions' => 'StoryComment.disabled = 0',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 	);
 
 	var $fields = array(

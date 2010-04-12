@@ -4,6 +4,7 @@
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Story', true)), array('action' => 'delete', $story['Story']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add', 'story_id:' . $story['Story']['id'], 'sprint_id:' . $story['Story']['sprint_id']));?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story Comment', true)), array('controller' => 'story_comments', 'action' => 'add', 'story_id:' . $story['Story']['id']));?> </li>
 	</ul>
 </div>
 
@@ -88,6 +89,34 @@ jQuery(document).ready(function()
 -->
 </script>
 
+<div class="related">
+	<h3><?php printf(__('Related %s', true), __('StoryComment', true));?></h3>
+	<?php if (!empty($story['StoryComment'])):?>
+	<table cellpadding = "0" cellspacing = "0" id="related_tasks_table">
+	<tr>
+		<th><?php __('Comment'); ?></th>
+		<th><?php __('Username'); ?></th>
+		<th><?php __('Created'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($story['StoryComment'] as $comment):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo nl2br($comment['comment']);?></td>
+			<td><?php echo $this->Html->link(@$comment['User']['username'], array('controller' => 'users', 'action' => 'view', @$comment['user_id']));?></td>
+			<td><?php echo date('Y-m-d', strtotime($comment['created']));?></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+</div>
+
 
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Tasks', true));?></h3>
@@ -99,7 +128,7 @@ jQuery(document).ready(function()
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Estimate Hours'); ?></th>
 		<th><?php __('Resolution'); ?></th>
-		<th><?php __('User Id'); ?></th>
+		<th><?php __('Username'); ?></th>
 		<th><?php __('Created'); ?></th>
 		<?php if(0) { ?>
 		<th><?php __('Updated'); ?></th>
