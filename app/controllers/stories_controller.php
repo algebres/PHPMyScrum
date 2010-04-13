@@ -145,7 +145,7 @@ class StoriesController extends AppController {
 			$this->_redirect(array('action'=>'index'));
 		}
 
-		// ŠÖ˜A‚·‚éƒ^ƒXƒN‚ª‚ ‚é‚©ƒ`ƒFƒbƒN
+		// é–¢é€£ã™ã‚‹ã‚¿ã‚¹ã‚¯ãŒã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
 		if($this->Story->hasActiveTasks($id)) {
 			$this->Session->setFlash(sprintf(__('%s has related records', true), __('Priority', true)));
 			$this->_redirect(array('action'=>'index'));
@@ -154,6 +154,41 @@ class StoriesController extends AppController {
 		$this->Story->delete($id);
 		$this->Session->setFlash(sprintf(__('%s deleted', true), __('Story', true)));
 		$this->_redirect(array('action'=>'index'));
+	}
+
+	function upload()
+	{
+		// upload
+		if (!empty($this->data))
+		{
+			$filename = @$this->data['Story']['upfile']['tmp_name'];
+			if(empty($filename) || !file_exists($filename))
+			{
+				$this->Session->setFlash(__('File is not uploaded.', true));
+				return;
+			}
+			// csvå–ã‚Šå‡ºã—
+			$contents = file_get_contents($filename);
+			$buf = mb_convert_encoding($contents, "utf-8", "sjis");
+			$fp = tmpfile();
+			fwrite($fp, $buf);
+			rewind($fp); 
+
+			while (($data = fgetcsv($fp, 1000, ",")) !== FALSE) {
+				$num = count($data);
+				$row++;
+				for ($c=0; $c < $num; $c++) {
+					echo $data[$c] . ",\n";
+				}
+				echo "<br />";
+			}
+			fclose($handle);
+			exit;
+		}
+		else
+		{
+			// get
+		}
 	}
 }
 ?>
