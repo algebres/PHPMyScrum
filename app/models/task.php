@@ -294,10 +294,12 @@ class Task extends AppModel {
 	 */
 	function saveToCSV($data, $filename)
 	{
+		Configure::write('debug', 0);
+
 		$list = array();
 
 		// header
-		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description', 
+		$header = array('Task Id', 'Sprint', 'Story Id', 'Story', 'Task', 'Description', 
 			'Estimate Hours', 'Username', 'Resolution', 'Created'
 		);
 		$row = array();
@@ -313,6 +315,7 @@ class Task extends AppModel {
 			$row = array();
 			$row[] = $item["Task"]["id"];
 			$row[] = $item["Sprint"]["name"];
+			$row[] = $item["Story"]["id"];
 			$row[] = $item["Story"]["name"];
 			$row[] = $item["Task"]["name"];
 			$row[] = $item["Task"]["description"];

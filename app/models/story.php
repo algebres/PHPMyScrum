@@ -237,6 +237,8 @@ class Story extends AppModel {
 	 */
 	function saveToCSV($data, $filename)
 	{
+		Configure::write('debug', 0);
+
 		$list = array();
 
 		// header
