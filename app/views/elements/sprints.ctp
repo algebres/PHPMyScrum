@@ -5,6 +5,7 @@
 			<th><?php __('id');?></th>
 			<th><?php __('name');?></th>
 			<th><?php __('description');?></th>
+			<th><?php __('Total Story Point');?></th>
 			<th><?php __('startdate');?></th>
 			<th><?php __('enddate');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -21,6 +22,14 @@
 		<td><?php echo $sprint['Sprint']['id']; ?>&nbsp;</td>
 		<td><?php echo $this->Html->link($sprint['Sprint']['name'], array('controller' => 'sprints', 'action' => 'view', $sprint['Sprint']['id'])); ?>&nbsp;</td>
 		<td><?php echo nl2br(h($sprint['Sprint']['description'])); ?>&nbsp;</td>
+		<?php
+		$total_story_point = 0;
+		foreach($sprint["Story"] as $story)
+		{
+			$total_story_point += $story["storypoints"];
+		}
+		?>
+		<td><?php echo $total_story_point; ?></td>
 		<td><?php echo $sprint['Sprint']['startdate']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['enddate']; ?>&nbsp;</td>
 		<td class="actions">

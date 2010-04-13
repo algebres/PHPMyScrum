@@ -222,11 +222,11 @@ class UsersController extends AppController {
 		if($this->User->save())
 		{
 			$mailinfo = array(
-							'loginname' => $record['User']['loginname'],
-							'username' => $record['User']['username'],
-							'email' => $record['User']['email'],
-							'password' => $new_password,
-						);
+				'loginname'	=> $record['User']['loginname'],
+				'username'	=> $record['User']['username'],
+				'email'		=> $record['User']['email'],
+				'password'	=> $new_password,
+			);
 			$mailsetting['mail_subject'] = Configure::read('Config.mail_subject_reset_password');
 			$mailsetting['mail_to'] = $record['User']['email'];
 			$mailsetting['mail_template'] = 'reset_password';
