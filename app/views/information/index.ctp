@@ -29,7 +29,7 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $information['Information']['id']; ?>&nbsp;</td>
 		<td><?php echo $html->link($information['Information']['name'], array('action' => 'view', $information['Information']['id']), array('escape' => false));?>&nbsp;</td>
-		<td><?php echo $information['Information']['description']; ?>&nbsp;</td>
+		<td><?php echo nl2br($information['Information']['description']); ?>&nbsp;</td>
 <?php if($login_user["admin"]) { ?>
 		<td><?php echo $information['Information']['show_anonymous']; ?>&nbsp;</td>
 <?php } ?>
