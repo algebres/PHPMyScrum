@@ -135,6 +135,21 @@ class Sprint extends AppModel {
 	}
 
 	/**
+	 * スプリント一覧から名前に合致するスプリントのIDを探す
+	 */
+	function getSprintId($sprints, $name)
+	{
+		foreach($sprints as $key => $value)
+		{
+			if($value === $name)
+			{
+				return $key;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * スプリント期間の日数
 	 */
 	function getSprintTerm($sprint_id)

@@ -46,6 +46,30 @@ class Resolution extends AppModel {
 	}
 
 	/**
+	 * 現在有効な解決状況
+	 */
+	function getActiveResolutionList()
+	{
+		$conditions = array();
+		return $this->find('list', $conditions);
+	}
+
+	/**
+	 * 解決状況一覧から名前に合致する解決状況のIDを探す
+	 */
+	function getResolutionId($resolutions, $name)
+	{
+		foreach($resolutions as $key => $value)
+		{
+			if($value === $name)
+			{
+				return $key;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * 初期データ
 	 */
 	function makeInitialRecord()

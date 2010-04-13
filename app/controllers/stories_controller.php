@@ -167,23 +167,89 @@ class StoriesController extends AppController {
 				$this->Session->setFlash(__('File is not uploaded.', true));
 				return;
 			}
-			// csv取り出し
+			// set properly encoding
 			$contents = file_get_contents($filename);
-			$buf = mb_convert_encoding($contents, "utf-8", "sjis");
+			if(function_exists("mb_convert_encoding"))
+			{
+				$buf = mb_convert_encoding($contents, "utf-8", "utf-8, sjis, euc-jp");
+			}
+			else
+			{
+				$buf = $contents;
+			}
 			$fp = tmpfile();
 			fwrite($fp, $buf);
 			rewind($fp); 
 
-			while (($data = fgetcsv($fp, 1000, ",")) !== FALSE) {
-				$num = count($data);
-				$row++;
-				for ($c=0; $c < $num; $c++) {
-					echo $data[$c] . ",\n";
+			$sprints = $this->Sprint->getActiveSprintList();
+			$resolutions = $this->Resolution->getActiveResolutionList();
+
+			$row = 0;
+			$success = true;
+			$success_count = 0;
+			while (($data = fgetcsv($fp, 10000, ","))) 
+			{
+				if($row == 0)
+				{
+					if($data != $this->Story->getCSVHeader())
+					{
+						fclose($handle);
+						$this->Session->setFlash(__('There is no header record or does not match column count.', true));
+						return;
+					}
 				}
-				echo "<br />";
+				$row++;
+
+				if(count($data) != count($this->Story->getCSVHeader()))
+				{
+					continue;
+				}
+
+				$col = 0;
+				$this->data["Story"]["id"] = trim($data[$col]); $col++;
+				$this->data["Story"]["name"] = trim($data[$col]); $col++;
+				$this->data["Story"]["description"]	= trim($data[$col]); $col++;
+				$this->data["Story"]["storypoints"] = intval($data[$col]); $col++;
+				$null1 			= $data[$col]; $col++;
+				$null2 			= $data[$col]; $col++;
+				$this->data["Story"]["businessvalue"] = intval($data[$col]); $col++;
+				$sprint 		= $data[$col]; $col++;
+				$resolution 	= $data[$col]; $col++;
+				$null3 			= $data[$col]; $col++;
+
+				// convert
+				$this->data["Story"]["sprint_id"] = $this->Sprint->getSprintId($sprints, $sprint);
+				$this->data["Story"]["resolution_id"] = $this->Resolution->getResolutionId($resolutions, $resolution);
+
+				// story exist ?
+				$this->Story->recursive = -1;
+				$rec = $this->Story->read(null, intval($this->data["Story"]["id"]));
+
+				if(!$rec)
+				{
+					unset($this->data["Story"]["id"]);
+					$this->Story->create();
+				}
+				if (!$this->Story->save($this->data, array('fieldList' => $this->Story->fields['save'])))
+				{
+					// can't save
+					$success = false;
+				}
+				else
+				{
+					$success_count++;
+				}
 			}
 			fclose($handle);
-			exit;
+			if($success)
+			{
+				$this->Session->setFlash(sprintf(__('%d records has been imported!', true), $success_count));
+			}
+			else
+			{
+				$this->Session->setFlash(sprintf(__('%d records has been imported. but some records failed to insert or update.', true), $success_count));
+			}
+			$this->redirect(array('action' => 'index'));
 		}
 		else
 		{

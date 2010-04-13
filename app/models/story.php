@@ -233,14 +233,10 @@ class Story extends AppModel {
 	}
 
 	/**
-	 * CSV•Û‘¶
+	 * CSV‚Ìƒwƒbƒ_[
 	 */
-	function saveToCSV($data, $filename)
+	function getCSVHeader()
 	{
-		Configure::write('debug', 0);
-
-		$list = array();
-
 		// header
 		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
 			sprintf(__('Count of %s', true), (__('Task', true))),  
@@ -252,7 +248,19 @@ class Story extends AppModel {
 		{
 			$row[] = __($header[$i], true);
 		}
-		$list[] = $row;
+		return $row;
+	}
+
+	/**
+	 * CSV•Û‘¶
+	 */
+	function saveToCSV($data, $filename)
+	{
+		Configure::write('debug', 0);
+
+		$list = array();
+
+		$list[] = $this->getCSVHeader();
 
 		// data
 		foreach($data as $item)
