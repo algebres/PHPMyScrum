@@ -38,7 +38,7 @@ Event.observe(window, 'load', function() {
 			$burndown_y_pos = $sum;
 			$burndown_x_pos = $cnt;
 		}
-		if($sum != "" && $cal <= date('Y-m-d'))
+		if($cal <= date('Y-m-d'))
 		{
 			// 縦軸最大値を求める
 			if($sum >= $y_max) {
