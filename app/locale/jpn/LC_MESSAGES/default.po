@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2010-04-14 06:40+0900\n"
-"PO-Revision-Date: 2010-04-14 06:41+0900\n"
+"PO-Revision-Date: 2010-04-14 07:23+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1098,6 +1098,9 @@ msgstr "チームID"
 msgid "Debug setting does not allow access to this url."
 msgstr "デバッグ設定はこのURLにアクセスできません"
 
+msgid "Task Id"
+msgstr "タスクID"
+
 #~ msgid "%s was not deleted"
 #~ msgstr "%sは削除できませんでした"
 
@@ -1112,9 +1115,6 @@ msgstr "デバッグ設定はこのURLにアクセスできません"
 
 #~ msgid "Priority Id"
 #~ msgstr "優先順位ID"
-
-#~ msgid "Task Id"
-#~ msgstr "タスクID"
 
 #~ msgid "Your %s"
 #~ msgstr "あなたの%s"
