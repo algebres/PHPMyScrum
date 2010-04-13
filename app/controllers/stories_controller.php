@@ -184,6 +184,7 @@ class StoriesController extends AppController {
 			$sprints = $this->Sprint->getActiveSprintList();
 			$resolutions = $this->Resolution->getActiveResolutionList();
 			$teams = $this->Team->getActiveTeamList();
+			$priorities = $this->Priority->getActivePriorityList();
 
 			$row = 0;
 			$success = true;
@@ -217,7 +218,8 @@ class StoriesController extends AppController {
 				$null2 = $data[$col]; $col++;
 				$this->data["Story"]["businessvalue"] = intval($data[$col]); $col++;
 				$sprint = $data[$col]; $col++;
-				$resolution 	= $data[$col]; $col++;
+				$priority = $data[$col]; $col++;
+				$resolution = $data[$col]; $col++;
 				$team = $data[$col]; $col++;
 				$null3 = $data[$col]; $col++;
 
@@ -225,6 +227,7 @@ class StoriesController extends AppController {
 				$this->data["Story"]["sprint_id"] = $this->Sprint->getSprintId($sprints, $sprint);
 				$this->data["Story"]["resolution_id"] = $this->Resolution->getResolutionId($resolutions, $resolution);
 				$this->data["Story"]["team_id"] = $this->Team->getTeamId($teams, $team);
+				$this->data["Story"]["priority_id"] = $this->Priority->getPriorityId($priorities, $priority);
 
 				// story exist ?
 				$this->Story->recursive = -1;

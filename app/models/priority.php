@@ -70,6 +70,21 @@ class Priority extends AppModel {
 	}
 
 	/**
+	 * 優先順位一覧から名前に合致する優先順位のIDを探す
+	 */
+	function getPriorityId($priorities, $name)
+	{
+		foreach($priorities as $key => $value)
+		{
+			if($value === $name)
+			{
+				return $key;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * 指定した優先順位は有効なストーリーと紐付いているか
 	 */
 	function hasActiveStories($id)
