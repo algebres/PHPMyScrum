@@ -68,6 +68,22 @@ class Team extends AppModel {
 		return $this->find('list', $conditions);
 	}
 
+	/**
+	 * チーム名一覧から名前に合致するチームのIDを探す
+	 */
+	function getTeamId($teams, $name)
+	{
+		foreach($teams as $key => $value)
+		{
+			if($value === $name)
+			{
+				return $key;
+			}
+		}
+		return null;
+	}
+
+
 
 }
 ?>

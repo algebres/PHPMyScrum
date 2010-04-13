@@ -183,6 +183,7 @@ class StoriesController extends AppController {
 
 			$sprints = $this->Sprint->getActiveSprintList();
 			$resolutions = $this->Resolution->getActiveResolutionList();
+			$teams = $this->Team->getActiveTeamList();
 
 			$row = 0;
 			$success = true;
@@ -197,6 +198,8 @@ class StoriesController extends AppController {
 						$this->Session->setFlash(__('There is no header record or does not match column count.', true));
 						return;
 					}
+					$row++;
+					continue;
 				}
 				$row++;
 
@@ -210,16 +213,18 @@ class StoriesController extends AppController {
 				$this->data["Story"]["name"] = trim($data[$col]); $col++;
 				$this->data["Story"]["description"]	= trim($data[$col]); $col++;
 				$this->data["Story"]["storypoints"] = intval($data[$col]); $col++;
-				$null1 			= $data[$col]; $col++;
-				$null2 			= $data[$col]; $col++;
+				$null1 = $data[$col]; $col++;
+				$null2 = $data[$col]; $col++;
 				$this->data["Story"]["businessvalue"] = intval($data[$col]); $col++;
-				$sprint 		= $data[$col]; $col++;
+				$sprint = $data[$col]; $col++;
 				$resolution 	= $data[$col]; $col++;
-				$null3 			= $data[$col]; $col++;
+				$team = $data[$col]; $col++;
+				$null3 = $data[$col]; $col++;
 
 				// convert
 				$this->data["Story"]["sprint_id"] = $this->Sprint->getSprintId($sprints, $sprint);
 				$this->data["Story"]["resolution_id"] = $this->Resolution->getResolutionId($resolutions, $resolution);
+				$this->data["Story"]["team_id"] = $this->Team->getTeamId($teams, $team);
 
 				// story exist ?
 				$this->Story->recursive = -1;

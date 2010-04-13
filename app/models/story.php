@@ -193,7 +193,7 @@ class Story extends AppModel {
 		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
 			sprintf(__('Count of %s', true), (__('Task', true))),  
 			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
-			'Businessvalue', 'Sprint', 'Resolution', 'Created',
+			'Businessvalue', 'Sprint', 'Resolution', 'Team', 'Created',
 		);
 		$row = 0;
 		$col = 0;
@@ -217,12 +217,13 @@ class Story extends AppModel {
 			$worksheet->write($row, $col, $this->sjis($item["Story"]["businessvalue"]), $format);				$col++;
 			$worksheet->write($row, $col, $this->sjis($item["Sprint"]["name"]), $format);						$col++;
 			$worksheet->write($row, $col, $this->sjis(@$item["Resolution"]["name"]), $format);					$col++;
+			$worksheet->write($row, $col, $this->sjis(@$item["Team"]["name"]), $format);						$col++;
 			$worksheet->write($row, $col, date('Y-m-d', strtotime($item["Story"]["created"])), $format);		$col++;
 			$row++;
 		}
 
 		// â°ïùê›íË
-		$width = array(4, 50, 50 ,10, 10, 10, 10, 20, 10);
+		$width = array(4, 50, 50 ,10, 10, 10, 10, 20, 10, 10);
 		for($i = 0; $i<count($width); $i++)
 		{
 			$worksheet->setColumn($i, $i, $width[$i]);
@@ -241,7 +242,7 @@ class Story extends AppModel {
 		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
 			sprintf(__('Count of %s', true), (__('Task', true))),  
 			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
-			'Businessvalue', 'Sprint', 'Resolution', 'Created',
+			'Businessvalue', 'Sprint', 'Resolution', 'Team', 'Created',
 		);
 		$row = array();
 		for($i = 0; $i < count($header); $i++)
@@ -275,6 +276,7 @@ class Story extends AppModel {
 			$row[] = $item["Story"]["businessvalue"];
 			$row[] = $item["Sprint"]["name"];
 			$row[] = $item["Resolution"]["name"];
+			$row[] = $item["Team"]["name"];
 			$row[] = date('Y-m-d', strtotime($item["Story"]["created"]));
 			$list[] = $row;
 		}

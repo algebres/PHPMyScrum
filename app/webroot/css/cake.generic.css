@@ -162,6 +162,11 @@ ul, li {
 	background-color: #359ed3 !important;
 }
 
+#snavi ul li.upload a {
+	background-color: #c5df4c !important;
+}
+
+
 #gnavi ul li a:hover, #snavi ul li a:hover {
 	border-color: #ccc;
 	color: #333;

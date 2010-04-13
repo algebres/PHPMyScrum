@@ -20,6 +20,11 @@
 				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('controller' => 'users', 'action' => 'add')); ?></li>
 			</ul>
 		</li>
+		<li><?php __('Story'); ?>
+			<ul>
+				<li><?php echo $this->Html->link(sprintf(__('Bulk upload %s', true), __('Story', true)), array('controller' => 'stories', 'action' => 'upload')); ?></li>
+			</ul>
+		</li>
 		<li><?php __('Sprint'); ?>
 			<ul>
 				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprint', true)), array('controller' => 'sprints', 'action' => 'index')); ?></li>
