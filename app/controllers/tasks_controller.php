@@ -68,9 +68,17 @@ class TasksController extends AppController {
 	function output()
 	{
 		$param = @$this->params["named"]["filter"];
+		$type = @$this->params["named"]["type"];
 		$conditions = $this->Task->getSelectConditon($param, $this->Auth->user('id'));
 		$data = $this->Task->find('all', $conditions);
-		$this->Task->saveToExcel($data, 'task.xls');
+		if($type === "csv")
+		{
+			$this->Task->saveToCSV($data, 'task.csv');
+		}
+		else
+		{
+			$this->Task->saveToExcel($data, 'task.xls');
+		}
 	}
 
 	// ó‹µ‚ğ•ÏX

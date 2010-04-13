@@ -23,7 +23,16 @@ class StoriesController extends AppController {
 			),
 		);
 		$data = $this->Story->find('all', $conditions);
-		$this->Story->saveToExcel($this->Story->populate_data($data), 'backlog.xls');
+
+		$type = @$this->params["named"]["type"];
+		if($type === "csv")
+		{
+			$this->Story->saveToCSV($this->Story->populate_data($data), 'backlog.csv');
+		}
+		else
+		{
+			$this->Story->saveToExcel($this->Story->populate_data($data), 'backlog.xls');
+		}
 	}
 
 	function view($id = null) {

@@ -290,6 +290,43 @@ class Task extends AppModel {
 	}
 
 	/**
+	 * CSV•Û‘¶
+	 */
+	function saveToCSV($data, $filename)
+	{
+		$list = array();
+
+		// header
+		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description', 
+			'Estimate Hours', 'Username', 'Resolution', 'Created'
+		);
+		$row = array();
+		for($i = 0; $i < count($header); $i++)
+		{
+			$row[] = __($header[$i], true);
+		}
+		$list[] = $row;
+
+		// data
+		foreach($data as $item)
+		{
+			$row = array();
+			$row[] = $item["Task"]["id"];
+			$row[] = $item["Sprint"]["name"];
+			$row[] = $item["Story"]["name"];
+			$row[] = $item["Task"]["name"];
+			$row[] = $item["Task"]["description"];
+			$row[] = $item["Task"]["estimate_hours"];
+			$row[] = $item["User"]["username"];
+			$row[] = $item["Resolution"]["name"];
+			$row[] = date('Y-m-d', strtotime($item["Task"]["created"]));
+			$list[] = $row;
+		}
+		$this->makeCSV($filename, $list);
+		exit;
+	}
+
+	/**
 	 * ŒŸõğŒ
 	 */
 	function getSelectConditon($param, $user_id)

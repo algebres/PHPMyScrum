@@ -5,7 +5,8 @@
 		<li><?php echo $this->Html->link(sprintf(__('All unfinished %s', true), __('Task', true)), array('action' => 'index', 'filter:unfinished')); ?></li>
 		<li><?php echo $this->Html->link(sprintf(__('All your %s', true), __('Task', true)), array('action' => 'index', 'filter:yours')); ?></li>
 		<li><?php echo $this->Html->link(sprintf(__('All your unfinished %s', true), __('Task', true)), array('action' => 'index', 'filter:your_unfinished')); ?></li>
-		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('Excel', true)), array('action' => 'output', 'filter' => @$this->params["named"]["filter"])); ?></li>
+		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('Excel', true)), array('action' => 'output', 'filter' => @$this->params["named"]["filter"], 'type' => 'xls')); ?></li>
+		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('CSV', true)), array('action' => 'output', 'filter' => @$this->params["named"]["filter"], 'type' => 'csv')); ?></li>
 	</ul>
 </div>
 

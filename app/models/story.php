@@ -231,5 +231,46 @@ class Story extends AppModel {
 		$workbook->close();
 		exit;
 	}
+
+	/**
+	 * CSV•Û‘¶
+	 */
+	function saveToCSV($data, $filename)
+	{
+		$list = array();
+
+		// header
+		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
+			sprintf(__('Count of %s', true), (__('Task', true))),  
+			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
+			'Businessvalue', 'Sprint', 'Resolution', 'Created',
+		);
+		$row = array();
+		for($i = 0; $i < count($header); $i++)
+		{
+			$row[] = __($header[$i], true);
+		}
+		$list[] = $row;
+
+		// data
+		foreach($data as $item)
+		{
+			$row = array();
+			$row[] = $item["Story"]["id"];
+			$row[] = $item["Story"]["name"];
+			$row[] = $item["Story"]["description"];
+			$row[] = $item["Story"]["storypoints"];
+			$row[] = $item["Story"]["task_count"];
+			$row[] = $item["Story"]["total_hours"];
+			$row[] = $item["Story"]["businessvalue"];
+			$row[] = $item["Sprint"]["name"];
+			$row[] = $item["Resolution"]["name"];
+			$row[] = date('Y-m-d', strtotime($item["Story"]["created"]));
+			$list[] = $row;
+		}
+		$this->makeCSV($filename, $list);
+		exit;
+	}
+
 }
 ?>
