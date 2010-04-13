@@ -58,6 +58,11 @@
 			<?php echo $total_story_point; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Total Finished Story Point'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $total_finished_story_point; ?>
+			&nbsp;
+		</dd>
 		
 	</dl>
 </div>

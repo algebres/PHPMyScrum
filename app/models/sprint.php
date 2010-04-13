@@ -294,6 +294,20 @@ class Sprint extends AppModel {
 		return $sum;
 	}
 
+	function getTotalFinishedStoryPoint($data)
+	{
+		$sum = 0;
+		foreach($data["Story"] as $story)
+		{
+			if($story["resolution_id"] == RESOLUTION_DONE)
+			{
+				$sum += $story["storypoints"];
+			}
+		}
+		return $sum;
+	}
+
+
 	function saveToExcel($id, $filename)
 	{
 		Configure::write('debug', 0);
