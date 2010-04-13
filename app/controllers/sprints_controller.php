@@ -6,7 +6,7 @@ class SprintsController extends AppController {
 	var $uses = array('Sprint', 'Story', 'Resolution');
 
 	function index() {
-		$this->Sprint->recursive = 0;
+		$this->Sprint->recursive = 1;
 		$this->paginate = array(
 			'conditions' => array(
 				'Sprint.disabled' => 0,
