@@ -179,8 +179,9 @@ class StoriesController extends AppController {
 			{
 				$buf = $contents;
 			}
+
 			$tmpfname = tempnam(TMP, 'pms');
-			$fp = fopen($tmpfname, "rw");
+			$fp = fopen($tmpfname, "a+");
 			if(!$fp)
 			{
 				$this->log($tmpfname, LOG_INFO);
@@ -188,7 +189,13 @@ class StoriesController extends AppController {
 				return;
 			}
 			fwrite($fp, $buf);
-			rewind($fp); 
+			if(!rewind($fp))
+			{
+				$this->Session->setFlash(__('Can not rewind temporary file.', true));
+				fclose($fp);
+				unlink($tmpfname);
+				return;
+			} 
 
 			$sprints = $this->Sprint->getActiveSprintList();
 			$resolutions = $this->Resolution->getActiveResolutionList();
@@ -198,6 +205,7 @@ class StoriesController extends AppController {
 			$row = 0;
 			$success = true;
 			$success_count = 0;
+
 			while (($data = fgetcsv($fp, 10000, ","))) 
 			{
 				if($row == 0)
@@ -205,6 +213,7 @@ class StoriesController extends AppController {
 					if($data != $this->Story->getCSVHeader())
 					{
 						fclose($fp);
+						unlink($tmpfname);
 						$this->Session->setFlash(__('There is no header record or does not match column count.', true));
 						return;
 					}
@@ -258,6 +267,7 @@ class StoriesController extends AppController {
 				}
 			}
 			fclose($fp);
+			unlink($tmpfname);
 			if($success)
 			{
 				$this->Session->setFlash(sprintf(__('%d records has been imported!', true), $success_count));
