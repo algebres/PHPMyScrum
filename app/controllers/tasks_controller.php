@@ -220,7 +220,7 @@ class TasksController extends AppController {
 			$fp = tmpfile(APP.DS.TMP(), 'pms');
 			if(!$fp)
 			{
-				$this->log();
+				$this->log(APP.DS.TMP, LOG_INFO);
 				$this->Session->setFlash(__('Can not create temporary file.', true));
 				return;
 			}
