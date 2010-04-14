@@ -576,6 +576,42 @@ td.actions a:hover {
 	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
 }
 
+/** drag and drop **/
+.drag{
+	position: relative;
+	color: #000000;
+	background-color:#ffcccc;
+	padding: 3px; border-left: 7px solid #cc0000;
+	border-top: 0px !important;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 2px;
+}
+
+.board_story {
+	color: #000000;
+	background-color:#fffacd;
+	padding: 3px; border-left: 7px solid #ffd700;
+	border-top: 0px !important;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 2px;
+}
+
+.board_story_done {
+	color: #000000;
+	background-color: #dddddd;
+	padding: 3px; border-left: 7px solid #cccccc;
+	border-top: 0px !important;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 2px;
+}
+
+.storytitle {
+	background: #ffd700;
+}
+
 /** Related **/
 div.related {
 	clear: both;

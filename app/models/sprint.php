@@ -122,7 +122,7 @@ class Sprint extends AppModel {
 	}
 
 	/**
-	 * 現在有効なユーザー
+	 * 現在有効なスプリント
 	 */
 	function getActiveSprintList()
 	{
@@ -132,6 +132,16 @@ class Sprint extends AppModel {
 			),
 		);
 		return $this->find('list', $conditions);
+	}
+
+	function getAllSprints()
+	{
+		$conditions = array(
+			'conditions' => array(
+				'Sprint.disabled' => 0,
+			),
+		);
+		return $this->find('all', $conditions);
 	}
 
 	/**

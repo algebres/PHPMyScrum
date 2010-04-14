@@ -64,7 +64,7 @@ class TasksController extends AppController {
 		$this->set(compact('users', 'resolutions'));
 	}
 
-	// Excelo—Í
+	// Excelå‡ºåŠ›
 	function output()
 	{
 		$param = @$this->params["named"]["filter"];
@@ -81,7 +81,7 @@ class TasksController extends AppController {
 		}
 	}
 
-	// ó‹µ‚ð•ÏX
+	// çŠ¶æ³ã‚’å¤‰æ›´
 	function change_resolution()
 	{
 		$this->layout = "ajax";

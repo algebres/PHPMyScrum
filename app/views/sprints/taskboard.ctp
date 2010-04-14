@@ -5,37 +5,12 @@ td {
 	vertical-align: top;
 }
 
-.drag{
-	position: relative;
-	color: #000000;
-	background-color:#ffcccc; 
-	padding: 3px; border-left: 7px solid #cc0000;
-	border-top: 0px !important;
-	border-right: 1px solid #ccc; 
-	border-bottom: 1px solid #ccc;
-	margin: 2px;
-}
-
-.board_story {
-	color: #000000;
-	background-color:#fffacd; 
-	padding: 3px; border-left: 7px solid #ffd700;
-	border-top: 0px !important;
-	border-right: 1px solid #ccc; 
-	border-bottom: 1px solid #ccc;
-	margin: 2px;
-}
-
-.storytitle {
-	background: #ffd700;
-}
-</style>
 <script type="text/javascript">
-window.onload = function () {  
-	// number of successfully placed elements  
-	var num = 0;  
-	// initialization  
-	REDIPS.drag.init();  
+window.onload = function () {
+	// number of successfully placed elements
+	var num = 0;
+	// initialization
+	REDIPS.drag.init();
 	REDIPS.drag.myhandler_dropped = function () {
 		var obj = REDIPS.drag.obj;
 		var obj_old     = REDIPS.drag.obj_old;	// reference to the original object
@@ -47,7 +22,7 @@ window.onload = function () {
 			REDIPS.drag.source_cell.appendChild(obj);
 			return;
 		}
- 
+
 		if(obj.id.indexOf("task_id:") != -1 && obj.parentNode.id.indexOf("resolution_id:") != -1)
 		{
 			url_param = obj.parentNode.id.replace("___", "/");
@@ -63,22 +38,22 @@ function after_function(data) {
 }
 </script>
 
-<script type="text/javascript" charset="utf-8">  
-    $(document).ready(function(){  
-        $("a[rel^='prettyPopin']").prettyPopin({  
-            modal : true,  
-            width : 400,  
-            height: 400,  
-            opacity: 0.5,  
-            animationSpeed: '0',   
-            followScroll: true,  
-            loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',  
-            callback: function(){  
-                //alert('test');  
-            }  
-        });  
-    });  
-</script>  
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("a[rel^='prettyPopin']").prettyPopin({
+            modal : true,
+            width : 400,
+            height: 400,
+            opacity: 0.5,
+            animationSpeed: '0',
+            followScroll: true,
+            loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',
+            callback: function(){
+                //alert('test');
+            }
+        });
+    });
+</script>
 
 <div id="snavi">
 	<ul>

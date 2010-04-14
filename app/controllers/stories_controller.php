@@ -16,6 +16,50 @@ class StoriesController extends AppController {
 		$this->set('stories', $this->Story->populate_data($this->paginate()));
 	}
 
+	function board()
+	{
+		// get stories
+		$this->Story->recursive = 1;
+		$conditions = array(
+			'conditions' => array(
+				'Story.disabled' => 0,
+			),
+			'limit' => Configure::read('Config.paginate_count'),
+		);
+		$this->set('stories', $this->Story->find('all', $conditions));
+
+		// get all sprints
+		$sprints = $this->Sprint->getAllSprints();
+		// make no assined record
+		$data["Sprint"]["id"] = 0;
+		$data["Sprint"]["name"] = __('Not Assigned', true);
+		array_unshift($sprints, $data);
+		$this->set('sprints', $sprints);
+	}
+
+	function change_sprint()
+	{
+		$this->layout = "ajax";
+		$id = @$this->params["named"]["story_id"];
+		$sprint_id = @$this->params["named"]["sprint_id"];
+		if($id == "" || $sprint_id == "")
+		{
+			$this->cakeError("error404");
+			return;
+		}
+		$this->Story->recursive = -1;
+		$this->data = $this->Story->read(null, $id);
+		$this->data["Story"]["sprint_id"] = $sprint_id;
+		if ($this->Story->save($this->data, array('fieldList' => $this->Story->fields['save']))) {
+			$this->log(__('Story status was changed.', true), LOG_DEBUG);
+			$message = sprintf(__('The %s has been saved', true), __('Story', true));
+			$this->set("message", $message);
+		} else {
+			$message = sprintf(__('The %s could not be saved. Please, try again.', true), __('Story', true));
+			$this->set("message", $message);
+		}
+	}
+
 	function output() {
 		$conditions = array(
 			'conditions' => array(
@@ -195,7 +239,7 @@ class StoriesController extends AppController {
 				fclose($fp);
 				unlink($tmpfname);
 				return;
-			} 
+			}
 
 			$sprints = $this->Sprint->getActiveSprintList();
 			$resolutions = $this->Resolution->getActiveResolutionList();
@@ -207,7 +251,7 @@ class StoriesController extends AppController {
 			$success_count = 0;
 
 			setlocale(LC_ALL,'ja_JP.UTF-8');
-			while (($data = fgetcsv($fp, 10000, ","))) 
+			while (($data = fgetcsv($fp, 10000, ",")))
 			{
 				if($row == 0)
 				{
