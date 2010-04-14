@@ -2,7 +2,7 @@
 class Sprint extends AppModel {
 	var $name = 'Sprint';
 	var $displayField = 'name';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false, )); 
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false, ));
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
@@ -122,7 +122,7 @@ class Sprint extends AppModel {
 	}
 
 	/**
-	 * Œ»İ—LŒø‚Èƒ†[ƒU[
+	 * ç¾åœ¨æœ‰åŠ¹ãªãƒ¦ãƒ¼ã‚¶ãƒ¼
 	 */
 	function getActiveSprintList()
 	{
@@ -135,7 +135,7 @@ class Sprint extends AppModel {
 	}
 
 	/**
-	 * ƒXƒvƒŠƒ“ƒgˆê——‚©‚ç–¼‘O‚É‡’v‚·‚éƒXƒvƒŠƒ“ƒg‚ÌID‚ğ’T‚·
+	 * ã‚¹ãƒ—ãƒªãƒ³ãƒˆä¸€è¦§ã‹ã‚‰åå‰ã«åˆè‡´ã™ã‚‹ã‚¹ãƒ—ãƒªãƒ³ãƒˆã®IDã‚’æ¢ã™
 	 */
 	function getSprintId($sprints, $name)
 	{
@@ -150,14 +150,14 @@ class Sprint extends AppModel {
 	}
 
 	/**
-	 * ƒXƒvƒŠƒ“ƒgŠúŠÔ‚Ì“ú”
+	 * ã‚¹ãƒ—ãƒªãƒ³ãƒˆæœŸé–“ã®æ—¥æ•°
 	 */
 	function getSprintTerm($sprint_id)
 	{
 		$this->recursive = 0;
 		$sprint = $this->findById($sprint_id);
 
-		// ˆê’U‚Ö
+		// ä¸€æ—¦æ™‚åˆ»ã¸
 		$start_date = strtotime($sprint["Sprint"]["startdate"]);
 		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
 
@@ -166,7 +166,7 @@ class Sprint extends AppModel {
 
 	private function datediff($start_date, $end_date)
 	{
-		// “ú•t‚É‚Î‚ç‚·
+		// æ—¥ä»˜ã«ã°ã‚‰ã™
 		$start_date_y = date('Y', $start_date);
 		$start_date_m = date('m', $start_date);
 		$start_date_d = date('d', $start_date);
@@ -174,7 +174,7 @@ class Sprint extends AppModel {
 		$end_date_m = date('m', $end_date);
 		$end_date_d = date('d', $end_date);
 
-		// ŠúŠÔ‚ª‰½“ú‚ ‚é‚©’²‚×‚é
+		// æœŸé–“ãŒä½•æ—¥ã‚ã‚‹ã‹èª¿ã¹ã‚‹
 		$dt1 = mktime(0, 0, 0, $start_date_m, $start_date_d, $start_date_y);
 		$dt2 = mktime(0, 0, 0, $end_date_m, $end_date_d, $end_date_y);
 		$diff = $dt2 - $dt1;
@@ -186,7 +186,7 @@ class Sprint extends AppModel {
 		$this->recursive = 0;
 		$sprint = $this->findById($sprint_id);
 
-		// ˆê’U‚Ö
+		// ä¸€æ—¦æ™‚åˆ»ã¸
 		$start_date = strtotime($sprint["Sprint"]["startdate"]);
 		$end_date = strtotime($sprint["Sprint"]["enddate"]) -1 ;
 
@@ -196,7 +196,7 @@ class Sprint extends AppModel {
 	function getSprintRemainingHours($sprint_id)
 	{
 		$this->recursive = 2;
-		//story‚ÌID‚Æƒ^ƒXƒN‚ÌID‡‚É•À‚×‚é
+		//storyã®IDã¨ã‚¿ã‚¹ã‚¯ã®IDé †ã«ä¸¦ã¹ã‚‹
 		$this->hasMany["Task"]["order"] = "Task.story_id asc, Task.id asc";
 		$sprint = $this->findById($sprint_id);
 		$start_date = strtotime($sprint["Sprint"]["startdate"]);
@@ -209,13 +209,13 @@ class Sprint extends AppModel {
 		foreach($sprint["Task"] as $task)
 		{
 			$remaining = $task["RemainingTime"];
-			
-			// “ú•tƒL[‚Å‰ñ‚·
+
+			// æ—¥ä»˜ã‚­ãƒ¼ã§å›ã™
 			for($i=0; $i<count($calendar); $i++)
 			{
 				$key = $calendar[$i];
 				$task["Hours"][$key] = "";
-				// c‘¶ŠÔ—š—ğ‚ğƒ`ƒFƒbƒN
+				// æ®‹å­˜æ™‚é–“å±¥æ­´ã‚’ãƒã‚§ãƒƒã‚¯
 				foreach($remaining as $tmp)
 				{
 					if($tmp["created"] === $key)
@@ -225,7 +225,7 @@ class Sprint extends AppModel {
 				}
 			}
 
-			//TODO:ƒXƒvƒŠƒ“ƒgŠúŠÔ‘O‚Åˆê”Ô’¼‹ß‚Ì“ü—ÍŠÔ‚ğæ“¾‚·‚é
+			//TODO:ã‚¹ãƒ—ãƒªãƒ³ãƒˆæœŸé–“å‰ã§ä¸€ç•ªç›´è¿‘ã®å…¥åŠ›æ™‚é–“ã‚’å–å¾—ã™ã‚‹
 			$recent_initial_hours = "";
 			$recent_initial_created = "";
 			foreach($remaining as $tmp)
@@ -248,18 +248,18 @@ class Sprint extends AppModel {
 				}
 			}
 
-			// ‹ó”’‚Ì’n“_‚ğ–„‚ß‚é
+			// ç©ºç™½ã®åœ°ç‚¹ã‚’åŸ‹ã‚ã‚‹
 			for($i=1; $i<count($calendar); $i++)
 			{
 				$old_key = $calendar[$i-1];
 				$now_key = $calendar[$i];
-				// 1“ú‘O‚Ìc‚èŠÔ‚ğƒ`ƒFƒbƒN
+				// 1æ—¥å‰ã®æ®‹ã‚Šæ™‚é–“ã‚’ãƒã‚§ãƒƒã‚¯
 				if($i == 1 && $task["Hours"][$old_key] == "")
 				{
 					$task["Hours"][$old_key] = $recent_initial_hours;
 				}
 
-				// –„‚ß‚é
+				// åŸ‹ã‚ã‚‹
 				if($task["Hours"][$now_key] === "")
 				{
 					$task["Hours"][$now_key] = $task["Hours"][$old_key];
@@ -283,7 +283,7 @@ class Sprint extends AppModel {
 	}
 
 	/**
-	 * w’è‚µ‚½ƒXƒvƒŠƒ“ƒg‚ÉŠÖ˜A‚·‚éƒXƒg[ƒŠ[‚Æƒ^ƒXƒN‚ª‚ ‚é‚©
+	 * æŒ‡å®šã—ãŸã‚¹ãƒ—ãƒªãƒ³ãƒˆã«é–¢é€£ã™ã‚‹ã‚¹ãƒˆãƒ¼ãƒªãƒ¼ã¨ã‚¿ã‚¹ã‚¯ãŒã‚ã‚‹ã‹
 	 */
 	function hasActiveStoriesAndTask($id)
 	{
@@ -292,12 +292,12 @@ class Sprint extends AppModel {
 		$this->hasMany["Story"]["conditions"] = "Story.disabled = 0";
 		$this->hasMany["Task"]["conditions"] = "Story.disabled = 0";
 		$record = $this->read(null, $id);
-		$this->hasMany = $has_many;	// Œ³‚É–ß‚·
-		return (count($record["Story"]) != 0 || count($record["Task"]) != 0); 
+		$this->hasMany = $has_many;	// å…ƒã«æˆ»ã™
+		return (count($record["Story"]) != 0 || count($record["Task"]) != 0);
 	}
 
 	/**
-	 * ‚»‚ÌƒXƒvƒŠƒ“ƒg‚Ì‡ŒvƒXƒg[ƒŠ[ƒ|ƒCƒ“ƒg‚ğæ“¾
+	 * ãã®ã‚¹ãƒ—ãƒªãƒ³ãƒˆã®åˆè¨ˆã‚¹ãƒˆãƒ¼ãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆã‚’å–å¾—
 	 */
 	function getTotalStoryPoint($data)
 	{
@@ -329,12 +329,12 @@ class Sprint extends AppModel {
 		App::import('Vendor', 'include_path');
 		App::import(
 			'Vendor',
-			'Spreadsheet_Excel_Writer', 
+			'Spreadsheet_Excel_Writer',
 			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
 		);
 
-		// •K—v‚Èƒf[ƒ^‚ğûW‚·‚é
-		$this->recursive = 2;	// story–¼“™
+		// å¿…è¦ãªãƒ‡ãƒ¼ã‚¿ã‚’åé›†ã™ã‚‹
+		$this->recursive = 2;	// storyåç­‰
 		$sprint = $this->read(null, $id);
 		$sprint_term = $this->getSprintTerm($sprint["Sprint"]["id"]);
 		$sprint_calendar = $this->getSprintCalendar($sprint["Sprint"]["id"]);
@@ -356,7 +356,7 @@ class Sprint extends AppModel {
 		$footer_format->setFgColor('gray');
 		$footer_format->setBold();
 
-		// ‰¡²ƒJƒŒƒ“ƒ_[
+		// æ¨ªè»¸ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼
 		$day_count = 0;
 		$row = 0;
 		$col = 0;
@@ -366,22 +366,22 @@ class Sprint extends AppModel {
 		$col++;
 		$worksheet->write($row, $col, '', $header_format);
 		$col++;
-		foreach($sprint_calendar as $cal) { 
+		foreach($sprint_calendar as $cal) {
 			$day_count++;
 			$worksheet->write($row, $col, date('d', strtotime($cal)), $header_format);
 			$col++;
 		}
 
-		// •
+		// å¹…
 		$worksheet->setColumn(0, 0, 3);
 		$worksheet->setColumn(1, 1, 40);
 		$worksheet->setColumn(2, 1, 10);
-		// “ú•t‚ÆÀÑ‚Ì•‚ğİ’è
+		// æ—¥ä»˜ã¨å®Ÿç¸¾ã®å¹…ã‚’è¨­å®š
 		$worksheet->setColumn(3, 3+$day_count, 3);
 
-		// c‚èŠÔ
+		// æ®‹ã‚Šæ™‚é–“
 		$row++;
-		// c
+		// ç¸¦
 		$story_id = "";
 		foreach($sprint_remaining_hours as $a) {
 			if($a["Story"]["id"] != $story_id)
@@ -389,7 +389,7 @@ class Sprint extends AppModel {
 				$col = 0;
 				$story_id = $a["Story"]["id"];
 				$worksheet->write($row, $col, $this->sjis($a["Story"]["name"]), $story_format);
-				// ƒZƒ‹Œ‹‡
+				// ã‚»ãƒ«çµåˆ
 				$worksheet->mergeCells($row, 0, $row, 2 + $day_count);
 				$row++;
 			}
@@ -400,7 +400,7 @@ class Sprint extends AppModel {
 			$col++;
 			$worksheet->write($row, $col, $this->sjis($a["User"]["username"]), $format);
 			$col++;
-			// ‰¡
+			// æ¨ª
 			foreach($sprint_calendar as $cal) {
 				$worksheet->write($row, $col, $a["Hours"][$cal], $format);
 				$col++;
@@ -408,7 +408,7 @@ class Sprint extends AppModel {
 			$row++;
 		}
 
-		// ƒ^ƒXƒN‚Ì‡ŒvŠÔ
+		// ã‚¿ã‚¹ã‚¯ã®åˆè¨ˆæ™‚é–“
 		$col = 0;
 		$worksheet->write($row, $col, '', $header_format);
 		$col++;
@@ -416,7 +416,7 @@ class Sprint extends AppModel {
 		$col++;
 		$worksheet->write($row, $col, '', $header_format);
 		$col++;
-		foreach($sprint_calendar as $cal) 
+		foreach($sprint_calendar as $cal)
 		{
 			$sum = 0;
 			foreach($sprint_remaining_hours as $a) {
@@ -428,7 +428,7 @@ class Sprint extends AppModel {
 
 		$workbook->close();
 		exit;
-		
+
 	}
 
 }
