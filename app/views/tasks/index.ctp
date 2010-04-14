@@ -7,6 +7,9 @@
 		<li><?php echo $this->Html->link(sprintf(__('All your unfinished %s', true), __('Task', true)), array('action' => 'index', 'filter:your_unfinished')); ?></li>
 		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('Excel', true)), array('action' => 'output', 'filter' => @$this->params["named"]["filter"], 'type' => 'xls')); ?></li>
 		<li class="save"><?php echo $this->Html->link(sprintf(__('Save to %s', true), __('CSV', true)), array('action' => 'output', 'filter' => @$this->params["named"]["filter"], 'type' => 'csv')); ?></li>
+		<?php if($login_user["admin"] == true) { ?>
+		<li class="upload"><?php echo $this->Html->link(sprintf(__('Bulk upload %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'upload')); ?> </li>
+		<?php } ?>
 	</ul>
 </div>
 

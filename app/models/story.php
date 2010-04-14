@@ -147,6 +147,22 @@ class Story extends AppModel {
 	}
 
 	/**
+	 * 解決状況一覧から名前に合致する解決状況のIDを探す
+	 */
+	function isValidStoryId($stories, $id)
+	{
+		foreach($stories as $key => $value)
+		{
+			if($key === $id)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+	/**
 	 * 合計タスク数や合計残り時間を計算
 	 *
 	 * @description このモデルを主キーにした場合のみ利用可能

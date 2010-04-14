@@ -152,6 +152,22 @@ class User extends AppModel {
 	}
 
 	/**
+	 * ユーザー名一覧から名前に合致するユーザーのIDを探す
+	 */
+	function getUserId($users, $name)
+	{
+		foreach($users as $key => $value)
+		{
+			if($value === $name)
+			{
+				return $key;
+			}
+		}
+		return null;
+	}
+
+
+	/**
 	 * 現在有効なユーザーがいるかどうか
 	 */
 	function hasActiveUser()

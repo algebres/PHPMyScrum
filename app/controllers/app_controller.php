@@ -79,7 +79,11 @@ class AppController extends Controller {
 				}
 			}
 		}
-		if(get_class($this) == "SprintsController" && $this->action == 'upload')
+		if(get_class($this) == "StoriesController" && $this->action == 'upload')
+		{
+			return ($this->Auth->user('admin') == 1);
+		}
+		if(get_class($this) == "TasksController" && $this->action == 'upload')
 		{
 			return ($this->Auth->user('admin') == 1);
 		}

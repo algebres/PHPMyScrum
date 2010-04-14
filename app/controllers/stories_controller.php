@@ -158,6 +158,8 @@ class StoriesController extends AppController {
 
 	function upload()
 	{
+		ini_set("max_execution_time", 0);
+
 		// upload
 		if (!empty($this->data))
 		{

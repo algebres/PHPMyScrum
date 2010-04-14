@@ -193,5 +193,115 @@ class TasksController extends AppController {
 		$this->Session->setFlash(sprintf(__('%s deleted', true), __('Task', true)));
 		$this->redirect(array('action'=>'index'));
 	}
+
+	function upload()
+	{
+		ini_set("max_execution_time", 0);
+
+		// upload
+		if (!empty($this->data))
+		{
+			$filename = @$this->data['Task']['upfile']['tmp_name'];
+			if(empty($filename) || !file_exists($filename))
+			{
+				$this->Session->setFlash(__('File is not uploaded.', true));
+				return;
+			}
+			// set properly encoding
+			$contents = file_get_contents($filename);
+			if(function_exists("mb_convert_encoding"))
+			{
+				$buf = mb_convert_encoding($contents, "utf-8", "utf-8, sjis, euc-jp");
+			}
+			else
+			{
+				$buf = $contents;
+			}
+			$fp = tmpfile();
+			fwrite($fp, $buf);
+			rewind($fp); 
+
+			// get available data
+			$sprints = $this->Sprint->getActiveSprintList();
+			$resolutions = $this->Resolution->getActiveResolutionList();
+			$users = $this->User->getActiveUserList();
+			$stories = $this->Story->getActiveStoryList();
+
+			$row = 0;
+			$success = true;
+			$success_count = 0;
+			while (($data = fgetcsv($fp, 10000, ","))) 
+			{
+				if($row == 0)
+				{
+					if($data != $this->Task->getCSVHeader())
+					{
+						fclose($handle);
+						$this->Session->setFlash(__('There is no header record or does not match column count.', true));
+						return;
+					}
+					$row++;
+					continue;
+				}
+				$row++;
+
+				if(count($data) != count($this->Task->getCSVHeader()))
+				{
+					continue;
+				}
+
+				$col = 0;
+				$this->data["Task"]["id"] = trim($data[$col]); $col++;
+				$this->data["Task"]["sprint_id"] = $this->Sprint->getSprintId($sprints,trim($data[$col])); $col++;
+				$this->data["Task"]["story_id"] = intval($data[$col]); $col++;
+				$null1 = $data[$col]; $col++;	// story name
+				$this->data["Task"]["name"]	= trim($data[$col]); $col++;
+				$this->data["Task"]["description"]	= trim($data[$col]); $col++;
+				$this->data["Task"]["estimate_hours"] = intval($data[$col]); $col++;
+				$this->data["Task"]["user_id"] = $this->User->getUserId($users,trim($data[$col])); $col++;
+				$this->data["Task"]["resolution_id"] = $this->Resolution->getResolutionId($resolutions,trim($data[$col])); $col++;
+
+				// story exist?
+				if(!$this->Story->isValidStoryId($stories, $this->data["Task"]["story_id"]))
+				{
+					continue;
+				}
+
+				// task exist ?
+				$this->Task->recursive = -1;
+				$rec = $this->Task->read(null, intval($this->data["Task"]["id"]));
+
+				if(!$rec)
+				{
+					unset($this->data["Task"]["id"]);
+					$this->Task->create();
+				}
+				if (!$this->Task->save($this->data, array('fieldList' => $this->Task->fields['save'])))
+				{
+					// can't save
+					$success = false;
+				}
+				else
+				{
+					$success_count++;
+				}
+			}
+			fclose($handle);
+			if($success)
+			{
+				$this->Session->setFlash(sprintf(__('%d records has been imported!', true), $success_count));
+			}
+			else
+			{
+				$this->Session->setFlash(sprintf(__('%d records has been imported. but some records failed to insert or update.', true), $success_count));
+			}
+			$this->redirect(array('action' => 'index'));
+		}
+		else
+		{
+			// get
+		}
+	}
+
 }
 ?>
