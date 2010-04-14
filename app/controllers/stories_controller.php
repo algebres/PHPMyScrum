@@ -206,6 +206,7 @@ class StoriesController extends AppController {
 			$success = true;
 			$success_count = 0;
 
+			setlocale(LC_ALL,'ja_JP.UTF-8');
 			while (($data = fgetcsv($fp, 10000, ","))) 
 			{
 				if($row == 0)
