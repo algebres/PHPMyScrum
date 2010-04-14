@@ -217,10 +217,11 @@ class TasksController extends AppController {
 			{
 				$buf = $contents;
 			}
-			$fp = tmpfile(TMP, 'pms');
+			$tmpfname = tempnam(TMP, 'pms');
+			$fp = fopen($tmpfname, "w");
 			if(!$fp)
 			{
-				$this->log(TMP, LOG_INFO);
+				$this->log($tmpfname, LOG_INFO);
 				$this->Session->setFlash(__('Can not create temporary file.', true));
 				return;
 			}
