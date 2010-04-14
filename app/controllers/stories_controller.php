@@ -180,7 +180,7 @@ class StoriesController extends AppController {
 				$buf = $contents;
 			}
 			$tmpfname = tempnam(TMP, 'pms');
-			$fp = fopen($tmpfname, "w");
+			$fp = fopen($tmpfname, "rw");
 			if(!$fp)
 			{
 				$this->log($tmpfname, LOG_INFO);
