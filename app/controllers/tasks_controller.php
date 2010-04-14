@@ -217,7 +217,7 @@ class TasksController extends AppController {
 			{
 				$buf = $contents;
 			}
-			$fp = tmpfile(sys_get_temp_dir(), 'pms');
+			$fp = tmpfile(APP.DS.TMP(), 'pms');
 			if(!$fp)
 			{
 				$this->log();
