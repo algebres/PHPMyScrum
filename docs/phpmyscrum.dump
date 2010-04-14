@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.30, for Win32 (ia32)
+-- MySQL dump 10.13  Distrib 5.1.41, for Win32 (ia32)
 --
 -- Host: localhost    Database: phpmyscrum
 -- ------------------------------------------------------
--- Server version	5.1.30-community
+-- Server version	5.1.41-community
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,8 +20,8 @@
 --
 
 DROP TABLE IF EXISTS `information`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `information` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -34,7 +34,7 @@ CREATE TABLE `information` (
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `information`
@@ -51,8 +51,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `priorities`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `priorities` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -61,7 +61,7 @@ CREATE TABLE `priorities` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `priorities`
@@ -78,8 +78,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `projects`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -89,7 +89,7 @@ CREATE TABLE `projects` (
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `projects`
@@ -106,8 +106,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `remaining_times`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `remaining_times` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `task_id` int(11) NOT NULL COMMENT 'task_id',
@@ -115,7 +115,7 @@ CREATE TABLE `remaining_times` (
   `created` date NOT NULL COMMENT 'created',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `remaining_times`
@@ -132,8 +132,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `resolutions`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resolutions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE `resolutions` (
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `resolutions`
@@ -159,8 +159,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `sprints`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sprints` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -171,8 +171,8 @@ CREATE TABLE `sprints` (
   `created` datetime DEFAULT NULL COMMENT 'created',
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sprints`
@@ -180,7 +180,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `sprints` WRITE;
 /*!40000 ALTER TABLE `sprints` DISABLE KEYS */;
-INSERT INTO `sprints` VALUES (1,'第1スプリント','このスプリントでは主にスクラム管理の基本機能を実装します。\r\nこのスプリントの成果物は全体として動作しますが、セキュリティ上の懸念はあります。\r\nインターネット上にはさらさないほうが無難。','2010-03-28 06:54:00','2010-04-20 06:54:00',0,'2010-03-27 06:56:56','2010-04-10 08:07:29'),(3,'まげ','まげ','2010-04-27 09:46:00','2010-06-27 09:46:00',1,'2010-03-27 09:47:00','2010-03-27 09:56:23'),(4,'テストスプリント','','2010-03-27 18:37:00','2011-03-27 18:37:00',1,'2010-03-27 18:37:56','2010-03-27 18:39:21'),(5,'test2','','2010-03-28 06:51:00','2010-03-28 06:51:00',1,'2010-03-28 06:51:06','2010-03-28 06:51:13'),(6,'第2スプリント','このスプリントでは出荷に向けての細かい調整\r\nセキュリティ対応\r\n各種権利関係のクリア\r\n等を実施します。','2010-04-15 05:37:00','2010-04-30 05:37:00',0,'2010-03-29 05:38:21','2010-04-02 06:08:05'),(7,'ほげ','ふがふが','2010-04-06 13:59:00','2010-04-06 13:59:00',1,'2010-04-06 14:00:11','2010-04-06 14:02:21');
+INSERT INTO `sprints` VALUES (1,'第1スプリント','このスプリントでは主にスクラム管理の基本機能を実装します。\r\nこのスプリントの成果物は全体として動作しますが、セキュリティ上の懸念はあります。\r\nインターネット上にはさらさないほうが無難。','2010-03-28 06:54:00','2010-04-20 06:54:00',0,'2010-03-27 06:56:56','2010-04-10 08:07:29'),(3,'まげ','まげ','2010-04-27 09:46:00','2010-06-27 09:46:00',1,'2010-03-27 09:47:00','2010-03-27 09:56:23'),(4,'テストスプリント','','2010-03-27 18:37:00','2011-03-27 18:37:00',1,'2010-03-27 18:37:56','2010-03-27 18:39:21'),(5,'test2','','2010-03-28 06:51:00','2010-03-28 06:51:00',1,'2010-03-28 06:51:06','2010-03-28 06:51:13'),(6,'第2スプリント','このスプリントでは出荷に向けての細かい調整\r\nセキュリティ対応\r\n各種権利関係のクリア\r\n等を実施します。','2010-04-15 05:37:00','2010-04-30 05:37:00',0,'2010-03-29 05:38:21','2010-04-02 06:08:05'),(7,'ほげ','ふがふが','2010-04-06 13:59:00','2010-04-06 13:59:00',1,'2010-04-06 14:00:11','2010-04-06 14:02:21'),(8,'第3スプリント','内容未定','2010-05-01 07:07:00','2010-04-15 07:07:00',0,'2010-04-15 07:07:42','2010-04-15 07:07:42'),(9,'第4スプリント','内容未定','2010-05-15 07:07:00','2010-05-31 07:07:00',0,'2010-04-15 07:08:03','2010-04-15 07:08:03'),(10,'第5スプリント','内容未定','2010-06-01 07:08:00','2010-06-15 07:08:00',0,'2010-04-15 07:08:24','2010-04-15 07:08:24'),(11,'第6スプリント','内容未定','2010-06-15 07:08:00','2010-06-30 07:08:00',0,'2010-04-15 07:08:46','2010-04-15 07:08:46'),(12,'第7スプリント','内容未定','2010-07-01 07:08:00','2010-04-15 07:08:00',0,'2010-04-15 07:09:02','2010-04-15 07:09:02');
 /*!40000 ALTER TABLE `sprints` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,8 +189,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `stories`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stories` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(255) DEFAULT NULL,
@@ -208,7 +208,7 @@ CREATE TABLE `stories` (
   KEY `idx_stories_key1` (`sprint_id`),
   KEY `idx_stories_key2` (`team_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `stories`
@@ -225,8 +225,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `story_comments`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `story_comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `story_id` int(11) NOT NULL,
@@ -238,7 +238,7 @@ CREATE TABLE `story_comments` (
   PRIMARY KEY (`id`),
   KEY `idx_story_comments_key` (`story_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `story_comments`
@@ -255,8 +255,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `tasks`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `sprint_id` int(11) NOT NULL COMMENT 'sprint_id',
@@ -274,7 +274,7 @@ CREATE TABLE `tasks` (
   KEY `idx_tasks_key2` (`story_id`),
   KEY `idx_tasks_key3` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tasks`
@@ -291,8 +291,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `teammembers`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teammembers` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `team_id` int(11) NOT NULL COMMENT 'team_id',
@@ -302,7 +302,7 @@ CREATE TABLE `teammembers` (
   `created` datetime DEFAULT NULL COMMENT 'created',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `teammembers`
@@ -319,8 +319,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `teams`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teams` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(200) NOT NULL COMMENT 'name',
@@ -330,7 +330,7 @@ CREATE TABLE `teams` (
   `updated` datetime DEFAULT NULL COMMENT 'updated',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `teams`
@@ -347,8 +347,8 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `users`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `loginname` varchar(100) NOT NULL COMMENT 'loginname',
@@ -362,7 +362,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_users_pkey` (`loginname`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-SET character_set_client = @saved_cs_client;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -383,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-04-14  8:48:06
+-- Dump completed on 2010-04-15  7:09:22
