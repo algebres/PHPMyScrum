@@ -204,7 +204,7 @@ class StoriesController extends AppController {
 				{
 					if($data != $this->Story->getCSVHeader())
 					{
-						fclose($handle);
+						fclose($fp);
 						$this->Session->setFlash(__('There is no header record or does not match column count.', true));
 						return;
 					}
@@ -257,7 +257,7 @@ class StoriesController extends AppController {
 					$success_count++;
 				}
 			}
-			fclose($handle);
+			fclose($fp);
 			if($success)
 			{
 				$this->Session->setFlash(sprintf(__('%d records has been imported!', true), $success_count));
