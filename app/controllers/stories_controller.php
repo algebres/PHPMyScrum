@@ -179,7 +179,13 @@ class StoriesController extends AppController {
 			{
 				$buf = $contents;
 			}
-			$fp = tmpfile();
+			$fp = tmpfile(sys_get_temp_dir(), 'pms');
+			if(!$fp)
+			{
+				$this->log();
+				$this->Session->setFlash(__('Can not create temporary file.', true));
+				return;
+			}
 			fwrite($fp, $buf);
 			rewind($fp); 
 
