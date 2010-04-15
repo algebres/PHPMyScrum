@@ -56,7 +56,7 @@ window.onload = function () {
 				}
 			}
 		);
-		$("div .t_sprint").each(function(){
+		$("div .t_storypoint").each(function(){
 			for(i =0; i< sprints.length; i++)
 			{
 				if($(this).attr("id") == "t_" + sprints[i])
@@ -99,7 +99,7 @@ window.onload = function () {
 	<tr>
 	<?php foreach($sprints as $sprint): ?>
 	<td>
-	<div class="t_sprint" id="t_sprint_id:<?php echo $sprint["Sprint"]["id"]; ?>">&nbsp;</div>
+	<div class="t_storypoint" id="t_sprint_id:<?php echo $sprint["Sprint"]["id"]; ?>">&nbsp;</div>
 	</td>
 	<?php endforeach; ?>
 	</tr>
