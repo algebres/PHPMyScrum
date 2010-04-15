@@ -110,6 +110,8 @@ window.onload = function () {
 		<?php if($sprint["Sprint"]["id"] == $story["Story"]["sprint_id"]): ?>
 		<?php if($story["Resolution"]["is_fixed"]) {
 			$class = "board_story_done";
+		} else if ($story["Story"]["resolution_id"] == RESOLUTION_DOING) {
+			$class = "board_story_doing";
 		} else {
 			$class = "drag board_story";
 		}

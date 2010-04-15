@@ -608,6 +608,17 @@ td.actions a:hover {
 	margin: 2px;
 }
 
+.board_story_doing {
+	color: #000000;
+	background-color: #7fffd4;
+	padding: 3px; border-left: 7px solid #00008b;
+	border-top: 0px !important;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 2px;
+}
+
+
 .storytitle {
 	background: #ffd700;
 }
