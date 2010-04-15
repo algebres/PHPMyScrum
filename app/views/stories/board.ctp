@@ -9,6 +9,7 @@ td {
 
 <script type="text/javascript">
 window.onload = function () {
+	total_storypoints();
 	// number of successfully placed elements
 	var num = 0;
 	// initialization
@@ -16,25 +17,55 @@ window.onload = function () {
 	REDIPS.drag.myhandler_dropped = function () {
 		var obj = REDIPS.drag.obj;
 		var obj_old     = REDIPS.drag.obj_old;	// reference to the original object
-		//alert(REDIPS.drag.target_cell.id);
-		//alert(REDIPS.drag.source_cell.id);
-		//if(REDIPS.drag.target_cell.parentNode.id != REDIPS.drag.source_cell.parentNode.id)
-		//{
-		//	REDIPS.drag.target_cell.removeChild(obj);
-		//	REDIPS.drag.source_cell.appendChild(obj);
-		//	return;
-		//}
 		if(obj.id.indexOf("story_id:") != -1 && obj.parentNode.id.indexOf("sprint_id:") != -1)
 		{
+			total_storypoints();
 			url = "<?php echo $html->url('/stories/change_sprint/'); ?>" + obj.id + "/" + obj.parentNode.id;
-			//alert(url);
 			jQuery.get(url, {}, after_function );
 		}
 	}
-}
-function after_function(data) {
-	//TODO? callbackで配下のタスクを移動するかどうか聞くべきかも
-	alert(data);
+
+	function after_function(data) {
+		//TODO? callbackで配下のタスクを移動するかどうか聞くべきかも
+		alert(data);
+	}
+
+	function total_storypoints()
+	{
+		var sprints = new Array(<?php echo count($sprints); ?>);
+		var total_points = new Array(<?php echo count($sprints); ?>);
+		for(i =0; i< total_points.length; i++)
+		{
+			total_points[i] = 0;
+		}
+	<?php
+	$cnt = 0;
+	foreach($sprints as $sprint) {
+		echo sprintf("\tsprints[%d] = \"sprint_id:%d\";\n", $cnt, $sprint["Sprint"]["id"]);
+		$cnt++;
+	}
+	?>
+		$("#story_table").find(".h_storypoints").each(function()
+			{
+				for(i=0; i < sprints.length; i++)
+				{
+					if($(this).parent().parent().attr('id') == sprints[i])
+					{
+						total_points[i] = total_points[i] + parseInt($(this).val());
+					}
+				}
+			}
+		);
+		$("div .t_sprint").each(function(){
+			for(i =0; i< sprints.length; i++)
+			{
+				if($(this).attr("id") == "t_" + sprints[i])
+				{
+					$(this).html(total_points[i].toString());
+				}
+			}
+		});
+	}
 }
 </script>
 
@@ -54,15 +85,23 @@ function after_function(data) {
 	<h2><?php __('Product Backlog');?></h2>
 
 	<div id="drag">
-	<table>
+	<form>
+	<table id="story_table">
 	<tr>
 		<?php foreach($sprints as $sprint): ?>
 		<?php if($sprint['Sprint']['id'] != 0) { ?>
 		<th><?php echo $this->Html->link($sprint["Sprint"]["name"], array('controller' => 'sprints', 'action' => 'view', $sprint['Sprint']['id'])); ?></th>
 		<?php } else { ?>
-		<th><?php echo $sprint["Sprint"]["name"]; ?></th>
+		<th><?php echo h($sprint["Sprint"]["name"]); ?></th>
 		<?php } ?>
 		<?php endforeach; ?>
+	</tr>
+	<tr>
+	<?php foreach($sprints as $sprint): ?>
+	<td>
+	<div class="t_sprint" id="t_sprint_id:<?php echo $sprint["Sprint"]["id"]; ?>">&nbsp;</div>
+	</td>
+	<?php endforeach; ?>
 	</tr>
 	<tr>
 		<?php foreach($sprints as $sprint): ?>
@@ -77,7 +116,8 @@ function after_function(data) {
 		?>
 		<div class="<?php echo $class; ?>" id="story_id:<?php echo $story["Story"]["id"];?>">
 		<?php echo $this->Html->link("#" . $story['Story']['id'], array('action' => 'view', $story['Story']['id'])); ?>&nbsp;
-		<?php echo $story["Story"]["name"]; ?>
+		<?php echo h($story["Story"]["name"]); ?>
+		<input type="hidden" class="h_storypoints" name="storypoints_<?php echo $story['Story']['id']; ?>" value="<?php echo $story['Story']['storypoints']; ?>" />
 		</div>
 		<?php endif; ?>
 		<?php endforeach; ?>
@@ -85,6 +125,6 @@ function after_function(data) {
 		<?php endforeach; ?>
 	</tr>
 	</table>
+	</form>
 	</div>
-
 </div>

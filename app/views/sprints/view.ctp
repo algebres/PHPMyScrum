@@ -1,3 +1,6 @@
+<?php echo $javascript->link('prototype'); ?>
+
+
 <div id="snavi">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Sprint', true)), array('action' => 'edit', $sprint['Sprint']['id'])); ?> </li>
