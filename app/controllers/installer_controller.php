@@ -7,7 +7,9 @@ class InstallerController extends AppController {
 	var $uses = array();
 	var $helpers = array('Html');
 
-	function beforeFilter() {		 
+	function beforeFilter() {
+		parent::beforeFilter();
+
 		if (!file_exists(TMP.'not_installed.txt')) {
 			echo('Application is already installed. Create app/config/not_installed.txt to reinstall the application.');
 			exit();
@@ -18,11 +20,13 @@ class InstallerController extends AppController {
 		// show how to install
 	}
 
-	function database() {		 
+	function database() {
+	 
 		$db = ConnectionManager::getDataSource('default');
 
 		if(!$db->isConnected()) {
 			echo 'Could not connect to database. Please check the settings in app/config/database.php and try again';
+			exit;
 		}
         $this->__executeSQLScript($db, CONFIGS.'sql'.DS.'tables.sql');
         $this->redirect('/installer/thanks');

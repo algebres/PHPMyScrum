@@ -27,6 +27,10 @@ class AppController extends Controller {
 		$hasAdmin = $this->User->hasAdminUser();
 		$this->set('has_admin', $hasAdmin);
 
+		if(get_class($this) == "InstallerController"){
+			$this->Auth->allow(array('index', 'database', 'thanks'));
+		}
+
 		// UsersControllerの認証除外設定
 		if(get_class($this) == "UsersController"){
 			if(!$hasAdmin)
