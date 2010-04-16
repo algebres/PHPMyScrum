@@ -66,9 +66,11 @@ h4 {
 	color: #993;
 	font-weight: normal;
 }
+/**
 ul, li {
 	margin: 0 12px;
 }
+**/
 
 /** Layout **/
 #container {
