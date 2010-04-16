@@ -1,4 +1,4 @@
-<div class="information index" style="width:360px; margin-right:20px;">
+<div class="information index">
 	<h2><?php __('Information');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<?php

@@ -28,7 +28,7 @@ body {
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:70%;
 /**	margin: 0 20px 20px 20px; **/
-	width : 980px;
+	min-width : 980px;
 }
 a {
 	color: #003d4c;
@@ -100,9 +100,12 @@ ul, li {
 
 
 #header div#userinfo {
-	height : 30px;
-	margin-left: 850px;
-	margin-top : -30px;
+	float:right;
+	width : 150px;
+	height : 40px;
+/**	margin-left: 90%; **/
+	margin-right : 40px;
+	margin-top : -40px;
 }
 
 #gnavi {
@@ -228,7 +231,8 @@ div.index,
 div.related,
 div.view {
 	float:left; /** right **/
-	width:940px; /** 76% **/
+	/** width: 940px; **/ /** 76% **/
+	width : 96%;
 	/** border-left:1px solid #666; **/
 	padding:10px 20px;
 }
@@ -357,7 +361,7 @@ div.paging span a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 60%;
+	width: 98%;
 }
 dl .altrow {
 	background: #f4f4f4;

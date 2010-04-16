@@ -129,8 +129,8 @@ Event.observe(window, 'load', function() {
 	});
 });	
 </script>
-<div class="linechart" id="linechart" style="width:650px;height:240px;float:left"></div>
-<div class="piechart" id="piechart" style="width:250px;height:240px;float:right"></div>
+<div class="linechart" id="linechart" style="width:70%;height:240px;float:left"></div>
+<div class="piechart" id="piechart" style="width:30%;height:240px;float:right"></div>
 
 <br clear="all" />
 <br />
