@@ -1,5 +1,19 @@
+<?php
+	$total_remaining_hours = 0;
+	foreach($story['Task'] as $t) 
+	{
+		if($t["resolution_id"] != RESOLUTION_DONE)
+		{
+			$total_remaining_hours += $t["estimate_hours"];
+		}
+	}
+?>
+
 <div id="snavi">
 	<ul>
+		<?php if($total_remaining_hours == 0) { ?>
+		<li><?php echo $this->Html->link(sprintf(__('Finish %s', true), __('Story', true)), array('action' => 'done', $story['Story']['id'], '?' => 'return_url=' . urlencode($_SERVER["REQUEST_URI"]))); ?> </li>
+		<?php } ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Story', true)), array('action' => 'edit', $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Story', true)), array('action' => 'delete', $story['Story']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('action' => 'add')); ?> </li>
@@ -52,6 +66,16 @@ if($resolution_name == "") { $resolution_name = __('No resolution', true); }
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('StoryPoints'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $story['Story']['storypoints']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo sprintf(__('Count of %s', true), __('Tasks', true)); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo count($story['Task']); ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo sprintf(__('Sum of %s', true), __('Remaining Hours', true)); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $total_remaining_hours; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Sprint'); ?></dt>
