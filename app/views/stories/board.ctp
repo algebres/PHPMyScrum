@@ -99,7 +99,7 @@ window.onload = function () {
 </div>
 
 <div class="stories index">
-	<h2><?php __('Product Backlog');?></h2>
+	<h2><?php __('Story Board');?></h2>
 
 	<div id="drag">
 	<form>
