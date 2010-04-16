@@ -9,7 +9,12 @@
 
 
 <div class="tasks view">
-<h2><?php  __('Task');?>&nbsp;#<?php echo $task['Task']['id']; ?>&nbsp;<?php echo h($task['Task']['name']); ?> (<?php echo $task["Resolution"]["name"]; ?>)</h2>
+<?php 
+$resolution_name = @$task["Resolution"]["name"];
+if($resolution_name == "") { $resolution_name = __('No resolution', true); }
+?>
+
+<h2><?php  __('Task');?>&nbsp;#<?php echo $task['Task']['id']; ?>&nbsp;<?php echo h($task['Task']['name']); ?> (<?php echo $resolution_name; ?>)</h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
