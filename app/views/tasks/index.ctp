@@ -45,7 +45,7 @@ jQuery(document).ready(function()
 	}
 	?>
 	</h2>
-	<table cellpadding="0" cellspacing="0" id="tasks_table">
+	<table id="tasks_table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
@@ -64,9 +64,6 @@ jQuery(document).ready(function()
 	$i = 0;
 	foreach ($tasks as $task):
 		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
 		if(@$task["Task"]["resolution_id"] == RESOLUTION_DONE)
 		{
 			$class = ' class="done"';
@@ -94,7 +91,7 @@ jQuery(document).ready(function()
 		<?php if(0) { ?>
 		<td><?php echo date('Y-m-d', strtotime($task['Task']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
-		<td class="actions">
+		<td class="actions narrow">
 			<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['Task']['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['Task']['id'])); ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $task['Task']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $task['Task']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?>

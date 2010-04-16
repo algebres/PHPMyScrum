@@ -43,12 +43,8 @@ jQuery(document).ready(function()
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
-	$i = 0;
 	foreach ($stories as $story):
 		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
 		if(@$story["Story"]["resolution_id"] == RESOLUTION_DONE)
 		{
 			$class = ' class="done"';
@@ -77,7 +73,7 @@ jQuery(document).ready(function()
 		<?php if(0) { ?>
 		<td><?php echo date('Y-m-d', strtotime($story['Story']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
-		<td class="actions">
+		<td class="actions narrow">
 			<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'stories', 'action' => 'done', $story['Story']['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $story['Story']['id'])); ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $story['Story']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $story['Story']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?>
