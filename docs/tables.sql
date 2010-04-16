@@ -147,7 +147,7 @@ CREATE TABLE `stories` (
   PRIMARY KEY (`id`),
   KEY `idx_stories_key1` (`sprint_id`),
   KEY `idx_stories_key2` (`team_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,4 +263,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-04-15  7:09:24
+-- Dump completed on 2010-04-16 10:18:20
