@@ -1,4 +1,4 @@
-<div class="pages view">
+<div class="pages view" id="menupage">
 
 <h2><?php  __('Manage');?></h2>
 
