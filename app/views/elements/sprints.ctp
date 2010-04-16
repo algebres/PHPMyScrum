@@ -44,7 +44,7 @@ jQuery(document).ready(function()
 		<td><?php echo $total_story_point; ?></td>
 		<td><?php echo $sprint['Sprint']['startdate']; ?>&nbsp;</td>
 		<td><?php echo $sprint['Sprint']['enddate']; ?>&nbsp;</td>
-		<td class="actions">
+		<td class="actions narrow">
 			<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'sprints', 'action' => 'view', $sprint['Sprint']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'sprints', 'action' => 'edit', $sprint['Sprint']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'sprints', 'action' => 'delete', $sprint['Sprint']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $sprint['Sprint']['id'])); ?>
