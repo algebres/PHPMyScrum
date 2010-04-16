@@ -18,7 +18,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function() 
 {
-    jQuery('#tasks_table').flexigrid({height:'auto',striped:false});
+    jQuery('#tasks_table').flexigrid({height:'auto',striped:true});
 }
 );
 -->

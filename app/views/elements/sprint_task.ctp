@@ -7,7 +7,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function() 
 {
-    jQuery('#sprint_tasks_table').flexigrid({height:'auto',striped:false});
+    jQuery('#sprint_tasks_table').flexigrid({height:'auto',striped:true});
 }
 );
 -->

@@ -8,10 +8,22 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#teammember_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
+
+
 
 <div class="teammembers index">
 	<h2><?php __('Teammembers');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="teammember_table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('team_id');?></th>

@@ -45,10 +45,23 @@
 		</dd>
 	</dl>
 </div>
+
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#teammember_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
+
+
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Teammembers', true));?></h3>
 	<?php if (!empty($team['Teammember'])):?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" id="teammember_table">
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('User Id'); ?></th>

@@ -70,10 +70,22 @@
 		</dd>
 	</dl>
 </div>
+
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#hours_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
+
 <div class="related">
 	<h3><?php __('Remaining Times');?></h3>
 	<?php if (!empty($task['RemainingTime'])):?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" id="hours_table">
 	<tr>
 		<th><?php __('Hours'); ?></th>
 		<th><?php __('Created'); ?></th>

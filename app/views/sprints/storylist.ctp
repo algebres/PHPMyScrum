@@ -13,7 +13,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function() 
 {
-    jQuery('#sprint_storylist_table').flexigrid({height:'auto',striped:false});
+    jQuery('#sprint_storylist_table').flexigrid({height:'auto',striped:true});
 }
 );
 -->

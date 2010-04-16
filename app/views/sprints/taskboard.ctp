@@ -3,6 +3,7 @@
 
 td {
 	vertical-align: top;
+/**	border : 1px solid; **/
 }
 </style>
 

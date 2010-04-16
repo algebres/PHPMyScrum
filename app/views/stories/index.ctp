@@ -15,7 +15,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function()
 {
-    jQuery('#stories_table').flexigrid({height:'auto',striped:false});
+    jQuery('#stories_table').flexigrid({height:'auto',striped:true});
 }
 );
 -->

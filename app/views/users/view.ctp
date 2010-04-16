@@ -10,6 +10,19 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#task_table').flexigrid({height:'auto',striped:true});
+    jQuery('#teammember_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
+
+
 
 <div class="users view">
 <h2><?php  __('User');?></h2>
@@ -66,7 +79,7 @@
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Tasks', true));?></h3>
 	<?php if (!empty($user['Task'])):?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" id="task_table">
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Sprint Id'); ?></th>
@@ -117,7 +130,7 @@
 <div class="related">
 	<h3><?php printf(__('Related %s', true), __('Teammembers', true));?></h3>
 	<?php if (!empty($user['Teammember'])):?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" id="teammember_table">
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Team Id'); ?></th>

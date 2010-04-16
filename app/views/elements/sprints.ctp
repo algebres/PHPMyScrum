@@ -1,6 +1,18 @@
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#sprint_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
+
+
 <div class="sprints index">
 	<h2><?php echo sprintf(__("Current %s", true), __('Sprints', true));?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="sprint_table">
 	<tr>
 			<th><?php __('id');?></th>
 			<th><?php __('name');?></th>

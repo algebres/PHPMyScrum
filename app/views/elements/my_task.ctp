@@ -3,7 +3,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function() 
 {
-    jQuery('#my_tasks_table').flexigrid({height:'auto',striped:false});
+    jQuery('#my_tasks_table').flexigrid({height:'auto',striped:true});
 }
 );
 -->

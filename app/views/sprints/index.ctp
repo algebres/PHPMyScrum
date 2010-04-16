@@ -4,10 +4,21 @@
 	</ul>
 </div>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#sprint_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
+
 
 <div class="sprints index">
 	<h2><?php __('Sprints');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" id="sprint_table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
