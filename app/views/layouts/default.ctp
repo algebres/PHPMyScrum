@@ -39,6 +39,8 @@ echo $this->Html->meta('icon');
 echo "\n";
 echo $this->Html->css('cake.generic');
 echo "\n";
+echo $this->Html->css('menu_style');
+echo "\n";
 echo $scripts_for_layout;
 echo "\n";
 echo $html->css('flexigrid/flexigrid');
@@ -73,11 +75,11 @@ if(isset($login_user)) {
 		</div>
 		<div id="content">
 			<?php if(isset($login_user)) { ?>
-			<div id="gnavi">
+			<div class="menu">
 				<ul>
-					<li><?php echo $this->Html->link(__('Dashboard', true), array('controller' => 'users', 'action' => 'dashboard')); ?> </li>
-					<li><?php echo $this->Html->link(__('Product Backlog', true), array('controller' => 'stories', 'action' => 'index')); ?> </li>
-					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?>
+					<li><?php echo $this->Html->link(__('Dashboard', true), array('controller' => 'users', 'action' => 'dashboard'), array('class' => 'top_link')); ?> </li>
+					<li><?php echo $this->Html->link(__('Product Backlog', true), array('controller' => 'stories', 'action' => 'index'), array('class' => 'top_link')); ?> </li>
+					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index'), array('class' => 'top_link')); ?>
 						<?php if(count($sprint_info) > 0 ) { ?>
 						<ul>
 							<?php foreach ($sprint_info as $key => $value) { ?>
@@ -86,11 +88,11 @@ if(isset($login_user)) {
 						</ul>
 						<?php } ?>
 					</li>
-					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index')); ?> </li>
+					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Tasks', true)), array('controller' => 'tasks', 'action' => 'index'), array('class' => 'top_link')); ?> </li>
 					<?php if($login_user["admin"] == true) { ?>
-					<li><?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage')); ?> </li>
+					<li><?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage'), array('class' => 'top_link')); ?> </li>
 					<?php } ?>
-					<li><?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout')); ?> </li>
+					<li><?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout'), array('class' => 'top_link')); ?> </li>
 				</ul>
 			</div>
 			<?php } ?>
