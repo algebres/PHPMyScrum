@@ -56,6 +56,7 @@ if(isset($login_user)) {
 ?>
 </head>
 <body>
+<div id="wrapper">
 	<div id="container">
 		<div id="header">
 			<h1><a href="<?php echo $html->url('/users/dashboard'); ?>"><?php echo $html->image('logo.png'); ?></a></h1>
@@ -107,5 +108,7 @@ if(isset($login_user)) {
 	</div>
 	<!-- end #container -->
 	<?php echo $this->element('sql_dump'); ?>
+</div>
+<!-- end #wrapper -->
 </body>
 </html>
