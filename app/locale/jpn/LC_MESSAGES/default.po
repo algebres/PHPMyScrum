@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2010-04-14 06:40+0900\n"
-"PO-Revision-Date: 2010-04-14 07:23+0900\n"
+"PO-Revision-Date: 2010-04-16 12:23+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -971,7 +971,7 @@ msgstr "Excel"
 
 #: \views\sprints\view.ctp:61
 msgid "Total Finished Story Point"
-msgstr "合計完了ストーリーポイント"
+msgstr "完了ストーリーポイント"
 
 #: \views\sprints\view.ctp:71
 msgid "Burndown"
