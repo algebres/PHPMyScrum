@@ -69,6 +69,23 @@ window.onload = function () {
 }
 </script>
 
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("a[rel^='prettyPopin']").prettyPopin({
+            modal : true,
+            width : 400,
+            height: 400,
+            opacity: 0.5,
+            animationSpeed: '0',
+            followScroll: true,
+            loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',
+            callback: function(){
+                //alert('test');
+            }
+        });
+    });
+</script>
+
 <div id="snavi">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Stories', true)), array('controller' => 'stories', 'action' => 'index')); ?> </li>
@@ -117,7 +134,7 @@ window.onload = function () {
 		}
 		?>
 		<div class="<?php echo $class; ?>" id="story_id:<?php echo $story["Story"]["id"];?>">
-		<?php echo $this->Html->link("#" . $story['Story']['id'], array('action' => 'view', $story['Story']['id'])); ?>&nbsp;
+		<?php echo $this->Html->link("#" . $story['Story']['id'], array('action' => 'simple_view', $story['Story']['id']), array('rel' => 'prettyPopin')); ?>&nbsp;
 		<?php echo h($story["Story"]["name"]); ?>
 		<input type="hidden" class="h_storypoints" name="storypoints_<?php echo $story['Story']['id']; ?>" value="<?php echo $story['Story']['storypoints']; ?>" />
 		</div>
