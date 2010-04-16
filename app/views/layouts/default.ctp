@@ -44,6 +44,8 @@ echo "\n";
 echo $html->css('flexigrid/flexigrid');
 echo "\n";
 if(isset($login_user)) {
+	echo $javascript->link('prototype');
+	echo "\n";
 	echo $javascript->link('jquery');
 	echo "\n";
 	echo $javascript->link('jquery.prettyPopin');
