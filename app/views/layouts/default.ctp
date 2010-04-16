@@ -20,31 +20,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<?php 
-		$title = "";
-		if ($title_for_layout != "")
-		{
-			$title .= __($title_for_layout, true) . " | ";
-		}
-		if (@$project_info["name"] != "")
-		{
-			$title .= h($project_info["name"]) . " | ";
-		}
-	?>
-	<title><?php echo $title; ?><?php __('phpmyscrum'); ?></title>
-	<?php
-		echo $this->Html->meta('icon');
-		echo $this->Html->css('cake.generic');
-		echo $scripts_for_layout;
-		echo $html->css('flexigrid/flexigrid');
-		if(isset($login_user)) {
-			echo $javascript->link('jquery');
-			echo $javascript->link('jquery.prettyPopin');
-			echo $this->Html->css('prettyPopin');
-			echo $javascript->link('flexigrid');
-		}
-	?>
+<?php echo $this->Html->charset(); ?>
+<?php echo "\n"; ?>
+<?php 
+$title = "";
+if ($title_for_layout != "")
+{
+	$title .= __($title_for_layout, true) . " | ";
+}
+if (@$project_info["name"] != "")
+{
+	$title .= h($project_info["name"]) . " | ";
+}
+?>
+<title><?php echo $title; ?><?php __('phpmyscrum'); ?></title>
+<?php
+echo $this->Html->meta('icon');
+echo "\n";
+echo $this->Html->css('cake.generic');
+echo "\n";
+echo $scripts_for_layout;
+echo "\n";
+echo $html->css('flexigrid/flexigrid');
+echo "\n";
+if(isset($login_user)) {
+	echo $javascript->link('jquery');
+	echo "\n";
+	echo $javascript->link('jquery.prettyPopin');
+	echo "\n";
+	echo $this->Html->css('prettyPopin');
+	echo "\n";
+	echo $javascript->link('flexigrid');
+	echo "\n";
+}
+?>
 </head>
 <body>
 	<div id="container">
@@ -96,6 +105,7 @@
 		<p>Copyright &copy; <?php echo date('Y'); ?> Ryuzee, Licensed under The MIT License.</p>
 		</div>
 	</div>
+	<!-- end #container -->
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
