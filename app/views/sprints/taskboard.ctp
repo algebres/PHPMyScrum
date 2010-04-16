@@ -4,6 +4,7 @@
 td {
 	vertical-align: top;
 }
+</style>
 
 <script type="text/javascript">
 window.onload = function () {
