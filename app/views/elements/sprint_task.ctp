@@ -110,7 +110,7 @@ Event.observe(window, 'load', function() {
 	}
 	?>
 
-	// 円
+	// pie
 	new Proto.Chart($('piechart'), 
 	[
 		<?php 
@@ -137,16 +137,22 @@ Event.observe(window, 'load', function() {
 <div class="fakeContainer">
 <table id="sprint_tasks_table" cellpadding = "0" cellspacing = "0">
 <tr>
-<th colspan="4"><?php __('TaskRemainingHours'); ?></th>
-<?php // 横軸の日付を書く ?>
-<?php $day_count = 0; ?>
-<?php foreach($sprint_calendar as $cal) { $day_count++; ?>
-<th class="center"><?php echo date('d', strtotime($cal)); ?></th>
-<?php } ?>
+	<th colspan="4"><?php __('TaskRemainingHours'); ?></th>
+	<?php // 横軸の日付を書く ?>
+	<?php $day_count = 0; ?>
+	<?php foreach($sprint_calendar as $cal) { $day_count++; ?>
+	<th class="center"><?php echo date('d', strtotime($cal)); ?></th>
+	<?php } ?>
 </tr>
 
 <?php // 縦軸のタスクを書く ?>
-<?php $story_id = ""; ?>
+<?php foreach($sprint["Story"] as $s) { ?>
+<?php 
+$link = $html->url("/stories/view/" . $s["id"]);
+//$icon = $html->image('detail.png');
+echo sprintf('<tr><th colspan="%d" class="story_bar"><a href="%s">%s</a></th></tr>', $day_count + 4, $link, "#" .$s["id"] . "&nbsp;" .  h($s["name"]));
+?>
+
 <?php foreach($sprint_remaining_hours as $a) { ?>
 <?php
 	$class = null;
@@ -155,46 +161,40 @@ Event.observe(window, 'load', function() {
 		$class = ' class="done"';
 	}
 ?>
-
-<?php if($a["Story"]["id"] != $story_id) {
-	$story_id = $a["Story"]["id"];
-	$link = $html->url("/stories/view/" . $a["Story"]["id"]);
-	//$icon = $html->image('detail.png');
-	echo sprintf('<tr><th colspan="%d" class="story_bar"><a href="%s">%s</a></th></tr>', $day_count + 4, $link, "#" .$a["Story"]["id"] . "&nbsp;" .  h($a["Story"]["name"]));
-}
-?>
+<?php if($a["story_id"] == $s["id"]) { ?>
 <tr<?php echo $class;?>>
-<td><?php echo $a["id"]; ?></td>
-<td><?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
-<td><?php echo $this->Html->link(@$a["User"]["username"], array('controller' => 'users', 'action' => 'view', $a["user_id"])); ?></td>
-<td><?php if(@$a["resolution_id"] != RESOLUTION_DONE) { ?><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false)); ?><?php } ?>&nbsp;<?php echo $a["Resolution"]["name"]; ?>
-</td>
-<?php 
-$today = date('Y-m-d');
-foreach($sprint_calendar as $cal) { 
-?>
-<?php if($cal <= $today) { ?>
-<td class="past">
-<?php } else { ?>
-<td class="future">
-<?php } ?>
-<?php echo $a["Hours"][$cal]; ?>
-</td>
-<?php } ?>
+	<td><?php echo $a["id"]; ?></td>
+	<td><?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
+	<td><?php echo $this->Html->link(@$a["User"]["username"], array('controller' => 'users', 'action' => 'view', $a["user_id"])); ?></td>
+	<td><?php if(@$a["resolution_id"] != RESOLUTION_DONE) { ?><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false)); ?><?php } ?>&nbsp;<?php echo $a["Resolution"]["name"]; ?></td>
+	<?php 
+	$today = date('Y-m-d');
+	foreach($sprint_calendar as $cal) { 
+	?>
+	<?php if($cal <= $today) { ?>
+	<td class="past">
+	<?php } else { ?>
+	<td class="future">
+	<?php } ?>
+	<?php echo $a["Hours"][$cal]; ?>
+	</td>
+	<?php } ?>
 </tr>
+<?php } ?>
+<?php } ?>
 <?php } ?>
 
 <tr>
-<td colspan="4" class="summary"><?php __('Sum'); ?></td>
-<?php foreach($sprint_calendar as $cal) { ?>
-<?php
-	$sum = 0;
-	foreach($sprint_remaining_hours as $a) {
-		$sum += $a["Hours"][$cal];
-	}
-	echo "<td class=\"summary\">" . $sum . "</td>";
-?>
-<?php } ?>
+	<td colspan="4" class="summary"><?php __('Sum'); ?></td>
+	<?php foreach($sprint_calendar as $cal) { ?>
+	<?php
+		$sum = 0;
+		foreach($sprint_remaining_hours as $a) {
+			$sum += $a["Hours"][$cal];
+		}
+		echo "<td class=\"summary\">" . $sum . "</td>";
+	?>
+	<?php } ?>
 </tr>
 </table>
 </div>
