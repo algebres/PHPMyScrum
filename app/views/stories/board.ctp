@@ -135,7 +135,9 @@ window.onload = function () {
 		?>
 		<div class="<?php echo $class; ?>" id="story_id:<?php echo $story["Story"]["id"];?>">
 		<?php echo $this->Html->link("#" . $story['Story']['id'], array('action' => 'simple_view', $story['Story']['id']), array('rel' => 'prettyPopin')); ?>&nbsp;
-		<?php echo h($story["Story"]["name"]); ?>
+		<?php echo h($story["Story"]["name"]); ?><br />
+		<?php echo __('StoryPoints', true); ?>:<?php echo $story["Story"]["storypoints"]; ?>&nbsp;&nbsp;
+		<?php echo sprintf(__('Count of %s', true), __('Task', true)); ?>:<?php echo count($story["Task"]); ?>
 		<input type="hidden" class="h_storypoints" name="storypoints_<?php echo $story['Story']['id']; ?>" value="<?php echo $story['Story']['storypoints']; ?>" />
 		</div>
 		<?php endif; ?>

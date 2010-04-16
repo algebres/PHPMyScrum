@@ -1,6 +1,6 @@
 <div id="snavi">
 	<ul>
-		<li><?php echo $this->Html->link(sprintf(__('Finish %s', true), __('Task', true)), array('action' => 'done', $task['Task']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(sprintf(__('Finish %s', true), __('Task', true)), array('action' => 'done', $task['Task']['id'], '?' => 'return_url=' . urlencode($_SERVER["REQUEST_URI"]))); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Task', true)), array('action' => 'edit', $task['Task']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Task', true)), array('action' => 'delete', $task['Task']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $task['Task']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('action' => 'add')); ?> </li>
@@ -9,7 +9,7 @@
 
 
 <div class="tasks view">
-<h2><?php  __('Task');?>&nbsp;#<?php echo $task['Task']['id']; ?>&nbsp;<?php echo h($task['Task']['name']); ?></h2>
+<h2><?php  __('Task');?>&nbsp;#<?php echo $task['Task']['id']; ?>&nbsp;<?php echo h($task['Task']['name']); ?> (<?php echo $task["Resolution"]["name"]; ?>)</h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>

@@ -23,7 +23,7 @@ jQuery(document).ready(function()
 
 
 <div class="stories view">
-<h2><?php  __('Story');?>&nbsp;#<?php echo $story['Story']['id']; ?>&nbsp;<?php echo $story['Story']['name']; ?></h2>
+<h2><?php  __('Story');?>&nbsp;#<?php echo $story['Story']['id']; ?>&nbsp;<?php echo $story['Story']['name']; ?> (<?php echo $story['Resolution']['name']; ?>)</h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>

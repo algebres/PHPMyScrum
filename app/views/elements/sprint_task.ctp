@@ -137,7 +137,7 @@ Event.observe(window, 'load', function() {
 <div class="fakeContainer">
 <table id="sprint_tasks_table" cellpadding = "0" cellspacing = "0">
 <tr>
-<th colspan="3"><?php __('TaskRemainingHours'); ?></th>
+<th colspan="4"><?php __('TaskRemainingHours'); ?></th>
 <?php // 横軸の日付を書く ?>
 <?php $day_count = 0; ?>
 <?php foreach($sprint_calendar as $cal) { $day_count++; ?>
@@ -148,17 +148,27 @@ Event.observe(window, 'load', function() {
 <?php // 縦軸のタスクを書く ?>
 <?php $story_id = ""; ?>
 <?php foreach($sprint_remaining_hours as $a) { ?>
+<?php
+	$class = null;
+	if(@$a["resolution_id"] == RESOLUTION_DONE)
+	{
+		$class = ' class="done"';
+	}
+?>
+
 <?php if($a["Story"]["id"] != $story_id) {
 	$story_id = $a["Story"]["id"];
 	$link = $html->url("/stories/view/" . $a["Story"]["id"]);
 	//$icon = $html->image('detail.png');
-	echo sprintf('<tr><th colspan="%d" class="story_bar"><br /><a href="%s">%s</a></th></tr>', $day_count + 3, $link, "#" .$a["Story"]["id"] . "&nbsp;" .  h($a["Story"]["name"]));
+	echo sprintf('<tr><th colspan="%d" class="story_bar"><a href="%s">%s</a></th></tr>', $day_count + 4, $link, "#" .$a["Story"]["id"] . "&nbsp;" .  h($a["Story"]["name"]));
 }
 ?>
-<tr>
+<tr<?php echo $class;?>>
 <td><?php echo $a["id"]; ?></td>
-<td><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false)); ?>&nbsp;<?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
+<td><?php echo $this->Html->link($a["name"], array('controller' => 'tasks', 'action' => 'view', $a['id'])); ?></td>
 <td><?php echo $this->Html->link(@$a["User"]["username"], array('controller' => 'users', 'action' => 'view', $a["user_id"])); ?></td>
+<td><?php if(@$a["resolution_id"] != RESOLUTION_DONE) { ?><?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $a['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false)); ?><?php } ?>&nbsp;<?php echo $a["Resolution"]["name"]; ?>
+</td>
 <?php 
 $today = date('Y-m-d');
 foreach($sprint_calendar as $cal) { 
@@ -175,7 +185,7 @@ foreach($sprint_calendar as $cal) {
 <?php } ?>
 
 <tr>
-<td colspan="3" class="summary"><?php __('Sum'); ?></td>
+<td colspan="4" class="summary"><?php __('Sum'); ?></td>
 <?php foreach($sprint_calendar as $cal) { ?>
 <?php
 	$sum = 0;
