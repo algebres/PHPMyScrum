@@ -6,7 +6,8 @@ class TasksController extends AppController {
 	var $uses = array('Task', 'User', 'Sprint', 'Story', 'Resolution');
 
 
-	function index() {
+	function index()
+	{
 		$this->Task->recursive = 0;
 		$param = @$this->params["named"]["filter"];
 		$this->paginate = $this->Task->getSelectConditon($param, $this->Auth->user('id'));
@@ -14,8 +15,10 @@ class TasksController extends AppController {
 		$this->set('tasks', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
+	function view($id = null)
+	{
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'task'));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -38,25 +41,32 @@ class TasksController extends AppController {
 	function simple_view($id = null)
 	{
 		$this->layout = "ajax";
-		if (!$id && empty($this->data)) {
+		if (!$id && empty($this->data))
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Task', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
+
+		if (!empty($this->data))
+		{
 			$resolution_id = $this->data["Task"]["resolution_id"];
 			if($this->Resolution->is_fixed($resolution_id))
 			{
 				$this->data["Task"]["estimate_hours"] = 0;
 			}
 
-			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['simple_save']))) {
+			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['simple_save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
 				$this->redirect(array('action' => 'simple_view', $id));
-			} else {
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			}
 		}
-		if (empty($this->data)) {
+		if (empty($this->data))
+		{
 			$this->data = $this->Task->read(null, $id);
 		}
 		$users = $this->User->getActiveUserList();
@@ -112,80 +122,120 @@ class TasksController extends AppController {
 		}
 	}
 
-	function add() {
-		if (!empty($this->data)) {
+	function add()
+	{
+		if (!empty($this->data))
+		{
 			$this->Task->create();
 			$resolution_id = $this->data["Task"]["resolution_id"];
+			$return_url = $this->data["Task"]["return_url"];
 			if($this->Resolution->is_fixed($resolution_id))
 			{
 				$this->data["Task"]["estimate_hours"] = 0;
 			}
-			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
+			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
 				$id = $this->Task->getLastInsertID();
-				$this->redirect(array('action' => 'view', $id));
-			} else {
+				if(empty($return_url))
+				{
+					$this->redirect(array('action' => 'view', $id));
+				}
+				else
+				{
+					header("Location: " . urldecode($return_url));
+					exit;
+				}
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			}
 		}
 		$story_id = @$this->params['named']['story_id'];
 		$sprint_id = @$this->params['named']['sprint_id'];
+		$return_url = @$this->params['url']['return_url'];	//encoded
 
 		$sprints = $this->Sprint->getActiveSprintList();
 		$stories = $this->Story->getActiveStoryList();
 		$users = $this->User->getActiveUserList();
 		$resolutions = $this->Resolution->find('list');
-		$this->set(compact('story_id', 'sprint_id', 'sprints', 'stories', 'users', 'resolutions'));
+		$this->set(compact('story_id', 'sprint_id', 'sprints', 'stories', 'users', 'resolutions', 'return_url'));
 	}
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
+	function edit($id = null)
+	{
+		if (!$id && empty($this->data))
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Task', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
+
+		if (!empty($this->data))
+		{
 			$resolution_id = $this->data["Task"]["resolution_id"];
 			if($this->Resolution->is_fixed($resolution_id))
 			{
 				$this->data["Task"]["estimate_hours"] = 0;
 			}
-
-			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save']))) {
+			$return_url = $this->data["Task"]["return_url"];
+			if ($this->Task->save($this->data, array('fieldList' => $this->Task->fields['save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
-				$this->redirect(array('action' => 'index'));
-			} else {
+				if(empty($return_url))
+				{
+					$this->redirect(array('action' => 'index', $id));
+				}
+				else
+				{
+					header("Location: " . urldecode($return_url));
+					exit;
+				}
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			}
 		}
-		if (empty($this->data)) {
+
+		if (empty($this->data))
+		{
 			$this->data = $this->Task->read(null, $id);
 		}
 		$sprints = $this->Sprint->getActiveSprintList();
 		$stories = $this->Story->getActiveStoryList();
 		$users = $this->User->getActiveUserList();
 		$resolutions = $this->Resolution->find('list');
-		$this->set(compact('sprints', 'stories', 'users', 'resolutions'));
+		$return_url = @$this->params['url']['return_url'];	//encoded
+		$this->set(compact('sprints', 'stories', 'users', 'resolutions', 'return_url'));
 	}
 
-	function done($id = null) {
-		if (!$id) {
+	function done($id = null)
+	{
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Task', true)));
 			$this->_redirect(array('action'=>'index'));
 		}
 		$data = $this->Task->read(null, $id);
 		$data["Task"]["resolution_id"] = RESOLUTION_DONE;
 		$data["Task"]["estimate_hours"] = 0;
-		if ($this->Task->save($data)) {
+		if ($this->Task->save($data))
+		{
 			$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Task', true)));
 			$this->_redirect(array('action' => 'index'));
-		} else {
+		}
+		else
+		{
 			$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Task', true)));
 			$this->_redirect(array('action' => 'index'));
 		}
 	}
 
-	function delete($id = null) {
-		if (!$id) {
+	function delete($id = null)
+	{
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Task', true)));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -319,6 +369,5 @@ class TasksController extends AppController {
 			// get
 		}
 	}
-
 }
 ?>

@@ -13,6 +13,8 @@
 <?php echo __('Story Points', true); ?> : <?php echo $story['Story']['storypoints']; ?>
 </div>
 
+<?php echo $this->Html->link(sprintf(__('Confirm %s', true), __('Story', true)), array('action' => 'view', $story['Story']['id']), array('escape' => false)); ?>
+<br />
 <?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Story', true)), array('action' => 'edit', $story['Story']['id']), array('escape' => false)); ?>
 <br />
 <?php echo $this->Html->link(sprintf(__('Add %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add', 'story_id:' . $story['Story']['id'], 'sprint_id:' . $story['Story']['sprint_id'])); ?>
