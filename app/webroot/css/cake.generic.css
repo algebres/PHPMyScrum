@@ -77,6 +77,7 @@ h4 {
 }
 
 #header{
+	border-top: 5px solid #333333;
 	background: #003d4c;
 	padding: 5px 5px;
 }
@@ -216,10 +217,12 @@ h4 {
 	overflow: auto;
 }
 #footer {
-	background: #003d4c;;
+	border-top:1px solid #dedede;
+	background: #ececec;
 	clear: both;
 	padding: 6px 10px;
 	text-align: right;
+	color: #000000;
 }
 
 div #messagebox {
