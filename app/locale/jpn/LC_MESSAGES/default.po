@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-18 06:56+0900\n"
-"PO-Revision-Date: 2010-04-18 06:57+0900\n"
+"POT-Creation-Date: 2010-04-18 08:19+0900\n"
+"PO-Revision-Date: 2010-04-18 08:20+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -305,6 +305,34 @@ msgstr "メールを送信することができませんでした。システム
 #: \controllers\users_controller.php:247
 msgid "We can not make your new password. Please contact system administrator"
 msgstr "新しいパスワードを発行することができませんでした。システム管理者に連絡してください。"
+
+#: \models\app_model.php:34;35
+msgid "This field can not leave empty."
+msgstr "この項目は必須入力です"
+
+#: \models\app_model.php:36
+msgid "Invalid Email address."
+msgstr "メールアドレスの形式が誤っています"
+
+#: \models\app_model.php:37
+msgid "Please input numerical and alphabetical characters."
+msgstr "数値もしくはアルファベットで入力してください"
+
+#: \models\app_model.php:38
+msgid "Between %2$d and %3$d characters."
+msgstr "%2$dから%3$dの間で入力してください"
+
+#: \models\app_model.php:39
+msgid "Please input numerical characters."
+msgstr "数値で入力してください"
+
+#: \models\app_model.php:40
+msgid "This value is not a unique."
+msgstr "この値は既に利用されています。他の値を設定してください"
+
+#: \models\app_model.php:41
+msgid "This field can set boolean value."
+msgstr "この項目にはBOOL値を設定してください"
 
 #: \models\project.php:38
 msgid "Default Project"

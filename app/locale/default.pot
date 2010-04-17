@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-18 06:56+0900\n"
+"POT-Creation-Date: 2010-04-18 08:19+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -305,6 +305,34 @@ msgstr ""
 
 #: \controllers\users_controller.php:247
 msgid "We can not make your new password. Please contact system administrator"
+msgstr ""
+
+#: \models\app_model.php:34;35
+msgid "This field can not leave empty."
+msgstr ""
+
+#: \models\app_model.php:36
+msgid "Invalid Email address."
+msgstr ""
+
+#: \models\app_model.php:37
+msgid "Please input numerical and alphabetical characters."
+msgstr ""
+
+#: \models\app_model.php:38
+msgid "Between %2$d and %3$d characters."
+msgstr ""
+
+#: \models\app_model.php:39
+msgid "Please input numerical characters."
+msgstr ""
+
+#: \models\app_model.php:40
+msgid "This value is not a unique."
+msgstr ""
+
+#: \models\app_model.php:41
+msgid "This field can set boolean value."
 msgstr ""
 
 #: \models\project.php:38
