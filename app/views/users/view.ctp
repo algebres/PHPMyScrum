@@ -89,6 +89,7 @@ jQuery(document).ready(function()
 		<th><?php __('Description'); ?></th>
 		<?php } ?>
 		<th><?php __('Estimate Hours'); ?></th>
+		<th><?php __('Resolution'); ?></th>
 		<th><?php __('User Id'); ?></th>
 		<th><?php __('Created'); ?></th>
 		<?php if(0) { ?>
@@ -113,12 +114,14 @@ jQuery(document).ready(function()
 			<td><?php echo $task['description'];?></td>
 			<?php } ?>
 			<td><?php echo $task['estimate_hours'];?></td>
+			<td><?php echo @$task["Resolution"]['name'];?></td>
 			<td><?php echo h($task['User']['username']);?></td>
 			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
 			<?php if(0) { ?>
 			<td><?php echo date('Y-m-d', strtotime($task['updated']));?></td>
 			<?php } ?>
-			<td class="actions">
+			<td class="actions narrow">
+				<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'tasks', 'action' => 'done', $task['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $task['id'])); ?>
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'tasks', 'action' => 'edit', $task['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'tasks', 'action' => 'delete', $task['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $task['id'])); ?>
 			</td>
@@ -153,7 +156,7 @@ jQuery(document).ready(function()
 			<td><?php echo $teammember['disabled'];?></td>
 			<td><?php echo $teammember['updated'];?></td>
 			<td><?php echo $teammember['created'];?></td>
-			<td class="actions">
+			<td class="actions narrow">
 				<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'teammembers', 'action' => 'view', $teammember['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'teammembers', 'action' => 'edit', $teammember['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('delete.png'), array('controller' => 'teammembers', 'action' => 'delete', $teammember['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $teammember['id'])); ?>
