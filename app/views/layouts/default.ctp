@@ -82,6 +82,7 @@ if(isset($login_user)) {
 						<ul>
 							<li><?php echo $this->Html->link(__('Product Backlog', true), array('controller' => 'stories', 'action' => 'index')); ?></li>
 							<li><?php echo $this->Html->link(__('Story Board', true), array('controller' => 'stories', 'action' => 'board')); ?></li>
+							<li><?php echo $this->Html->link(__('Search Story', true), array('controller' => 'stories', 'action' => 'search_index')); ?></li>
 						</ul>
 					</li>
 					<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sprints', true)), array('controller' => 'sprints', 'action' => 'index')); ?>

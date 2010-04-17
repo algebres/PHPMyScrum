@@ -66,6 +66,7 @@ class SprintsController extends AppController {
 		$this->set('sprint', $sprint);
 		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
 		$this->set('total_story_point', $this->Sprint->getTotalStoryPoint($sprint));
+		$this->set('total_finished_story_point', $this->Sprint->getTotalFinishedStoryPoint($sprint));
 	}
 
 

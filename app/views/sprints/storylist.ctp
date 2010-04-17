@@ -68,7 +68,11 @@ jQuery(document).ready(function()
 			<?php echo $total_story_point; ?>
 			&nbsp;
 		</dd>
-		
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Total Finished Story Point'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $total_finished_story_point; ?>
+			&nbsp;
+		</dd>		
 	</dl>
 </div>
 
@@ -116,7 +120,7 @@ jQuery(document).ready(function()
 			<td><?php echo @$story["Resolution"]["name"]; ?></td>
 			<td><?php echo date('Y-m-d', strtotime($story['created']));?></td>
 			<td><?php echo date('Y-m-d', strtotime($story['updated']));?></td>
-			<td class="actions">
+			<td class="actions narrow">
 				<?php echo $this->Html->link($html->image('check.png'), array('controller' => 'stories', 'action' => 'done', $story['id'], '?' => array('return_url' => urlencode($_SERVER['REQUEST_URI']))), array('escape' => false), sprintf(__('Are you sure you want to chage # %s to be finished?', true), $story['id'])); ?>
 				<?php echo $this->Html->link($html->image('detail.png'), array('controller' => 'stories', 'action' => 'view', $story['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link($html->image('edit.png'), array('controller' => 'stories', 'action' => 'edit', $story['id']), array('escape' => false)); ?>

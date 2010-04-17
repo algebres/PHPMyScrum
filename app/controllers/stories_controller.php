@@ -328,5 +328,129 @@ class StoriesController extends AppController {
 			// get
 		}
 	}
+
+	function search() {
+		// the page we will redirect to
+		$url['action'] = 'search_index';
+	   
+		// build a URL will all the search elements in it
+		// the resulting URL will be
+		// example.com/cake/posts/index/Search.keywords:mykeyword/Search.tag_id:3
+		foreach ($this->data as $k=>$v){
+				foreach ($v as $kk=>$vv){
+						$url[$k.'.'.$kk]=$vv;
+				}
+		}
+
+		// redirect the user to the url
+		$this->redirect($url, null, true);
+	}
+
+	function search_index() {
+		$priorities = $this->Priority->getActivePriorityList();
+		$this->set(compact('priorities'));
+		$teams = $this->Team->getActiveTeamList();
+		$this->set(compact('teams'));
+		$sprints = $this->Sprint->getActiveSprintList();
+		$this->set(compact('sprints'));
+		$resolutions = $this->Resolution->find('list');
+		$this->set('resolutions', $resolutions);
+
+		//
+		// filter by id
+		//
+		if(isset($this->passedArgs['id'])) {
+
+				// set the conditions
+				$this->paginate['conditions'][]['Story.id'] = $this->passedArgs['id'];
+
+				// set the Search data, so the form remembers the option
+				$this->data['Search']['id'] = $this->passedArgs['id'];
+		}
+
+		//
+		// filter by keywords
+		//
+		if(isset($this->passedArgs['Search.keywords'])) {
+				$keywords = $this->passedArgs['Search.keywords'];
+				$this->paginate['conditions'][] = array(
+						'OR' => array(
+								'Story.name LIKE' => "%$keywords%",
+								'Story.description LIKE' => "%$keywords%",
+						)
+				);
+				$this->data['Search']['keywords'] = $keywords;
+		}
+
+		//
+		// filter by name
+		//
+		if(isset($this->passedArgs['Search.name'])) {
+				$this->paginate['conditions'][]['Story.name LIKE'] = str_replace('*','%',$this->passedArgs['Search.name']);
+				$this->data['Search']['name'] = $this->passedArgs['Search.name'];
+		}
+
+		//
+		// filter by description
+		//
+		if(isset($this->passedArgs['Search.description'])) {
+				$this->paginate['conditions'][]['Story.description LIKE'] = str_replace('*','%',$this->passedArgs['Search.description']);
+				$this->data['Search']['description'] = $this->passedArgs['Search.description'];
+		}
+
+		//
+		// filter by sprint_id
+		//
+		if(isset($this->passedArgs['Search.sprint_id'])) {
+				$this->paginate['conditions'][]['Story.sprint_id'] = $this->passedArgs['Search.sprint_id'];
+				$this->data['Search']['sprint_id'] = $this->passedArgs['Search.sprint_id'];
+		}
+
+		//
+		// filter by team_id
+		//
+		if(isset($this->passedArgs['Search.team_id'])) {
+				$this->paginate['conditions'][]['Story.team_id'] = $this->passedArgs['Search.team_id'];
+				$this->data['Search']['team_id'] = $this->passedArgs['Search.team_id'];
+		}
+
+		//
+		// filter by resolution_id
+		//
+		if(isset($this->passedArgs['Search.resolution_id'])) {
+				$this->paginate['conditions'][]['Story.resolution_id'] = $this->passedArgs['Search.resolution_id'];
+				$this->data['Search']['resolution_id'] = $this->passedArgs['Search.resolution_id'];
+		}
+
+		//
+		// filter by priority_id
+		//
+		if(isset($this->passedArgs['Search.priority_id'])) {
+				$this->paginate['conditions'][]['Story.priority_id'] = $this->passedArgs['Search.priority_id'];
+				$this->data['Search']['priority_id'] = $this->passedArgs['Search.priority_id'];
+		}
+
+
+		//
+		// filter by created
+		// allowing searches starting with <, >, <=, >=
+		// allow human dates "2 weeks ago", "last thursday"
+		//
+		//if(isset($this->passedArgs['Search.created'])) {
+		//		$field = '';
+		//		$date = explode(' ',$this->passedArgs['Search.created']);
+		//		if (isset($date[1]) && in_array($date[0],array('<','>','<=','>='))) {
+		//				$field = ' '.array_shift($date);
+		//		}
+		//		$date = implode(' ',$date);
+		//		$date = date('Y-m-d',strtotime($date));  
+		//		$this->paginate['conditions'][]['Story.created'.$field] = $date;
+		//		$this->data['Search']['created'] = $this->passedArgs['Search.created'];
+		//}
+
+		$stories = $this->Story->populate_data($this->paginate());
+	   
+		$this->set(compact('stories'));
+	}
 }
 ?>
