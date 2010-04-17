@@ -2,7 +2,7 @@
 class AppController extends Controller {
 
 	var $components = array('Auth', 'Qdmail');
-	var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'ScrumHtml');
+	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
 	var $uses = array('User', 'Project', 'Sprint');
 
 	/**
