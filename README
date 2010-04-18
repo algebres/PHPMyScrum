@@ -22,7 +22,10 @@ PHPMyScrum
 ・主要画面のExcel形式での出力
 
 インストール方法
-・/installer/indexにアクセスして指示に従ってください。
+・app/config/database.phpを適宜編集
+・コマンドラインにて以下を実行
+cd ./phpmyscrum./app
+../cake/console/cake schema create
 
 ライセンス
 ・MITライセンス

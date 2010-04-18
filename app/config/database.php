@@ -84,6 +84,18 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 	);
 
+//	var $default = array(
+//		'driver' => 'sqlite',
+//		'connect' => 'sqlite_open',
+//		'host' => '',
+//		'login' => '',
+//		'password' => '',
+//		'database' => 'phpmyscrum.sqlite',
+//		'encoding' => 'utf8',
+//		'prefix' => '',
+//	);
+
+
 	var $test = array(
 		'driver' => 'mysql',
 		'persistent' => false,
