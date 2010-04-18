@@ -26,14 +26,7 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.ctp)...
  */
-if (file_exists(TMP.'not_installed.txt'))
-{
-	Router::connect('/:action', array('controller' => 'installer'));    
-} 
-else 
-{
 	Router::connect('/', array('controller' => 'users', 'action' => 'dashboard', 'home'));
-}
 
 
 /**
