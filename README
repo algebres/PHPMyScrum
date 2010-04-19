@@ -24,8 +24,10 @@ PHPMyScrum
 インストール方法
 ・app/config/database.phpを適宜編集
 ・コマンドラインにて以下を実行
-cd ./phpmyscrum./app
-../cake/console/cake schema create
+  cd ./phpmyscrum/app
+  ../cake/console/cake schema create
+  cd ./phpmyscrum/app
+  ../cake/console/cake pms_install
 
 ライセンス
 ・MITライセンス
