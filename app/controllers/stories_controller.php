@@ -359,13 +359,13 @@ class StoriesController extends AppController {
 		//
 		// filter by id
 		//
-		if(isset($this->passedArgs['id'])) {
+		if(isset($this->passedArgs['Search.id'])) {
 
 				// set the conditions
-				$this->paginate['conditions'][]['Story.id'] = $this->passedArgs['id'];
+				$this->paginate['conditions'][]['Story.id'] = $this->passedArgs['Search.id'];
 
 				// set the Search data, so the form remembers the option
-				$this->data['Search']['id'] = $this->passedArgs['id'];
+				$this->data['Search']['id'] = $this->passedArgs['Search.id'];
 		}
 
 		//
