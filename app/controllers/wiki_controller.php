@@ -13,7 +13,7 @@ class WikiController extends AppController {
 	 *
 	 * @var string
 	 */
-	var $helpers = array('Text');
+	var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'Text');
 	var $components = array('Session', 'RequestHandler');
 
 	/**

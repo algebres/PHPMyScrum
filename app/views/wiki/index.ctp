@@ -5,8 +5,8 @@ App::import(
 	'Text_Wiki_Mediawiki', 
 	array('file' => 'Text' . DS . 'Wiki' . DS . 'Mediawiki.php')
 );
-$wiki=new Text_Wiki_Mediawiki();
-$wiki->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
+$wiki_engine=new Text_Wiki_Mediawiki();
+$wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 ?>
 
 <?php if (!empty($canWrite)):?>
@@ -93,7 +93,7 @@ $wiki->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 <?php if (!empty($page)): ?>
 	<div class="wiki-content">
 		<div class="wiki-text">
-			<?php echo $wiki->transform($page['Wiki']['body']);?>
+			<?php echo $wiki_engine->transform($page['Wiki']['body']);?>
 		</div>
 	</div>
 <?php endif; ?>
@@ -102,7 +102,9 @@ $wiki->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 	<div class="wiki-content">
 
 		<?php foreach($wiki as $content):
-			$data = h($text->truncate($content['Wiki']['body'], 420, '...', false, true));
+			//TODO:cut off at 420bytes
+			//$data = $text->truncate($wiki_engine->transform($content['Wiki']['body']), 420, '...', false, true);
+			$data = $wiki_engine->transform($content['Wiki']['body']);
 		?>
 			<?php if (strpos($data, '##') === false):?>
 				<h3><?php
