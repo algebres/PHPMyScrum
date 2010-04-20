@@ -9,6 +9,19 @@ $wiki_engine=new Text_Wiki_Mediawiki();
 $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 ?>
 
+<style>
+.wiki-content {
+	margin-left : 10px;
+}
+.wiki-content h1 {
+	font-size : 1.4em;
+}
+.wiki-content ul li, .wiki-content ol li {
+	margin-left : 18px;
+}
+</style>
+
+
 <?php if (!empty($canWrite)):?>
 <div id="snavi">
 <ul>
@@ -32,64 +45,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 
 <div class="wiki view">
 
-<div class="wiki-navigation" style="width:200px; float:right;">
-
-	<?php if (!empty($subNav)):?>
-		<?php
-			$nav = null;
-			foreach ($subNav as $subpage):
-					$title = ltrim($subpage['Wiki']['path'] . '/' . $subpage['Wiki']['slug'], '/');
-					$nav .= $html->tag('li',
-						$html->link($title, array($subpage['Wiki']['path'], $subpage['Wiki']['slug']))
-					);
-			endforeach;
-			if (!empty($nav)) {
-				echo $html->tag('div',
-					'<h3>Sub Nav</h3>' .
-					$html->tag('ul', $nav), array('class' => 'paths')
-				);
-			}
-		?>
-	<?php endif;?>
-
-	<?php if (!empty($wikiNav)):?>
-		<?php
-			$nav = null;
-			foreach ($wikiNav as $category):
-				$nav .= $html->tag('li',
-					$html->link(ltrim($category, '/'), array($category))
-				);
-			endforeach;
-			if (!empty($nav)) {
-				echo $html->tag('div',
-					'<h3>'.__('Wiki Nav',true).'</h3>' .
-					$html->tag('ul', $nav), array('class' => 'paths')
-				);
-			}
-		?>
-	<?php endif;?>
-
-	<?php if (!empty($recentEntries)):?>
-		<?php
-			$nav = null;
-			foreach ($recentEntries as $recent):
-					$title = ltrim($recent['Wiki']['path'] . '/' . $recent['Wiki']['slug'], '/');
-					$nav .= $html->tag('li',
-						$html->link($title, array($recent['Wiki']['path'], $recent['Wiki']['slug']))
-					);
-			endforeach;
-			if (!empty($nav)) {
-				echo $html->tag('div',
-					'<h2>'.__('Recent Entries',true).'</h2>' .
-					$html->tag('ul', $nav), array('class' => 'paths')
-				);
-			}
-		?>
-	<?php endif;?>
-
-</div>
-
-<div style="float:left;">
+<div style="float:left; margin-right:300px;">
 <?php if (!empty($page)): ?>
 	<div class="wiki-content">
 		<div class="wiki-text">
@@ -107,12 +63,12 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 			$data = $wiki_engine->transform($content['Wiki']['body']);
 		?>
 			<?php if (strpos($data, '##') === false):?>
-				<h3><?php
+				<h2><?php
 					echo $html->link(Inflector::humanize($content['Wiki']['slug']), array(
 						'controller' => 'wiki', 'action' => 'index',
 						$content['Wiki']['path'], $content['Wiki']['slug']
 					));?>
-				</h3>
+				</h2>
 			<?php endif; ?>
 
 			<div class="wiki-text">
@@ -170,6 +126,64 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 </div>
 <?php endif;?>
 
-</div>
+</div><!-- #left column -->
 
-</div>
+
+<div class="wiki-navigation" style="width:200px; float:right;">
+
+	<?php if (!empty($subNav)):?>
+		<?php
+			$nav = null;
+			foreach ($subNav as $subpage):
+					$title = ltrim($subpage['Wiki']['path'] . '/' . $subpage['Wiki']['slug'], '/');
+					$nav .= $html->tag('li',
+						$html->link($title, array($subpage['Wiki']['path'], $subpage['Wiki']['slug']))
+					);
+			endforeach;
+			if (!empty($nav)) {
+				echo $html->tag('div',
+					'<h2>Sub Nav</h2>' .
+					$html->tag('ul', $nav), array('class' => 'paths')
+				);
+			}
+		?>
+	<?php endif;?>
+
+	<?php if (!empty($wikiNav)):?>
+		<?php
+			$nav = null;
+			foreach ($wikiNav as $category):
+				$nav .= $html->tag('li',
+					$html->link(ltrim($category, '/'), array($category))
+				);
+			endforeach;
+			if (!empty($nav)) {
+				echo $html->tag('div',
+					'<h2>'.__('Wiki Nav',true).'</h2>' .
+					$html->tag('ul', $nav), array('class' => 'paths')
+				);
+			}
+		?>
+	<?php endif;?>
+
+	<?php if (!empty($recentEntries)):?>
+		<?php
+			$nav = null;
+			foreach ($recentEntries as $recent):
+					$title = ltrim($recent['Wiki']['path'] . '/' . $recent['Wiki']['slug'], '/');
+					$nav .= $html->tag('li',
+						$html->link($title, array($recent['Wiki']['path'], $recent['Wiki']['slug']))
+					);
+			endforeach;
+			if (!empty($nav)) {
+				echo $html->tag('div',
+					'<h2>'.__('Recent Entries',true).'</h2>' .
+					$html->tag('ul', $nav), array('class' => 'paths')
+				);
+			}
+		?>
+	<?php endif;?>
+
+</div><!-- #right column -->
+
+</div><!-- #wiki view -->
