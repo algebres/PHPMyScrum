@@ -9,31 +9,14 @@ $wiki_engine=new Text_Wiki_Mediawiki();
 $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 ?>
 
-<style>
-.wiki-content {
-	margin-left : 10px;
-}
-.wiki-content h1 {
-	font-size : 1.4em;
-}
-.wiki-content ul li, .wiki-content ol li {
-	margin-left : 18px;
-}
-</style>
-
+<?php echo $this->Html->css('wiki'); ?>
 
 <?php if ($canWrite):?>
 <div id="snavi">
 <ul>
-	<?php if (!$page['Wiki']['disabled']):?>
-		<li><a href="#"><?php __('Active') ?></a></li>
-	<?php else: ?>
-		<li><?php __('Not Active') ?></li>
-	<?php endif;?>
-
 	<?php if ((empty($content['Wiki']['readonly']) || $CurrentUser->id == $page['Wiki']['last_modified_user_id'])):?>
-		<li><?php echo $html->link(__('Edit',true), array('controller' => 'wiki', 'action' => 'edit', $path, $slug));?></li>
-		<li><?php echo $html->link(__('New',true), array('controller' => 'wiki', 'action' => 'add', $path, 'new-page'));?></li>
+		<li><?php echo $html->link(sprintf(__('Edit %s',true), __('Page', true)), array('controller' => 'wiki', 'action' => 'edit', $path, $slug));?></li>
+		<li><?php echo $html->link(sprintf(__('New %s',true),__('Page', true)), array('controller' => 'wiki', 'action' => 'add', $path, 'new-page'));?></li>
 	<?php endif;?>
 </ul>
 </div>
@@ -45,7 +28,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 
 <div class="wiki view">
 
-<div style="float:left; width:85%;">
+<div id="wiki-left-box">
 <?php if (!empty($page)): ?>
 	<div class="wiki-content">
 		<div class="wiki-text">
@@ -63,7 +46,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 			$data = $wiki_engine->transform($content['Wiki']['body']);
 		?>
 			<?php if (strpos($data, '##') === false):?>
-				<h2><?php
+				<h2 class="wiki-content-separator"><?php
 					echo $html->link(Inflector::humanize($content['Wiki']['slug']), array(
 						'controller' => 'wiki', 'action' => 'index',
 						$content['Wiki']['path'], $content['Wiki']['slug']
@@ -87,7 +70,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 							$content['Wiki']['path'], $content['Wiki']['slug']));
 					?>
 					|
-					<?php echo $html->link(__('New',true), array(
+					<?php echo $html->link(sprintf(__('New %s',true), __('Page', true)), array(
 							'controller' => 'wiki', 'action' => 'add',
 							$content['Wiki']['path'], 'new-page'));
 					?>
@@ -129,7 +112,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 </div><!-- #left column -->
 
 
-<div class="wiki-navigation" style="width:15%; float:right;">
+<div id="wiki-right-box">
 
 	<?php if (!empty($subNav)):?>
 		<?php

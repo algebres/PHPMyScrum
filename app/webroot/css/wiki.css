@@ -1,0 +1,55 @@
+div #wiki-left-box {
+	float:left; width:85%;
+}
+div #wiki-right-box {
+	width:15%; float:right;
+}
+
+.wiki-content {
+	font-size : 1.2em;
+	margin-left : 4px !important;
+	line-height: 1.2em;
+}
+.wiki-content h1 {
+	font-size : 1.8em;
+}
+.wiki-content h2 {
+	font-size : 1.6em;
+}
+.wiki-content h3 {
+	font-size : 1.4em;
+}
+.wiki-content h4 {
+	font-size : 1.2em;
+}
+.wiki-content h5 {
+	font-size : 1.0em;
+}
+.wiki-content h6 {
+	font-size : 1.0em;
+}
+.wiki-content dl, .wiki-content dt, .wiki-content dd {
+
+}
+
+.wiki-content ul li, .wiki-content ol li {
+	margin-left : 18px;
+}
+
+div .wiki-footer {
+	margin-top : 10px;
+}
+
+.wiki-content-separator {
+	background-color: transparent;
+	margin: .2em 1em 0.6em 0;
+	padding: .3em .3em .15em .5em;
+	border: 0px;
+	border-left: 8px solid;
+	border-bottom: 1px solid;
+	border-color: #ffffff #ffffff #999999 #ff7711;
+}
+
+.wiki-content-separator a{
+	text-decoration: none;
+}

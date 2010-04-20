@@ -105,6 +105,7 @@ if(isset($login_user)) {
 					<?php if($login_user["admin"] == true) { ?>
 					<li><?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage')); ?></li>
 					<?php } ?>
+					<li><?php echo $this->Html->link(__('Wiki', true), array('controller' => 'wiki', 'action' => 'index')); ?></li>
 					<li><?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout')); ?></li>
 				</ul>
 			</div>

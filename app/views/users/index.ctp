@@ -53,7 +53,7 @@ jQuery(document).ready(function()
 		<?php if(0) { ?>
 		<td><?php echo date('Y-m-d', strtotime($user['User']['updated'])); ?>&nbsp;</td>
 		<?php } ?>
-		<td class="actions">
+		<td class="actions narrow">
 			<?php echo $this->Html->link($html->image('detail.png'), array('action' => 'view', $user['User']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?>
 			<?php echo $this->Html->link($html->image('delete.png'), array('action' => 'delete', $user['User']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?>
