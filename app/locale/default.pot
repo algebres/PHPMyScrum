@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-18 08:19+0900\n"
+"POT-Creation-Date: 2010-04-20 17:02+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Reset password"
 msgstr ""
 
-#: \controllers\app_controller.php:53
+#: \controllers\app_controller.php:49
 #: \controllers\users_controller.php:126;180
 msgid "You have no privileges"
 msgstr ""
@@ -305,6 +305,26 @@ msgstr ""
 
 #: \controllers\users_controller.php:247
 msgid "We can not make your new password. Please contact system administrator"
+msgstr ""
+
+#: \controllers\wiki_controller.php:48
+msgid "You are not authorized to delete."
+msgstr ""
+
+#: \controllers\wiki_controller.php:58
+msgid "You are not authorized to activate."
+msgstr ""
+
+#: \controllers\wiki_controller.php:60
+msgid "%s %s is now active"
+msgstr ""
+
+#: \controllers\wiki_controller.php:163
+msgid "%s saved"
+msgstr ""
+
+#: \controllers\wiki_controller.php:166
+msgid "%s NOT saved"
 msgstr ""
 
 #: \models\app_model.php:34;35
@@ -661,6 +681,7 @@ msgstr ""
 #: \views\users\add.ctp:24
 #: \views\users\edit.ctp:24
 #: \views\users\reset_password.ctp:10
+#: \views\wiki\add.ctp:42
 msgid "Submit"
 msgstr ""
 
@@ -816,26 +837,6 @@ msgstr ""
 #: \views\sprints\storylist.ctp:46
 #: \views\sprints\view.ctp:36
 msgid "Enddate"
-msgstr ""
-
-#: \views\installer\index.ctp:2
-msgid "Install"
-msgstr ""
-
-#: \views\installer\index.ctp:4
-msgid "If you have already set up database, please delete app/tmp/not_installed.txt and reload screen."
-msgstr ""
-
-#: \views\installer\index.ctp:8
-msgid "Before start setup, you have to copy app/config/database.dist.php to app/config/database.php and edit it properly."
-msgstr ""
-
-#: \views\installer\index.ctp:11
-msgid "Start install"
-msgstr ""
-
-#: \views\installer\thanks.ctp:6
-msgid "Start PHPMyScrum"
 msgstr ""
 
 #: \views\layouts\default.ctp:36
@@ -1045,11 +1046,13 @@ msgstr ""
 
 #: \views\remaining_times\index.ctp:27
 #: \views\teams\view.ctp:92
+#: \views\wiki\index.ctp:79
 msgid "View"
 msgstr ""
 
 #: \views\remaining_times\index.ctp:28
 #: \views\teams\view.ctp:93
+#: \views\wiki\index.ctp:35;85
 msgid "Edit"
 msgstr ""
 
@@ -1249,6 +1252,42 @@ msgstr ""
 
 #: \views\users\view.ctp:139
 msgid "Team Id"
+msgstr ""
+
+#: \views\wiki\add.ctp:19
+msgid "use a path to group pages into categories and subcategories. example: /logs/by/%s/"
+msgstr ""
+
+#: \views\wiki\index.ctp:29
+msgid "Active"
+msgstr ""
+
+#: \views\wiki\index.ctp:31
+msgid "Not Active"
+msgstr ""
+
+#: \views\wiki\index.ctp:36;90
+msgid "New"
+msgstr ""
+
+#: \views\wiki\index.ctp:118
+msgid "view"
+msgstr ""
+
+#: \views\wiki\index.ctp:119
+msgid "activate"
+msgstr ""
+
+#: \views\wiki\index.ctp:121
+msgid "delete"
+msgstr ""
+
+#: \views\wiki\index.ctp:162
+msgid "Wiki Nav"
+msgstr ""
+
+#: \views\wiki\index.ctp:180
+msgid "Recent Entries"
 msgstr ""
 
 #: \webroot\test.php:88

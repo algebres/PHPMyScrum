@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-18 08:19+0900\n"
-"PO-Revision-Date: 2010-04-18 08:20+0900\n"
+"POT-Creation-Date: 2010-04-20 17:02+0900\n"
+"PO-Revision-Date: 2010-04-20 17:09+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr "システムエラー"
 msgid "Reset password"
 msgstr "パスワードをリセット"
 
-#: \controllers\app_controller.php:53
+#: \controllers\app_controller.php:49
 #: \controllers\users_controller.php:126;180
 msgid "You have no privileges"
 msgstr "権限がありません"
@@ -305,6 +305,26 @@ msgstr "メールを送信することができませんでした。システム
 #: \controllers\users_controller.php:247
 msgid "We can not make your new password. Please contact system administrator"
 msgstr "新しいパスワードを発行することができませんでした。システム管理者に連絡してください。"
+
+#: \controllers\wiki_controller.php:48
+msgid "You are not authorized to delete."
+msgstr "削除する権限がありません"
+
+#: \controllers\wiki_controller.php:58
+msgid "You are not authorized to activate."
+msgstr "旧版を復元する権限がありません"
+
+#: \controllers\wiki_controller.php:60
+msgid "%s %s is now active"
+msgstr "%s %sを復元しました"
+
+#: \controllers\wiki_controller.php:163
+msgid "%s saved"
+msgstr "%sを保存しました"
+
+#: \controllers\wiki_controller.php:166
+msgid "%s NOT saved"
+msgstr "%sは保存できませんでした"
 
 #: \models\app_model.php:34;35
 msgid "This field can not leave empty."
@@ -660,6 +680,7 @@ msgstr "%sを追加"
 #: \views\users\add.ctp:24
 #: \views\users\edit.ctp:24
 #: \views\users\reset_password.ctp:10
+#: \views\wiki\add.ctp:42
 msgid "Submit"
 msgstr "送信"
 
@@ -816,26 +837,6 @@ msgstr "ログイン前にも表示"
 #: \views\sprints\view.ctp:36
 msgid "Enddate"
 msgstr "終了日"
-
-#: \views\installer\index.ctp:2
-msgid "Install"
-msgstr "インストール"
-
-#: \views\installer\index.ctp:4
-msgid "If you have already set up database, please delete app/tmp/not_installed.txt and reload screen."
-msgstr "もし既にデータベースをセットアップ済みの場合は、app/tmp/not_installed.txtを削除して、画面を再読み込みしてください"
-
-#: \views\installer\index.ctp:8
-msgid "Before start setup, you have to copy app/config/database.dist.php to app/config/database.php and edit it properly."
-msgstr "セットアップを開始する前に、app/config/database.dist.phpをコピーしてdatabase.phpを作成し、適宜編集してください"
-
-#: \views\installer\index.ctp:11
-msgid "Start install"
-msgstr "インストールの開始"
-
-#: \views\installer\thanks.ctp:6
-msgid "Start PHPMyScrum"
-msgstr "PHPMyScrumの開始"
 
 #: \views\layouts\default.ctp:36
 #: \views\layouts\simple.ctp:16
@@ -1044,11 +1045,13 @@ msgstr "残り時間"
 
 #: \views\remaining_times\index.ctp:27
 #: \views\teams\view.ctp:92
+#: \views\wiki\index.ctp:79
 msgid "View"
 msgstr "閲覧"
 
 #: \views\remaining_times\index.ctp:28
 #: \views\teams\view.ctp:93
+#: \views\wiki\index.ctp:35;85
 msgid "Edit"
 msgstr "編集"
 
@@ -1250,30 +1253,78 @@ msgstr "ストーリーID"
 msgid "Team Id"
 msgstr "チームID"
 
+#: \views\wiki\add.ctp:19
+msgid "use a path to group pages into categories and subcategories. example: /logs/by/%s/"
+msgstr "ページをグループ化するためにパス情報を設定できます。例：/logs/by/%s/"
+
+#: \views\wiki\index.ctp:29
+msgid "Active"
+msgstr "復元"
+
+#: \views\wiki\index.ctp:31
+msgid "Not Active"
+msgstr "旧版"
+
+#: \views\wiki\index.ctp:36;90
+msgid "New"
+msgstr "%sの新規作成"
+
+#: \views\wiki\index.ctp:118
+msgid "view"
+msgstr "閲覧"
+
+#: \views\wiki\index.ctp:119
+msgid "activate"
+msgstr "復元"
+
+#: \views\wiki\index.ctp:121
+msgid "delete"
+msgstr "削除"
+
+#: \views\wiki\index.ctp:162
+msgid "Wiki Nav"
+msgstr "Wikiナビゲーション"
+
+#: \views\wiki\index.ctp:180
+msgid "Recent Entries"
+msgstr "最近作られたページ"
+
 #: \webroot\test.php:88
 msgid "Debug setting does not allow access to this url."
 msgstr "デバッグ設定はこのURLにアクセスできません"
 
+#~ msgid "Install"
+#~ msgstr "インストール"
+#~ msgid ""
+#~ "If you have already set up database, please delete app/tmp/not_installed."
+#~ "txt and reload screen."
+#~ msgstr ""
+#~ "もし既にデータベースをセットアップ済みの場合は、app/tmp/not_installed.txt"
+#~ "を削除して、画面を再読み込みしてください"
+#~ msgid ""
+#~ "Before start setup, you have to copy app/config/database.dist.php to app/"
+#~ "config/database.php and edit it properly."
+#~ msgstr ""
+#~ "セットアップを開始する前に、app/config/database.dist.phpをコピーして"
+#~ "database.phpを作成し、適宜編集してください"
+#~ msgid "Start install"
+#~ msgstr "インストールの開始"
+#~ msgid "Start PHPMyScrum"
+#~ msgstr "PHPMyScrumの開始"
 #~ msgid "Task Id"
 #~ msgstr "タスクID"
-
 #~ msgid "%s was not deleted"
 #~ msgstr "%sは削除できませんでした"
-
 #~ msgid "disabled"
 #~ msgstr "無効"
-
 #~ msgid "sprint_id"
 #~ msgstr "スプリントID"
-
 #~ msgid "story_id"
 #~ msgstr "ストーリーID"
-
 #~ msgid "Priority Id"
 #~ msgstr "優先順位ID"
-
 #~ msgid "Your %s"
 #~ msgstr "あなたの%s"
-
 #~ msgid "Storypoints"
 #~ msgstr "ストーリーポイント"
+
