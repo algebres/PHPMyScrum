@@ -82,6 +82,7 @@ if(isset($login_user)) {
 						<ul>
 							<li><?php echo $this->Html->link(__('Product Backlog', true), array('controller' => 'stories', 'action' => 'index')); ?></li>
 							<li><?php echo $this->Html->link(__('Story Board', true), array('controller' => 'stories', 'action' => 'board')); ?></li>
+							<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('controller' => 'stories', 'action' => 'add')); ?></li>
 							<li><?php echo $this->Html->link(__('Search Story', true), array('controller' => 'stories', 'action' => 'search_index')); ?></li>
 						</ul>
 					</li>
@@ -100,6 +101,7 @@ if(isset($login_user)) {
 							<li><?php echo $this->Html->link(sprintf(__('All unfinished %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'index', 'filter:unfinished')); ?></li>
 							<li><?php echo $this->Html->link(sprintf(__('All your %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'index', 'filter:yours')); ?></li>
 							<li><?php echo $this->Html->link(sprintf(__('All your unfinished %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'index', 'filter:your_unfinished')); ?></li>
+							<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add')); ?></li>
 						</ul>
 					</li>
 					<?php if($login_user["admin"] == true) { ?>
