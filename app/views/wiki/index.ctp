@@ -22,7 +22,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 </style>
 
 
-<?php if (!empty($canWrite)):?>
+<?php if ($canWrite):?>
 <div id="snavi">
 <ul>
 	<?php if (!$page['Wiki']['disabled']):?>
@@ -36,8 +36,8 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 		<li><?php echo $html->link(__('New',true), array('controller' => 'wiki', 'action' => 'add', $path, 'new-page'));?></li>
 	<?php endif;?>
 </ul>
-<?php endif;?>
 </div>
+<?php endif;?>
 
 <div class="breadcrumbs">
 	<?php //echo $chaw->breadcrumbs($path, $slug);?>
@@ -45,7 +45,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 
 <div class="wiki view">
 
-<div style="float:left; margin-right:300px;">
+<div style="float:left; width:85%;">
 <?php if (!empty($page)): ?>
 	<div class="wiki-content">
 		<div class="wiki-text">
@@ -93,7 +93,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 					?>
 				<?php endif; ?>
 			</div>
-
+			<br clear="all" />
 		<?php endforeach; ?>
 
 	</div>
@@ -129,7 +129,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 </div><!-- #left column -->
 
 
-<div class="wiki-navigation" style="width:200px; float:right;">
+<div class="wiki-navigation" style="width:15%; float:right;">
 
 	<?php if (!empty($subNav)):?>
 		<?php
