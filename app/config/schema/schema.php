@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-04-20 07:04:19 : 1271714599*/
+/* App schema generated on: 2010-04-21 05:04:54 : 1271794434*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -145,6 +145,19 @@ class AppSchema extends CakeSchema {
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'updated' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'idx_users_pkey' => array('column' => 'loginname', 'unique' => 1)),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
+	);
+	var $wiki = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'path' => array('type' => 'string', 'null' => false, 'default' => '/', 'length' => 200),
+		'slug' => array('type' => 'string', 'null' => false, 'length' => 200),
+		'disabled' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+		'readonly' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+		'last_modified_user_id' => array('type' => 'integer', 'null' => true, 'default' => NULL),
+		'body' => array('type' => 'text', 'null' => false, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'updated' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 }
