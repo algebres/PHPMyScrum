@@ -143,17 +143,18 @@ class Wiki extends AppModel {
 	function beforeSave(){
 		$this->data['Wiki']['slug'] = $this->slug($this->data['Wiki']['slug']);
 
-		if (!empty($this->data['Wiki']['active'])) {
+		// 保存前に過去の同じIDのものを全部無効にする
+//		if ($this->data['Wiki']['disabled'] == 1) {
 			$this->recursive = -1;
 			$this->updateAll(array(
 					'Wiki.disabled' => 1,
-					'Wiki.modified' => "'" . date('Y-m-d H:i:s') . "'"
+					'Wiki.updated' => "'" . date('Y-m-d H:i:s') . "'"
 				),
 				array(
 				'Wiki.slug' => $this->data['Wiki']['slug'],
 				'Wiki.path' => $this->data['Wiki']['path'],
 			));
-		}
+//		}
 
 		return true;
 	}

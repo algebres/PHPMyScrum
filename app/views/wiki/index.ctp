@@ -30,8 +30,6 @@ $wiki->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 	<?php //echo $chaw->breadcrumbs($path, $slug);?>
 </div>
 
-<div class="clear"><!----></div>
-
 <div class="wiki view">
 
 <div class="wiki-navigation" style="width:200px; float:right;">

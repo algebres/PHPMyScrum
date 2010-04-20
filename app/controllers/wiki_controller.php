@@ -42,6 +42,7 @@ class WikiController extends AppController {
 		if (!empty($this->data)) {
 
 			if (!empty($this->params['form']['delete'])) {
+				// delete
 				$this->params['action'] = 'delete';
 				if ($canDelete !== true) {
 					$this->Session->setFlash(__('You are not authorized to delete.', true));
@@ -52,7 +53,7 @@ class WikiController extends AppController {
 				$page = $this->Wiki->findById($this->data['Wiki']['revision']);
 			}
 
-			if (!empty($this->params['form']['activate']) && !empty($page)) {
+			if (!($this->params['form']['disabled']) && !empty($page)) {
 				if ($canWrite !== true) {
 					$this->Session->setFlash(__('You are not authorized to activate.', true));
 				} else if ($this->Wiki->activate($page)) {
@@ -115,6 +116,7 @@ class WikiController extends AppController {
 			));
 		}
 
+		// get page revisions
 		if(!empty($page) && $canWrite) {
 			$this->Wiki->recursive = 0;
 			$revisions = $this->Wiki->find('superList', array(
