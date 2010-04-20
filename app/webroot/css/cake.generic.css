@@ -635,6 +635,11 @@ td.actions a:hover {
 	margin: 2px;
 }
 
+td.mark, td.board {
+	vertical-align: top;
+	background-color: #eeffee;
+	padding: 4px 2px 4px 2px;
+}
 
 .storytitle {
 	background: #ffd700;

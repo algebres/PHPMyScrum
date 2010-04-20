@@ -1,11 +1,4 @@
 <?php echo $javascript->link("drag"); ?>
-<style type="text/css">
-
-td {
-	vertical-align: top;
-/**	border : 1px solid; **/
-}
-</style>
 
 <script type="text/javascript">
 window.onload = function () {
@@ -16,8 +9,6 @@ window.onload = function () {
 	REDIPS.drag.myhandler_dropped = function () {
 		var obj = REDIPS.drag.obj;
 		var obj_old     = REDIPS.drag.obj_old;	// reference to the original object
-		//alert(REDIPS.drag.target_cell.parentNode.id);
-		//alert(REDIPS.drag.source_cell.parentNode.id);
 		if(REDIPS.drag.target_cell.parentNode.id != REDIPS.drag.source_cell.parentNode.id)
 		{
 			REDIPS.drag.target_cell.removeChild(obj);
@@ -29,13 +20,11 @@ window.onload = function () {
 		{
 			url_param = obj.parentNode.id.replace("___", "/");
 			url = "<?php echo $html->url('/tasks/change_resolution/'); ?>" + obj.id + "/" + url_param;
-			//alert(url);
 			jQuery.get(url, {}, after_function );
 		}
 	}
 }
 function after_function(data) {
-	//alert('<?php echo __('Updated!', true); ?>');
 	alert(data);
 }
 </script>
@@ -51,7 +40,6 @@ function after_function(data) {
             followScroll: true,
             loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',
             callback: function(){
-                //alert('test');
             }
         });
     });
@@ -91,7 +79,7 @@ function after_function(data) {
 </div>
 </td>
 <?php foreach($resolutions as $resolution) { ?>
-	<td id="resolution_id:<?php echo $resolution["Resolution"]["id"]; ?>___story_id:<?php echo $story["id"]; ?>">
+	<td class="board" id="resolution_id:<?php echo $resolution["Resolution"]["id"]; ?>___story_id:<?php echo $story["id"]; ?>">
 	<?php foreach($sprint['Task'] as $task) { ?>
 		<?php if($task["resolution_id"] == "") { $task["resolution_id"] = RESOLUTION_TODO; } ?>
 		<?php if($task["resolution_id"] == $resolution["Resolution"]["id"] && $story["id"] == $task["story_id"]) { ?>
