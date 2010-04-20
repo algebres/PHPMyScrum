@@ -11,12 +11,12 @@
 
 <div id="snavi">
 	<ul>
-		<?php if($total_remaining_hours == 0) { ?>
-		<li><?php echo $this->Html->link(sprintf(__('Finish %s', true), __('Story', true)), array('action' => 'done', $story['Story']['id'], '?' => 'return_url=' . urlencode($_SERVER["REQUEST_URI"]))); ?> </li>
-		<?php } ?>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Story', true)), array('action' => 'edit', $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Story', true)), array('action' => 'delete', $story['Story']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $story['Story']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('action' => 'add')); ?> </li>
+		<?php if($total_remaining_hours == 0) { ?>
+		<li><?php echo $this->Html->link(sprintf(__('Finish %s', true), __('Story', true)), array('action' => 'done', $story['Story']['id'], '?' => 'return_url=' . urlencode($_SERVER["REQUEST_URI"]))); ?> </li>
+		<?php } ?>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add', 'story_id:' . $story['Story']['id'], 'sprint_id:' . $story['Story']['sprint_id'], '?' => 'return_url=' . urlencode($_SERVER["REQUEST_URI"])));?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story Comment', true)), array('controller' => 'story_comments', 'action' => 'add', 'story_id:' . $story['Story']['id']));?> </li>
 	</ul>
