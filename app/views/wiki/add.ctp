@@ -1,22 +1,5 @@
 <?php
 $this->set('showdown', true);
-$html->css('highlight/idea', null, array('inline' => false));
-$html->script('highlight.pack', array('inline' => false));
-
-$script = '
-hljs.initHighlightingOnLoad();
-
-$(document).ready(function(){
-	var text = jQuery.trim($("#WikiContent").val());
-	$("#Preview").html(converter.makeHtml(text));
-	$("#WikiContent").bind("keyup", function() {
-		$("#Preview").html(converter.makeHtml($(this).val()));
-		hljs.initHighlighting.called = false;
-		hljs.initHighlighting();
-	});
-});
-';
-$html->scriptBlock($script, array('inline' => false));
 ?>
 <div class="wiki form">
 
@@ -40,9 +23,9 @@ $html->scriptBlock($script, array('inline' => false));
 
 			if ($form->value('slug')) {
 				echo $form->hidden('slug');
-				echo $form->input('slug', array('label' => false));
+				echo $form->input('slug', array());
 			} else {
-				echo $form->input('title', array('label' => false, 'value' => 'new-page'));
+				echo $form->input('title', array('value' => 'new-page'));
 			}
 		?>
 		</fieldset>
@@ -51,7 +34,7 @@ $html->scriptBlock($script, array('inline' => false));
 				echo '<div id="Preview" class="wiki-text"></div>';
 
 				echo $form->input('body', array(
-					'label' => false, 'after' => $html->tag('div', $this->element('markdown_help'), array('class' => 'help'))
+					'after' => $html->tag('div', $this->element('markup'), array('class' => 'help'))
 				));
 			?>
 		</fieldset>

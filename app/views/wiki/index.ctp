@@ -1,28 +1,29 @@
 <?php
-$this->set('showdown', true);
-$html->css('highlight/idea', null, array('inline' => false));
-$html->script('highlight.pack', array('inline' => false));
-$script = 'hljs.initHighlightingOnLoad();';
-$html->scriptBlock($script, array('inline' => false));
+App::import('Vendor', 'include_path');
+App::import(
+	'Vendor',
+	'Text_Wiki_Mediawiki', 
+	array('file' => 'Text' . DS . 'Wiki' . DS . 'Mediawiki.php')
+);
+$wiki=new Text_Wiki_Mediawiki();
+$wiki->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 ?>
-<div class="page-navigation">
 
-	<?php if (!empty($canWrite)):?>
-
-		<?php if (!empty($page['Wiki']['active'])):?>
-			<span class="active"><?php __('Active') ?></span>
-		<?php else: ?>
-			<span class="inactive"><?php __('Not Active') ?></span>
-		<?php endif;?>
-
-		<?php if ((empty($content['Wiki']['readonly']) || $CurrentUser->id == $page['Wiki']['last_modified_user_id'])):?>
-			|
-			<?php echo $html->link(__('Edit',true), array('controller' => 'wiki', 'action' => 'edit', $path, $slug));?>
-			|
-			<?php echo $html->link(__('New',true), array('controller' => 'wiki', 'action' => 'add', $path, 'new-page'));?>
-		<?php endif;?>
-
+<?php if (!empty($canWrite)):?>
+<div id="snavi">
+<ul>
+	<?php if (!$page['Wiki']['disabled']):?>
+		<li><a href="#"><?php __('Active') ?></a></li>
+	<?php else: ?>
+		<li><?php __('Not Active') ?></li>
 	<?php endif;?>
+
+	<?php if ((empty($content['Wiki']['readonly']) || $CurrentUser->id == $page['Wiki']['last_modified_user_id'])):?>
+		<li><?php echo $html->link(__('Edit',true), array('controller' => 'wiki', 'action' => 'edit', $path, $slug));?></li>
+		<li><?php echo $html->link(__('New',true), array('controller' => 'wiki', 'action' => 'add', $path, 'new-page'));?></li>
+	<?php endif;?>
+</ul>
+<?php endif;?>
 </div>
 
 <div class="breadcrumbs">
@@ -31,7 +32,9 @@ $html->scriptBlock($script, array('inline' => false));
 
 <div class="clear"><!----></div>
 
-<div class="wiki-navigation">
+<div class="wiki view">
+
+<div class="wiki-navigation" style="width:200px; float:right;">
 
 	<?php if (!empty($subNav)):?>
 		<?php
@@ -79,7 +82,7 @@ $html->scriptBlock($script, array('inline' => false));
 			endforeach;
 			if (!empty($nav)) {
 				echo $html->tag('div',
-					'<h3>'.__('Recent Entries',true).'</h3>' .
+					'<h2>'.__('Recent Entries',true).'</h2>' .
 					$html->tag('ul', $nav), array('class' => 'paths')
 				);
 			}
@@ -88,13 +91,13 @@ $html->scriptBlock($script, array('inline' => false));
 
 </div>
 
+<div style="float:left;">
 <?php if (!empty($page)): ?>
 	<div class="wiki-content">
 		<div class="wiki-text">
-			<?php echo h($page['Wiki']['body']);?>
+			<?php echo $wiki->transform($page['Wiki']['body']);?>
 		</div>
 	</div>
-
 <?php endif; ?>
 
 <?php if (empty($page) && !empty($wiki)): ?>
@@ -166,3 +169,7 @@ $html->scriptBlock($script, array('inline' => false));
 	?>
 </div>
 <?php endif;?>
+
+</div>
+
+</div>

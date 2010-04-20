@@ -56,7 +56,7 @@ class WikiController extends AppController {
 				if ($canWrite !== true) {
 					$this->Session->setFlash(__('You are not authorized to activate.', true));
 				} else if ($this->Wiki->activate($page)) {
-					$this->Session->setFlash($page['User']['username'] . ' ' . $page['Wiki']['created'] .' is now active');
+					$this->Session->setFlash(sprintf(__('%s %s is now active', true), $page['User']['username'],$page['Wiki']['created']));
 				}
 			}
 		}
@@ -153,7 +153,6 @@ class WikiController extends AppController {
 		if ($slug === 'new-page') {
 			$slug = null;
 		}
-
 		if (!empty($this->data)) {
 			$this->Wiki->create(array(
 				'last_modified_user_id' => $this->Auth->user('id'),
@@ -165,7 +164,6 @@ class WikiController extends AppController {
 				$this->Session->setFlash(sprintf(__('%s NOT saved',true),$data['Wiki']['slug']));
 			}
 		}
-
 		if (empty($this->data) && $slug !== '1') {
 			$this->data = $this->Wiki->find('first', array(
 				'conditions' => array(
@@ -177,7 +175,7 @@ class WikiController extends AppController {
 			if (empty($this->data['Wiki']['disabled'])) {
 				$this->data['Wiki']['disabled'] = 0;
 			}
-			$canEdit = !empty($this->params['isAdmin']) || !empty($this->data['Wiki']['last_modified_user_id']) && $this->Auth->user('id') === $this->data['Wiki']['last_modified_user_id'];
+			$canEdit = $this->Auth->user('admin') || !empty($this->data['Wiki']['last_modified_user_id']) && $this->Auth->user('id') === $this->data['Wiki']['last_modified_user_id'];
 			if (!empty($this->data['Wiki']['readonly']) && !$canEdit) {
 				$this->redirect(array('controller' => 'wiki', 'action' => 'index', $path, $slug));
 			}
