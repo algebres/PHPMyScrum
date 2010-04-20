@@ -53,3 +53,8 @@ div .wiki-footer {
 .wiki-content-separator a{
 	text-decoration: none;
 }
+
+h2.wiki-menu {
+	margin-top: 4px;
+	margin-bottom : 4px;
+}

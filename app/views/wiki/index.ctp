@@ -99,9 +99,9 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 		echo $form->input('revision', array('value' => $page['Wiki']['id']));
 		$buttons =
 			$form->submit(__('view',true), array('div' => false, 'name' => 'view'))
-			. $form->submit(__('activate',true), array('div' => false, 'name' => 'activate'));
+			. "&nbsp;" . $form->submit(__('activate',true), array('div' => false, 'name' => 'activate'));
 		if (!empty($canDelete)) {
-			$buttons .= $form->submit(__('delete',true), array('div' => false, 'name' => 'delete'));
+			$buttons .= "&nbsp;" . $form->submit(__('delete',true), array('div' => false, 'name' => 'delete'));
 		}
 		echo $html->tag('div', $buttons, array('class' => 'submit'));
 		echo $form->end();
@@ -125,7 +125,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 			endforeach;
 			if (!empty($nav)) {
 				echo $html->tag('div',
-					'<h2>Sub Nav</h2>' .
+					'<h2 class="wiki-menu">Sub Nav</h2>' .
 					$html->tag('ul', $nav), array('class' => 'paths')
 				);
 			}
@@ -142,7 +142,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 			endforeach;
 			if (!empty($nav)) {
 				echo $html->tag('div',
-					'<h2>'.__('Wiki Nav',true).'</h2>' .
+					'<h2 class="wiki-menu">'.__('Wiki Nav',true).'</h2>' .
 					$html->tag('ul', $nav), array('class' => 'paths')
 				);
 			}
@@ -160,7 +160,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 			endforeach;
 			if (!empty($nav)) {
 				echo $html->tag('div',
-					'<h2>'.__('Recent Entries',true).'</h2>' .
+					'<h2 class="wiki-menu">'.__('Recent Entries',true).'</h2>' .
 					$html->tag('ul', $nav), array('class' => 'paths')
 				);
 			}
