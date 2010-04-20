@@ -233,7 +233,8 @@ div #messagebox {
 div.form,
 div.index,
 div.related,
-div.view {
+div.view,
+div.wiki {
 	float:left; /** right **/
 	/** width: 940px; **/ /** 76% **/
 	width : 96%;
@@ -370,7 +371,7 @@ div.paging span a {
 }
 
 /** Scaffold View **/
-dl {
+.form dl, .view dl {
 	line-height: 2em;
 	margin: 0em 0em;
 	width: 98%;
@@ -378,12 +379,12 @@ dl {
 dl .altrow {
 	background: #f4f4f4;
 }
-dt {
+.form dt, .view dt {
 	font-weight: bold;
 	padding-left: 4px;
 	vertical-align: top;
 }
-dd {
+.form dd, .view dd {
 	margin-left: 12em;
 	margin-top: -2em;
 	vertical-align: top;

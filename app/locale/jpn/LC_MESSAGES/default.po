@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-20 17:02+0900\n"
-"PO-Revision-Date: 2010-04-20 17:09+0900\n"
+"POT-Creation-Date: 2010-04-21 04:45+0900\n"
+"PO-Revision-Date: 2010-04-21 04:46+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -680,7 +680,7 @@ msgstr "%sを追加"
 #: \views\users\add.ctp:24
 #: \views\users\edit.ctp:24
 #: \views\users\reset_password.ctp:10
-#: \views\wiki\add.ctp:42
+#: \views\wiki\add.ctp:44
 msgid "Submit"
 msgstr "送信"
 
@@ -721,6 +721,8 @@ msgstr "削除"
 #: \views\teams\view.ctp:3
 #: \views\users\edit.ctp:14
 #: \views\users\view.ctp:3
+#: \views\wiki\add.ctp:19
+#: \views\wiki\index.ctp:18
 msgid "Edit %s"
 msgstr "%sを編集"
 
@@ -764,6 +766,7 @@ msgstr "%sを編集"
 #: \views\users\index.ctp:3;5
 #: \views\users\login.ctp:4
 #: \views\users\view.ctp:6;8;9
+#: \views\wiki\index.ctp:19;73
 msgid "New %s"
 msgstr "%sの新規作成"
 
@@ -903,6 +906,11 @@ msgid "Manage"
 msgstr "管理"
 
 #: \views\layouts\default.ctp:108
+#: \views\wiki\add.ctp:6
+msgid "Wiki"
+msgstr "Wiki"
+
+#: \views\layouts\default.ctp:109
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -1045,13 +1053,13 @@ msgstr "残り時間"
 
 #: \views\remaining_times\index.ctp:27
 #: \views\teams\view.ctp:92
-#: \views\wiki\index.ctp:79
+#: \views\wiki\index.ctp:62
 msgid "View"
 msgstr "閲覧"
 
 #: \views\remaining_times\index.ctp:28
 #: \views\teams\view.ctp:93
-#: \views\wiki\index.ctp:35;85
+#: \views\wiki\index.ctp:68
 msgid "Edit"
 msgstr "編集"
 
@@ -1254,38 +1262,47 @@ msgid "Team Id"
 msgstr "チームID"
 
 #: \views\wiki\add.ctp:19
+#: \views\wiki\index.ctp:18;19;73
+msgid "Page"
+msgstr "ページ"
+
+#: \views\wiki\add.ctp:24
 msgid "use a path to group pages into categories and subcategories. example: /logs/by/%s/"
 msgstr "ページをグループ化するためにパス情報を設定できます。例：/logs/by/%s/"
 
-#: \views\wiki\index.ctp:29
-msgid "Active"
-msgstr "復元"
+#: \views\wiki\add.ctp:25
+msgid "Path"
+msgstr "パス"
 
-#: \views\wiki\index.ctp:31
-msgid "Not Active"
-msgstr "旧版"
+#: \views\wiki\add.ctp:33
+msgid "Title"
+msgstr "タイトル"
 
-#: \views\wiki\index.ctp:36;90
-msgid "New"
-msgstr "%sの新規作成"
+#: \views\wiki\add.ctp:37
+msgid "Body"
+msgstr "本文"
 
-#: \views\wiki\index.ctp:118
+#: \views\wiki\add.ctp:41
+msgid "readonly"
+msgstr "読み取り専用"
+
+#: \views\wiki\index.ctp:101
 msgid "view"
 msgstr "閲覧"
 
-#: \views\wiki\index.ctp:119
+#: \views\wiki\index.ctp:102
 msgid "activate"
 msgstr "復元"
 
-#: \views\wiki\index.ctp:121
+#: \views\wiki\index.ctp:104
 msgid "delete"
 msgstr "削除"
 
-#: \views\wiki\index.ctp:162
+#: \views\wiki\index.ctp:145
 msgid "Wiki Nav"
 msgstr "Wikiナビゲーション"
 
-#: \views\wiki\index.ctp:180
+#: \views\wiki\index.ctp:163
 msgid "Recent Entries"
 msgstr "最近作られたページ"
 
@@ -1293,38 +1310,58 @@ msgstr "最近作られたページ"
 msgid "Debug setting does not allow access to this url."
 msgstr "デバッグ設定はこのURLにアクセスできません"
 
+#~ msgid "Active"
+#~ msgstr "復元"
+
+#~ msgid "Not Active"
+#~ msgstr "旧版"
+
+#~ msgid "New"
+#~ msgstr "%sの新規作成"
+
 #~ msgid "Install"
 #~ msgstr "インストール"
+
 #~ msgid ""
 #~ "If you have already set up database, please delete app/tmp/not_installed."
 #~ "txt and reload screen."
 #~ msgstr ""
 #~ "もし既にデータベースをセットアップ済みの場合は、app/tmp/not_installed.txt"
 #~ "を削除して、画面を再読み込みしてください"
+
 #~ msgid ""
 #~ "Before start setup, you have to copy app/config/database.dist.php to app/"
 #~ "config/database.php and edit it properly."
 #~ msgstr ""
 #~ "セットアップを開始する前に、app/config/database.dist.phpをコピーして"
 #~ "database.phpを作成し、適宜編集してください"
+
 #~ msgid "Start install"
 #~ msgstr "インストールの開始"
+
 #~ msgid "Start PHPMyScrum"
 #~ msgstr "PHPMyScrumの開始"
+
 #~ msgid "Task Id"
 #~ msgstr "タスクID"
+
 #~ msgid "%s was not deleted"
 #~ msgstr "%sは削除できませんでした"
+
 #~ msgid "disabled"
 #~ msgstr "無効"
+
 #~ msgid "sprint_id"
 #~ msgstr "スプリントID"
+
 #~ msgid "story_id"
 #~ msgstr "ストーリーID"
+
 #~ msgid "Priority Id"
 #~ msgstr "優先順位ID"
+
 #~ msgid "Your %s"
 #~ msgstr "あなたの%s"
+
 #~ msgid "Storypoints"
 #~ msgstr "ストーリーポイント"
-

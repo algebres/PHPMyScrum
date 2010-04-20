@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="users form">
+<div class="wiki">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
  		<legend><?php printf(__('Add %s', true), __('User', true)); ?></legend>

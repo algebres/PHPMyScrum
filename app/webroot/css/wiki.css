@@ -1,5 +1,5 @@
 div #wiki-left-box {
-	float:left; width:85%;
+	float:left; width:83%; margin-right:2%;
 }
 div #wiki-right-box {
 	width:15%; float:right;
@@ -34,6 +34,13 @@ div #wiki-right-box {
 
 .wiki-content ul li, .wiki-content ol li {
 	margin-left : 18px;
+}
+
+.wiki-content table {
+	border-collapse: collapse; 
+}
+.wiki-content table tr td {
+	border: 1px #000000 solid; padding: 2px 2px 2px 2px;
 }
 
 div .wiki-footer {

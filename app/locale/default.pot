@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-20 17:02+0900\n"
+"POT-Creation-Date: 2010-04-21 04:45+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -681,7 +681,7 @@ msgstr ""
 #: \views\users\add.ctp:24
 #: \views\users\edit.ctp:24
 #: \views\users\reset_password.ctp:10
-#: \views\wiki\add.ctp:42
+#: \views\wiki\add.ctp:44
 msgid "Submit"
 msgstr ""
 
@@ -722,6 +722,8 @@ msgstr ""
 #: \views\teams\view.ctp:3
 #: \views\users\edit.ctp:14
 #: \views\users\view.ctp:3
+#: \views\wiki\add.ctp:19
+#: \views\wiki\index.ctp:18
 msgid "Edit %s"
 msgstr ""
 
@@ -765,6 +767,7 @@ msgstr ""
 #: \views\users\index.ctp:3;5
 #: \views\users\login.ctp:4
 #: \views\users\view.ctp:6;8;9
+#: \views\wiki\index.ctp:19;73
 msgid "New %s"
 msgstr ""
 
@@ -904,6 +907,11 @@ msgid "Manage"
 msgstr ""
 
 #: \views\layouts\default.ctp:108
+#: \views\wiki\add.ctp:6
+msgid "Wiki"
+msgstr ""
+
+#: \views\layouts\default.ctp:109
 msgid "Logout"
 msgstr ""
 
@@ -1046,13 +1054,13 @@ msgstr ""
 
 #: \views\remaining_times\index.ctp:27
 #: \views\teams\view.ctp:92
-#: \views\wiki\index.ctp:79
+#: \views\wiki\index.ctp:62
 msgid "View"
 msgstr ""
 
 #: \views\remaining_times\index.ctp:28
 #: \views\teams\view.ctp:93
-#: \views\wiki\index.ctp:35;85
+#: \views\wiki\index.ctp:68
 msgid "Edit"
 msgstr ""
 
@@ -1255,38 +1263,47 @@ msgid "Team Id"
 msgstr ""
 
 #: \views\wiki\add.ctp:19
+#: \views\wiki\index.ctp:18;19;73
+msgid "Page"
+msgstr ""
+
+#: \views\wiki\add.ctp:24
 msgid "use a path to group pages into categories and subcategories. example: /logs/by/%s/"
 msgstr ""
 
-#: \views\wiki\index.ctp:29
-msgid "Active"
+#: \views\wiki\add.ctp:25
+msgid "Path"
 msgstr ""
 
-#: \views\wiki\index.ctp:31
-msgid "Not Active"
+#: \views\wiki\add.ctp:33
+msgid "Title"
 msgstr ""
 
-#: \views\wiki\index.ctp:36;90
-msgid "New"
+#: \views\wiki\add.ctp:37
+msgid "Body"
 msgstr ""
 
-#: \views\wiki\index.ctp:118
+#: \views\wiki\add.ctp:41
+msgid "readonly"
+msgstr ""
+
+#: \views\wiki\index.ctp:101
 msgid "view"
 msgstr ""
 
-#: \views\wiki\index.ctp:119
+#: \views\wiki\index.ctp:102
 msgid "activate"
 msgstr ""
 
-#: \views\wiki\index.ctp:121
+#: \views\wiki\index.ctp:104
 msgid "delete"
 msgstr ""
 
-#: \views\wiki\index.ctp:162
+#: \views\wiki\index.ctp:145
 msgid "Wiki Nav"
 msgstr ""
 
-#: \views\wiki\index.ctp:180
+#: \views\wiki\index.ctp:163
 msgid "Recent Entries"
 msgstr ""
 

@@ -26,7 +26,7 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 	<?php //echo $chaw->breadcrumbs($path, $slug);?>
 </div>
 
-<div class="wiki view">
+<div class="wiki">
 
 <div id="wiki-left-box">
 <?php if (!empty($page)): ?>
