@@ -53,7 +53,7 @@ class WikiController extends AppController {
 				$page = $this->Wiki->findById($this->data['Wiki']['revision']);
 			}
 
-			if (!($this->params['form']['disabled']) && !empty($page)) {
+			if (!empty($this->params['form']['activate']) && !empty($page)) {
 				if ($canWrite !== true) {
 					$this->Session->setFlash(__('You are not authorized to activate.', true));
 				} else if ($this->Wiki->activate($page)) {
