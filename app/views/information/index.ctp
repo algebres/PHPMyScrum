@@ -49,7 +49,7 @@ jQuery(document).ready(function()
 
 		<td><?php echo date('Y-m-d', strtotime($information['Information']['startdate'])); ?>&nbsp;</td>
 		<td><?php echo date('Y-m-d', strtotime($information['Information']['enddate'])); ?>&nbsp;</td>
-		<td class="actions">
+		<td class="actions narrow">
 			<?php echo $this->Html->link($html->image('detail.png'), array('action' => 'view', $information['Information']['id']), array('escape' => false)); ?>
 <?php if($login_user["admin"]) { ?>
 			<?php echo $this->Html->link($html->image('edit.png'), array('action' => 'edit', $information['Information']['id']), array('escape' => false)); ?>
