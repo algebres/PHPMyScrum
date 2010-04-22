@@ -6,6 +6,8 @@
 <?php echo $this->element("information"); ?>
 </div>
 
+<?php echo $this->element("all_sprints"); ?>
+
 <?php echo $this->element("sprints"); ?>
 
 <?php echo $this->element("my_task"); ?>
