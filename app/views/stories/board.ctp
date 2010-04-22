@@ -70,20 +70,20 @@ window.onload = function () {
 </script>
 
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function(){
-        $("a[rel^='prettyPopin']").prettyPopin({
-            modal : true,
-            width : 400,
-            height: 400,
-            opacity: 0.5,
-            animationSpeed: '0',
-            followScroll: true,
-            loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',
-            callback: function(){
-                //alert('test');
-            }
-        });
-    });
+	$(document).ready(function(){
+		$("a[rel^='prettyPopin']").prettyPopin({
+			modal : true,
+			width : 400,
+			height: 400,
+			opacity: 0.5,
+			animationSpeed: '0',
+			followScroll: true,
+			loader_path: '<?php echo $html->url("/img/prettyPopin/loader.gif"); ?>',
+			callback: function(){
+				//alert('test');
+			}
+		});
+	});
 </script>
 
 <div id="snavi">

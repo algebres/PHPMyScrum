@@ -1,11 +1,13 @@
 <?php
-class StoriesController extends AppController {
+class StoriesController extends AppController
+{
 
 	var $name = 'Stories';
 	var $components = array('Session');
 	var $uses = array('Story', 'Sprint', 'Priority', 'Team', 'Resolution', 'Task');
 
-	function index() {
+	function index()
+	{
 		$this->Story->recursive = 1;
 		$this->paginate = array(
 			'conditions' => array(
@@ -20,20 +22,15 @@ class StoriesController extends AppController {
 	{
 		// get stories
 		$this->Story->recursive = 1;
-		$conditions = array(
-			'conditions' => array(
-				'Story.disabled' => 0,
-			),
-			'limit' => Configure::read('Config.paginate_count'),
-		);
-		$this->set('stories', $this->Story->find('all', $conditions));
+		$this->set('stories', $this->Story->getActiveStory());
 
 		// get all sprints
 		$sprints = $this->Sprint->getAllSprints();
 		// make no assined record
-		$data["Sprint"]["id"] = 0;
-		$data["Sprint"]["name"] = __('Not Assigned', true);
-		array_unshift($sprints, $data);
+//		$data["Sprint"]["id"] = 0;
+//		$data["Sprint"]["name"] = __('Not Assigned', true);
+//		array_unshift($sprints, $data);
+		$this->Story->makeSprintZero($sprints);
 		$this->set('sprints', $sprints);
 	}
 

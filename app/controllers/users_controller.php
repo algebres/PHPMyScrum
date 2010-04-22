@@ -2,9 +2,9 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-	var $components = array('Session');
+	var $components = array('Session', 'PmsCommon');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
-	var $uses = array('User', 'Sprint', 'Task', 'Project', 'Information');
+	var $uses = array('User', 'Sprint', 'Task', 'Project', 'Information', 'Story');
 
 	//ログイン処理
 	function login()
@@ -51,6 +51,12 @@ class UsersController extends AppController {
 		$this->set('project', $this->Project->read(null, 1));
 		$this->set('information', $this->Information->getLatestInformation());
 		$this->set('show_link', true);
+
+		$all_sprints = $this->Sprint->getAllSprints();
+		$this->Sprint->makeSprintZero($all_sprints);
+		$stories = $this->Story->getActiveStory();
+		$all_sprints = $this->PmsCommon->getEachStoryPoints($all_sprints, $stories);
+		$this->set("all_sprints", $all_sprints);
 	}
 
 	function index() 

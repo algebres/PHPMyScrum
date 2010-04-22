@@ -144,6 +144,14 @@ class Sprint extends AppModel {
 		return $this->find('all', $conditions);
 	}
 
+	function makeSprintZero($sprints)
+	{
+		$data["Sprint"]["id"] = 0;
+		$data["Sprint"]["name"] = __('Not Assigned', true);
+		array_unshift($sprints, $data);
+		return $sprints;
+	}
+
 	/**
 	 * スプリント一覧から名前に合致するスプリントのIDを探す
 	 */
