@@ -4,6 +4,13 @@ class PmsCommonComponent extends Object
 {
 	function getEachStoryPoints($sprints, $stories)
 	{
+		$total_story_point = 0;
+		foreach($stories as $story)
+		{
+			$total_story_point += $story["Story"]["storypoints"];
+		}
+
+		$total_finished =0;
 		foreach($sprints as $key => $sprint)
 		{
 			$point_per_sprint = 0;
@@ -19,8 +26,10 @@ class PmsCommonComponent extends Object
 					}
 				}
 			}
+			$total_finished += $finished_point_per_sprint;
 			$sprint["Sprint"]["point_per_sprint"] = $point_per_sprint;
 			$sprint["Sprint"]["finished_point_per_sprint"] = $finished_point_per_sprint;
+			$sprint["Sprint"]["total_remaining_point"] = $total_story_point - $total_finished;
 			$sprints[$key] = $sprint;
 		}
 		return $sprints;
