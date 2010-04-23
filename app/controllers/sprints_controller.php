@@ -77,7 +77,7 @@ class SprintsController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Sprint', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'sprint'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Sprint', true)));
 			}
 		}
 	}
