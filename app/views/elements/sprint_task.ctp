@@ -1,6 +1,6 @@
 <?php echo $javascript->link('excanvas'); ?>
 <?php echo $javascript->link('ProtoChart'); ?>
-<?php echo $javascript->link('superTable'); ?>
+<?php //echo $javascript->link('superTable'); ?>
 
 <script type="text/javascript">
 <!--
