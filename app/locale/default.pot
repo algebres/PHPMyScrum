@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-23 18:45+0900\n"
+"POT-Creation-Date: 2010-04-24 05:52+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -22,9 +22,21 @@ msgstr ""
 msgid "Reset password"
 msgstr ""
 
+#: \controllers\app_controller.php:47
+msgid "Invalid username or password"
+msgstr ""
+
 #: \controllers\app_controller.php:49
 #: \controllers\users_controller.php:132;186
 msgid "You have no privileges"
+msgstr ""
+
+#: \controllers\app_controller.php:152
+msgid "Sending email is successfully finished."
+msgstr ""
+
+#: \controllers\app_controller.php:157
+msgid "Sending email is failed."
 msgstr ""
 
 #: \controllers\information_controller.php:15;35
@@ -131,8 +143,8 @@ msgstr ""
 msgid "Project"
 msgstr ""
 
-#: \controllers\sprints_controller.php:21;40;53;61;77;87;92;95;105;111;116
-#: \views\elements\all_sprints.ctp:65
+#: \controllers\sprints_controller.php:21;40;53;61;77;80;87;92;95;105;111;116
+#: \views\elements\all_sprints.ctp:63
 #: \views\elements\my_task.ctp:19
 #: \views\pages\manage.ctp:28;30;31
 #: \views\sprints\add.ctp:4
@@ -424,13 +436,13 @@ msgstr ""
 msgid "Sprints"
 msgstr ""
 
-#: \views\elements\all_sprints.ctp:66
+#: \views\elements\all_sprints.ctp:64
 #: \views\sprints\storylist.ctp:71
 #: \views\sprints\view.ctp:61
 msgid "Total Finished Story Point"
 msgstr ""
 
-#: \views\elements\all_sprints.ctp:67
+#: \views\elements\all_sprints.ctp:65
 #: \views\elements\sprints.ctp:20
 #: \views\sprints\index.ctp:26
 #: \views\sprints\storylist.ctp:66
@@ -438,11 +450,11 @@ msgstr ""
 msgid "Total Story Point"
 msgstr ""
 
-#: \views\elements\all_sprints.ctp:68
+#: \views\elements\all_sprints.ctp:66
 msgid "Total Remaining Story Point"
 msgstr ""
 
-#: \views\elements\all_sprints.ctp:87
+#: \views\elements\all_sprints.ctp:85
 msgid "Total"
 msgstr ""
 
@@ -689,8 +701,8 @@ msgstr ""
 #: \views\projects\edit.ctp:12
 #: \views\remaining_times\add.ctp:10
 #: \views\remaining_times\edit.ctp:11
-#: \views\sprints\add.ctp:12
-#: \views\sprints\edit.ctp:20
+#: \views\sprints\add.ctp:17
+#: \views\sprints\edit.ctp:25
 #: \views\stories\add.ctp:24
 #: \views\stories\edit.ctp:25
 #: \views\stories\upload.ctp:22

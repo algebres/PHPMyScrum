@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-04-23 18:45+0900\n"
-"PO-Revision-Date: 2010-04-23 18:47+0900\n"
+"POT-Creation-Date: 2010-04-24 05:52+0900\n"
+"PO-Revision-Date: 2010-04-24 05:53+0900\n"
 "Last-Translator: Ryuzee <ryuzee@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,10 +21,22 @@ msgstr "システムエラー"
 msgid "Reset password"
 msgstr "パスワードをリセット"
 
+#: \controllers\app_controller.php:47
+msgid "Invalid username or password"
+msgstr "ユーザー名かパスワードが誤っているためログインできません"
+
 #: \controllers\app_controller.php:49
 #: \controllers\users_controller.php:132;186
 msgid "You have no privileges"
 msgstr "権限がありません"
+
+#: \controllers\app_controller.php:152
+msgid "Sending email is successfully finished."
+msgstr "メール送信に成功しました"
+
+#: \controllers\app_controller.php:157
+msgid "Sending email is failed."
+msgstr "メール送信に失敗しました"
 
 #: \controllers\information_controller.php:15;35
 #: \controllers\priorities_controller.php:19;39
@@ -130,8 +142,8 @@ msgstr "関連するレコードがあるため削除できません"
 msgid "Project"
 msgstr "プロジェクト"
 
-#: \controllers\sprints_controller.php:21;40;53;61;77;87;92;95;105;111;116
-#: \views\elements\all_sprints.ctp:65
+#: \controllers\sprints_controller.php:21;40;53;61;77;80;87;92;95;105;111;116
+#: \views\elements\all_sprints.ctp:63
 #: \views\elements\my_task.ctp:19
 #: \views\pages\manage.ctp:28;30;31
 #: \views\sprints\add.ctp:4
@@ -423,13 +435,13 @@ msgstr "全ての%s"
 msgid "Sprints"
 msgstr "スプリント"
 
-#: \views\elements\all_sprints.ctp:66
+#: \views\elements\all_sprints.ctp:64
 #: \views\sprints\storylist.ctp:71
 #: \views\sprints\view.ctp:61
 msgid "Total Finished Story Point"
 msgstr "完了ストーリーポイント"
 
-#: \views\elements\all_sprints.ctp:67
+#: \views\elements\all_sprints.ctp:65
 #: \views\elements\sprints.ctp:20
 #: \views\sprints\index.ctp:26
 #: \views\sprints\storylist.ctp:66
@@ -437,11 +449,11 @@ msgstr "完了ストーリーポイント"
 msgid "Total Story Point"
 msgstr "合計ストーリーポイント"
 
-#: \views\elements\all_sprints.ctp:68
+#: \views\elements\all_sprints.ctp:66
 msgid "Total Remaining Story Point"
 msgstr "残ストーリーポイント"
 
-#: \views\elements\all_sprints.ctp:87
+#: \views\elements\all_sprints.ctp:85
 msgid "Total"
 msgstr "合計"
 
@@ -688,8 +700,8 @@ msgstr "%sを追加"
 #: \views\projects\edit.ctp:12
 #: \views\remaining_times\add.ctp:10
 #: \views\remaining_times\edit.ctp:11
-#: \views\sprints\add.ctp:12
-#: \views\sprints\edit.ctp:20
+#: \views\sprints\add.ctp:17
+#: \views\sprints\edit.ctp:25
 #: \views\stories\add.ctp:24
 #: \views\stories\edit.ctp:25
 #: \views\stories\upload.ctp:22
@@ -1323,44 +1335,59 @@ msgstr "デバッグ設定はこのURLにアクセスできません"
 
 #~ msgid "Updated!"
 #~ msgstr "更新しました！"
+
 #~ msgid "Active"
 #~ msgstr "復元"
+
 #~ msgid "Not Active"
 #~ msgstr "旧版"
+
 #~ msgid "New"
 #~ msgstr "%sの新規作成"
+
 #~ msgid "Install"
 #~ msgstr "インストール"
+
 #~ msgid ""
 #~ "If you have already set up database, please delete app/tmp/not_installed."
 #~ "txt and reload screen."
 #~ msgstr ""
 #~ "もし既にデータベースをセットアップ済みの場合は、app/tmp/not_installed.txt"
 #~ "を削除して、画面を再読み込みしてください"
+
 #~ msgid ""
 #~ "Before start setup, you have to copy app/config/database.dist.php to app/"
 #~ "config/database.php and edit it properly."
 #~ msgstr ""
 #~ "セットアップを開始する前に、app/config/database.dist.phpをコピーして"
 #~ "database.phpを作成し、適宜編集してください"
+
 #~ msgid "Start install"
 #~ msgstr "インストールの開始"
+
 #~ msgid "Start PHPMyScrum"
 #~ msgstr "PHPMyScrumの開始"
+
 #~ msgid "Task Id"
 #~ msgstr "タスクID"
+
 #~ msgid "%s was not deleted"
 #~ msgstr "%sは削除できませんでした"
+
 #~ msgid "disabled"
 #~ msgstr "無効"
+
 #~ msgid "sprint_id"
 #~ msgstr "スプリントID"
+
 #~ msgid "story_id"
 #~ msgstr "ストーリーID"
+
 #~ msgid "Priority Id"
 #~ msgstr "優先順位ID"
+
 #~ msgid "Your %s"
 #~ msgstr "あなたの%s"
+
 #~ msgid "Storypoints"
 #~ msgstr "ストーリーポイント"
-

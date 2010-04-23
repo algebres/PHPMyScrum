@@ -44,7 +44,7 @@ class AppController extends Controller {
 			//ログイン処理を行うactionを指定（/users/loginがデフォルト）。
 			$this->Auth->loginAction = "/users/login";
 			//ログインが失敗した際のエラーメッセージ
-			$this->Auth->loginError = "ニックネームかパスワードが誤っているためログインできません";
+			$this->Auth->loginError = __("Invalid username or password", true);
 			//権限が無いactionを実行した際のエラーメッセージ
 			$this->Auth->authError = __('You have no privileges', true);
 			//ログイン後にリダイレクトするURL
@@ -149,12 +149,12 @@ class AppController extends Controller {
 		$this->Qdmail->cakeText($mail_content, $mail_setting['mail_template']);
 		if ($this->Qdmail->send() != false)
 		{
-			$this->log('メール送信完了', LOG_INFO);
+			$this->log(__('Sending email is successfully finished.', true), LOG_INFO);
 			return TRUE;
 		}
 		else
 		{
-			$this->log('メール送信失敗', LOG_INFO);
+			$this->log(__('Sending email is failed.', true), LOG_INFO);
 			return FALSE;
 		}
 	}
