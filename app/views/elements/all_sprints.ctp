@@ -56,9 +56,7 @@ jQuery(document).ready(function()
 
 <div class="sprints index">
 	<h2><?php echo sprintf(__("All %s", true), __('Sprints', true));?></h2>
-
-	<div class="linechart" id="linechart" style="width:60%;height:240px;float:left; margin:10px;"></div>
-
+	<div class="linechart" id="linechart" style="height:160px;margin:30px;"></div>
 	<div id="">
 	<table cellpadding="0" cellspacing="0" id="all_sprints_table">
 	<tr>
