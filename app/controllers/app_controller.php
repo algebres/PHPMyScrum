@@ -106,8 +106,8 @@ class AppController extends Controller {
 	}
 
 	// メール送信処理(汎用)
-	protected function sendmail($mail_setting, $mail_content) {
-
+	protected function sendmail($mail_setting, $mail_content)
+	{
 		// QdmailとDebugKitの共存対応
 		$this->view = "View";
 		Configure::write("debug", 0);
@@ -175,6 +175,5 @@ class AppController extends Controller {
 			$this->redirect($url);
 		}
 	}
-
 }
 ?>
