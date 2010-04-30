@@ -4,13 +4,16 @@ class TeamsController extends AppController {
 	var $name = 'Teams';
 	var $components = array('Session');
 
-	function index() {
+	function index()
+	{
 		$this->Team->recursive = 0;
 		$this->set('teams', $this->paginate());
 	}
 
-	function view($id = null) {
-		if (!$id) {
+	function view($id = null)
+	{
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Team', true)));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -18,38 +21,52 @@ class TeamsController extends AppController {
 		$this->set('team', $this->Team->read(null, $id));
 	}
 
-	function add() {
-		if (!empty($this->data)) {
+	function add()
+	{
+		if (!empty($this->data))
+		{
 			$this->Team->create();
-			if ($this->Team->save($this->data, array('fieldList' => $this->Team->fields['save']))) {
+			if ($this->Team->save($this->data, array('fieldList' => $this->Team->fields['save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'team'));
 				$this->redirect(array('action' => 'index'));
-			} else {
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Team', true)));
 			}
 		}
 	}
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
+	function edit($id = null)
+	{
+		if (!$id && empty($this->data))
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Team', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Team->save($this->data, array('fieldList' => $this->Team->fields['save']))) {
+		if (!empty($this->data))
+		{
+			if ($this->Team->save($this->data, array('fieldList' => $this->Team->fields['save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'team'));
 				$this->redirect(array('action' => 'index'));
-			} else {
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Team', true)));
 			}
 		}
-		if (empty($this->data)) {
+		if (empty($this->data))
+		{
 			$this->data = $this->Team->read(null, $id);
 		}
 	}
 
-	function delete($id = null) {
-		if (!$id) {
+	function delete($id = null)
+	{
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Team', true)));
 			$this->redirect(array('action'=>'index'));
 		}

@@ -5,7 +5,8 @@ class SprintsController extends AppController {
 	var $components = array('Session');
 	var $uses = array('Sprint', 'Story', 'Resolution');
 
-	function index() {
+	function index()
+	{
 		$this->Sprint->recursive = 1;
 		$this->paginate = array(
 			'conditions' => array(
@@ -15,7 +16,8 @@ class SprintsController extends AppController {
 		$this->set('sprints', $this->paginate());
 	}
 
-	function view($id = null) {
+	function view($id = null)
+	{
 		if (!$id) 
 		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
@@ -57,7 +59,8 @@ class SprintsController extends AppController {
 	}
 
 	function storylist($id = null) {
-		if (!$id) {
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -71,37 +74,50 @@ class SprintsController extends AppController {
 
 
 	function add() {
-		if (!empty($this->data)) {
+		if (!empty($this->data))
+		{
 			$this->Sprint->create();
-			if ($this->Sprint->save($this->data, array('fieldList' => $this->Sprint->fields['save']))) {
+			if ($this->Sprint->save($this->data, array('fieldList' => $this->Sprint->fields['save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Sprint', true)));
 				$this->redirect(array('action' => 'index'));
-			} else {
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Sprint', true)));
 			}
 		}
 	}
 
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
+	function edit($id = null)
+	{
+		if (!$id && empty($this->data))
+		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Sprint->save($this->data, array('fieldList' => $this->Sprint->fields['save']))) {
+		if (!empty($this->data))
+		{
+			if ($this->Sprint->save($this->data, array('fieldList' => $this->Sprint->fields['save'])))
+			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('Sprint', true)));
 				$this->redirect(array('action' => 'index'));
-			} else {
+			}
+			else
+			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('Sprint', true)));
 			}
 		}
-		if (empty($this->data)) {
+		if (empty($this->data))
+		{
 			$this->data = $this->Sprint->read(null, $id);
 		}
 	}
 
-	function delete($id = null) {
-		if (!$id) {
+	function delete($id = null)
+	{
+		if (!$id)
+		{
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Sprint', true)));
 			$this->_redirect(array('action'=>'index'));
 		}
