@@ -7,72 +7,30 @@ class Sprint extends AppModel {
 		'id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'isUnique' => array(
 				'rule' => array('isUnique'),
 			),
 		),
 		'startdate' => array(
-		//	'date' => array(
-		//		//'rule' => array('date'),
-		//		//'message' => 'Your custom message here',
-		//		//'allowEmpty' => false,
-		//		//'required' => false,
-		//		//'last' => false, // Stop validation after this rule
-		//		//'on' => 'create', // Limit validation to 'create' or 'update' operations
-		//	),
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'enddate' => array(
-		//	'date' => array(
-		//		//'rule' => array('date'),
-		//		//'message' => 'Your custom message here',
-		//		//'allowEmpty' => false,
-		//		//'required' => false,
-		//		//'last' => false, // Stop validation after this rule
-		//		//'on' => 'create', // Limit validation to 'create' or 'update' operations
-		//	),
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
 		'Task' => array(
@@ -107,7 +65,10 @@ class Sprint extends AppModel {
 		'save' => array('name', 'description', 'startdate', 'enddate'),
 	);
 
-
+	/**
+	 * 現在のスプリントを取得する
+	 * @return スプリント情報の配列
+	 */
 	function getCurrentSprint()
 	{
 		$current = date('Y-m-d H:i:s');
@@ -122,7 +83,8 @@ class Sprint extends AppModel {
 	}
 
 	/**
-	 * 現在有効なスプリント
+	 * 現在有効なスプリントの名前の一覧を取得
+	 * @return 一覧用のリスト
 	 */
 	function getActiveSprintList()
 	{
@@ -134,6 +96,10 @@ class Sprint extends AppModel {
 		return $this->find('list', $conditions);
 	}
 
+	/**
+	 * 全てのスプリントを取得する
+	 * @return スプリントのリスト
+	 */
 	function getAllSprints()
 	{
 		$conditions = array(
@@ -144,6 +110,11 @@ class Sprint extends AppModel {
 		return $this->find('all', $conditions);
 	}
 
+	/**
+	 * スプリント0を仮想的に作成する
+	 * @param $sprints　スプリント0を追加する配列
+	 * @return スプリント0追加後の配列
+	 */
 	function makeSprintZero($sprints)
 	{
 		$data["Sprint"]["id"] = 0;
@@ -154,6 +125,9 @@ class Sprint extends AppModel {
 
 	/**
 	 * スプリント一覧から名前に合致するスプリントのIDを探す
+	 * @param $sprints　スプリント名一覧
+	 * @param $name 調査対象
+	 * @return integer ID
 	 */
 	function getSprintId($sprints, $name)
 	{
@@ -169,6 +143,8 @@ class Sprint extends AppModel {
 
 	/**
 	 * スプリント期間の日数
+	 * @param $sprint_id
+	 * @return unknown_type
 	 */
 	function getSprintTerm($sprint_id)
 	{
@@ -182,6 +158,12 @@ class Sprint extends AppModel {
 		return $this->datediff($start_date, $end_date);
 	}
 
+	/**
+	 * 日付の差を取得する
+	 * @param $start_date
+	 * @param $end_date
+	 * @return unknown_type
+	 */
 	private function datediff($start_date, $end_date)
 	{
 		// 日付にばらす

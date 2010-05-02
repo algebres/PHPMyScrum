@@ -11,6 +11,11 @@ class AppController extends Controller {
 	 */
 	var $Auth;
 	/**
+	 * Qdmail Component
+	 * @var QdmailComponent
+	 */
+	var $Qdmail;
+	/**
 	 * User model
 	 * @var User
 	 */

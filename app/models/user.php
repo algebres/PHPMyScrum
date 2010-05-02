@@ -2,98 +2,52 @@
 class User extends AppModel {
 	var $name = 'User';
 	var $displayField = 'username';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false));
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'loginname' => array(
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'unique' => array(
 				'rule' => array('isUnique'),
 			),
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'password' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'username' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'unique' => array(
 				'rule' => array('isUnique'),
 			),
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
 		'Task' => array(
@@ -130,16 +84,16 @@ class User extends AppModel {
 	{
 		parent::__construct();
 
-		// ’Êí
+		// é€šå¸¸
 		$this->fields["add"] = array('name', 'loginname', 'password', 'username', 'email');
 		$this->fields["edit"] = $this->fields["add"];
-		//ŠÇ—Ò—p
+		//ç®¡ç†è€…ç”¨
 		$this->fields["admin_add"] = $this->fields["add"];	$this->fields["admin_add"][] = "admin";
 		$this->fields["admin_edit"] = $this->fields["admin_add"];
 	}
 
 	/**
-	 * Œ»İ—LŒø‚Èƒ†[ƒU[
+	 * ç¾åœ¨æœ‰åŠ¹ãªãƒ¦ãƒ¼ã‚¶ãƒ¼
 	 */
 	function getActiveUserList()
 	{
@@ -152,7 +106,7 @@ class User extends AppModel {
 	}
 
 	/**
-	 * ƒ†[ƒU[–¼ˆê——‚©‚ç–¼‘O‚É‡’v‚·‚éƒ†[ƒU[‚ÌID‚ğ’T‚·
+	 * ãƒ¦ãƒ¼ã‚¶ãƒ¼åä¸€è¦§ã‹ã‚‰åå‰ã«åˆè‡´ã™ã‚‹ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®IDã‚’æ¢ã™
 	 */
 	function getUserId($users, $name)
 	{
@@ -168,7 +122,7 @@ class User extends AppModel {
 
 
 	/**
-	 * Œ»İ—LŒø‚Èƒ†[ƒU[‚ª‚¢‚é‚©‚Ç‚¤‚©
+	 * ç¾åœ¨æœ‰åŠ¹ãªãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒã„ã‚‹ã‹ã©ã†ã‹
 	 */
 	function hasActiveUser()
 	{
@@ -176,7 +130,7 @@ class User extends AppModel {
 	}
 
 	/**
-	 * ŠÇ—Òƒ†[ƒU[
+	 * ç®¡ç†è€…ãƒ¦ãƒ¼ã‚¶ãƒ¼
 	 */
 	function getAdminUserList()
 	{
@@ -190,7 +144,7 @@ class User extends AppModel {
 	}
 
 	/**
-	 * ŠÇ—Òƒ†[ƒU[‚ª‚¢‚é‚©‚Ç‚¤‚©
+	 * ç®¡ç†è€…ãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒã„ã‚‹ã‹ã©ã†ã‹
 	 */
 	function hasAdminUser()
 	{
@@ -198,7 +152,7 @@ class User extends AppModel {
 	}
 
 	/**
-	 * ƒpƒXƒ[ƒh‚ğƒ‰ƒ“ƒ_ƒ€‚Éì¬
+	 * ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«ä½œæˆ
 	 */
 	function make_password($length = 8)
 	{
@@ -213,7 +167,7 @@ class User extends AppModel {
 	}
 
 	/**
-	 * ƒAƒJƒEƒ“ƒgƒŠƒ}ƒCƒ“ƒ_“™‚É”õ‚¦‚ÄƒoƒŠƒf[ƒVƒ‡ƒ“‚ğ•ÏX‚·‚é
+	 * ã‚¢ã‚«ã‚¦ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒ€ç­‰ã«å‚™ãˆã¦ãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å¤‰æ›´ã™ã‚‹
 	 */
 	function changeValidationRuleForReset()
 	{

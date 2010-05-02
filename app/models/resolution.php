@@ -6,15 +6,9 @@ class Resolution extends AppModel {
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
 		'Task' => array(
@@ -32,6 +26,11 @@ class Resolution extends AppModel {
 		)
 	);
 
+	/**
+	 * 解決に該当する状況かどうか
+	 * @param $id
+	 * @return boolean
+	 */
 	function is_fixed($id)
 	{
 		$record = $this->findById($id);
@@ -46,7 +45,8 @@ class Resolution extends AppModel {
 	}
 
 	/**
-	 * ���ݗL���ȉ�����
+	 * 現在有効な解決状況のリストを取得する(プルダウン用)
+	 * @return リスト
 	 */
 	function getActiveResolutionList()
 	{
@@ -55,7 +55,10 @@ class Resolution extends AppModel {
 	}
 
 	/**
-	 * �����󋵈ꗗ���疼�O�ɍ��v��������󋵂�ID��T��
+	 * 解決状況一覧から名前に合致する解決状況のIDを探す
+	 * @param $resolutions 解決状況の名前のリスト
+	 * @param $name 調べたい解決状況
+	 * @return integer
 	 */
 	function getResolutionId($resolutions, $name)
 	{
@@ -70,7 +73,8 @@ class Resolution extends AppModel {
 	}
 
 	/**
-	 * �����f�[�^
+	 * 初期データ
+	 * @return boolean
 	 */
 	function makeInitialRecord()
 	{

@@ -2,7 +2,7 @@
 class Story extends AppModel {
 	var $name = 'Story';
 	var $displayField = 'name';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false));
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
@@ -28,7 +28,6 @@ class Story extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
 		'Priority' => array(
@@ -96,7 +95,7 @@ class Story extends AppModel {
 	);
 
 	/**
-	 * Œ»İ—LŒø‚ÈƒXƒg[ƒŠ[‚Ì–¼‘O‚ğƒŠƒXƒgƒ{ƒbƒNƒX—p‚Éæ“¾
+	 * ç¾åœ¨æœ‰åŠ¹ãªã‚¹ãƒˆãƒ¼ãƒªãƒ¼ã®åå‰ã‚’ãƒªã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ç”¨ã«å–å¾—
 	 */
 	function getActiveStoryList()
 	{
@@ -109,7 +108,7 @@ class Story extends AppModel {
 	}
 
 	/**
-	 * Œ»İ—LŒø‚ÈƒXƒg[ƒŠ[‚Ì–¼‘O‚ğƒtƒ‹Œ`®‚Åæ“¾
+	 * ç¾åœ¨æœ‰åŠ¹ãªã‚¹ãƒˆãƒ¼ãƒªãƒ¼ã®åå‰ã‚’ãƒ•ãƒ«å½¢å¼ã§å–å¾—
 	 */
 	function getActiveStory()
 	{
@@ -122,7 +121,7 @@ class Story extends AppModel {
 	}
 
 	/**
-	 * w’è‚µ‚½ƒXƒg[ƒŠ[‚Í—LŒø‚Èƒ^ƒXƒN‚Æ•R•t‚¢‚Ä‚¢‚é‚©
+	 * æŒ‡å®šã—ãŸã‚¹ãƒˆãƒ¼ãƒªãƒ¼ã¯æœ‰åŠ¹ãªã‚¿ã‚¹ã‚¯ã¨ç´ä»˜ã„ã¦ã„ã‚‹ã‹
 	 */
 	function hasActiveTasks($id)
 	{
@@ -130,12 +129,12 @@ class Story extends AppModel {
 		$has_many = $this->hasMany;
 		$this->hasMany["Task"]["conditions"] = "Task.disabled = 0";
 		$record = $this->read(null, $id);
-		$this->hasMany = $has_many;	// Œ³‚É–ß‚·
-		return (count($record["Task"]) != 0); 
+		$this->hasMany = $has_many;	// å…ƒã«æˆ»ã™
+		return (count($record["Task"]) != 0);
 	}
 
 	/**
-	 * ‰ğŒˆó‹µˆê——‚©‚ç–¼‘O‚É‡’v‚·‚é‰ğŒˆó‹µ‚ÌID‚ğ’T‚·
+	 * è§£æ±ºçŠ¶æ³ä¸€è¦§ã‹ã‚‰åå‰ã«åˆè‡´ã™ã‚‹è§£æ±ºçŠ¶æ³ã®IDã‚’æ¢ã™
 	 */
 	function isValidStoryId($stories, $id)
 	{
@@ -151,9 +150,9 @@ class Story extends AppModel {
 
 
 	/**
-	 * ‡Œvƒ^ƒXƒN”‚â‡Œvc‚èŠÔ‚ğŒvZ
+	 * åˆè¨ˆã‚¿ã‚¹ã‚¯æ•°ã‚„åˆè¨ˆæ®‹ã‚Šæ™‚é–“ã‚’è¨ˆç®—
 	 *
-	 * @description ‚±‚Ìƒ‚ƒfƒ‹‚ğåƒL[‚É‚µ‚½ê‡‚Ì‚İ—˜—p‰Â”\
+	 * @description ã“ã®ãƒ¢ãƒ‡ãƒ«ã‚’ä¸»ã‚­ãƒ¼ã«ã—ãŸå ´åˆã®ã¿åˆ©ç”¨å¯èƒ½
 	 */
 	function populate_data($data)
 	{
@@ -172,7 +171,7 @@ class Story extends AppModel {
 	}
 
 	/**
-	 * Excel•Û‘¶
+	 * Excelä¿å­˜
 	 */
 	function saveToExcel($data, $filename)
 	{
@@ -180,7 +179,7 @@ class Story extends AppModel {
 		App::import('Vendor', 'include_path');
 		App::import(
 			'Vendor',
-			'Spreadsheet_Excel_Writer', 
+			'Spreadsheet_Excel_Writer',
 			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
 		);
 
@@ -193,9 +192,9 @@ class Story extends AppModel {
 		$header_format->setSize(9);
 		$header_format->setFgColor('gray');
 
-		// ƒwƒbƒ_[
-		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
-			sprintf(__('Count of %s', true), (__('Task', true))),  
+		// ãƒ˜ãƒƒãƒ€ãƒ¼
+		$header = array('Story Id', 'Story', 'Description', 'Story Points',
+			sprintf(__('Count of %s', true), (__('Task', true))),
 			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
 			'Businessvalue', 'Sprint', 'Priority', 'Resolution', 'Team', 'Created',
 		);
@@ -207,7 +206,7 @@ class Story extends AppModel {
 			$col++;
 		}
 
-		// ƒf[ƒ^
+		// ãƒ‡ãƒ¼ã‚¿
 		$row++;
 		foreach($data as $item)
 		{
@@ -227,7 +226,7 @@ class Story extends AppModel {
 			$row++;
 		}
 
-		// ‰¡•İ’è
+		// æ¨ªå¹…è¨­å®š
 		$width = array(4, 50, 50 ,10, 10, 10, 10, 10, 20, 10, 10);
 		for($i = 0; $i<count($width); $i++)
 		{
@@ -239,13 +238,13 @@ class Story extends AppModel {
 	}
 
 	/**
-	 * CSV‚Ìƒwƒbƒ_[
+	 * CSVã®ãƒ˜ãƒƒãƒ€ãƒ¼
 	 */
 	function getCSVHeader()
 	{
 		// header
-		$header = array('Story Id', 'Story', 'Description', 'Story Points', 
-			sprintf(__('Count of %s', true), (__('Task', true))),  
+		$header = array('Story Id', 'Story', 'Description', 'Story Points',
+			sprintf(__('Count of %s', true), (__('Task', true))),
 			sprintf(__('Sum of %s', true), (__('Remaining Hours', true))),
 			'Businessvalue', 'Sprint', 'Priority', 'Resolution', 'Team', 'Created',
 		);
@@ -258,7 +257,7 @@ class Story extends AppModel {
 	}
 
 	/**
-	 * CSV•Û‘¶
+	 * CSVä¿å­˜
 	 */
 	function saveToCSV($data, $filename)
 	{

@@ -1,40 +1,23 @@
 <?php
 class Priority extends AppModel {
 	var $name = 'Priority';
-	// soft delete
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false));
 	var $displayField = 'name';
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
 		'Story' => array(
@@ -57,7 +40,8 @@ class Priority extends AppModel {
 	);
 
 	/**
-	 * Œ»Ý—LŒø‚È—Dæ‡ˆÊ
+	 * æœ‰åŠ¹ãªå„ªå…ˆé †ä½ã®ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
+	 * @return ãƒªã‚¹ãƒˆå½¢å¼ç”¨é…åˆ—
 	 */
 	function getActivePriorityList()
 	{
@@ -70,7 +54,10 @@ class Priority extends AppModel {
 	}
 
 	/**
-	 * —Dæ‡ˆÊˆê——‚©‚ç–¼‘O‚É‡’v‚·‚é—Dæ‡ˆÊ‚ÌID‚ð’T‚·
+	 * å„ªå…ˆé †ä½æ–‡å­—åˆ—ã«è©²å½“ã™ã‚‹IDã‚’å–å¾—ã™ã‚‹
+	 * @param $priorities å„ªå…ˆé †ä½æ–‡å­—åˆ—ã®é…åˆ—
+	 * @param $name èª¿ã¹ãŸã„æ–‡å­—åˆ—
+	 * @return integer ID
 	 */
 	function getPriorityId($priorities, $name)
 	{
@@ -85,7 +72,9 @@ class Priority extends AppModel {
 	}
 
 	/**
-	 * Žw’è‚µ‚½—Dæ‡ˆÊ‚Í—LŒø‚ÈƒXƒg[ƒŠ[‚Æ•R•t‚¢‚Ä‚¢‚é‚©
+	 * ã“ã®å„ªå…ˆé †ä½ãŒæœ‰åŠ¹ãªã‚¹ãƒˆãƒ¼ãƒªãƒ¼ã‚’æŒã£ã¦ã„ã‚‹ã‹
+	 * @param $id
+	 * @return boolean
 	 */
 	function hasActiveStories($id)
 	{
@@ -93,8 +82,8 @@ class Priority extends AppModel {
 		$has_many = $this->hasMany;
 		$this->hasMany["Story"]["conditions"] = "Story.disabled = 0";
 		$record = $this->read(null, $id);
-		$this->hasMany = $has_many;	// Œ³‚É–ß‚·
-		return (count($record["Story"]) != 0); 
+		$this->hasMany = $has_many;
+		return (count($record["Story"]) != 0);
 	}
 }
 ?>

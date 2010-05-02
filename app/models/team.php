@@ -7,33 +7,17 @@ class Team extends AppModel {
 		'id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
 		'Teammember' => array(
@@ -56,7 +40,7 @@ class Team extends AppModel {
 	);
 
 	/**
-	 * Œ»İ—LŒø‚Èƒ`[ƒ€
+	 * ç¾åœ¨æœ‰åŠ¹ãªãƒãƒ¼ãƒ 
 	 */
 	function getActiveTeamList()
 	{
@@ -69,7 +53,7 @@ class Team extends AppModel {
 	}
 
 	/**
-	 * ƒ`[ƒ€–¼ˆê——‚©‚ç–¼‘O‚É‡’v‚·‚éƒ`[ƒ€‚ÌID‚ğ’T‚·
+	 * ãƒãƒ¼ãƒ åä¸€è¦§ã‹ã‚‰åå‰ã«åˆè‡´ã™ã‚‹ãƒãƒ¼ãƒ ã®IDã‚’æ¢ã™
 	 */
 	function getTeamId($teams, $name)
 	{

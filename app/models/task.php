@@ -4,68 +4,37 @@ App::import('Mode', 'RemainingTime');
 class Task extends AppModel {
 	var $name = 'Task';
 	var $displayField = 'name';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false)); 
+	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false));
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'sprint_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'story_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'estimate_hours' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
 		'Sprint' => array(
@@ -121,7 +90,7 @@ class Task extends AppModel {
 
 
 	/**
-	 * ƒ^ƒXƒNXV‚ÌÛ‚É‚ÍŠÔ‚ğcŠÔƒe[ƒuƒ‹‚É‚à“Ë‚Á‚Ş
+	 * ã‚¿ã‚¹ã‚¯æ›´æ–°ã®éš›ã«ã¯æ™‚é–“ã‚’æ®‹æ™‚é–“ãƒ†ãƒ¼ãƒ–ãƒ«ã«ã‚‚çªã£è¾¼ã‚€
 	 */
 	function afterSave($created)
 	{
@@ -165,7 +134,7 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * ƒ^ƒXƒN‚ğíœ‚µ‚½‚ ‚ÆcŠÔƒf[ƒ^‚àíœ
+	 * ã‚¿ã‚¹ã‚¯ã‚’å‰Šé™¤ã—ãŸã‚ã¨æ®‹æ™‚é–“ãƒ‡ãƒ¼ã‚¿ã‚‚å‰Šé™¤
 	 */
 	function deleteRemaining($task_id)
 	{
@@ -177,7 +146,7 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * ©•ª‚Ìƒ^ƒXƒN‚ğæ“¾
+	 * è‡ªåˆ†ã®ã‚¿ã‚¹ã‚¯ã‚’å–å¾—
 	 */
 	function getUserTask($user_id, $include_finished_data = false)
 	{
@@ -195,7 +164,7 @@ class Task extends AppModel {
 		$records = $this->find('all', $conditions);
 		$this->belongsTo = $belongsto;
 
-		// Š®—¹Ï‚İ‚ğŠÜ‚ß‚È‚¢ê‡‚Í‘|œ
+		// å®Œäº†æ¸ˆã¿ã‚’å«ã‚ãªã„å ´åˆã¯æƒé™¤
 		if(!$include_finished_data)
 		{
 			for($i=count($records)-1; $i>=0; $i--)
@@ -211,7 +180,7 @@ class Task extends AppModel {
 
 	function getRemainingHours($story_id)
 	{
-		// ŠÖ˜A‚·‚éƒ^ƒXƒN‚Ìc‚èŠÔ‚ğæ“¾
+		// é–¢é€£ã™ã‚‹ã‚¿ã‚¹ã‚¯ã®æ®‹ã‚Šæ™‚é–“ã‚’å–å¾—
 		$conditions =  array(
 				'conditions' => array(
 					'Task.disabled' => 0,
@@ -228,7 +197,7 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * Excel•Û‘¶
+	 * Excelä¿å­˜
 	 */
 	function saveToExcel($data, $filename)
 	{
@@ -236,7 +205,7 @@ class Task extends AppModel {
 		App::import('Vendor', 'include_path');
 		App::import(
 			'Vendor',
-			'Spreadsheet_Excel_Writer', 
+			'Spreadsheet_Excel_Writer',
 			array('file' => 'Spreadsheet' . DS . 'Excel' . DS . 'Writer.php')
 		);
 
@@ -249,8 +218,8 @@ class Task extends AppModel {
 		$header_format->setSize(9);
 		$header_format->setFgColor('gray');
 
-		// ƒwƒbƒ_[
-		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description', 
+		// ãƒ˜ãƒƒãƒ€ãƒ¼
+		$header = array('Task Id', 'Sprint', 'Story', 'Task', 'Description',
 			'Estimate Hours', 'Username', 'Resolution', 'Created'
 		);
 		$row = 0;
@@ -261,7 +230,7 @@ class Task extends AppModel {
 			$col++;
 		}
 
-		// ƒf[ƒ^
+		// ãƒ‡ãƒ¼ã‚¿
 		$row++;
 		foreach($data as $item)
 		{
@@ -278,7 +247,7 @@ class Task extends AppModel {
 			$row++;
 		}
 
-		// ‰¡•İ’è
+		// æ¨ªå¹…è¨­å®š
 		$width = array(4, 14, 50, 50 ,50, 10, 10, 10, 10);
 		for($i = 0; $i<count($width); $i++)
 		{
@@ -290,11 +259,11 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * CSV‚Ìƒwƒbƒ_[
+	 * CSVã®ãƒ˜ãƒƒãƒ€ãƒ¼
 	 */
 	function getCSVHeader()
 	{
-		$header = array('Task Id', 'Sprint', 'Story Id', 'Story', 'Task', 'Description', 
+		$header = array('Task Id', 'Sprint', 'Story Id', 'Story', 'Task', 'Description',
 			'Estimate Hours', 'Username', 'Resolution', 'Created'
 		);
 		$row = array();
@@ -306,7 +275,7 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * CSV•Û‘¶
+	 * CSVä¿å­˜
 	 */
 	function saveToCSV($data, $filename)
 	{
@@ -336,7 +305,7 @@ class Task extends AppModel {
 	}
 
 	/**
-	 * ŒŸõğŒ
+	 * æ¤œç´¢æ¡ä»¶
 	 */
 	function getSelectConditon($param, $user_id)
 	{

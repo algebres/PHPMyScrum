@@ -6,27 +6,18 @@ class Project extends AppModel {
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'disabled' => array(
 			'boolean' => array(
 				'rule' => array('boolean'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
 
 	/**
-	 * ƒvƒƒWƒFƒNƒgî•ñ‚ğæ“¾
+	 * ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆæƒ…å ±ã‚’å–å¾—ã™ã‚‹
+	 * @return ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆæƒ…å ±
 	 */
 	function getProjectInfo()
 	{
