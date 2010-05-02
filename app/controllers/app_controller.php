@@ -6,11 +6,25 @@ class AppController extends Controller {
 	var $uses = array('User', 'Project', 'Sprint');
 
 	/**
-	 * 認証コンポーネント
-	 *
+	 * Auth Component
 	 * @var AuthComponent
 	 */
 	var $Auth;
+	/**
+	 * User model
+	 * @var User
+	 */
+	var $User;
+	/**
+	 * Sprint model
+	 * @var Sprint
+	 */
+	var $Sprint;
+	/**
+	 * Project model
+	 * @var Project
+	 */
+	var $Project;
 
 	function __construct()
 	{
@@ -162,7 +176,7 @@ class AppController extends Controller {
 	/**
 	 * 引数にreturn_urlがついていた場合はそちらを優先する
 	 */
-	function _redirect($url) 
+	function _redirect($url)
 	{
 		$return_url = @$this->params['url']['return_url'];
 		if ($return_url != "")

@@ -3,7 +3,6 @@ class InformationController extends AppController {
 
 	var $name = 'Information';
 	var $components = array('Session');
-	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
 
 	function index()
 	{

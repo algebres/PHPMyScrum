@@ -1,7 +1,6 @@
 <?php
 class StoriesController extends AppController
 {
-
 	var $name = 'Stories';
 	var $components = array('Session');
 	var $uses = array('Story', 'Sprint', 'Priority', 'Team', 'Resolution', 'Task');
@@ -348,7 +347,7 @@ class StoriesController extends AppController
 	{
 		// the page we will redirect to
 		$url['action'] = 'search_index';
-	   
+
 		// build a URL will all the search elements in it
 		// the resulting URL will be
 		// example.com/cake/posts/index/Search.keywords:mykeyword/Search.tag_id:3

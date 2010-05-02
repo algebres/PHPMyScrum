@@ -3,7 +3,6 @@ class ProjectsController extends AppController {
 
 	var $name = 'Projects';
 	var $components = array('Session');
-	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
 
 	function view()
 	{
@@ -11,7 +10,8 @@ class ProjectsController extends AppController {
 		$this->set('project', $this->Project->read(null, $id));
 	}
 
-	function edit() {
+	function edit()
+	{
 		$id = 1;
 		if (!empty($this->data))
 		{

@@ -3,8 +3,29 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $components = array('Session', 'PmsCommon');
-	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
 	var $uses = array('User', 'Sprint', 'Task', 'Project', 'Information', 'Story');
+
+	/**
+	 * Task model
+	 * @var Task
+	 */
+	var $Task;
+	/**
+	 * Information model
+	 * @var Information
+	 */
+	var $Information;
+	/**
+	 * Story model
+	 * @var Story
+	 */
+	var $Story;
+
+	/**
+	 * Session
+	 * @var SessionComponent
+	 */
+	var $Session;
 
 	//ログイン処理
 	function login()
@@ -59,15 +80,15 @@ class UsersController extends AppController {
 		$this->set("all_sprints", $all_sprints);
 	}
 
-	function index() 
+	function index()
 	{
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
-	function view($id = null) 
+	function view($id = null)
 	{
-		if (!$id) 
+		if (!$id)
 		{
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('User', true)));
 			$this->redirect(array('action' => 'index'));
@@ -76,7 +97,7 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function add() 
+	function add()
 	{
 		if (!empty($this->data))
 		{
@@ -109,7 +130,7 @@ class UsersController extends AppController {
 				{
 					$this->redirect(array('controller' => 'projects', 'action' => 'edit'));
 				}
-			} 
+			}
 			else
 			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('User', true)));
@@ -139,7 +160,7 @@ class UsersController extends AppController {
 			$this->User->addValidationRuleChangePassword(); // add validation rule
 			$this->data['User']['password'] = AuthComponent::password ($this->data['User']['new_password']);
 			$this->User->set($this->data);
-			if (!$this->User->validates($this->data)) 
+			if (!$this->User->validates($this->data))
 			{
 				return;
 			}
@@ -159,21 +180,21 @@ class UsersController extends AppController {
 			{
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('User', true)));
 				$this->redirect(array('action' => 'index'));
-			} 
-			else 
+			}
+			else
 			{
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('User', true)));
 			}
 		}
-		if (empty($this->data)) 
+		if (empty($this->data))
 		{
 			$this->data = $this->User->read(null, $id);
 		}
 	}
 
-	function delete($id = null) 
+	function delete($id = null)
 	{
-		if (!$id) 
+		if (!$id)
 		{
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('User', true)));
 			$this->redirect(array('action'=>'index'));
@@ -194,7 +215,7 @@ class UsersController extends AppController {
 	}
 
 	// パスワード再発行
-	function reset_password() 
+	function reset_password()
 	{
 		if (empty($this->data))
 		{
