@@ -25,7 +25,7 @@ class StoriesController extends AppController
 
 		// get all sprints
 		$sprints = $this->Sprint->getAllSprints();
-		$this->Story->makeSprintZero($sprints);
+		$sprints = $this->Sprint->makeSprintZero($sprints);
 		$this->set('sprints', $sprints);
 	}
 
