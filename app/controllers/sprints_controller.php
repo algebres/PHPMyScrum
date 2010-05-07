@@ -23,7 +23,7 @@ class SprintsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Sprint->recursive = 1;	// story–¼“™
+		$this->Sprint->recursive = 1;
 		$sprint = $this->Sprint->read(null, $id);
 		$this->set('sprint', $sprint);
 		$this->set('total_story_point', $this->Sprint->getTotalStoryPoint($sprint));
@@ -42,7 +42,7 @@ class SprintsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Sprint->recursive = 2;	// story–¼“™
+		$this->Sprint->recursive = 2;
 		$sprint = $this->Sprint->read(null, $id);
 		$this->set('sprint', $sprint);
 		$this->Resolution->recursive = -1;
@@ -64,7 +64,7 @@ class SprintsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sprint', true)));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Sprint->recursive = 2;	// story–¼“™
+		$this->Sprint->recursive = 2;
 		$sprint = $this->Sprint->read(null, $id);
 		$this->set('sprint', $sprint);
 		$this->set('sprint_term', $this->Sprint->getSprintTerm($sprint["Sprint"]["id"]));
@@ -121,7 +121,6 @@ class SprintsController extends AppController {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('Sprint', true)));
 			$this->_redirect(array('action'=>'index'));
 		}
-		// ŠÖ˜A‚·‚é‚à‚Ì‚ª‚ ‚é‚©Šm”F
 		if($this->Sprint->hasActiveStoriesAndTask($id))
 		{
 			$this->Session->setFlash(sprintf(__('%s has related records', true), __('Sprint', true)));
