@@ -127,7 +127,6 @@ if(isset($login_user)) {
 		</div>
 	</div>
 	<!-- end #container -->
-	<?php echo $this->element('sql_dump'); ?>
 </div>
 <!-- end #wrapper -->
 </body>

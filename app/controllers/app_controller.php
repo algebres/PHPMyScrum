@@ -36,7 +36,7 @@ class AppController extends Controller {
 
 		if (Configure::read('Config.debug') != "0")
 		{
-		//	array_push($this->components, 'DebugKit.Toolbar');
+			array_push($this->components, 'DebugKit.Toolbar');
 		}
 		parent::__construct();
 	}
