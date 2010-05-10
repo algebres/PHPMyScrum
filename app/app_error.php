@@ -12,3 +12,4 @@ class AppError extends ErrorHandler
 				$this->_outputMessage('sys_error');
 		}
 }
+?>
