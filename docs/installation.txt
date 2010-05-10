@@ -1,0 +1,9 @@
+mysql
+
+create database phpmyscrum;
+grant all on phpmyscrum.* to user@localhost identified by 'password';
+grant all on phpmyscrum.* to user@'%' identified by 'password';
+flush privileges;
+
+
+C:\dev\projects\phpmyscrum\workspace>cake\console\cake.bat bake

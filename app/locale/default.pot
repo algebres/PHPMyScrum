@@ -1,0 +1,1336 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-04-24 05:52+0900\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: \app_error.php:9
+msgid "System Error"
+msgstr ""
+
+#: \config\core.php:319
+msgid "Reset password"
+msgstr ""
+
+#: \controllers\app_controller.php:47
+msgid "Invalid username or password"
+msgstr ""
+
+#: \controllers\app_controller.php:49
+#: \controllers\users_controller.php:132;186
+msgid "You have no privileges"
+msgstr ""
+
+#: \controllers\app_controller.php:152
+msgid "Sending email is successfully finished."
+msgstr ""
+
+#: \controllers\app_controller.php:157
+msgid "Sending email is failed."
+msgstr ""
+
+#: \controllers\information_controller.php:15;35
+#: \controllers\priorities_controller.php:19;39
+#: \controllers\remaining_times_controller.php:14;36
+#: \controllers\sprints_controller.php:21;40;53;61;87
+#: \controllers\stories_controller.php:81;91;121
+#: \controllers\story_comments_controller.php:9
+#: \controllers\tasks_controller.php:22;46;170
+#: \controllers\teammembers_controller.php:14;37
+#: \controllers\teams_controller.php:14;35
+#: \controllers\users_controller.php:72;124
+msgid "Invalid %s"
+msgstr ""
+
+#: \controllers\information_controller.php:15;25;28;35;40;43;53;57
+#: \views\elements\information.ctp:2
+#: \views\information\add.ctp:4;11
+#: \views\information\edit.ctp:4;11
+#: \views\information\index.ctp:3;21
+#: \views\information\view.ctp:3;5;12
+#: \views\pages\manage.ctp:11;13;14
+msgid "Information"
+msgstr ""
+
+#: \controllers\information_controller.php:25;40
+#: \controllers\priorities_controller.php:29;44
+#: \controllers\projects_controller.php:17
+#: \controllers\remaining_times_controller.php:24;41
+#: \controllers\sprints_controller.php:77;92
+#: \controllers\stories_controller.php:52;102;147;174
+#: \controllers\story_comments_controller.php:20
+#: \controllers\tasks_controller.php:60;114;138;184;225
+#: \controllers\teammembers_controller.php:24;42
+#: \controllers\teams_controller.php:25;40
+#: \controllers\users_controller.php:103;160
+msgid "The %s has been saved"
+msgstr ""
+
+#: \controllers\information_controller.php:28;43
+#: \controllers\priorities_controller.php:32;47
+#: \controllers\projects_controller.php:20
+#: \controllers\remaining_times_controller.php:27;44
+#: \controllers\sprints_controller.php:80;95
+#: \controllers\stories_controller.php:55;106;150;177
+#: \controllers\story_comments_controller.php:24
+#: \controllers\tasks_controller.php:65;119;152;197;230
+#: \controllers\teammembers_controller.php:27;45
+#: \controllers\teams_controller.php:28;43
+#: \controllers\users_controller.php:115;165
+msgid "The %s could not be saved. Please, try again."
+msgstr ""
+
+#: \controllers\information_controller.php:53
+#: \controllers\priorities_controller.php:57
+#: \controllers\remaining_times_controller.php:56
+#: \controllers\sprints_controller.php:105
+#: \controllers\stories_controller.php:161;185
+#: \controllers\tasks_controller.php:217;239
+#: \controllers\teammembers_controller.php:58
+#: \controllers\teams_controller.php:53
+#: \controllers\users_controller.php:178
+msgid "Invalid id for %s"
+msgstr ""
+
+#: \controllers\information_controller.php:57
+#: \controllers\priorities_controller.php:67
+#: \controllers\remaining_times_controller.php:60
+#: \controllers\sprints_controller.php:116
+#: \controllers\stories_controller.php:196
+#: \controllers\tasks_controller.php:243
+#: \controllers\teammembers_controller.php:62
+#: \controllers\teams_controller.php:57
+#: \controllers\users_controller.php:192
+msgid "%s deleted"
+msgstr ""
+
+#: \controllers\priorities_controller.php:19;29;32;39;44;47;57;62;67
+#: \controllers\stories_controller.php:191
+#: \views\pages\manage.ctp:34;36;37
+#: \views\priorities\add.ctp:13
+#: \views\priorities\edit.ctp:12
+#: \views\priorities\index.ctp:3
+#: \views\priorities\view.ctp:3;4;6;12
+#: \views\sprints\storylist.ctp:89
+#: \views\stories\add.ctp:4
+#: \views\stories\search_index.ctp:24
+#: \views\stories\upload.ctp:5
+#: \views\stories\view.ctp:86
+msgid "Priority"
+msgstr ""
+
+#: \controllers\priorities_controller.php:62
+#: \controllers\sprints_controller.php:111
+#: \controllers\stories_controller.php:191
+msgid "%s has related records"
+msgstr ""
+
+#: \controllers\projects_controller.php:17;20
+#: \views\elements\project_info.ctp:2
+#: \views\pages\manage.ctp:6;8
+#: \views\projects\edit.ctp:4
+#: \views\projects\view.ctp:3;9
+msgid "Project"
+msgstr ""
+
+#: \controllers\sprints_controller.php:21;40;53;61;77;80;87;92;95;105;111;116
+#: \views\elements\all_sprints.ctp:63
+#: \views\elements\my_task.ctp:19
+#: \views\pages\manage.ctp:28;30;31
+#: \views\sprints\add.ctp:4
+#: \views\sprints\edit.ctp:11
+#: \views\sprints\index.ctp:3
+#: \views\sprints\storylist.ctp:3;4;5;24;80
+#: \views\sprints\taskboard.ctp:50;51;52;60
+#: \views\sprints\view.ctp:3;4;5;14;71
+#: \views\stories\search_index.ctp:26
+#: \views\stories\view.ctp:81;156
+#: \views\tasks\add.ctp:3
+#: \views\tasks\ajax_view.ctp:9
+#: \views\tasks\view.ctp:24
+msgid "Sprint"
+msgstr ""
+
+#: \controllers\stories_controller.php:51
+msgid "Story status was changed."
+msgstr ""
+
+#: \controllers\stories_controller.php:52;55;81;91;102;106;121;140;147;150;161;167;174;177;185;196
+#: \views\elements\my_task.ctp:20
+#: \views\layouts\default.ctp:85
+#: \views\pages\manage.ctp:23;25
+#: \views\priorities\add.ctp:5
+#: \views\sprints\taskboard.ctp:65
+#: \views\stories\add.ctp:12
+#: \views\stories\board.ctp:92;96
+#: \views\stories\edit.ctp:12
+#: \views\stories\index.ctp:3;8
+#: \views\stories\simple_view.ctp:14;44;46
+#: \views\stories\upload.ctp:3;11;19
+#: \views\stories\view.ctp:14;15;16;18;44
+#: \views\story_comments\add.ctp:4
+#: \views\story_comments\view.ctp:5;20
+#: \views\tasks\add.ctp:4
+#: \views\tasks\ajax_view.ctp:14
+#: \views\tasks\view.ctp:29
+msgid "Story"
+msgstr ""
+
+#: \controllers\stories_controller.php:140;167
+msgid "The story has unfinished task(s)."
+msgstr ""
+
+#: \controllers\stories_controller.php:210
+#: \controllers\tasks_controller.php:257
+msgid "File is not uploaded."
+msgstr ""
+
+#: \controllers\stories_controller.php:229
+#: \controllers\tasks_controller.php:275
+msgid "Can not create temporary file."
+msgstr ""
+
+#: \controllers\stories_controller.php:235
+#: \controllers\tasks_controller.php:281
+msgid "Can not rewind temporary file."
+msgstr ""
+
+#: \controllers\stories_controller.php:259
+#: \controllers\tasks_controller.php:306
+msgid "There is no header record or does not match column count."
+msgstr ""
+
+#: \controllers\stories_controller.php:315
+#: \controllers\tasks_controller.php:359
+msgid "%d records has been imported!"
+msgstr ""
+
+#: \controllers\stories_controller.php:319
+#: \controllers\tasks_controller.php:363
+msgid "%d records has been imported. but some records failed to insert or update."
+msgstr ""
+
+#: \controllers\tasks_controller.php:46;60;65;114;119;138;152;170;184;197;217;225;230;239;243
+#: \models\sprint.php:383
+#: \models\story.php:198;248
+#: \views\layouts\default.ctp:100;101;102;103;104
+#: \views\remaining_times\add.ctp:18
+#: \views\remaining_times\edit.ctp:20
+#: \views\remaining_times\index.ctp:53
+#: \views\remaining_times\view.ctp:9;34
+#: \views\sprints\edit.ctp:4
+#: \views\sprints\storylist.ctp:6
+#: \views\sprints\taskboard.ctp:53
+#: \views\sprints\view.ctp:6
+#: \views\stories\add.ctp:5
+#: \views\stories\board.ctp:140
+#: \views\stories\edit.ctp:6
+#: \views\stories\simple_view.ctp:48
+#: \views\stories\upload.ctp:7
+#: \views\stories\view.ctp:20
+#: \views\tasks\add.ctp:11
+#: \views\tasks\ajax_view.ctp:2
+#: \views\tasks\edit.ctp:12
+#: \views\tasks\index.ctp:3;4;5;6;7;11
+#: \views\tasks\upload.ctp:3;4;5;6;7;16
+#: \views\tasks\view.ctp:3;4;5;6;17
+#: \views\users\view.ctp:9
+msgid "Task"
+msgstr ""
+
+#: \controllers\tasks_controller.php:113
+msgid "Task status was changed."
+msgstr ""
+
+#: \controllers\teammembers_controller.php:14;24;27;37;42;45;58;62
+#: \views\pages\manage.ctp:46;49
+#: \views\teammembers\add.ctp:15
+#: \views\teammembers\edit.ctp:16
+#: \views\teammembers\index.ctp:3
+#: \views\teammembers\view.ctp:3;4;6;16
+#: \views\teams\add.ctp:5
+#: \views\teams\edit.ctp:6
+#: \views\teams\index.ctp:5
+#: \views\teams\view.ctp:8
+#: \views\users\add.ctp:5
+#: \views\users\edit.ctp:6
+#: \views\users\index.ctp:5
+#: \views\users\view.ctp:8
+msgid "Teammember"
+msgstr ""
+
+#: \controllers\teams_controller.php:14;28;35;43;53;57
+#: \views\pages\manage.ctp:40
+#: \views\stories\search_index.ctp:23
+#: \views\stories\view.ctp:96
+#: \views\teammembers\add.ctp:5
+#: \views\teammembers\edit.ctp:6
+#: \views\teammembers\index.ctp:5
+#: \views\teammembers\view.ctp:8;23
+#: \views\teams\add.ctp:13
+#: \views\teams\edit.ctp:14
+#: \views\teams\index.ctp:3
+#: \views\teams\view.ctp:3;4;6;14
+msgid "Team"
+msgstr ""
+
+#: \controllers\users_controller.php:39
+msgid "You have finished to logout."
+msgstr ""
+
+#: \controllers\users_controller.php:72;103;115;124;160;165;178;192
+#: \views\elements\my_task.ctp:22
+#: \views\pages\manage.ctp:17;19;20
+#: \views\story_comments\add.ctp:6
+#: \views\story_comments\view.ctp:7;25
+#: \views\tasks\ajax_view.ctp:39
+#: \views\tasks\view.ctp:54
+#: \views\teammembers\add.ctp:7
+#: \views\teammembers\edit.ctp:8
+#: \views\teammembers\index.ctp:7
+#: \views\teammembers\view.ctp:10;28
+#: \views\users\add.ctp:13
+#: \views\users\edit.ctp:14
+#: \views\users\index.ctp:3
+#: \views\users\login.ctp:4;11
+#: \views\users\view.ctp:3;4;6;28
+msgid "User"
+msgstr ""
+
+#: \controllers\users_controller.php:247
+msgid "We can not send an email to you. Please contact system administrator"
+msgstr ""
+
+#: \controllers\users_controller.php:253
+msgid "We can not make your new password. Please contact system administrator"
+msgstr ""
+
+#: \controllers\wiki_controller.php:46
+msgid "You are not authorized to delete."
+msgstr ""
+
+#: \controllers\wiki_controller.php:62
+msgid "You are not authorized to activate."
+msgstr ""
+
+#: \controllers\wiki_controller.php:66
+msgid "%s %s is now active"
+msgstr ""
+
+#: \controllers\wiki_controller.php:170
+msgid "%s saved"
+msgstr ""
+
+#: \controllers\wiki_controller.php:175
+msgid "%s NOT saved"
+msgstr ""
+
+#: \models\app_model.php:34;35
+msgid "This field can not leave empty."
+msgstr ""
+
+#: \models\app_model.php:36
+msgid "Invalid Email address."
+msgstr ""
+
+#: \models\app_model.php:37
+msgid "Please input numerical and alphabetical characters."
+msgstr ""
+
+#: \models\app_model.php:38
+msgid "Between %2$d and %3$d characters."
+msgstr ""
+
+#: \models\app_model.php:39
+msgid "Please input numerical characters."
+msgstr ""
+
+#: \models\app_model.php:40
+msgid "This value is not a unique."
+msgstr ""
+
+#: \models\app_model.php:41
+msgid "This field can set boolean value."
+msgstr ""
+
+#: \models\project.php:38
+msgid "Default Project"
+msgstr ""
+
+#: \models\project.php:39
+msgid "This is Default Project"
+msgstr ""
+
+#: \models\resolution.php:81
+msgid "TODO"
+msgstr ""
+
+#: \models\resolution.php:86
+msgid "DOING"
+msgstr ""
+
+#: \models\resolution.php:91
+msgid "DONE"
+msgstr ""
+
+#: \models\sprint.php:150
+#: \views\elements\sprint_task.ctp:92
+#: \views\sprints\taskboard.ctp:87
+msgid "Not Assigned"
+msgstr ""
+
+#: \models\sprint.php:433
+#: \views\elements\sprint_task.ctp:188
+msgid "Sum"
+msgstr ""
+
+#: \models\story.php:198;248
+#: \views\sprints\storylist.ctp:87
+#: \views\stories\board.ctp:140
+#: \views\stories\index.ctp:32
+#: \views\stories\search_index.ctp:37
+#: \views\stories\simple_view.ctp:33
+#: \views\stories\view.ctp:71
+msgid "Count of %s"
+msgstr ""
+
+#: \models\story.php:199;249
+#: \views\sprints\storylist.ctp:88
+#: \views\stories\index.ctp:33
+#: \views\stories\search_index.ctp:38
+#: \views\stories\simple_view.ctp:37
+#: \views\stories\view.ctp:76
+msgid "Sum of %s"
+msgstr ""
+
+#: \models\story.php:199;249
+#: \views\sprints\storylist.ctp:88
+#: \views\stories\index.ctp:33
+#: \views\stories\search_index.ctp:38
+#: \views\stories\simple_view.ctp:37
+#: \views\stories\view.ctp:76
+msgid "Remaining Hours"
+msgstr ""
+
+#: \views\elements\all_sprints.ctp:58
+#: \views\layouts\default.ctp:100
+#: \views\tasks\index.ctp:4;44
+#: \views\tasks\upload.ctp:4
+msgid "All %s"
+msgstr ""
+
+#: \views\elements\all_sprints.ctp:58
+#: \views\elements\sprints.ctp:14
+#: \views\layouts\default.ctp:89
+#: \views\sprints\index.ctp:20
+msgid "Sprints"
+msgstr ""
+
+#: \views\elements\all_sprints.ctp:64
+#: \views\sprints\storylist.ctp:71
+#: \views\sprints\view.ctp:61
+msgid "Total Finished Story Point"
+msgstr ""
+
+#: \views\elements\all_sprints.ctp:65
+#: \views\elements\sprints.ctp:20
+#: \views\sprints\index.ctp:26
+#: \views\sprints\storylist.ctp:66
+#: \views\sprints\view.ctp:56
+msgid "Total Story Point"
+msgstr ""
+
+#: \views\elements\all_sprints.ctp:66
+msgid "Total Remaining Story Point"
+msgstr ""
+
+#: \views\elements\all_sprints.ctp:85
+msgid "Total"
+msgstr ""
+
+#: \views\elements\my_task.ctp:14
+msgid "Your unfinished %s"
+msgstr ""
+
+#: \views\elements\my_task.ctp:14
+#: \views\layouts\default.ctp:98
+#: \views\remaining_times\add.ctp:17
+#: \views\remaining_times\edit.ctp:19
+#: \views\remaining_times\index.ctp:52
+#: \views\remaining_times\view.ctp:33
+#: \views\sprints\storylist.ctp:87
+#: \views\stories\edit.ctp:5
+#: \views\stories\index.ctp:32
+#: \views\stories\search_index.ctp:37
+#: \views\stories\simple_view.ctp:33
+#: \views\stories\upload.ctp:6
+#: \views\stories\view.ctp:71;151
+#: \views\tasks\edit.ctp:4
+#: \views\tasks\index.ctp:35;38;41;44
+#: \views\users\view.ctp:80
+msgid "Tasks"
+msgstr ""
+
+#: \views\elements\my_task.ctp:17
+#: \views\elements\sprints.ctp:17
+msgid "id"
+msgstr ""
+
+#: \views\elements\my_task.ctp:18
+#: \views\elements\sprints.ctp:18
+msgid "name"
+msgstr ""
+
+#: \views\elements\my_task.ctp:21
+msgid "estimate_hours"
+msgstr ""
+
+#: \views\elements\my_task.ctp:23
+msgid "created"
+msgstr ""
+
+#: \views\elements\my_task.ctp:25
+msgid "updated"
+msgstr ""
+
+#: \views\elements\my_task.ctp:27
+#: \views\elements\sprints.ctp:23
+#: \views\information\index.ctp:32
+#: \views\priorities\index.ctp:27
+#: \views\priorities\view.ctp:52
+#: \views\remaining_times\add.ctp:13
+#: \views\remaining_times\edit.ctp:14
+#: \views\remaining_times\index.ctp:9;49
+#: \views\remaining_times\view.ctp:27
+#: \views\sprints\index.ctp:31
+#: \views\sprints\storylist.ctp:93
+#: \views\stories\index.ctp:43
+#: \views\stories\search_index.ctp:48
+#: \views\stories\view.ctp:165
+#: \views\tasks\index.ctp:61
+#: \views\teammembers\index.ctp:34
+#: \views\teams\index.ctp:32
+#: \views\teams\view.ctp:73
+#: \views\users\index.ctp:35
+#: \views\users\view.ctp:98;143
+msgid "Actions"
+msgstr ""
+
+#: \views\elements\my_task.ctp:57
+#: \views\sprints\storylist.ctp:124
+#: \views\stories\index.ctp:77
+#: \views\stories\search_index.ctp:82
+#: \views\stories\view.ctp:187
+#: \views\tasks\index.ctp:95
+#: \views\users\view.ctp:124
+msgid "Are you sure you want to chage # %s to be finished?"
+msgstr ""
+
+#: \views\elements\my_task.ctp:59
+#: \views\elements\sprints.ctp:50
+#: \views\information\edit.ctp:3
+#: \views\information\index.ctp:56
+#: \views\priorities\edit.ctp:3
+#: \views\priorities\index.ctp:45
+#: \views\priorities\view.ctp:4;71
+#: \views\remaining_times\edit.ctp:17
+#: \views\remaining_times\index.ctp:29
+#: \views\remaining_times\view.ctp:30
+#: \views\sprints\edit.ctp:3
+#: \views\sprints\index.ctp:60
+#: \views\sprints\storylist.ctp:4;127
+#: \views\sprints\taskboard.ctp:51
+#: \views\sprints\view.ctp:4
+#: \views\stories\edit.ctp:3
+#: \views\stories\index.ctp:79
+#: \views\stories\search_index.ctp:84
+#: \views\stories\view.ctp:15;190
+#: \views\tasks\edit.ctp:3
+#: \views\tasks\index.ctp:97
+#: \views\tasks\view.ctp:5
+#: \views\teammembers\edit.ctp:3
+#: \views\teammembers\index.ctp:58
+#: \views\teammembers\view.ctp:4
+#: \views\teams\edit.ctp:3
+#: \views\teams\index.ctp:52
+#: \views\teams\view.ctp:4;94
+#: \views\users\edit.ctp:3
+#: \views\users\index.ctp:59
+#: \views\users\view.ctp:4;126;162
+msgid "Are you sure you want to delete # %s?"
+msgstr ""
+
+#: \views\elements\project_info.ctp:4
+#: \views\information\view.ctp:26
+#: \views\priorities\view.ctp:19;48
+#: \views\projects\view.ctp:16
+#: \views\sprints\storylist.ctp:31;85
+#: \views\sprints\view.ctp:21
+#: \views\stories\view.ctp:51;157
+#: \views\tasks\ajax_view.ctp:19
+#: \views\tasks\view.ctp:34
+#: \views\teams\view.ctp:21
+#: \views\users\view.ctp:87
+msgid "Name"
+msgstr ""
+
+#: \views\elements\project_info.ctp:9
+#: \views\information\view.ctp:31
+#: \views\projects\view.ctp:21
+#: \views\sprints\storylist.ctp:36
+#: \views\sprints\view.ctp:26
+#: \views\stories\view.ctp:56
+#: \views\tasks\ajax_view.ctp:24
+#: \views\tasks\view.ctp:39
+#: \views\teams\view.ctp:26
+#: \views\users\view.ctp:89
+msgid "Description"
+msgstr ""
+
+#: \views\elements\sprint_task.ctp:140
+msgid "TaskRemainingHours"
+msgstr ""
+
+#: \views\elements\sprints.ctp:14
+msgid "Current %s"
+msgstr ""
+
+#: \views\elements\sprints.ctp:19
+msgid "description"
+msgstr ""
+
+#: \views\elements\sprints.ctp:21
+msgid "startdate"
+msgstr ""
+
+#: \views\elements\sprints.ctp:22
+msgid "enddate"
+msgstr ""
+
+#: \views\errors\error404.ctp:2
+msgid "Error 404"
+msgstr ""
+
+#: \views\errors\error404.ctp:4
+msgid "The requested url is not found."
+msgstr ""
+
+#: \views\errors\error500.ctp:2
+#: \views\errors\sys_error.ctp:2
+msgid "Error 500"
+msgstr ""
+
+#: \views\errors\error500.ctp:4
+msgid "System Error."
+msgstr ""
+
+#: \views\errors\missing_table.ctp:2
+msgid "Missig Table"
+msgstr ""
+
+#: \views\errors\missing_table.ctp:4
+msgid "Can not connect database or Can not find tables."
+msgstr ""
+
+#: \views\information\add.ctp:4
+#: \views\information\edit.ctp:4
+#: \views\information\view.ctp:3
+#: \views\layouts\default.ctp:89;98
+#: \views\pages\manage.ctp:13;19;30;36;42;48
+#: \views\priorities\add.ctp:3;4
+#: \views\priorities\edit.ctp:4
+#: \views\priorities\view.ctp:5
+#: \views\remaining_times\add.ctp:16;17
+#: \views\remaining_times\edit.ctp:18;19
+#: \views\remaining_times\index.ctp:52
+#: \views\remaining_times\view.ctp:31;33
+#: \views\sprints\taskboard.ctp:54
+#: \views\sprints\view.ctp:7
+#: \views\stories\add.ctp:3
+#: \views\stories\board.ctp:91
+#: \views\stories\edit.ctp:4;5
+#: \views\stories\upload.ctp:4;6
+#: \views\story_comments\add.ctp:3;5
+#: \views\story_comments\view.ctp:4;6
+#: \views\tasks\edit.ctp:4
+#: \views\teammembers\add.ctp:3;4;6
+#: \views\teammembers\edit.ctp:4;5;7
+#: \views\teammembers\index.ctp:4;6
+#: \views\teammembers\view.ctp:5;7;9
+#: \views\teams\add.ctp:3;4
+#: \views\teams\edit.ctp:4;5
+#: \views\teams\index.ctp:4
+#: \views\teams\view.ctp:5;7
+#: \views\users\add.ctp:3;4
+#: \views\users\edit.ctp:4;5
+#: \views\users\index.ctp:4
+#: \views\users\view.ctp:5;7
+msgid "List %s"
+msgstr ""
+
+#: \views\information\add.ctp:11
+#: \views\priorities\add.ctp:13
+#: \views\remaining_times\add.ctp:4
+#: \views\sprints\add.ctp:4
+#: \views\stories\add.ctp:12
+#: \views\stories\simple_view.ctp:48
+#: \views\stories\upload.ctp:19
+#: \views\story_comments\add.ctp:13
+#: \views\tasks\add.ctp:11
+#: \views\tasks\upload.ctp:16
+#: \views\teammembers\add.ctp:15
+#: \views\teams\add.ctp:13
+#: \views\users\add.ctp:13
+msgid "Add %s"
+msgstr ""
+
+#: \views\information\add.ctp:20
+#: \views\information\edit.ctp:21
+#: \views\priorities\add.ctp:18
+#: \views\priorities\edit.ctp:18
+#: \views\projects\edit.ctp:12
+#: \views\remaining_times\add.ctp:10
+#: \views\remaining_times\edit.ctp:11
+#: \views\sprints\add.ctp:17
+#: \views\sprints\edit.ctp:25
+#: \views\stories\add.ctp:24
+#: \views\stories\edit.ctp:25
+#: \views\stories\upload.ctp:22
+#: \views\story_comments\add.ctp:19
+#: \views\tasks\add.ctp:23
+#: \views\tasks\edit.ctp:25
+#: \views\tasks\simple_view.ctp:25
+#: \views\tasks\upload.ctp:19
+#: \views\teammembers\add.ctp:21
+#: \views\teammembers\edit.ctp:23
+#: \views\teams\add.ctp:19
+#: \views\teams\edit.ctp:21
+#: \views\users\add.ctp:24
+#: \views\users\edit.ctp:24
+#: \views\users\reset_password.ctp:10
+#: \views\wiki\add.ctp:41
+msgid "Submit"
+msgstr ""
+
+#: \views\information\edit.ctp:3
+#: \views\priorities\edit.ctp:3
+#: \views\remaining_times\edit.ctp:17
+#: \views\remaining_times\index.ctp:29
+#: \views\sprints\edit.ctp:3
+#: \views\stories\edit.ctp:3
+#: \views\tasks\edit.ctp:3
+#: \views\teammembers\edit.ctp:3
+#: \views\teams\edit.ctp:3
+#: \views\teams\view.ctp:94
+#: \views\users\edit.ctp:3
+msgid "Delete"
+msgstr ""
+
+#: \views\information\edit.ctp:11
+#: \views\pages\manage.ctp:8
+#: \views\priorities\edit.ctp:12
+#: \views\priorities\view.ctp:3
+#: \views\projects\edit.ctp:4
+#: \views\projects\view.ctp:3
+#: \views\remaining_times\edit.ctp:4
+#: \views\remaining_times\view.ctp:29
+#: \views\sprints\edit.ctp:11
+#: \views\sprints\storylist.ctp:3
+#: \views\sprints\taskboard.ctp:50
+#: \views\sprints\view.ctp:3
+#: \views\stories\edit.ctp:12
+#: \views\stories\simple_view.ctp:46
+#: \views\stories\view.ctp:14
+#: \views\tasks\edit.ctp:12
+#: \views\tasks\view.ctp:4
+#: \views\teammembers\edit.ctp:16
+#: \views\teammembers\view.ctp:3
+#: \views\teams\edit.ctp:14
+#: \views\teams\view.ctp:3
+#: \views\users\edit.ctp:14
+#: \views\users\view.ctp:3
+#: \views\wiki\add.ctp:16
+#: \views\wiki\index.ctp:18
+msgid "Edit %s"
+msgstr ""
+
+#: \views\information\index.ctp:3
+#: \views\information\view.ctp:5
+#: \views\layouts\default.ctp:85;104
+#: \views\pages\manage.ctp:14;20;31;37;43;49
+#: \views\priorities\add.ctp:5
+#: \views\priorities\index.ctp:3
+#: \views\priorities\view.ctp:6
+#: \views\remaining_times\add.ctp:18
+#: \views\remaining_times\edit.ctp:20
+#: \views\remaining_times\index.ctp:51;53
+#: \views\remaining_times\view.ctp:32;34
+#: \views\sprints\edit.ctp:4
+#: \views\sprints\index.ctp:3
+#: \views\sprints\storylist.ctp:5;6
+#: \views\sprints\taskboard.ctp:52;53
+#: \views\sprints\view.ctp:5;6
+#: \views\stories\add.ctp:4;5
+#: \views\stories\board.ctp:92
+#: \views\stories\edit.ctp:6
+#: \views\stories\index.ctp:3
+#: \views\stories\upload.ctp:3;5;7
+#: \views\stories\view.ctp:16;20;21
+#: \views\story_comments\add.ctp:4;6
+#: \views\story_comments\view.ctp:3;5;7
+#: \views\tasks\add.ctp:3;4
+#: \views\tasks\index.ctp:3
+#: \views\tasks\upload.ctp:3
+#: \views\tasks\view.ctp:6
+#: \views\teammembers\add.ctp:5;7
+#: \views\teammembers\edit.ctp:6;8
+#: \views\teammembers\index.ctp:3;5;7
+#: \views\teammembers\view.ctp:6;8;10
+#: \views\teams\add.ctp:5
+#: \views\teams\edit.ctp:6
+#: \views\teams\index.ctp:3;5
+#: \views\teams\view.ctp:6;8
+#: \views\users\add.ctp:5
+#: \views\users\edit.ctp:6
+#: \views\users\index.ctp:3;5
+#: \views\users\login.ctp:4
+#: \views\users\view.ctp:6;8;9
+#: \views\wiki\index.ctp:19;73
+msgid "New %s"
+msgstr ""
+
+#: \views\information\index.ctp:65
+#: \views\priorities\index.ctp:53
+#: \views\remaining_times\index.ctp:37
+#: \views\sprints\index.ctp:68
+#: \views\stories\index.ctp:87
+#: \views\stories\search_index.ctp:92
+#: \views\tasks\index.ctp:105
+#: \views\teammembers\index.ctp:66
+#: \views\teams\index.ctp:60
+#: \views\users\index.ctp:67
+msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
+msgstr ""
+
+#: \views\information\index.ctp:70
+#: \views\priorities\index.ctp:58
+#: \views\remaining_times\index.ctp:42
+#: \views\sprints\index.ctp:73
+#: \views\stories\index.ctp:92
+#: \views\stories\search_index.ctp:97
+#: \views\tasks\index.ctp:110
+#: \views\teammembers\index.ctp:71
+#: \views\teams\index.ctp:65
+#: \views\users\index.ctp:72
+msgid "previous"
+msgstr ""
+
+#: \views\information\index.ctp:73
+#: \views\priorities\index.ctp:61
+#: \views\remaining_times\index.ctp:45
+#: \views\sprints\index.ctp:76
+#: \views\stories\index.ctp:95
+#: \views\stories\search_index.ctp:100
+#: \views\tasks\index.ctp:113
+#: \views\teammembers\index.ctp:74
+#: \views\teams\index.ctp:68
+#: \views\users\index.ctp:75
+msgid "next"
+msgstr ""
+
+#: \views\information\view.ctp:14
+#: \views\sprints\storylist.ctp:41
+#: \views\sprints\view.ctp:31
+msgid "Startdate"
+msgstr ""
+
+#: \views\information\view.ctp:20
+#: \views\priorities\view.ctp:14;47
+#: \views\projects\view.ctp:11
+#: \views\remaining_times\view.ctp:4
+#: \views\sprints\storylist.ctp:26;84
+#: \views\sprints\view.ctp:16
+#: \views\stories\view.ctp:46;155
+#: \views\story_comments\view.ctp:15
+#: \views\tasks\ajax_view.ctp:4
+#: \views\tasks\view.ctp:19
+#: \views\teammembers\view.ctp:18
+#: \views\teams\view.ctp:16;66
+#: \views\users\view.ctp:30;84;138
+msgid "Id"
+msgstr ""
+
+#: \views\information\view.ctp:37
+msgid "Show Anonymous"
+msgstr ""
+
+#: \views\information\view.ctp:43
+#: \views\sprints\storylist.ctp:46
+#: \views\sprints\view.ctp:36
+msgid "Enddate"
+msgstr ""
+
+#: \views\layouts\default.ctp:36
+#: \views\layouts\simple.ctp:16
+msgid "phpmyscrum"
+msgstr ""
+
+#: \views\layouts\default.ctp:69
+#: \views\stories\view.ctp:127;160
+#: \views\users\view.ctp:47
+msgid "Username"
+msgstr ""
+
+#: \views\layouts\default.ctp:71
+msgid "Administrator"
+msgstr ""
+
+#: \views\layouts\default.ctp:80
+msgid "Dashboard"
+msgstr ""
+
+#: \views\layouts\default.ctp:81;83
+#: \views\stories\index.ctp:26
+msgid "Product Backlog"
+msgstr ""
+
+#: \views\layouts\default.ctp:84
+#: \views\stories\board.ctp:102
+#: \views\stories\index.ctp:4
+msgid "Story Board"
+msgstr ""
+
+#: \views\layouts\default.ctp:86
+#: \views\stories\search_index.ctp:13
+msgid "Search Story"
+msgstr ""
+
+#: \views\layouts\default.ctp:101
+#: \views\tasks\index.ctp:5
+#: \views\tasks\upload.ctp:5
+msgid "All unfinished %s"
+msgstr ""
+
+#: \views\layouts\default.ctp:102
+#: \views\tasks\index.ctp:6;35
+#: \views\tasks\upload.ctp:6
+msgid "All your %s"
+msgstr ""
+
+#: \views\layouts\default.ctp:103
+#: \views\tasks\index.ctp:7;38
+#: \views\tasks\upload.ctp:7
+msgid "All your unfinished %s"
+msgstr ""
+
+#: \views\layouts\default.ctp:108
+#: \views\pages\manage.ctp:3
+msgid "Manage"
+msgstr ""
+
+#: \views\layouts\default.ctp:110
+#: \views\wiki\add.ctp:3
+msgid "Wiki"
+msgstr ""
+
+#: \views\layouts\default.ctp:111
+msgid "Logout"
+msgstr ""
+
+#: \views\pages\manage.ctp:25
+#: \views\stories\board.ctp:96
+#: \views\stories\index.ctp:8
+#: \views\stories\upload.ctp:11
+#: \views\tasks\index.ctp:11
+msgid "Bulk upload %s"
+msgstr ""
+
+#: \views\pages\manage.ctp:42;43
+#: \views\teammembers\add.ctp:4
+#: \views\teammembers\edit.ctp:5
+#: \views\teammembers\index.ctp:4
+#: \views\teammembers\view.ctp:7
+#: \views\teams\add.ctp:3
+#: \views\teams\edit.ctp:4
+#: \views\teams\index.ctp:23
+#: \views\teams\view.ctp:5
+msgid "Teams"
+msgstr ""
+
+#: \views\pages\manage.ctp:48
+#: \views\teammembers\add.ctp:3
+#: \views\teammembers\edit.ctp:4
+#: \views\teammembers\index.ctp:25
+#: \views\teammembers\view.ctp:5
+#: \views\teams\add.ctp:4
+#: \views\teams\edit.ctp:5
+#: \views\teams\index.ctp:4
+#: \views\teams\view.ctp:7;62
+#: \views\users\add.ctp:4
+#: \views\users\edit.ctp:5
+#: \views\users\index.ctp:4
+#: \views\users\view.ctp:7;134
+msgid "Teammembers"
+msgstr ""
+
+#: \views\priorities\add.ctp:3
+#: \views\priorities\edit.ctp:4
+#: \views\priorities\index.ctp:20
+#: \views\priorities\view.ctp:5
+#: \views\stories\add.ctp:3
+#: \views\stories\upload.ctp:4
+msgid "Priorities"
+msgstr ""
+
+#: \views\priorities\add.ctp:4
+#: \views\priorities\view.ctp:43
+#: \views\sprints\storylist.ctp:80
+#: \views\stories\board.ctp:91
+#: \views\stories\edit.ctp:4
+#: \views\story_comments\add.ctp:3
+#: \views\story_comments\view.ctp:4
+msgid "Stories"
+msgstr ""
+
+#: \views\priorities\view.ctp:4
+#: \views\remaining_times\view.ctp:30
+#: \views\sprints\storylist.ctp:4
+#: \views\sprints\taskboard.ctp:51
+#: \views\sprints\view.ctp:4
+#: \views\stories\view.ctp:15
+#: \views\tasks\view.ctp:5
+#: \views\teammembers\view.ctp:4
+#: \views\teams\view.ctp:4
+#: \views\users\view.ctp:4
+msgid "Delete %s"
+msgstr ""
+
+#: \views\priorities\view.ctp:24;50
+#: \views\projects\view.ctp:26
+#: \views\stories\view.ctp:102
+#: \views\story_comments\view.ctp:35
+#: \views\tasks\ajax_view.ctp:45
+#: \views\tasks\view.ctp:60
+#: \views\teammembers\view.ctp:33
+#: \views\teams\view.ctp:31;68
+#: \views\users\view.ctp:62;140
+msgid "Disabled"
+msgstr ""
+
+#: \views\priorities\view.ctp:29;51
+#: \views\projects\view.ctp:31
+#: \views\remaining_times\view.ctp:19
+#: \views\sprints\storylist.ctp:51;91
+#: \views\sprints\view.ctp:41
+#: \views\stories\view.ctp:108;128;161
+#: \views\story_comments\view.ctp:40
+#: \views\tasks\ajax_view.ctp:51
+#: \views\tasks\view.ctp:66;96
+#: \views\teammembers\view.ctp:43
+#: \views\teams\view.ctp:36;72
+#: \views\users\view.ctp:67;94;142
+msgid "Created"
+msgstr ""
+
+#: \views\priorities\view.ctp:34
+#: \views\projects\view.ctp:36
+#: \views\sprints\storylist.ctp:56;92
+#: \views\sprints\view.ctp:46
+#: \views\stories\view.ctp:113;163
+#: \views\story_comments\view.ctp:45
+#: \views\tasks\ajax_view.ctp:56
+#: \views\tasks\view.ctp:71
+#: \views\teammembers\view.ctp:38
+#: \views\teams\view.ctp:41;70
+#: \views\users\view.ctp:72;96;141
+msgid "Updated"
+msgstr ""
+
+#: \views\priorities\view.ctp:43
+#: \views\stories\view.ctp:122;151
+#: \views\teams\view.ctp:62
+#: \views\users\view.ctp:80;134
+msgid "Related %s"
+msgstr ""
+
+#: \views\priorities\view.ctp:49
+#: \views\stories\simple_view.ctp:25
+#: \views\stories\view.ctp:61
+msgid "Businessvalue"
+msgstr ""
+
+#: \views\remaining_times\add.ctp:4
+#: \views\remaining_times\edit.ctp:4
+#: \views\remaining_times\index.ctp:51
+#: \views\remaining_times\view.ctp:2;29;30;32
+msgid "Remaining Time"
+msgstr ""
+
+#: \views\remaining_times\add.ctp:16
+#: \views\remaining_times\edit.ctp:18
+#: \views\remaining_times\index.ctp:2
+#: \views\remaining_times\view.ctp:31
+#: \views\tasks\view.ctp:91
+msgid "Remaining Times"
+msgstr ""
+
+#: \views\remaining_times\index.ctp:27
+#: \views\teams\view.ctp:92
+#: \views\wiki\index.ctp:62
+msgid "View"
+msgstr ""
+
+#: \views\remaining_times\index.ctp:28
+#: \views\teams\view.ctp:93
+#: \views\wiki\index.ctp:68
+msgid "Edit"
+msgstr ""
+
+#: \views\remaining_times\view.ctp:14
+#: \views\tasks\view.ctp:95
+msgid "Hours"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:7
+#: \views\sprints\taskboard.ctp:55
+#: \views\sprints\view.ctp:8
+msgid "Taskboard"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:61
+#: \views\sprints\view.ctp:51
+msgid "Sprint Term"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:86
+#: \views\stories\add.ctp:16
+#: \views\stories\board.ctp:139
+#: \views\stories\view.ctp:66
+msgid "StoryPoints"
+msgstr ""
+
+#: \views\sprints\storylist.ctp:90
+#: \views\stories\search_index.ctp:25
+#: \views\stories\view.ctp:91;159
+#: \views\tasks\ajax_view.ctp:34
+#: \views\tasks\view.ctp:49
+#: \views\users\view.ctp:92
+msgid "Resolution"
+msgstr ""
+
+#: \views\sprints\taskboard.ctp:54
+#: \views\sprints\view.ctp:7
+msgid "Sprint Stories"
+msgstr ""
+
+#: \views\sprints\view.ctp:9
+#: \views\stories\board.ctp:93;94
+#: \views\stories\index.ctp:5;6
+#: \views\stories\upload.ctp:8;9
+#: \views\tasks\index.ctp:8;9
+#: \views\tasks\upload.ctp:8;9
+msgid "Save to %s"
+msgstr ""
+
+#: \views\sprints\view.ctp:9
+#: \views\stories\board.ctp:93
+#: \views\stories\index.ctp:5
+#: \views\stories\upload.ctp:8
+#: \views\tasks\index.ctp:8
+#: \views\tasks\upload.ctp:8
+msgid "Excel"
+msgstr ""
+
+#: \views\sprints\view.ctp:71
+msgid "Burndown"
+msgstr ""
+
+#: \views\stories\board.ctp:94
+#: \views\stories\index.ctp:6
+#: \views\stories\upload.ctp:9
+#: \views\tasks\index.ctp:9
+#: \views\tasks\upload.ctp:9
+msgid "CSV"
+msgstr ""
+
+#: \views\stories\edit.ctp:17
+#: \views\stories\index.ctp:31
+#: \views\stories\search_index.ctp:36
+#: \views\stories\simple_view.ctp:29
+msgid "Story Points"
+msgstr ""
+
+#: \views\stories\search_index.ctp:18
+msgid "Keywords"
+msgstr ""
+
+#: \views\stories\search_index.ctp:19
+msgid "ID"
+msgstr ""
+
+#: \views\stories\search_index.ctp:20;21
+msgid "wildcard is *"
+msgstr ""
+
+#: \views\stories\simple_view.ctp:42
+msgid "action"
+msgstr ""
+
+#: \views\stories\simple_view.ctp:44
+msgid "Confirm %s"
+msgstr ""
+
+#: \views\stories\view.ctp:18
+#: \views\tasks\view.ctp:3
+msgid "Finish %s"
+msgstr ""
+
+#: \views\stories\view.ctp:21
+#: \views\story_comments\add.ctp:13
+#: \views\story_comments\view.ctp:3;13
+msgid "Story Comment"
+msgstr ""
+
+#: \views\stories\view.ctp:42
+#: \views\tasks\view.ctp:14
+msgid "No resolution"
+msgstr ""
+
+#: \views\stories\view.ctp:122
+msgid "StoryComment"
+msgstr ""
+
+#: \views\stories\view.ctp:126
+#: \views\story_comments\view.ctp:30
+msgid "Comment"
+msgstr ""
+
+#: \views\stories\view.ctp:158
+#: \views\tasks\ajax_view.ctp:29
+#: \views\tasks\view.ctp:44
+#: \views\users\view.ctp:91
+msgid "Estimate Hours"
+msgstr ""
+
+#: \views\story_comments\add.ctp:5
+#: \views\story_comments\view.ctp:6
+#: \views\teammembers\add.ctp:6
+#: \views\teammembers\edit.ctp:7
+#: \views\teammembers\index.ctp:6
+#: \views\teammembers\view.ctp:9
+#: \views\users\add.ctp:3
+#: \views\users\edit.ctp:4
+#: \views\users\index.ctp:22
+#: \views\users\view.ctp:5
+msgid "Users"
+msgstr ""
+
+#: \views\tasks\index.ctp:41
+msgid "Unfinished %s"
+msgstr ""
+
+#: \views\teams\view.ctp:67
+#: \views\users\view.ctp:93
+msgid "User Id"
+msgstr ""
+
+#: \views\users\login.ctp:19
+msgid "Lost your password?"
+msgstr ""
+
+#: \views\users\reset_password.ctp:4
+msgid "Reset %s"
+msgstr ""
+
+#: \views\users\reset_password.ctp:4
+#: \views\users\view.ctp:41
+msgid "Password"
+msgstr ""
+
+#: \views\users\reset_password_mail.ctp:2
+msgid "Finish sending email"
+msgstr ""
+
+#: \views\users\view.ctp:35
+msgid "Loginname"
+msgstr ""
+
+#: \views\users\view.ctp:52
+msgid "Email"
+msgstr ""
+
+#: \views\users\view.ctp:57
+msgid "Admin"
+msgstr ""
+
+#: \views\users\view.ctp:85
+msgid "Sprint Id"
+msgstr ""
+
+#: \views\users\view.ctp:86
+msgid "Story Id"
+msgstr ""
+
+#: \views\users\view.ctp:139
+msgid "Team Id"
+msgstr ""
+
+#: \views\wiki\add.ctp:16
+#: \views\wiki\index.ctp:18;19;73
+msgid "Page"
+msgstr ""
+
+#: \views\wiki\add.ctp:21
+msgid "use a path to group pages into categories and subcategories. example: /logs/by/%s/"
+msgstr ""
+
+#: \views\wiki\add.ctp:22
+msgid "Path"
+msgstr ""
+
+#: \views\wiki\add.ctp:30
+msgid "Title"
+msgstr ""
+
+#: \views\wiki\add.ctp:34
+msgid "Body"
+msgstr ""
+
+#: \views\wiki\add.ctp:38
+msgid "readonly"
+msgstr ""
+
+#: \views\wiki\index.ctp:101
+msgid "view"
+msgstr ""
+
+#: \views\wiki\index.ctp:102
+msgid "activate"
+msgstr ""
+
+#: \views\wiki\index.ctp:104
+msgid "delete"
+msgstr ""
+
+#: \views\wiki\index.ctp:145
+msgid "Wiki Nav"
+msgstr ""
+
+#: \views\wiki\index.ctp:163
+msgid "Recent Entries"
+msgstr ""
+
+#: \webroot\test.php:88
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+
