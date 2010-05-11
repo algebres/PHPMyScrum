@@ -20,6 +20,12 @@ Feature
 * Output data by Excel and CSV format
 
 How to install
+* Create database 
+  create database phpmyscrum;
+  grant all on phpmyscrum.* to user@localhost identified by 'password';
+  grant all on phpmyscrum.* to user@'%' identified by 'password';
+  flush privileges;
+
 * Edit app/config/database.php.
 * Execute command below.
   cd ./phpmyscrum/app
