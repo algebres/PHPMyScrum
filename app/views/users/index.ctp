@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
 <!--
-jQuery.noConflict();
 jQuery(document).ready(function() 
 {
     jQuery('#users_list_table').flexigrid({height:'auto',striped:true});

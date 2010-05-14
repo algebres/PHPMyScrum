@@ -78,7 +78,6 @@ if($resolution_name == "") { $resolution_name = __('No resolution', true); }
 
 <script type="text/javascript">
 <!--
-jQuery.noConflict();
 jQuery(document).ready(function()
 {
     jQuery('#hours_table').flexigrid({height:'auto',striped:true});

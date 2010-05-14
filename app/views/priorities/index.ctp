@@ -6,7 +6,6 @@
 
 <script type="text/javascript">
 <!--
-jQuery.noConflict();
 jQuery(document).ready(function()
 {
     jQuery('#priority_table').flexigrid({height:'auto',striped:true});

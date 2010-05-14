@@ -3,7 +3,6 @@
 
 <script type="text/javascript">
 <!--
-jQuery.noConflict();
 jQuery(document).ready(function()
 {
     jQuery('#all_sprints_table').flexigrid({height:'auto',striped:true});
@@ -13,7 +12,6 @@ jQuery(document).ready(function()
 </script>
 
 <script type="text/javascript">
-jQuery.noConflict();
 jQuery(function(){
 	var d1 = [];
 	var d2 = [];

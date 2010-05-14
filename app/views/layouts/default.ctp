@@ -45,19 +45,20 @@ echo $scripts_for_layout;
 echo "\n";
 echo $html->css('flexigrid/flexigrid');
 echo "\n";
-if(isset($login_user)) {
-	echo $javascript->link('prototype');
-	echo "\n";
-	echo $javascript->link('jquery');
-	echo "\n";
-	echo $javascript->link('jquery.prettyPopin');
-	echo "\n";
-	echo $this->Html->css('prettyPopin');
-	echo "\n";
-	echo $javascript->link('flexigrid');
-	echo "\n";
-}
+echo $javascript->link('prototype');
+echo "\n";
+echo $javascript->link('jquery');
+echo "\n";
+echo $javascript->link('jquery.prettyPopin');
+echo "\n";
+echo $this->Html->css('prettyPopin');
+echo "\n";
+echo $javascript->link('flexigrid');
+echo "\n";
 ?>
+<script><!--
+jQuery.noConflict();
+//--></script>
 </head>
 <body>
 <div id="wrapper">
