@@ -60,7 +60,7 @@ function after_function(data) {
 <h2><?php  __('Sprint');?>&nbsp;#<?php echo $sprint['Sprint']['id']; ?>&nbsp;<?php echo h($sprint['Sprint']['name']); ?></h2>
 
 <div id="drag">
-<table>
+<table class="task_board">
 <tr>
 <th><?php echo __('Story', true); ?></th>
 <?php foreach($resolutions as $resolution) { ?>
@@ -71,8 +71,17 @@ function after_function(data) {
 <? foreach ($sprint['Story'] as $story): ?>
 <tr id="story:<?php echo $story["id"]; ?>">
 <td class="mark">
-<div class="board_story">
-#<?php echo $story['id']; ?>&nbsp;<?php echo $this->Html->link($story["name"], array('controller' => 'stories', 'action' => 'simple_view', $story['id']), array('rel' => 'prettyPopin')); ?>
+<?php if($story["Resolution"]["is_fixed"]) {
+	$class = "board_story_done";
+} else if ($story["Story"]["resolution_id"] == RESOLUTION_DOING) {
+	$class = "board_story_doing";
+} else {
+	$class = "board_story";
+}
+?>
+<div class="<?php echo $class; ?>">
+<span class="board_story_point"><?php echo $story["storypoints"]; ?></span>
+#<?php echo $this->Html->link($story["id"], array('controller' => 'stories', 'action' => 'simple_view', $story['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo $story['name']; ?>
 <?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
 <p><?php e(nl2br($story["description"])); ?></p>
 <?php } ?>
