@@ -26,7 +26,8 @@ body {
 	background: #dddddd;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:70%;
+//	font-size:70%;
+	font-size:12px;
 	min-width : 980px;
 }
 a {
@@ -43,7 +44,7 @@ a img {
 }
 h1, h2, h3, h4 {
 	font-weight: normal;
-	margin-bottom:0.5em;
+	margin-bottom:0.2em;
 }
 h1 {
 	background:#fff;
@@ -54,12 +55,13 @@ h2 {
 	background:#fff;
 	color: #e32;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
-	font-size: 190%;
+	font-size: 150%;
+//	font-weight: bold;
 }
 h3 {
 	color: #993;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
-	font-size: 165%;
+	font-size: 125%;
 }
 h4 {
 	color: #993;
@@ -140,7 +142,7 @@ h4 {
 	padding: 0;
 	float: left;
 	text-align: center;
-	font-size: 13px; 
+	font-size: 12px; 
 }
 
 #gnavi ul li a, #snavi ul li a, #gnavi ul li ul li a, #snavi ul li ul li a {
