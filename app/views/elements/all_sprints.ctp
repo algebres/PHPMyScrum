@@ -1,6 +1,16 @@
 <?php echo $javascript->link('excanvas'); ?>
 <?php echo $javascript->link('ProtoChart'); ?>
 
+<script type="text/javascript">
+<!--
+jQuery.noConflict();
+jQuery(document).ready(function()
+{
+    jQuery('#all_sprints_table').flexigrid({height:'auto',striped:true});
+}
+);
+-->
+</script>
 
 <script type="text/javascript">
 jQuery.noConflict();
@@ -30,7 +40,7 @@ jQuery(function(){
 	[
 		{data: d1, label: "Data 1"},
 		{data: d2, label: "Data 2"},
-		{data: d3, label: "Data 3"},
+		{data: d3, label: "Data 3"}
 	],
 	{
 		xaxis: {min: 0, max: <?php echo count($all_sprints)-1; ?>, tickSize: 1, ticks: labels },
@@ -41,17 +51,6 @@ jQuery(function(){
 		}
 	});
 });
-</script>
-
-<script type="text/javascript">
-<!--
-jQuery.noConflict();
-jQuery(document).ready(function()
-{
-    jQuery('#all_sprints_table').flexigrid({height:'auto',striped:true});
-}
-);
--->
 </script>
 
 <div class="sprints index">
