@@ -45,23 +45,23 @@ window.onload = function () {
 		$cnt++;
 	}
 	?>
-		$("#story_table").find(".h_storypoints").each(function()
+		jQuery("#story_table").find(".h_storypoints").each(function()
 			{
 				for(i=0; i < sprints.length; i++)
 				{
-					if($(this).parent().parent().attr('id') == sprints[i])
+					if(jQuery(this).parent().parent().attr('id') == sprints[i])
 					{
-						total_points[i] = total_points[i] + parseInt($(this).val());
+						total_points[i] = total_points[i] + parseInt(jQuery(this).val());
 					}
 				}
 			}
 		);
-		$("div .t_storypoint").each(function(){
+		jQuery("div .t_storypoint").each(function(){
 			for(i =0; i< sprints.length; i++)
 			{
-				if($(this).attr("id") == "t_" + sprints[i])
+				if(jQuery(this).attr("id") == "t_" + sprints[i])
 				{
-					$(this).html(total_points[i].toString());
+					jQuery(this).html(total_points[i].toString());
 				}
 			}
 		});
@@ -70,8 +70,8 @@ window.onload = function () {
 </script>
 
 <script type="text/javascript" charset="utf-8">
-	$(document).ready(function(){
-		$("a[rel^='prettyPopin']").prettyPopin({
+	jQuery(document).ready(function(){
+		jQuery("a[rel^='prettyPopin']").prettyPopin({
 			modal : true,
 			width : 400,
 			height: 400,
