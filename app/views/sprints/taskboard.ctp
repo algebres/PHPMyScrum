@@ -30,8 +30,8 @@ function after_function(data) {
 </script>
 
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function(){
-        $("a[rel^='prettyPopin']").prettyPopin({
+    jQuery(document).ready(function(){
+        jQuery("a[rel^='prettyPopin']").prettyPopin({
             modal : true,
             width : 400,
             height: 400,
