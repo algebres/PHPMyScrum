@@ -56,9 +56,10 @@ echo "\n";
 echo $javascript->link('flexigrid');
 echo "\n";
 ?>
-<script><!--
-jQuery.noConflict();
-//--></script>
+<script type="text/javascript">  
+jQuery.noConflict()(function($){  
+var j$ = jQuery;  
+</script>
 </head>
 <body>
 <div id="wrapper">
