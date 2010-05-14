@@ -585,6 +585,14 @@ td.actions a:hover {
 	margin: 2px;
 }
 
+.board_story_point {
+	padding:1px 2px 1px 2px;
+	background:orange;
+	color:#ffffff;
+	font-weight:bold; 
+	border:1px solid red;
+}
+
 .board_story_done {
 	color: #000000;
 	background-color: #dddddd;
