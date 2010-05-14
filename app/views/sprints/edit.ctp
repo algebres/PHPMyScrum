@@ -17,7 +17,8 @@
 		$options["dateFormat"] = "YMD";
 		$options["monthNames"] = false;
 		$options["interval"] = 60;
-		$options["maxYear"] = date('Y') + 1;
+		$options["maxYear"] = date('Y') + 2;
+		$options["minYear"] = date('Y') - 2;
 		echo $this->Form->input('startdate', $options);
 		echo $this->Form->input('enddate', $options);
 	?>
