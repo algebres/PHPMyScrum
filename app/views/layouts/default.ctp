@@ -58,7 +58,8 @@ echo "\n";
 ?>
 <script type="text/javascript">  
 jQuery.noConflict()(function($){  
-var j$ = jQuery;  
+var j$ = jQuery;
+});
 </script>
 </head>
 <body>
