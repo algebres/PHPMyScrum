@@ -162,12 +162,12 @@ class User extends AppModel {
 	 */
 	function make_password($length = 8)
 	{
-		$sCharList = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz123456789";
+		$charlist = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz123456789";
 		mt_srand();
 		$result = "";
 		for($i = 0; $i < $length; $i++)
 		{
-			$result .= $sCharList{mt_rand(0, strlen($sCharList) - 1)};
+			$result .= $charlist{mt_rand(0, strlen($charlist) - 1)};
 		}
 		return $result;
 	}
