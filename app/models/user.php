@@ -22,6 +22,9 @@ class User extends AppModel {
 			'notempty' => array(
 				'rule' => array('notempty'),
 			),
+			'between' => array(
+				'rule' => array('between', 4, 20),
+			),
 		),
 		'password' => array(
 			'notempty' => array(
@@ -29,6 +32,9 @@ class User extends AppModel {
 			),
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
+			),
+			'between' => array(
+				'rule' => array('between', 6, 20),
 			),
 		),
 		'username' => array(
@@ -40,6 +46,9 @@ class User extends AppModel {
 			),
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
+			),
+			'between' => array(
+				'rule' => array('between', 4, 20),
 			),
 		),
 		'email' => array(
