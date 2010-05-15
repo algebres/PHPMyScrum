@@ -101,6 +101,15 @@ class UsersController extends AppController {
 	{
 		if (!empty($this->data))
 		{
+			// password
+			$this->User->addValidationRuleChangePassword();
+			$this->data['User']['password'] = AuthComponent::password ($this->data['User']['new_password']);
+			$this->User->set($this->data);
+			if (!$this->User->validates($this->data))
+			{
+				return;
+			}
+
 			$this->User->create();
 			// まだ管理者がいない場合は強制的に管理者フラグをたてる
 			$has_admin = $this->User->hasAdminUser();
@@ -155,6 +164,7 @@ class UsersController extends AppController {
 			}
 		}
 
+		// 編集の場合はパスワードが空の場合は何も変えない
 		if (!empty( $this->data['User']['new_password']))
 		{
 			$this->User->addValidationRuleChangePassword(); // add validation rule
