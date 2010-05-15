@@ -33,9 +33,6 @@ class User extends AppModel {
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
 			),
-			'between' => array(
-				'rule' => array('between', 6, 20),
-			),
 		),
 		'username' => array(
 			'notempty' => array(
@@ -190,7 +187,9 @@ class User extends AppModel {
 	function addValidationRuleChangePassword()
 	{
 		$this->validate["new_password"] = $this->validate["password"];
+		$this->validate["new_password"]["between"] = array(
+			'rule' => array('between', 6, 20),
+		);
 	}
-
 }
 ?>
