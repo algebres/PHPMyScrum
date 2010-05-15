@@ -55,10 +55,15 @@ echo $this->Html->css('prettyPopin');
 echo "\n";
 echo $javascript->link('flexigrid');
 echo "\n";
+echo $javascript->link('jquery.formtips.1.2.1');
+echo "\n";
 ?>
 <script type="text/javascript">  
 jQuery.noConflict()(function($){  
-var j$ = jQuery;
+	var j$ = jQuery;
+	$('form input.help, form textarea.help').formtips({ 
+        tippedClass: 'tipped'
+    });
 });
 </script>
 </head>

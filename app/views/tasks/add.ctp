@@ -12,9 +12,9 @@
 	<?php
 		echo $this->Form->input('sprint_id', array('value' => $sprint_id));
 		echo $this->Form->input('story_id', array('value' => $story_id));
-		echo $this->Form->input('name');
-		echo $this->Form->input('description');
-		echo $this->Form->input('estimate_hours');
+		echo $this->Form->input('name', array('title' => __('Task name here. Comprehensible for the team', true), 'class' => 'help'));
+		echo $this->Form->input('description', array('title' => __('More detailed information here', true), 'class' => 'help'));
+		echo $this->Form->input('estimate_hours', array('title' => __('The time required until task ends', true), 'class' => 'help'));
 		echo $this->Form->input('resolution_id', array('options' => $resolutions, 'empty' => ' '));
 		echo $this->Form->input('user_id', array('options' => $users, 'empty' => ' '));
 		echo $this->Form->hidden('return_url', array('value' => urlencode($return_url)));

@@ -13,7 +13,7 @@
  		<legend><?php printf(__('Add %s', true), __('User', true)); ?></legend>
 	<?php
 		echo $this->Form->input('loginname');
-		echo $this->Form->input('password');
+		echo $this->Form->input('new_password', array('type' => 'password', 'label' => __('Password', true), 'required' => true));
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
 		if($login_user["admin"]) {
