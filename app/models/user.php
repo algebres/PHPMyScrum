@@ -16,7 +16,7 @@ class User extends AppModel {
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
 			),
-			'unique' => array(
+			'isUnique' => array(
 				'rule' => array('isUnique'),
 			),
 			'notempty' => array(
@@ -38,7 +38,7 @@ class User extends AppModel {
 			'notempty' => array(
 				'rule' => array('notempty'),
 			),
-			'unique' => array(
+			'isUnique' => array(
 				'rule' => array('isUnique'),
 			),
 			'alphanumeric' => array(
