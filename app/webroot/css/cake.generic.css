@@ -530,6 +530,11 @@ div.actions ul li a:hover {
 	text-decoration: underline;
 }
 
+/** tool tips **/
+.tipped {
+	color: #BBB;
+}
+
 /** drag and drop **/
 .drag{
 	position: relative;
