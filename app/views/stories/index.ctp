@@ -1,3 +1,5 @@
+<?php echo $html->meta(__('Story', true), $html->url('/stories/index.rss'), array('type' => 'rss'), true);?>
+
 <div id="snavi">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Story', true)), array('action' => 'add')); ?></li>

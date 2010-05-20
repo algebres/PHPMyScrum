@@ -1,3 +1,5 @@
+<?php echo $html->meta(__('Task', true), $html->url('/tasks/index.rss'), array('type' => 'rss'), true);?>
+
 <div id="snavi">
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('action' => 'add')); ?></li>
