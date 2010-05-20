@@ -141,12 +141,12 @@ h4 {
 	padding: 0;
 	float: left;
 	text-align: center;
-	font-size: 12px; 
+	font-size: 12px;
 }
 
 #gnavi ul li a, #snavi ul li a, #gnavi ul li ul li a, #snavi ul li ul li a {
 	border-right: 1px solid #666;
-	padding: 9px 10px;
+	padding: 6px 10px;
 	display: block;
 	position: relative; /* for IE6 */
 	color: #fff;

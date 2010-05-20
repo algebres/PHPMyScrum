@@ -9,7 +9,7 @@
 	}
 .menu ul{
 	background:#333333;
-	height:35px;
+	height:26px;
 	list-style:none;
 	margin:0;
 	padding:0;
@@ -23,7 +23,7 @@
 		color:#cccccc;
 		display:block;
 		font-weight:normal;
-		line-height:35px;
+		line-height:26px;
 		margin:0px;
 		padding:0px 8px;
 		text-align:center;
@@ -65,7 +65,7 @@
 		}
 	.menu li ul a{
 		display:block;
-		height:35px;
+		height:26px;
 		font-size:12px;
 		font-style:normal;
 		margin:0px;
