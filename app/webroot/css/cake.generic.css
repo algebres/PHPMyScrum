@@ -26,7 +26,6 @@ body {
 	background: #dddddd;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-//	font-size:70%;
 	font-size:12px;
 	min-width : 980px;
 }
@@ -56,7 +55,6 @@ h2 {
 	color: #e32;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 150%;
-//	font-weight: bold;
 }
 h3 {
 	color: #993;
@@ -226,7 +224,7 @@ h4 {
 }
 
 div #messagebox {
-	position:absolute; top:15px; left:190px;
+	position:absolute; top:10px; left:190px;
 }
 
 /** containers **/
@@ -417,7 +415,7 @@ form .required label:after {
 form div.submit {
 	border: 0;
 	clear: both;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 label {
 	display: block;
@@ -459,23 +457,12 @@ input[type=radio] {
 div.radio label {
 	margin: 0 0 6px 20px;
 }
+
 input[type=submit] {
 	display: inline;
 	font-size: 110%;
 	width: auto;
-}
-form .submit input[type=submit] {
-	background:#62af56;
-	background: -webkit-gradient(linear, left top, left bottom, from(#a8ea9c), to(#62af56));
-	background-image: -moz-linear-gradient(top, #a8ea9c, #62af56);
-	border-color: #2d6324;
-	color: #000;
-	text-shadow: #8cee7c 0px 1px 0px;
-}
-form .submit input[type=submit]:hover {
-	background:#4ca83d;
-	background: -webkit-gradient(linear, left top, left bottom, from(#85e573), to(#4ca83d));
-	background-image: -moz-linear-gradient(top, #85e573, #4ca83d);
+	padding: 2px 8px;
 }
 
 /** Notices and Errors **/
@@ -541,31 +528,6 @@ div.actions ul li a {
 }
 div.actions ul li a:hover {
 	text-decoration: underline;
-}
-
-input[type=submit],
-div.actions ul li a
-/** ,td.actions a **/
-{
-	font-weight:normal;
-	padding: 4px 8px;
-	background:#e6e49f;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
-	background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);
-	color:#333;
-	border:1px solid #aaac62;
-	-webkit-border-radius:8px;
-	-moz-border-radius:8px;
-	border-radius:8px;
-	text-decoration:none;
-	text-shadow: #fff 0px 1px 0px;
-	min-width: 0;
-}
-input[type=submit]:hover,
-div.actions ul li a:hover,
-td.actions a:hover {
-	background: #f0f09a;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
 }
 
 /** drag and drop **/
