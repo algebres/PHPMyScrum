@@ -71,13 +71,18 @@ jQuery.noConflict()(function($){
 <div id="wrapper">
 	<div id="container">
 		<div id="header">
-			<h1><a href="<?php echo $html->url('/users/dashboard'); ?>"><?php echo $html->image('PHPMyScrum_logo.png'); ?></a></h1>
+			<h1>PHPMyScrum</h1>
 			<div id="userinfo">
 				<?php if(isset($login_user)) { ?>
-				<?php echo __('Username') ."&nbsp;:&nbsp;"; ?><?php echo $this->Html->link("<span style=\"color:#ffffff;\">" .$login_user["username"] . "</span>", array('action' => 'edit', 'controller' => 'users', $login_user['id']), array('escape' => false)); ?>
-					<?php if($login_user["admin"]) { ?>
-					<br /><?php echo __('Administrator'); ?>
+				<span style="color:#ffffff;font-weight:bold;"><?php echo $login_user["username"]; ?></span>
+				<?php if($login_user["admin"]) { ?>
+					&nbsp;(<?php echo __('Administrator'); ?>)
+				<?php } ?>
+&nbsp;&nbsp;<?php echo $this->Html->link(__("Settings", true), array('action' => 'edit', 'controller' => 'users', $login_user['id']), array('escape' => false)); ?>
+					<?php if($login_user["admin"] == true) { ?>
+					&nbsp;<?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage')); ?>
 					<?php } ?>
+					&nbsp;<?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout')); ?>
 				<?php } ?>
 			</div>
 		</div>
@@ -112,11 +117,7 @@ jQuery.noConflict()(function($){
 							<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Task', true)), array('controller' => 'tasks', 'action' => 'add')); ?></li>
 						</ul>
 					</li>
-					<?php if($login_user["admin"] == true) { ?>
-					<li><?php echo $this->Html->link(__('Manage', true), array('controller' => 'pages', 'action' => 'manage')); ?></li>
-					<?php } ?>
 					<li><?php echo $this->Html->link(__('Wiki', true), array('controller' => 'wiki', 'action' => 'index')); ?></li>
-					<li><?php echo $this->Html->link(__('Logout', true), array('controller' => 'users', 'action' => 'logout')); ?></li>
 				</ul>
 			</div>
 			<?php } ?>

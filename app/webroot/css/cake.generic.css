@@ -82,6 +82,7 @@ h4 {
 	padding: 5px 5px;
 }
 #header h1 {
+	display:none;
 	line-height:20px;
 	background: #000000;
 	color: #fff;
@@ -99,14 +100,17 @@ h4 {
 	text-decoration: underline;
 }
 
-
 #header div#userinfo {
-	float:right;
-	width : 150px;
 	height : 40px;
-/**	margin-left: 90%; **/
-	margin-right : 40px;
-	margin-top : -40px;
+	padding-left: 200px;
+	background-image: url('../img/PHPMyScrum_logo.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	text-align:right;
+	font-color: #ffffff;
+}
+#header div#userinfo a, #header div#userinfo a:hover {
+	color: #ffffff;
 }
 
 #gnavi {
