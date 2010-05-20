@@ -1,7 +1,7 @@
 <?php
 class AppController extends Controller {
 
-	var $components = array('Auth', 'Qdmail');
+	var $components = array('Auth', 'Qdmail', 'RequestHandler', 'Security');
 	var $helpers = array('Html', 'Form', 'Javascript', 'Session');
 	var $uses = array('User', 'Project', 'Sprint');
 
@@ -45,6 +45,18 @@ class AppController extends Controller {
 	{
 		$hasAdmin = $this->User->hasAdminUser();
 		$this->set('has_admin', $hasAdmin);
+
+		// RSS Authentication by user model
+		if ( $this->RequestHandler->isRss() ) {
+			$this->Auth->allow('index');
+			$this->Security->loginOptions = array(
+				'type'=>'basic',
+				'login'=>'authenticate',
+				'realm'=>'My_RSS_Feeds'
+			);
+			$this->Security->loginUsers = array();
+			$this->Security->requireLogin('*');
+		}
 
 		// UsersControllerの認証除外設定
 		if(get_class($this) == "UsersController"){
