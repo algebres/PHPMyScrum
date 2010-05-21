@@ -83,7 +83,7 @@ function after_function(data) {
 <span class="board_story_point"><?php echo $story["storypoints"]; ?></span>
 #<?php echo $this->Html->link($story["id"], array('controller' => 'stories', 'action' => 'simple_view', $story['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo h($story['name']); ?>
 <?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
-<p><?php e(nl2br($story["description"])); ?></p>
+<p><?php e(nl2br(h($story["description"]))); ?></p>
 <?php } ?>
 </div>
 </td>
