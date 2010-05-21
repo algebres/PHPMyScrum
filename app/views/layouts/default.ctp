@@ -74,6 +74,11 @@ jQuery.noConflict()(function($){
 			<h1>PHPMyScrum</h1>
 			<div id="userinfo">
 				<?php if(isset($login_user)) { ?>
+				<?php echo $this->Form->create('Search',  array('url' => array('controller' => 'search', 'action' => 'search'), 'legend' => false, 'style' => 'display:inline;')) ;?>
+				<?php echo $this->Form->input('query', array('label' => false, 'div' => false, 'size' => 20, 'id' => 'TopSearchQuery')); ?>
+				<?php echo $this->Form->submit(__('Search', true), array('div' => false));?>
+				<?php echo $this->Form->end(); ?>
+
 				<span style="color:#ffffff;font-weight:bold;"><?php echo $login_user["username"]; ?></span>
 				<?php if($login_user["admin"]) { ?>
 					&nbsp;(<?php echo __('Administrator'); ?>)
