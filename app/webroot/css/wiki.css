@@ -4,6 +4,10 @@ div #wiki-left-box {
 div #wiki-right-box {
 	width:15%; float:right;
 }
+div.paths ul li {
+	margin-left : 20px;
+	margin-bottom : 4px;
+}
 
 .wiki-content {
 	font-size : 1.2em;
