@@ -81,7 +81,7 @@ function after_function(data) {
 ?>
 <div class="<?php echo $class; ?>">
 <span class="board_story_point"><?php echo $story["storypoints"]; ?></span>
-#<?php echo $this->Html->link($story["id"], array('controller' => 'stories', 'action' => 'simple_view', $story['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo $story['name']; ?>
+#<?php echo $this->Html->link($story["id"], array('controller' => 'stories', 'action' => 'simple_view', $story['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo h($story['name']); ?>
 <?php if(Configure::read('Config.display_description_in_the_taskboard') == true){ ?>
 <p><?php e(nl2br($story["description"])); ?></p>
 <?php } ?>
@@ -94,7 +94,7 @@ function after_function(data) {
 		<?php if($task["resolution_id"] == $resolution["Resolution"]["id"] && $story["id"] == $task["story_id"]) { ?>
 		<div class="drag" id="task_id:<?php echo $task["id"];?>">
 			<?php $username = @$task["User"]["username"]; if($username == "") { $username = __('Not Assigned', true); } ?>
-			<?php echo $this->Html->link($task["id"], array('controller' => 'tasks', 'action' => 'simple_view', $task['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo $task["name"]; ?>&nbsp;(<?php echo $username; ?>)
+			<?php echo $this->Html->link($task["id"], array('controller' => 'tasks', 'action' => 'simple_view', $task['id']), array('rel' => 'prettyPopin')); ?>&nbsp;<?php echo h($task["name"]); ?>&nbsp;(<?php echo $username; ?>)
 		</div>
 		<?php } ?>
 	<?php } ?>
