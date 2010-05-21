@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-05-22 06:49+0900\n"
+"POT-Creation-Date: 2010-05-22 07:12+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -455,6 +455,10 @@ msgstr ""
 msgid "There is no information."
 msgstr ""
 
+#: \views\elements\markup.ctp:2
+msgid "You can format your text using wiki markup(MediaWiki format)"
+msgstr ""
+
 #: \views\elements\my_task.ctp:13
 msgid "Your unfinished %s"
 msgstr ""
@@ -683,7 +687,6 @@ msgstr ""
 #: \views\priorities\add.ctp:18
 #: \views\priorities\edit.ctp:18
 #: \views\projects\edit.ctp:12
-#: \views\search\index.ctp:19
 #: \views\sprints\add.ctp:18
 #: \views\sprints\edit.ctp:26
 #: \views\stories\add.ctp:24
@@ -780,7 +783,7 @@ msgstr ""
 #: \views\users\index.ctp:3;5
 #: \views\users\login.ctp:4
 #: \views\users\view.ctp:6;8;9
-#: \views\wiki\index.ctp:19;73
+#: \views\wiki\index.ctp:19;71
 msgid "New %s"
 msgstr ""
 
@@ -860,7 +863,7 @@ msgid "phpmyscrum"
 msgstr ""
 
 #: \views\layouts\default.ctp:79
-#: \views\search\index.ctp:14
+#: \views\search\index.ctp:14;19
 msgid "Search"
 msgstr ""
 
@@ -1229,12 +1232,12 @@ msgid "User Id"
 msgstr ""
 
 #: \views\teams\view.ctp:91
-#: \views\wiki\index.ctp:62
+#: \views\wiki\index.ctp:60
 msgid "View"
 msgstr ""
 
 #: \views\teams\view.ctp:92
-#: \views\wiki\index.ctp:68
+#: \views\wiki\index.ctp:66
 msgid "Edit"
 msgstr ""
 
@@ -1282,7 +1285,7 @@ msgid "Team Id"
 msgstr ""
 
 #: \views\wiki\add.ctp:16
-#: \views\wiki\index.ctp:18;19;73
+#: \views\wiki\index.ctp:18;19;71
 msgid "Page"
 msgstr ""
 
@@ -1306,23 +1309,23 @@ msgstr ""
 msgid "readonly"
 msgstr ""
 
-#: \views\wiki\index.ctp:101
+#: \views\wiki\index.ctp:99
 msgid "view"
 msgstr ""
 
-#: \views\wiki\index.ctp:102
+#: \views\wiki\index.ctp:100
 msgid "activate"
 msgstr ""
 
-#: \views\wiki\index.ctp:104
+#: \views\wiki\index.ctp:102
 msgid "delete"
 msgstr ""
 
-#: \views\wiki\index.ctp:145
+#: \views\wiki\index.ctp:143
 msgid "Wiki Nav"
 msgstr ""
 
-#: \views\wiki\index.ctp:163
+#: \views\wiki\index.ctp:161
 msgid "Recent Entries"
 msgstr ""
 
