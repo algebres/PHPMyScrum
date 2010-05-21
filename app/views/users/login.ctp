@@ -7,7 +7,7 @@
 <?php } ?>
 
 
-<div class="users view" style="width:200px;">
+<div class="users view" style="width:200px; float:left">
 <h2><?php  __('User');?></h2>
 
 <?php if  ($session->check('Message.auth')) $session->flash('auth'); ?>
@@ -20,6 +20,7 @@
 <?php echo $form->end(); ?>
 </div>
 
+<div style="width:500px; float:left">
 <?php echo $this->element("information"); ?>
-
+</div>
 
