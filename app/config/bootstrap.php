@@ -53,6 +53,9 @@ define ('RESOLUTION_TODO',  1);
 define ('RESOLUTION_DOING', 2);
 define ('RESOLUTION_DONE',  3);
 
+define ('ITEMTYPE_STORY',   1);
+define ('ITEMTYPE_TASK',    2);
+
 
 
 

@@ -2,16 +2,18 @@
 
 class Search extends AppModel {
 	var $useTable = false;
-	var $base_sql = " SELECT id, name, description FROM stories where disabled ='f' and ( name like ? or description like ?) UNION SELECT id, name, description FROM tasks where disabled = 'f' and ( name like ? or description like ?) ";
+	var $base_sql = " SELECT ? as itemtype, id, name, description FROM stories where disabled ='f' and ( name like ? or description like ?) UNION SELECT ? as itemtype, id, name, description FROM tasks where disabled = 'f' and ( name like ? or description like ?) ";
 	var $keyword   = "";
-	var $bind_param = array("","","","");
+	var $bind_param = array(ITEMTYPE_STORY, "","",ITEMTYPE_TASK, "","");
 
 	function setKeyword($value)
 	{
 		$this->keyword = "%" . $value . "%";
 		$this->bind_param = array(
+			ITEMTYPE_STORY,
 			$this->keyword,
 			$this->keyword,
+			ITEMTYPE_TASK,
 			$this->keyword,
 			$this->keyword,
 		);

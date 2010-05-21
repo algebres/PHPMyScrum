@@ -21,10 +21,36 @@ jQuery(document).ready(function()
 
 <?php if(isset($result)) { ?>
 	<table cellpadding="0" cellspacing="0" id="search_table">
-
-	<?php foreach($result as $item): ?>
 	<tr>
-	<td><?php echo(h($item[0]["name"])); ?></td>
+	<th><?php echo __('Type', true); ?></th>
+	<th><?php echo __('id', true); ?></th>
+	<th width="30%"><?php echo __('Name', true); ?></th>
+	<th width="50%"><?php echo __('Description', true); ?></th>
+	</tr>
+	<?php $i=0; $class=""; ?>
+	<?php foreach($result as $item):
+		$class = null;
+		if ($i++ % 2 == 0) {
+			$class = ' class="altrow"';
+		}
+	?>
+	<tr<?php echo $class;?>>
+	<td>
+	<?php
+	if($item[0]["itemtype"] == ITEMTYPE_TASK)
+	{
+		echo __('Task', true);
+		$link_controller = "tasks";
+	}
+	else
+	{
+		echo __('Story', true);
+		$link_controller = "stories";
+	} 
+	?>
+	</td>
+	<td><?php echo $html->link($item[0]["id"], array('controller' => $link_controller, 'action' => 'view', $item[0]["id"])); ?></td>
+	<td><?php echo $html->link($item[0]["name"], array('controller' => $link_controller, 'action' => 'view', $item[0]["id"])); ?></td>
 	<td><?php echo(h($item[0]["description"])); ?></td>
 	</tr>
 	<?php endforeach; ?>
