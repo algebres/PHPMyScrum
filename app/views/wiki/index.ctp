@@ -41,8 +41,6 @@ $wiki_engine->setFormatConf('Xhtml', 'translate', HTML_SPECIALCHARS);
 	<div class="wiki-content">
 
 		<?php foreach($wiki as $content):
-			//TODO:cut off at 420bytes
-			//$data = $text->truncate($wiki_engine->transform($content['Wiki']['body']), 420, '...', false, true);
 			$data = $wiki_engine->transform($content['Wiki']['body']);
 		?>
 			<?php if (strpos($data, '##') === false):?>
