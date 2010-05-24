@@ -39,10 +39,10 @@ class AppController extends Controller {
 			array_push($this->components, 'DebugKit.Toolbar');
 		}
 		// for eAccelerator
-		if (!class_exists('CakeLog'))
-		{
-			App::import('Core', 'CakeLog');
-		}
+		//if (!class_exists('CakeLog'))
+		//{
+		//	App::import('Core', 'CakeLog');
+		//}
 		parent::__construct();
 	}
 
