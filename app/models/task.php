@@ -4,7 +4,10 @@ App::import('Mode', 'RemainingTime');
 class Task extends AppModel {
 	var $name = 'Task';
 	var $displayField = 'name';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false));
+	var $actsAs = array(
+		'SoftDeletable' => array('field' => 'disabled', 'find' => false),
+		'AutoLogger' => array('saveto' => 'ChangeLog'),
+	);
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(

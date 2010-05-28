@@ -4,7 +4,7 @@ class Story extends AppModel {
 	var $displayField = 'name';
 	var $actsAs = array(
 		'SoftDeletable' => array('field' => 'disabled', 'find' => false),
-//		'AutoLogger' => array('saveto' => 'ChangeLog'),
+		'AutoLogger' => array('saveto' => 'ChangeLog'),
 	);
 	var $validate = array(
 		'id' => array(
