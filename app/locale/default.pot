@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-05-21 12:12+0900\n"
+"POT-Creation-Date: 2010-05-22 07:12+0900\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -190,9 +190,10 @@ msgstr ""
 
 #: \controllers\stories_controller.php:47;50;79;91;105;111;128;148;156;161;173;179;187;192;201;213
 #: \views\elements\my_task.ctp:19
-#: \views\layouts\default.ctp:98
+#: \views\layouts\default.ctp:103
 #: \views\pages\manage.ctp:23;25
 #: \views\priorities\add.ctp:5
+#: \views\search\index.ctp:47
 #: \views\sprints\taskboard.ctp:65
 #: \views\stories\add.ctp:12
 #: \views\stories\board.ctp:92;96
@@ -247,7 +248,8 @@ msgstr ""
 #: \controllers\tasks_controller.php:46;60;65;114;119;138;152;170;184;197;217;225;230;239;243
 #: \models\sprint.php:365
 #: \models\story.php:197;247
-#: \views\layouts\default.ctp:113;114;115;116;117
+#: \views\layouts\default.ctp:118;119;120;121;122
+#: \views\search\index.ctp:42
 #: \views\sprints\edit.ctp:4
 #: \views\sprints\storylist.ctp:6
 #: \views\sprints\taskboard.ctp:53
@@ -414,7 +416,7 @@ msgid "Remaining Hours"
 msgstr ""
 
 #: \views\elements\all_sprints.ctp:55
-#: \views\layouts\default.ctp:113
+#: \views\layouts\default.ctp:118
 #: \views\tasks\index.ctp:6;45
 #: \views\tasks\upload.ctp:4
 msgid "All %s"
@@ -422,7 +424,7 @@ msgstr ""
 
 #: \views\elements\all_sprints.ctp:55
 #: \views\elements\sprints.ctp:13
-#: \views\layouts\default.ctp:102
+#: \views\layouts\default.ctp:107
 #: \views\sprints\index.ctp:19
 msgid "Sprints"
 msgstr ""
@@ -453,12 +455,16 @@ msgstr ""
 msgid "There is no information."
 msgstr ""
 
+#: \views\elements\markup.ctp:2
+msgid "You can format your text using wiki markup(MediaWiki format)"
+msgstr ""
+
 #: \views\elements\my_task.ctp:13
 msgid "Your unfinished %s"
 msgstr ""
 
 #: \views\elements\my_task.ctp:13
-#: \views\layouts\default.ctp:111
+#: \views\layouts\default.ctp:116
 #: \views\sprints\storylist.ctp:86
 #: \views\stories\edit.ctp:5
 #: \views\stories\index.ctp:33
@@ -474,6 +480,7 @@ msgstr ""
 
 #: \views\elements\my_task.ctp:16
 #: \views\elements\sprints.ctp:16
+#: \views\search\index.ctp:26
 msgid "id"
 msgstr ""
 
@@ -558,6 +565,7 @@ msgstr ""
 #: \views\information\view.ctp:26
 #: \views\priorities\view.ctp:19;48
 #: \views\projects\view.ctp:16
+#: \views\search\index.ctp:27
 #: \views\sprints\storylist.ctp:30;84
 #: \views\sprints\view.ctp:21
 #: \views\stories\view.ctp:50;156
@@ -571,6 +579,7 @@ msgstr ""
 #: \views\elements\project_info.ctp:9
 #: \views\information\view.ctp:31
 #: \views\projects\view.ctp:21
+#: \views\search\index.ctp:28
 #: \views\sprints\storylist.ctp:35
 #: \views\sprints\view.ctp:26
 #: \views\stories\view.ctp:55
@@ -629,7 +638,7 @@ msgstr ""
 #: \views\information\add.ctp:4
 #: \views\information\edit.ctp:4
 #: \views\information\view.ctp:3
-#: \views\layouts\default.ctp:102;111
+#: \views\layouts\default.ctp:107;116
 #: \views\pages\manage.ctp:13;19;30;36;42;48
 #: \views\priorities\add.ctp:3;4
 #: \views\priorities\edit.ctp:4
@@ -739,7 +748,7 @@ msgstr ""
 
 #: \views\information\index.ctp:3
 #: \views\information\view.ctp:5
-#: \views\layouts\default.ctp:98;117
+#: \views\layouts\default.ctp:103;122
 #: \views\pages\manage.ctp:14;20;31;37;43;49
 #: \views\priorities\add.ctp:5
 #: \views\priorities\index.ctp:3
@@ -774,12 +783,13 @@ msgstr ""
 #: \views\users\index.ctp:3;5
 #: \views\users\login.ctp:4
 #: \views\users\view.ctp:6;8;9
-#: \views\wiki\index.ctp:19;73
+#: \views\wiki\index.ctp:19;71
 msgid "New %s"
 msgstr ""
 
 #: \views\information\index.ctp:64
 #: \views\priorities\index.ctp:52
+#: \views\search\index.ctp:61
 #: \views\sprints\index.ctp:67
 #: \views\stories\index.ctp:88
 #: \views\stories\search_index.ctp:91
@@ -792,6 +802,7 @@ msgstr ""
 
 #: \views\information\index.ctp:69
 #: \views\priorities\index.ctp:57
+#: \views\search\index.ctp:66
 #: \views\sprints\index.ctp:72
 #: \views\stories\index.ctp:93
 #: \views\stories\search_index.ctp:96
@@ -804,6 +815,7 @@ msgstr ""
 
 #: \views\information\index.ctp:72
 #: \views\priorities\index.ctp:60
+#: \views\search\index.ctp:69
 #: \views\sprints\index.ctp:75
 #: \views\stories\index.ctp:96
 #: \views\stories\search_index.ctp:99
@@ -851,61 +863,66 @@ msgid "phpmyscrum"
 msgstr ""
 
 #: \views\layouts\default.ctp:79
+#: \views\search\index.ctp:14;19
+msgid "Search"
+msgstr ""
+
+#: \views\layouts\default.ctp:84
 msgid "Administrator"
 msgstr ""
 
-#: \views\layouts\default.ctp:81
+#: \views\layouts\default.ctp:86
 msgid "Settings"
 msgstr ""
 
-#: \views\layouts\default.ctp:83
+#: \views\layouts\default.ctp:88
 #: \views\pages\manage.ctp:3
 msgid "Manage"
 msgstr ""
 
-#: \views\layouts\default.ctp:85
+#: \views\layouts\default.ctp:90
 msgid "Logout"
 msgstr ""
 
-#: \views\layouts\default.ctp:93
+#: \views\layouts\default.ctp:98
 msgid "Dashboard"
 msgstr ""
 
-#: \views\layouts\default.ctp:94;96
+#: \views\layouts\default.ctp:99;101
 #: \views\stories\index.ctp:27
 msgid "Product Backlog"
 msgstr ""
 
-#: \views\layouts\default.ctp:97
+#: \views\layouts\default.ctp:102
 #: \views\stories\board.ctp:102
 #: \views\stories\index.ctp:6
 msgid "Story Board"
 msgstr ""
 
-#: \views\layouts\default.ctp:99
+#: \views\layouts\default.ctp:104
 #: \views\stories\search_index.ctp:12
 msgid "Search Story"
 msgstr ""
 
-#: \views\layouts\default.ctp:114
+#: \views\layouts\default.ctp:119
 #: \views\tasks\index.ctp:7
 #: \views\tasks\upload.ctp:5
 msgid "All unfinished %s"
 msgstr ""
 
-#: \views\layouts\default.ctp:115
+#: \views\layouts\default.ctp:120
 #: \views\tasks\index.ctp:8;36
 #: \views\tasks\upload.ctp:6
 msgid "All your %s"
 msgstr ""
 
-#: \views\layouts\default.ctp:116
+#: \views\layouts\default.ctp:121
 #: \views\tasks\index.ctp:9;39
 #: \views\tasks\upload.ctp:7
 msgid "All your unfinished %s"
 msgstr ""
 
-#: \views\layouts\default.ctp:120
+#: \views\layouts\default.ctp:125
 #: \views\wiki\add.ctp:3
 msgid "Wiki"
 msgstr ""
@@ -1028,6 +1045,10 @@ msgstr ""
 #: \views\stories\simple_view.ctp:25
 #: \views\stories\view.ctp:60
 msgid "Businessvalue"
+msgstr ""
+
+#: \views\search\index.ctp:25
+msgid "Type"
 msgstr ""
 
 #: \views\sprints\storylist.ctp:7
@@ -1211,12 +1232,12 @@ msgid "User Id"
 msgstr ""
 
 #: \views\teams\view.ctp:91
-#: \views\wiki\index.ctp:62
+#: \views\wiki\index.ctp:60
 msgid "View"
 msgstr ""
 
 #: \views\teams\view.ctp:92
-#: \views\wiki\index.ctp:68
+#: \views\wiki\index.ctp:66
 msgid "Edit"
 msgstr ""
 
@@ -1264,7 +1285,7 @@ msgid "Team Id"
 msgstr ""
 
 #: \views\wiki\add.ctp:16
-#: \views\wiki\index.ctp:18;19;73
+#: \views\wiki\index.ctp:18;19;71
 msgid "Page"
 msgstr ""
 
@@ -1288,23 +1309,23 @@ msgstr ""
 msgid "readonly"
 msgstr ""
 
-#: \views\wiki\index.ctp:101
+#: \views\wiki\index.ctp:99
 msgid "view"
 msgstr ""
 
-#: \views\wiki\index.ctp:102
+#: \views\wiki\index.ctp:100
 msgid "activate"
 msgstr ""
 
-#: \views\wiki\index.ctp:104
+#: \views\wiki\index.ctp:102
 msgid "delete"
 msgstr ""
 
-#: \views\wiki\index.ctp:145
+#: \views\wiki\index.ctp:143
 msgid "Wiki Nav"
 msgstr ""
 
-#: \views\wiki\index.ctp:163
+#: \views\wiki\index.ctp:161
 msgid "Recent Entries"
 msgstr ""
 

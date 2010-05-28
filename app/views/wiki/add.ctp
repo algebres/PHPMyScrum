@@ -17,7 +17,7 @@
 		<?php
 			echo $this->Form->input('path', 
 				array(
-					'after' => sprintf(
+					'after' => "<br />" . sprintf(
 						__("use a path to group pages into categories and subcategories. example: /logs/by/%s/", true), $login_user['username']),
 					'label' => __('Path', true),
 				)

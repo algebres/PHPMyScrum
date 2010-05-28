@@ -40,7 +40,7 @@ jQuery(document).ready(function()
 $resolution_name = @$story['Resolution']['name'];
 if($resolution_name == "") { $resolution_name = __('No resolution', true); }
 ?>
-<h2><?php  __('Story');?>&nbsp;#<?php echo $story['Story']['id']; ?>&nbsp;<?php echo $story['Story']['name']; ?> (<?php echo $resolution_name; ?>)</h2>
+<h2><?php  __('Story');?>&nbsp;#<?php echo $story['Story']['id']; ?>&nbsp;<?php echo h($story['Story']['name']); ?> (<?php echo $resolution_name; ?>)</h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -49,7 +49,7 @@ if($resolution_name == "") { $resolution_name = __('No resolution', true); }
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $story['Story']['name']; ?>
+			<?php echo h($story['Story']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>

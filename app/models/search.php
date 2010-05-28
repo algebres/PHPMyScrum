@@ -2,7 +2,7 @@
 
 class Search extends AppModel {
 	var $useTable = false;
-	var $base_sql = " SELECT ? as itemtype, id, name, description FROM stories where disabled ='f' and ( name like ? or description like ?) UNION SELECT ? as itemtype, id, name, description FROM tasks where disabled = 'f' and ( name like ? or description like ?) ";
+	var $base_sql = " SELECT ? as itemtype, resolution_id, id, name, description FROM stories where disabled ='f' and ( name like ? or description like ?) UNION SELECT ? as itemtype, resolution_id, id, name, description FROM tasks where disabled = 'f' and ( name like ? or description like ?) ";
 	var $keyword   = "";
 	var $bind_param = array(ITEMTYPE_STORY, "","",ITEMTYPE_TASK, "","");
 

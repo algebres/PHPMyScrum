@@ -433,6 +433,10 @@ input, textarea {
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	width:98%;
 }
+input#TopSearchQuery {
+	width : 100px;
+}
+
 select {
 	clear: both;
 	font-size: 120%;
