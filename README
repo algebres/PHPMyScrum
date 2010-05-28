@@ -32,6 +32,12 @@ How to install
   ../cake/console/cake schema create
   cd ./phpmyscrum/app
   ../cake/console/cake pms_install
+  ../cake/console/cake migration all
+
+How to upgrade from previous version
+* Update source files from github.
+* Execute command below.
+  ../cake/console/cake migration all
 
 License
 * The MIT License

@@ -34,6 +34,14 @@ PHPMyScrum
   ../cake/console/cake schema create
   cd ./phpmyscrum/app
   ../cake/console/cake pms_install
+  ../cake/console/cake migration all
+
+旧バージョンからのバージョンアップ
+・githubからソースを入手して更新
+・コマンドラインにて以下を実行しDBを更新
+  cd ./phpmyscrum/app
+  ../cake/console/cake migration all
+
 
 ライセンス
 ・MITライセンス
