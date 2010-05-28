@@ -2,7 +2,10 @@
 class Story extends AppModel {
 	var $name = 'Story';
 	var $displayField = 'name';
-	var $actsAs = array('SoftDeletable' => array('field' => 'disabled', 'find' => false));
+	var $actsAs = array(
+		'SoftDeletable' => array('field' => 'disabled', 'find' => false),
+//		'AutoLogger' => array('saveto' => 'ChangeLog'),
+	);
 	var $validate = array(
 		'id' => array(
 			'notempty' => array(
