@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-04-21 05:04:54 : 1271794434*/
+/* App schema generated on: 2010-05-29 06:05:29 : 1275081869*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -11,6 +11,16 @@ class AppSchema extends CakeSchema {
 	function after($event = array()) {
 	}
 
+	var $change_logs = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'mode' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 6),
+		'name' => array('type' => 'string', 'null' => true, 'default' => NULL),
+		'old_value' => array('type' => 'text', 'null' => true, 'default' => NULL),
+		'new_value' => array('type' => 'text', 'null' => true, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
+	);
 	var $information = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'name' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 200),
@@ -57,6 +67,14 @@ class AppSchema extends CakeSchema {
 		'is_fixed' => array('type' => 'boolean', 'null' => false, 'default' => NULL),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'updated' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
+	);
+	var $schema_migrations = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'version' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'type' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 50),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
