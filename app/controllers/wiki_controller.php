@@ -1,4 +1,5 @@
 <?php
+
 /**
  * wiki
  *
@@ -8,214 +9,186 @@
  * @license    GNU AFFERO GENERAL PUBLIC LICENSE v3 (http://opensource.org/licenses/agpl-v3.html)
  *
  */
-class WikiController extends AppController
-{
-	var $name = 'Wiki';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'Text');
-	var $components = array('Session', 'RequestHandler');
+class WikiController extends AppController {
 
-	function index()
-	{
-		extract($this->__params());
+    var $name = 'Wiki';
+    var $helpers = array('Html', 'Form', 'Javascript', 'Session', 'Text');
+    var $components = array('Session', 'RequestHandler');
 
-		$canWrite = $canDelete = true;
+    function index() {
+        extract($this->__params());
 
-		if ($this->Auth->user('admin') != 1) 
-		{
-			$canWrite = true;
-			$canDelete = false;
-		}
+        $canWrite = $canDelete = true;
 
-		if (!$slug) 
-		{
-			$slug = 'home';
-		}
+        if ($this->Auth->user('admin') != 1) {
+            $canWrite = true;
+            $canDelete = false;
+        }
 
-		$fullpath = str_replace('//', '/', $path . '/' . $slug);
+        if (!$slug) {
+            $slug = 'home';
+        }
 
-		$this->pageTitle = 'Wiki' . $fullpath;
+        $fullpath = str_replace('//', '/', $path . '/' . $slug);
 
-		if (!empty($this->data)) 
-		{
-			if (!empty($this->params['form']['delete']))
-			{
-				// delete
-				$this->params['action'] = 'delete';
-				if ($canDelete !== true)
-				{
-					$this->Session->setFlash(__('You are not authorized to delete.', true));
-				}
-				else
-				{
-	 				$this->Wiki->delete($this->data['Wiki']['revision']);
-				}
-			}
-			else
-			{
-				$page = $this->Wiki->findById($this->data['Wiki']['revision']);
-			}
+        $this->pageTitle = 'Wiki' . $fullpath;
 
-			if (!empty($this->params['form']['activate']) && !empty($page))
-			{
-				if ($canWrite !== true)
-				{
-					$this->Session->setFlash(__('You are not authorized to activate.', true));
-				}
-				else if ($this->Wiki->activate($page))
-				{
-					$this->Session->setFlash(sprintf(__('%s %s is now active', true), $page['User']['username'],$page['Wiki']['created']));
-				}
-			}
-		}
+        if (!empty($this->data)) {
+            if (!empty($this->params['form']['delete'])) {
+                // delete
+                $this->params['action'] = 'delete';
+                if ($canDelete !== true) {
+                    $this->Session->setFlash(__('You are not authorized to delete.', true));
+                } else {
+                    $this->Wiki->delete($this->data['Wiki']['revision']);
+                }
+            } else {
+                $page = $this->Wiki->findById($this->data['Wiki']['revision']);
+            }
 
-		if (empty($page))
-		{
-			$page = $this->Wiki->find(array(
-				'Wiki.slug' => $slug,
-				'Wiki.path' => $path,
-				'Wiki.disabled' => 0
-			));
-		}
+            if (!empty($this->params['form']['activate']) && !empty($page)) {
+                if ($canWrite !== true) {
+                    $this->Session->setFlash(__('You are not authorized to activate.', true));
+                } else if ($this->Wiki->activate($page)) {
+                    $this->Session->setFlash(sprintf(__('%s %s is now active', true), $page['User']['username'], $page['Wiki']['created']));
+                }
+            }
+        }
 
-		if (empty($page))
-		{
-			$wiki = $this->Wiki->find('all', array(
-				'conditions' => array(
-					'Wiki.path' => $fullpath,
-					'Wiki.disabled' => 0
-				),
-				'order' => 'Wiki.created DESC'
-			));
-		}
+        if (empty($page)) {
+            $page = $this->Wiki->find(array(
+                        'Wiki.slug' => $slug,
+                        'Wiki.path' => $path,
+                        'Wiki.disabled' => 0
+                    ));
+        }
 
-		if (empty($wiki) && empty($page))
-		{
-			$this->passedArgs[] = $slug;
-			$this->redirect(array('action' => 'add', $fullpath));
-		}
+        if (empty($page)) {
+            $wiki = $this->Wiki->find('all', array(
+                        'conditions' => array(
+                            'Wiki.path' => $fullpath,
+                            'Wiki.disabled' => 0
+                        ),
+                        'order' => 'Wiki.created DESC'
+                    ));
+        }
 
-		if (!empty($page))
-		{
-			$subNav = $this->Wiki->find('all', array(
-				'fields' => array('Wiki.path', 'Wiki.slug'),
-				'conditions' => array(
-					'Wiki.path' => $fullpath,
-					'Wiki.disabled' => 0
-				),
-				'order' => 'Wiki.created DESC'
-			));
-		}
+        if (empty($wiki) && empty($page)) {
+            $this->passedArgs[] = $slug;
+            $this->redirect(array('action' => 'add', $fullpath));
+        }
 
-		$wikiNav = array_flip($this->Wiki->find('list', array(
-			'fields' => array('Wiki.path', 'Wiki.id'),
-			'conditions' => array(
-				'Wiki.path !=' => '/',
-				'Wiki.disabled' => 0
-			)
-		)));
-		sort($wikiNav);
+        if (!empty($page)) {
+            $subNav = $this->Wiki->find('all', array(
+                        'fields' => array('Wiki.path', 'Wiki.slug'),
+                        'conditions' => array(
+                            'Wiki.path' => $fullpath,
+                            'Wiki.disabled' => 0
+                        ),
+                        'order' => 'Wiki.created DESC'
+                    ));
+        }
 
-		$recentEntries = $this->Wiki->find('all', array(
-			'fields' => array('Wiki.path', 'Wiki.slug'),
-			'conditions' => array(
-				'Wiki.disabled' => 0
-			),
-			'limit' => 10,
-			'order' => 'Wiki.id DESC'
-		));
+        $wikiNav = array_flip($this->Wiki->find('list', array(
+                            'fields' => array('Wiki.path', 'Wiki.id'),
+                            'conditions' => array(
+                                'Wiki.path !=' => '/',
+                                'Wiki.disabled' => 0
+                            )
+                        )));
+        sort($wikiNav);
 
-		// get page revisions
-		if(!empty($page) && $canWrite)
-		{
-			$this->Wiki->recursive = 0;
-			$revisions = $this->Wiki->find('superList', array(
-				'fields' => array('Wiki.id', 'User.username', 'Wiki.created'),
-				'separator' => ' - ',
-				'conditions' => array(
-					'Wiki.slug' => $slug,
-					'Wiki.path' => $path,
-					'User.username !=' => null
-				),
-				'order' => 'Wiki.created DESC'
-			));
-		}
+        $recentEntries = $this->Wiki->find('all', array(
+                    'fields' => array('Wiki.path', 'Wiki.slug'),
+                    'conditions' => array(
+                        'Wiki.disabled' => 0
+                    ),
+                    'limit' => 10,
+                    'order' => 'Wiki.id DESC'
+                ));
 
-		$this->set(compact(
-			'canWrite', 'canDelete', 'path', 'slug',
-			'wiki', 'page', 'revisions',
-			'subNav', 'wikiNav', 'recentEntries'
-		));
-		$this->render('index');
-	}
+        // get page revisions
+        if (!empty($page) && $canWrite) {
+            $this->Wiki->recursive = 0;
+            $revisions = $this->Wiki->find('superList', array(
+                        'fields' => array('Wiki.id', 'User.username', 'Wiki.created'),
+                        'separator' => ' - ',
+                        'conditions' => array(
+                            'Wiki.slug' => $slug,
+                            'Wiki.path' => $path,
+                            'User.username !=' => null
+                        ),
+                        'order' => 'Wiki.created DESC'
+                    ));
+        }
 
-	function add() 
-	{
-		extract($this->__params());
+        $this->set(compact(
+                        'canWrite', 'canDelete', 'path', 'slug',
+                        'wiki', 'page', 'revisions',
+                        'subNav', 'wikiNav', 'recentEntries'
+        ));
+        $this->render('index');
+    }
 
-		$fullpath = str_replace('//', '/', $path . '/' . $slug);
+    function add() {
+        extract($this->__params());
 
-		$this->set('title_for_layout', 'Wiki/add' . $fullpath);
+        $fullpath = str_replace('//', '/', $path . '/' . $slug);
 
-		if ($slug === 'new-page')
-		{
-			$slug = null;
-		}
-		if (!empty($this->data))
-		{
-			$this->Wiki->create(array(
-				'last_modified_user_id' => $this->Auth->user('id'),
-			));
-			if ($data = $this->Wiki->save($this->data))
-			{
-				$this->Session->setFlash(sprintf(__('%s saved',true),$data['Wiki']['slug']));
-				$this->redirect(array('controller' => 'wiki', 'action' => 'index', $data['Wiki']['path'], $data['Wiki']['slug']));
-			}
-			else
-			{
-				$this->Session->setFlash(sprintf(__('%s NOT saved',true),$data['Wiki']['slug']));
-			}
-		}
-		if (empty($this->data) && $slug !== '1')
-		{
-			$this->data = $this->Wiki->find('first', array(
-				'conditions' => array(
-					'Wiki.slug' => $slug,
-					'Wiki.path' => $path,
-				), 'order' => 'Wiki.id DESC', 'limit' => 1
-			));
+        $this->set('title_for_layout', 'Wiki/add' . $fullpath);
 
-			if (empty($this->data['Wiki']['disabled']))
-			{
-				$this->data['Wiki']['disabled'] = 0;
-			}
-			$canEdit = $this->Auth->user('admin') || !empty($this->data['Wiki']['last_modified_user_id']) && $this->Auth->user('id') === $this->data['Wiki']['last_modified_user_id'];
-			if (!empty($this->data['Wiki']['readonly']) && !$canEdit)
-			{
-				$this->redirect(array('controller' => 'wiki', 'action' => 'index', $path, $slug));
-			}
-			$this->data['Wiki']['slug'] = $slug;
-			$this->data['Wiki']['path'] = $path;
-		}
+        if ($slug === 'new-page') {
+            $slug = null;
+        }
+        if (!empty($this->data)) {
+            $this->Wiki->create(array(
+                'last_modified_user_id' => $this->Auth->user('id'),
+            ));
+            if ($data = $this->Wiki->save($this->data)) {
+                $this->Session->setFlash(sprintf(__('%s saved', true), $data['Wiki']['slug']));
+                $this->redirect(array('controller' => 'wiki', 'action' => 'index', $data['Wiki']['path'], $data['Wiki']['slug']));
+            } else {
+                $this->Session->setFlash(sprintf(__('%s NOT saved', true), $data['Wiki']['slug']));
+            }
+        }
+        if (empty($this->data) && $slug !== '1') {
+            $this->data = $this->Wiki->find('first', array(
+                        'conditions' => array(
+                            'Wiki.slug' => $slug,
+                            'Wiki.path' => $path,
+                        ), 'order' => 'Wiki.id DESC', 'limit' => 1
+                    ));
 
-		$this->set(compact('path', 'slug'));
-	}
+            if (empty($this->data['Wiki']['disabled'])) {
+                $this->data['Wiki']['disabled'] = 0;
+            }
+            $canEdit = $this->Auth->user('admin') || !empty($this->data['Wiki']['last_modified_user_id']) && $this->Auth->user('id') === $this->data['Wiki']['last_modified_user_id'];
+            if (!empty($this->data['Wiki']['readonly']) && !$canEdit) {
+                $this->redirect(array('controller' => 'wiki', 'action' => 'index', $path, $slug));
+            }
+            $this->data['Wiki']['slug'] = $slug;
+            $this->data['Wiki']['path'] = $path;
+        }
 
-	function edit()
-	{
-		$this->set('title_for_layout', 'Wiki/edit/');
-		$this->add();
-		$this->render('add');
-	}
+        $this->set(compact('path', 'slug'));
+    }
 
-	function __params()
-	{
-		$path = '/'; $slug = null;
-		$slug = $this->Wiki->slug(array_pop($this->passedArgs));
-		if(count($this->passedArgs) >= 1)
-		{
-			$path = '/'. join('/', $this->passedArgs);
-		}
-		return compact('slug', 'path');
-	}
+    function edit() {
+        $this->set('title_for_layout', 'Wiki/edit/');
+        $this->add();
+        $this->render('add');
+    }
+
+    function __params() {
+        $path = '/';
+        $slug = null;
+        $slug = $this->Wiki->slug(array_pop($this->passedArgs));
+        if (count($this->passedArgs) >= 1) {
+            $path = '/' . join('/', $this->passedArgs);
+        }
+        return compact('slug', 'path');
+    }
+
 }
+
 ?>

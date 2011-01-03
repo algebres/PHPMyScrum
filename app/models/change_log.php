@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Model for Auto Logger
  *
@@ -21,10 +22,11 @@
  * ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  *
  */
+class ChangeLog extends AppModel {
 
-class ChangeLog extends AppModel
-{
-	var $name = 'ChangeLog';
-	var $displayField = 'name';
+    var $name = 'ChangeLog';
+    var $displayField = 'name';
+
 }
+
 ?>
