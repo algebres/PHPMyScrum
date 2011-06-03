@@ -12,18 +12,18 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       cake
- * @subpackage    cake.app.config
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright	 Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link		  http://cakephp.org CakePHP(tm) Project
+ * @package	   cake
+ * @subpackage	cake.app.config
+ * @since		 CakePHP(tm) v 0.2.9
+ * @license	   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 /**
  * In this file you set up your database connection details.
  *
- * @package       cake
- * @subpackage    cake.config
+ * @package	   cake
+ * @subpackage	cake.config
  */
 /**
  * Database configuration class.
@@ -84,17 +84,6 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 	);
 
-//	var $default = array(
-//		'driver' => 'sqlite',
-//		'connect' => 'sqlite_open',
-//		'host' => '',
-//		'login' => '',
-//		'password' => '',
-//		'database' => 'phpmyscrum.sqlite',
-//		'encoding' => 'utf8',
-//		'prefix' => '',
-//	);
-
 
 	var $test = array(
 		'driver' => 'mysql',
@@ -106,5 +95,20 @@ class DATABASE_CONFIG {
 		'encoding' => 'utf8',
 		'prefix' => '',
 	);
+
+	function DATABASE_CONFIG() {
+		if(isset($_SERVER['database_host'])) {
+			$this->default['host'] = $_SERVER['database_host'];
+		}
+		if(isset($_SERVER['database_login'])) {
+			$this->default['login'] = $_SERVER['database_login'];
+		}
+		if(isset($_SERVER['database_password'])) {
+			$this->default['password'] = $_SERVER['database_password'];
+		}
+		if(isset($_SERVER['database_name'])) {
+			$this->default['database'] = $_SERVER['database_name'];
+		}
+	}
 }
 ?>
