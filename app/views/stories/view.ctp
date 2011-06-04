@@ -135,7 +135,7 @@ if($resolution_name == "") { $resolution_name = __('No resolution', true); }
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo nl2br(h(($comment['comment']));?></td>
+			<td><?php echo nl2br(h(($comment['comment'])));?></td>
 			<td><?php echo $this->Html->link(@$comment['User']['username'], array('controller' => 'users', 'action' => 'view', @$comment['user_id']));?></td>
 			<td><?php echo date('Y-m-d', strtotime($comment['created']));?></td>
 		</tr>
@@ -177,7 +177,7 @@ if($resolution_name == "") { $resolution_name = __('No resolution', true); }
 			<td><?php echo $this->Html->link(h($task['name']), array('controller' => 'tasks', 'action' => 'view', $task['id'])); ?></td>
 			<td><?php echo $task['estimate_hours'];?></td>
 			<td><?php echo h(@$task['Resolution']["name"]);?></td>
-			<td><?php echo $this->Html->link(h(@$task['User']['username']), array('controller' => 'users', 'action' => 'view', @$task['user_id']));?></td>
+			<td><?php echo $this->Html->link(@$task['User']['username'], array('controller' => 'users', 'action' => 'view', @$task['user_id']));?></td>
 			<td><?php echo date('Y-m-d', strtotime($task['created']));?></td>
 			<?php if(0) { ?>
 			<td><?php echo $task['updated'];?></td>
