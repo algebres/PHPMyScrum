@@ -82,6 +82,7 @@ class DATABASE_CONFIG {
 		'database' => 'phpmyscrum',
 		'encoding' => 'utf8',
 		'prefix' => '',
+        'port' => '3306',
 	);
 
 
@@ -108,6 +109,9 @@ class DATABASE_CONFIG {
 		}
 		if(isset($_SERVER['database_name'])) {
 			$this->default['database'] = $_SERVER['database_name'];
+		}
+		if(isset($_SERVER['database_port'])) {
+			$this->default['port'] = $_SERVER['database_port'];
 		}
 	}
 }
