@@ -1,1 +1,1 @@
-php_extensions: [eaccelerator, mysql, mbstring]
+php_extensions: [mysql, mbstring]
