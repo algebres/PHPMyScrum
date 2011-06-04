@@ -1,1 +1,8 @@
 php_extensions: [mysql, mbstring]
+
+shared_writable_dirs:
+    - /var/www/app/tmp/cache/
+    - /var/www/app/tmp/cache/persistent
+    - /var/www/app/tmp/cache/models
+
+
